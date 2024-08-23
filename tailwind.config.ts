@@ -13,6 +13,17 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      colors: {
+        primary: "#FF550C",
+        primaryLight: "#FFBB9E",
+        base: "#FAFCFF",
+      },
+      fontFamily: {
+        auxMono: ["Aux Mono", "monospace"],
+        aldrich: ["Aldrich", "sans-serif"],
+        clash: ["Clash Grotesk Regular", "sans-serif"],
+        clashBold: ["Clash Grotesk Medium", "sans-serif"],
+      },
     },
   },
   plugins: [],
