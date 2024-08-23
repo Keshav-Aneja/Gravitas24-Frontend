@@ -1,0 +1,14 @@
+import HeroBtnA from "@/assets/svg/heroBtnA.svg";
+import HeroBtnB from "@/assets/svg/heroBtnB.svg";
+import Floater1 from "@/assets/svg/floater1.svg";
+import Floater2 from "@/assets/svg/floater2.svg";
+import IconArrow from "@/assets/svg/iconArrow.svg";
+import IconDiamond from "@/assets/svg/iconDiamond.svg";
+export const svgs = {
+  HeroBtnA,
+  HeroBtnB,
+  Floater1,
+  Floater2,
+  IconArrow,
+  IconDiamond,
+};

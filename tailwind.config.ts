@@ -4,6 +4,7 @@ const config: Config = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/sections/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
@@ -17,6 +18,7 @@ const config: Config = {
         primary: "#FF550C",
         primaryLight: "#FFBB9E",
         base: "#FAFCFF",
+        outline: "#C2C2C2",
       },
       fontFamily: {
         auxMono: ["Aux Mono", "monospace"],

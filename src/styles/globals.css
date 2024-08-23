@@ -5,15 +5,15 @@
 
 @font-face {
   font-family: "Aux Mono";
-  src: url("../assets/fonts/AuxMono-Regular.ttf");
+  src: url("/fonts/AuxMono-Regular.ttf");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: "Clash Grotesk Regular";
-  src: url("../assets/fonts/ClashGrotesk-Regular.otf");
+  src: url("/fonts/ClashGrotesk-Regular.otf");
 }
 @font-face {
   font-family: "Clash Grotesk Medium";
-  src: url("../assets/fonts/ClashGrotesk-Medium.otf");
+  src: url("/fonts/ClashGrotesk-Medium.otf");
 }

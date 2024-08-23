@@ -1,0 +1,156 @@
+import images from "@/constants/images";
+import React from "react";
+import Image from "next/image";
+import Button from "@/components/common/Button";
+import { svgs } from "@/constants/svgs";
+import BorderBox from "@/components/common/BorderBox";
+import { FaFacebook, FaInstagram } from "react-icons/fa";
+import { BsLinkedin } from "react-icons/bs";
+import { RiTwitterXLine } from "react-icons/ri";
+
+export default function Hero() {
+  return (
+    <div
+      className="w-full overflow-x-hidden relative"
+      style={{ height: "calc(100vh-4.5rem)" }}
+    >
+      <Image
+        src={svgs.Floater1}
+        alt=""
+        width={100}
+        height={300}
+        className="h-40 w-auto absolute top-1/2 left-0 -translate-y-1/2"
+      />
+      <SeparatorTop />
+      <div className="w-[90%] mx-auto aspect-[1920/1080] overflow-hidden relative z-[50]">
+        <div className="absolute top-[45%] left-1/2 -translate-x-1/2 -translate-y-[60%] z-[100] w-full flex flex-col items-center gap-12">
+          <Image
+            src={images.gravitasLogo}
+            alt="Gravitas"
+            width={1000}
+            height={800}
+            className=" w-[60%] h-auto"
+          />
+          <div className="w-full flex items-center gap-3 justify-center">
+            <MerchBtn />
+            <EventBtn />
+          </div>
+        </div>
+        <video
+          src="/video/HeroBackground.webm"
+          width={1920}
+          height={1080}
+          className="w-full z-[50]"
+          style={{ zIndex: 50 }}
+          playsInline={true}
+          autoPlay={true}
+          muted={true}
+          loop={true}
+        />
+      </div>
+      <SeparatorBottom />
+    </div>
+  );
+}
+
+function EventBtn() {
+  return (
+    <div className="relative w-48 scale-x-110 font-auxMono cursor-pointer hover:scale-x-[115%] hover:scale-y-[105%] transition-all duration-100 ease-linear active:scale-x-110 active:scale-y-[100%]">
+      <Image
+        src={svgs.HeroBtnA}
+        alt=""
+        width={400}
+        height={300}
+        className="w-full h-auto"
+      />
+      <p className="absolute bottom-1 left-1/2 -translate-x-1/2  text-white  font-medium text-[1rem] tracking-widest ">
+        EVENTS
+      </p>
+    </div>
+  );
+}
+function MerchBtn() {
+  return (
+    <div className="relative w-48 scale-x-110 font-auxMono top-[14px] cursor-pointer hover:scale-x-[115%] hover:scale-y-[105%] transition-all duration-100 ease-linear active:scale-x-110 active:scale-y-[100%]">
+      <Image
+        src={svgs.HeroBtnB}
+        alt=""
+        width={400}
+        height={300}
+        className="w-full h-auto"
+      />
+      <p className="absolute top-1 left-12   font-medium text-[1rem] tracking-widest text-nowrap ">
+        BUY MERCH
+      </p>
+    </div>
+  );
+}
+
+function SeparatorTop() {
+  return (
+    <>
+      {" "}
+      <div className="w-full  h-[20px] bg-base absolute top-0 left-0 z-[100]">
+        <div className="w-[90%] h-full mx-auto grid grid-cols-5">
+          <span className="border-x-[1px] border-outline relative">
+            <span className="w-[6px] h-[6px] bg-outline absolute -bottom-[3px] -right-[3px]"></span>
+            <span className="w-[6px] h-[6px] bg-outline absolute -bottom-[3px] -left-[3px]"></span>
+            <span className="w-[6px] h-[6px] bg-outline absolute -top-[3px] -left-[3px]"></span>
+            <span className="w-[6px] h-[6px] bg-outline absolute -top-[3px] -right-[3px]"></span>
+          </span>
+          <span></span>
+          <span className="border-x-[1px] border-outline"></span>
+          <span></span>
+          <span className="border-x-[1px] border-outline relative">
+            <span className="w-[6px] h-[6px] bg-outline absolute -bottom-[3px] -right-[3px]"></span>
+          </span>
+        </div>
+      </div>
+    </>
+  );
+}
+
+function SeparatorBottom() {
+  return (
+    <>
+      <div className="w-full  h-[7rem] bg-base absolute bottom-0 left-0 z-[100]">
+        <section className="w-[90%] mx-auto grid grid-cols-5 h-full">
+          <div className="border-x-[1px] border-outline h-full flex items-center w-full">
+            <BorderBox className="py-5 border-x-0 w-full">
+              <span className="flex items-center justify-center gap-6 text-2xl text-primary">
+                <FaFacebook />
+                <FaInstagram />
+                <BsLinkedin />
+                <RiTwitterXLine />
+              </span>
+            </BorderBox>
+          </div>
+          <span></span>
+          <span className="border-x-[1px] border-outline"></span>
+          <span className="relative w-full h-full text-primaryLight font-auxMono text-sm flex flex-col items-center justify-center">
+            <p>136.233.0.124 IPV4</p>
+            <p>632014 // VELLORE</p>
+            <p>05:26PM 21/08/2024</p>
+            <div className="w-10 h-2 bg-primary absolute top-0 left-0"></div>
+            <div className="w-2 h-4 bg-primary absolute top-0 left-0"></div>
+            <div className="w-2 h-4 bg-primary absolute top-0 right-0"></div>
+            <div className="w-2 h-4 bg-primary absolute bottom-0 left-0"></div>
+            <div className="w-2 h-4 bg-primary absolute bottom-0 right-0"></div>
+            <div className="w-10 h-2 bg-primary absolute top-0 right-0"></div>
+            <div className="w-10 h-2 bg-primary absolute bottom-0 left-0"></div>
+            <div className="w-10 h-2 bg-primary absolute bottom-0 right-0"></div>
+          </span>
+          <span className="border-x-[1px] border-outline relative">
+            <Image
+              src={svgs.Floater2}
+              alt=""
+              width={200}
+              height={100}
+              className="w-28 h-auto absolute top-0 right-0"
+            />
+          </span>
+        </section>
+      </div>
+    </>
+  );
+}

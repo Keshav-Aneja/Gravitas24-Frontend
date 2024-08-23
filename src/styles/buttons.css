@@ -1,0 +1,9 @@
+.hero-btn-clip {
+  clip-path: polygon(10% 0%, 70% 0%, 100% 100%, 0% 100%);
+}
+.hero-btn-clip2 {
+  clip-path: polygon(20% 0%, 70% 0%, 100% 100%, 0% 100%);
+}
+.clip-rect-1 {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 6% 100%, 0% 50%);
+}
