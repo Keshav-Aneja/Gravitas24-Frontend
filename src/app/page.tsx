@@ -11,7 +11,6 @@ import Footer from "@/sections/landing/Footer";
 export default function Home() {
   return (
     <main className="bg-base w-full pb-6">
-      <Header />
       <Hero />
       <Timer />
       <AboutGravitas />

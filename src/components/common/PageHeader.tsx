@@ -6,12 +6,14 @@ type Props = {
   title: string;
   tagline?: string;
   breadcrumb?: string;
+  breadcrumbColor?: string;
 };
 export const PageHeader = ({
   color = "#000000",
   title = "Events",
   tagline = "Tagline Tagline Tagline",
   breadcrumb = "Home // Internal Events",
+  breadcrumbColor = "#0c5eff",
 }: Props) => {
   return (
     <div
@@ -31,7 +33,10 @@ export const PageHeader = ({
         </span>
         <div className="w-[40%] bg-white h-3 absolute bottom-0 right-6 --clip-shape-pageheader-bottom"></div>
       </div>
-      <div className="w-[15%] bg-[#0C5EFF] h-6 absolute -bottom-6 left-0 --clip-shape-pageheader-intro flex items-center justify-center">
+      <div
+        className="w-[15%]  h-6 absolute -bottom-6 left-0 --clip-shape-pageheader-intro flex items-center justify-center"
+        style={{ background: breadcrumbColor }}
+      >
         <h2 className="text-xs text-white font-auxMono relative -left-2">
           {breadcrumb}
         </h2>

@@ -13,3 +13,6 @@
 .--clip-shape-pageheader-intro {
   clip-path: polygon(0 0, 100% 0, 100% 70%, 90% 100%, 0px 100%);
 }
+.--clip-shape-faq-btn {
+  clip-path: polygon(0 0, 100% 0, 100% 80%, 80% 100%, 0 100%);
+}
