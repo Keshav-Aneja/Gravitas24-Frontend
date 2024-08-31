@@ -16,3 +16,6 @@
 .--clip-shape-faq-btn {
   clip-path: polygon(0 0, 100% 0, 100% 80%, 80% 100%, 0 100%);
 }
+.--clip-shape-card-image-top {
+  clip-path: polygon(0 0, 100% 0%, 90% 100%, 0 100%);
+}

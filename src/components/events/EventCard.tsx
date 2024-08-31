@@ -35,7 +35,7 @@ const EventCard = () => {
             participants.
           </p>
         </div>
-        <div className="w-full bg-primaryLight flex items-center justify-between mt-6">
+        <div className="w-full bg-primaryLight flex items-center justify-between mt-6 font-auxMono">
           <span className="text-sm text-black flex items-center gap-2 p-4 px-6 flex-grow justify-center">
             <CiClock2 size={18} />
             <p>9:00 AM - 11:00 AM</p>
