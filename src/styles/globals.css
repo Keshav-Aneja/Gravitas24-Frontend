@@ -17,3 +17,17 @@
   font-family: "Clash Grotesk Medium";
   src: url("/fonts/ClashGrotesk-Medium.otf");
 }
+
+.galleryImageTop {
+  clip-path: polygon(0 0, 100% 0%, 100% 100%, 16% 100%, 0 87%);
+}
+
+.galleryImageBottom {
+  clip-path: polygon(0 0, 84% 0%, 100% 13%, 100% 100%, 0 100%);
+}
+
+.dotted-bg {
+  background-image: radial-gradient(#969696 1px, transparent 0);
+  background-size: 25px 25px;
+  /* background-position: -19px -19px; */
+}

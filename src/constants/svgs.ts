@@ -6,6 +6,9 @@ import IconArrow from "@/assets/svg/iconArrow.svg";
 import IconDiamond from "@/assets/svg/iconDiamond.svg";
 import Trophy from "@/assets/svg/trophy.svg";
 import ArrowRedirect from "@/assets/svg/arrow.svg";
+import SponsorsFloaters from "@/assets/svg/SponsorFloater.svg";
+import Patrons from "@/assets/svg/PatronsFloater.svg";
+
 export const svgs = {
   HeroBtnA,
   HeroBtnB,
@@ -15,4 +18,6 @@ export const svgs = {
   IconDiamond,
   Trophy,
   ArrowRedirect,
+  SponsorsFloaters,
+  Patrons,
 };
