@@ -7,3 +7,9 @@
 .clip-rect-1 {
   clip-path: polygon(0 0, 100% 0, 100% 100%, 6% 100%, 0% 50%);
 }
+.--clip-shape-pageheader-bottom {
+  clip-path: polygon(4% 0, 96% 0, 100% 100%, 0% 100%);
+}
+.--clip-shape-pageheader-intro {
+  clip-path: polygon(0 0, 100% 0, 100% 70%, 90% 100%, 0px 100%);
+}

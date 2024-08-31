@@ -7,7 +7,6 @@ import Timer from "@/sections/landing/Timer";
 export default function Home() {
   return (
     <main className="bg-base  w-full pb-12">
-      <Header />
       <Hero />
       <Timer />
       <AboutGravitas />
