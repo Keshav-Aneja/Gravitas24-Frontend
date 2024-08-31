@@ -11,7 +11,7 @@ const EventDetailsPage = () => {
         </h2>
       </div>
       <div className="w-[90%] mx-auto border-x-[1px] border-outline pt-16 py-8 flex items-start justify-between"></div>
-      <div className="w-[90%] border-[1px] border-outline mx-auto">
+      <div className="w-[90%]  border-outline mx-auto">
         <DetailedEventCard />
       </div>
     </div>

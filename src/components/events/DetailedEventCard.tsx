@@ -69,7 +69,7 @@ const DetailedEventCard = () => {
         <span className="text-sm text-black flex items-center justify-center flex-grow">
           Pravega Racing
         </span>
-        <span className="text-sm text-black flex items-center gap-2 p-4 px-6 border-r-[1px] border-primary flex-grow justify-center">
+        <span className="text-sm text-black flex items-center gap-2 p-4 px-6 border-x-[1px] border-primary flex-grow justify-center">
           <CiCalendar size={18} />
           <p>29 Feb-1 Mar</p>
         </span>
