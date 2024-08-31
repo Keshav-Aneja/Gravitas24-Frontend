@@ -19,6 +19,7 @@ const config: Config = {
         primaryLight: "#FFBB9E",
         base: "#FAFCFF",
         outline: "#C2C2C2",
+        secondary: "#0C5EFF",
       },
       fontFamily: {
         auxMono: ["Aux Mono", "monospace"],

@@ -1,5 +1,6 @@
 import React from "react";
 import BorderBox from "./BorderBox";
+import { cn } from "@/lib/utils";
 type Props = {
   color?: string;
   title: string;
@@ -13,7 +14,10 @@ export const PageHeader = ({
   breadcrumb = "Home // Internal Events",
 }: Props) => {
   return (
-    <div className={`w-full flex flex-col bg-[${color}] font-clash relative`}>
+    <div
+      className={cn(`w-full flex flex-col font-clash relative`)}
+      style={{ background: color }}
+    >
       <span className="w-[90%] h-[2rem] mx-auto border-x-[1px] border-outline"></span>
       <div className="w-full border-y-[1px] border-outline">
         <BorderBox className="border-y-0 w-[90%] mx-auto">

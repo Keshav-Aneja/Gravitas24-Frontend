@@ -4,6 +4,8 @@ import Floater1 from "@/assets/svg/floater1.svg";
 import Floater2 from "@/assets/svg/floater2.svg";
 import IconArrow from "@/assets/svg/iconArrow.svg";
 import IconDiamond from "@/assets/svg/iconDiamond.svg";
+import Trophy from "@/assets/svg/trophy.svg";
+import ArrowRedirect from "@/assets/svg/arrow.svg";
 export const svgs = {
   HeroBtnA,
   HeroBtnB,
@@ -11,4 +13,6 @@ export const svgs = {
   Floater2,
   IconArrow,
   IconDiamond,
+  Trophy,
+  ArrowRedirect,
 };
