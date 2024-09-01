@@ -1,0 +1,144 @@
+{
+    "Solos": [
+        {
+            "id": 1,
+            "name": "CREW NECK",
+            "tagline": "some tagline",
+            "price": 500,
+            "image": "https://imgur.com/lvmIXsL.png",
+            "images": [
+                "https://imgur.com/lvmIXsL.png",
+                "https://imgur.com/pNyKWmi.png",
+                "https://imgur.com/I7VFCc3.jpg"
+            ],
+            "title": "Round Neck T-Shirt",
+            "caption": "some caption",
+            "desc": "Whether you're a gamer, an animation enthusiast, or just love a funky twist, our Round Neck t-shirts have got you covered for Gravitas'24. \n\n Experience a blast from the past with our Round Neck tees! Transport yourself back to the golden era of Nintendo and childhood games, all while rocking a funky and cool look that's dripping with nostalgia. Embrace the memories at Gravitas'24.”",
+            "sizes": [
+                "S",
+                "M",
+                "L",
+                "XL",
+                "XXl",
+                "XXXL"
+            ]
+        },
+        {
+            "id": 2,
+            "name": "CREW NECK",
+            "tagline": "some tagline",
+            "price": 500,
+            "image": "",
+            "images": [
+                "",
+                "",
+                ""
+            ],
+            "title": "Round Neck T-Shirt",
+            "caption": "some caption",
+            "desc": "Whether you're a gamer, an animation enthusiast, or just love a funky twist, our Round Neck t-shirts have got you covered for Gravitas'24. \n\n Experience a blast from the past with our Round Neck tees! Transport yourself back to the golden era of Nintendo and childhood games, all while rocking a funky and cool look that's dripping with nostalgia. Embrace the memories at Gravitas'24.”",
+            "sizes": [
+                "S",
+                "M",
+                "L",
+                "XL",
+                "XXl",
+                "XXXL"
+            ]
+        },
+        {
+            "id": 3,
+            "name": "CREW NECK",
+            "tagline": "some tagline",
+            "price": 500,
+            "image": "",
+            "images": [
+                "",
+                "",
+                ""
+            ],
+            "title": "Round Neck T-Shirt",
+            "caption": "some caption",
+            "desc": "Whether you're a gamer, an animation enthusiast, or just love a funky twist, our Round Neck t-shirts have got you covered for Gravitas'24. \n\n Experience a blast from the past with our Round Neck tees! Transport yourself back to the golden era of Nintendo and childhood games, all while rocking a funky and cool look that's dripping with nostalgia. Embrace the memories at Gravitas'24.”",
+            "sizes": [
+                "S",
+                "M",
+                "L",
+                "XL",
+                "XXl",
+                "XXXL"
+            ]
+        }
+    ],
+    "Combos": [
+        {
+            "id": 4,
+            "name": "CREW NECK",
+            "tagline": "some tagline",
+            "price": 500,
+            "image": "",
+            "images": [
+                "",
+                "",
+                ""
+            ],
+            "title": "Round Neck T-Shirt",
+            "caption": "some caption",
+            "desc": "Whether you're a gamer, an animation enthusiast, or just love a funky twist, our Round Neck t-shirts have got you covered for Gravitas'24. \n\n Experience a blast from the past with our Round Neck tees! Transport yourself back to the golden era of Nintendo and childhood games, all while rocking a funky and cool look that's dripping with nostalgia. Embrace the memories at Gravitas'24.”",
+            "sizes": [
+                "S",
+                "M",
+                "L",
+                "XL",
+                "XXl",
+                "XXXL"
+            ]
+        },
+        {
+            "id": 5,
+            "name": "CREW NECK",
+            "tagline": "some tagline",
+            "price": 500,
+            "image": "",
+            "images": [
+                "",
+                "",
+                ""
+            ],
+            "title": "Round Neck T-Shirt",
+            "caption": "some caption",
+            "desc": "Whether you're a gamer, an animation enthusiast, or just love a funky twist, our Round Neck t-shirts have got you covered for Gravitas'24. \n\n Experience a blast from the past with our Round Neck tees! Transport yourself back to the golden era of Nintendo and childhood games, all while rocking a funky and cool look that's dripping with nostalgia. Embrace the memories at Gravitas'24.”",
+            "sizes": [
+                "S",
+                "M",
+                "L",
+                "XL",
+                "XXl",
+                "XXXL"
+            ]
+        },
+        {
+            "id": 6,
+            "name": "CREW NECK",
+            "tagline": "some tagline",
+            "price": 500,
+            "image": "",
+            "images": [
+                "",
+                "",
+                ""
+            ],
+            "title": "Round Neck T-Shirt",
+            "caption": "some caption",
+            "desc": "Whether you're a gamer, an animation enthusiast, or just love a funky twist, our Round Neck t-shirts have got you covered for Gravitas'24. \n\n Experience a blast from the past with our Round Neck tees! Transport yourself back to the golden era of Nintendo and childhood games, all while rocking a funky and cool look that's dripping with nostalgia. Embrace the memories at Gravitas'24.”",
+            "sizes": [
+                "S",
+                "M",
+                "L",
+                "XL",
+                "XXl",
+                "XXXL"
+            ]
+        }
+    ]
+}

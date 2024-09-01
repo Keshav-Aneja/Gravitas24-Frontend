@@ -46,16 +46,16 @@ const Navbar = () => {
         </span>
         <section className="w-full flex items-center gap-4 justify-around font-auxMono text-[1rem] font-medium border-x-[1px] border-outline relative ">
           <Link
-            href="/"
+            href="/merch"
             className="hover:text-primary transition-all duration-200 ease-linear hover:underline underline-offset-8"
           >
             MERCH
           </Link>
           <Button className="z-0">
-            <>
+            <a href="/events">
               <span>EVENTS</span>
               <div className="bg-base w-7 h-3 absolute -top-1 -right-2 rotate-[30deg] rounded-t-full "></div>
-            </>
+            </a>
           </Button>
 
           <span className="w-[6px] h-[6px] bg-outline absolute -bottom-[3px] -right-[3px]"></span>
