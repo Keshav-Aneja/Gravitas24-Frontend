@@ -1,12 +1,8 @@
 import images from "@/constants/images";
 import React from "react";
 import Image from "next/image";
-import Button from "@/components/common/Button";
 import { svgs } from "@/constants/svgs";
-import BorderBox from "@/components/common/BorderBox";
-import { FaFacebook, FaInstagram } from "react-icons/fa";
-import { BsLinkedin } from "react-icons/bs";
-import { RiTwitterXLine } from "react-icons/ri";
+import SeparatorBottom from "@/components/landing/SeparatorBottom";
 
 export default function Hero() {
   return (
@@ -37,7 +33,7 @@ export default function Hero() {
           </div>
         </div>
         <video
-          src="/video/HeroBackground.webm"
+          src="/video/HeroBackgroundNew.webm"
           width={1920}
           height={1080}
           className="w-full z-[50]"
@@ -105,51 +101,6 @@ function SeparatorTop() {
             <span className="w-[6px] h-[6px] bg-outline absolute -bottom-[3px] -right-[3px]"></span>
           </span>
         </div>
-      </div>
-    </>
-  );
-}
-
-function SeparatorBottom() {
-  return (
-    <>
-      <div className="w-full  h-[7rem] bg-base absolute bottom-0 left-0 z-[100]">
-        <section className="w-[90%] mx-auto grid grid-cols-5 h-full">
-          <div className="border-x-[1px] border-outline h-full flex items-center w-full">
-            <BorderBox className="py-5 border-x-0 w-full">
-              <span className="flex items-center justify-center gap-6 text-2xl text-primary">
-                <FaFacebook />
-                <FaInstagram />
-                <BsLinkedin />
-                <RiTwitterXLine />
-              </span>
-            </BorderBox>
-          </div>
-          <span></span>
-          <span className="border-x-[1px] border-outline"></span>
-          <span className="relative w-full h-full text-primaryLight font-auxMono text-sm flex flex-col items-center justify-center">
-            <p>136.233.0.124 IPV4</p>
-            <p>632014 // VELLORE</p>
-            <p>05:26PM 21/08/2024</p>
-            <div className="w-10 h-2 bg-primary absolute top-0 left-0"></div>
-            <div className="w-2 h-4 bg-primary absolute top-0 left-0"></div>
-            <div className="w-2 h-4 bg-primary absolute top-0 right-0"></div>
-            <div className="w-2 h-4 bg-primary absolute bottom-0 left-0"></div>
-            <div className="w-2 h-4 bg-primary absolute bottom-0 right-0"></div>
-            <div className="w-10 h-2 bg-primary absolute top-0 right-0"></div>
-            <div className="w-10 h-2 bg-primary absolute bottom-0 left-0"></div>
-            <div className="w-10 h-2 bg-primary absolute bottom-0 right-0"></div>
-          </span>
-          <span className="border-x-[1px] border-outline relative">
-            <Image
-              src={svgs.Floater2}
-              alt=""
-              width={200}
-              height={100}
-              className="w-28 h-auto absolute top-0 right-0"
-            />
-          </span>
-        </section>
       </div>
     </>
   );

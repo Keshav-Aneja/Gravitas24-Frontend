@@ -7,6 +7,7 @@ import Timer from "@/sections/landing/Timer";
 import Patrons from "@/sections/landing/Patrons";
 import Gallery from "@/sections/landing/gallery";
 import Footer from "@/sections/landing/Footer";
+import AboutVIT from "@/sections/landing/AboutVIT";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <Hero />
       <Timer />
       <AboutGravitas />
+      <AboutVIT />
       <PremiumEvents />
       <Sponsors />
       <Patrons />

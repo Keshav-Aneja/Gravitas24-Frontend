@@ -19,3 +19,13 @@
 .--clip-shape-card-image-top {
   clip-path: polygon(0 0, 100% 0%, 90% 100%, 0 100%);
 }
+
+.--clip-shape-about-banner {
+  clip-path: polygon(0 0, 100% 0, 100% 60%, 96% 100%, 0 100%);
+}
+.--clip-shape-about-banner-2 {
+  clip-path: polygon(4% 0, 100% 0, 100% 100%, 4% 100%, 0 80%, 0 20%);
+}
+.--clip-shape-about-banner-3 {
+  clip-path: polygon(0 0, 96% 0, 100% 40%, 100% 100%, 0 100%);
+}

@@ -7,7 +7,7 @@ const Sponsors = () => {
   return (
     <div className="w-[90%] mx-auto py-20 mt-12 flex flex-col gap-20">
       <span className="flex flex-row gap-1 justify-between">
-        <h1 className="font-aldrich text-8xl">Sponsors</h1>
+        <h1 className="font-aldrich text-8xl font-semibold">Sponsors</h1>
         <div className="relative flex items-center justify-center">
           <Image src={svgs.SponsorsFloaters} alt="" width={250} height={80} />
           <span className="absolute font-sans font-bold text-primary z-10 w-3/5 h-full mt-2 right-0">

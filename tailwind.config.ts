@@ -24,6 +24,7 @@ const config: Config = {
       fontFamily: {
         auxMono: ["Aux Mono", "monospace"],
         aldrich: ["Aldrich", "sans-serif"],
+        ibmPlex: ["IBM Plex Mono", "monospace"],
         clash: ["Clash Grotesk Regular", "sans-serif"],
         clashBold: ["Clash Grotesk Medium", "sans-serif"],
       },
