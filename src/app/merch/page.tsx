@@ -1,10 +1,11 @@
-"use client"
+"use client";
 
 import { PageHeader } from "@/components/common/PageHeader";
 import PaginationBox from "@/components/common/PaginationBox";
 import EventsFilter from "@/components/events/EventsFilter";
 import MerchBox from "@/sections/merch/MerchBox";
-import React from "react";
+import { getAllMerch } from "@/services/merch.service";
+import React, { useEffect } from "react";
 
 const MerchPage = () => {
   return (

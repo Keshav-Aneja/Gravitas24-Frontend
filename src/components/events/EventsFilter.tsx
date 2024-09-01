@@ -1,23 +1,24 @@
 "use client";
+import { useGlobalContext } from "@/context/GlobalContext";
 import { cn } from "@/lib/utils";
 import React, { useEffect, useState } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
 import { RxCaretDown } from "react-icons/rx";
 
 const EventsFilter = () => {
+  const { eventQuery: query, setEventQuery: setQuery } = useGlobalContext();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [query, setQuery] = useState("");
+  const [temp, setTemp] = useState("");
+  const { eventType, setEventType } = useGlobalContext();
   useEffect(() => {
     const interval = setTimeout(() => {
-      (async () => {
-        //call the api for data
-      })();
+      setQuery(temp);
     }, 200);
 
     return () => {
       clearInterval(interval);
     };
-  }, []);
+  }, [temp]);
   return (
     <div className="w-[90%] mx-auto border-x-[1px] border-outline pt-16 py-8 flex items-start justify-between">
       <div className="relative w-[35%]">
@@ -25,8 +26,9 @@ const EventsFilter = () => {
           type="text"
           className="text-sm font-auxMono text-black border-[1px] border-black pl-8 pr-2 py-1 rounded-none focus:outline-none w-full active:outline-none placeholder:text-black h-8"
           placeholder="SEARCH"
+          value={temp}
           onChange={(e) => {
-            setQuery(e.target.value);
+            setTemp(e.target.value);
           }}
         />
         <AiOutlineSearch className="absolute top-1/2 -translate-y-1/2 left-2" />
@@ -51,11 +53,18 @@ const EventsFilter = () => {
         </button>
         {isMenuOpen && (
           <div className="w-full border-[1px] border-black border-t-0 flex flex-col absolute top-8 right-0">
-            {["ALL", "TECH", "CULTURAL", "LITERARY", "SPORTS"].map(
+            {["All", "Workshop", "Competition", "Hackathon"].map(
               (item, index) => (
                 <button
-                  className="text-sm font-auxMono hover:bg-primary/20 py-1 text-left pl-4"
+                  className="text-sm font-auxMono hover:bg-primary/20 py-1 text-left pl-4 bg-white uppercase"
                   key={index}
+                  onClick={() => {
+                    if (item === "All") {
+                      setEventType("");
+                    } else {
+                      setEventType(item);
+                    }
+                  }}
                 >
                   {item}
                 </button>

@@ -1,0 +1,31 @@
+export type eventType = {
+  id: string;
+  name: string;
+  type: string;
+  description: string;
+  club: string;
+  display: string;
+  tagline: string;
+  price: number;
+  slots: slotType[] | null;
+  startDate: string;
+  teamSize: string;
+  endDate: string;
+};
+
+export type slotType = {
+  slotId: string;
+  eventId: string;
+  venue: string;
+  totalEntries: number;
+  isRegistrable: boolean;
+};
+
+export type merchType = {
+  id: string;
+  type: string;
+  price: number;
+  totalAvailable: number;
+  description: string;
+  images: string[];
+};

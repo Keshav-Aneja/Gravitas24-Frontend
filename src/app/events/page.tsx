@@ -2,7 +2,6 @@ import { PageHeader } from "@/components/common/PageHeader";
 import PaginationBox from "@/components/common/PaginationBox";
 import EventsFilter from "@/components/events/EventsFilter";
 import EventsBox from "@/sections/EventsBox";
-import React from "react";
 
 const EventsPage = () => {
   return (

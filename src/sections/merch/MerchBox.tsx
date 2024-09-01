@@ -3,10 +3,15 @@ import React, { useEffect } from "react";
 import data from "@/constants/merch.json";
 import MerchCard from "@/components/merch/MerchCard";
 import BorderBox from "@/components/common/BorderBox";
+import { getAllMerch } from "@/services/merch.service";
 
 const MerchBox = () => {
   useEffect(() => {
-    console.log(data);
+    (async () => {
+      try {
+        const response = await getAllMerch();
+      } catch (error) {}
+    })();
   }, []);
   return (
     <div className="w-full border-y-[1px] border-[#c2c2c2] mb-12 flex flex-col">

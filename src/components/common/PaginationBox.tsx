@@ -1,11 +1,11 @@
 "use client";
+import { useGlobalContext } from "@/context/GlobalContext";
 import { cn } from "@/lib/utils";
 import React, { useState } from "react";
 import { RxCaretLeft } from "react-icons/rx";
 
 const PaginationBox = () => {
-  const [currentPage, setCurrentPage] = useState(1);
-  const totalPages = 7;
+  const { totalPages, currentPage, setCurrentPage } = useGlobalContext();
   return (
     <div className="w-[90%] mx-auto border-x-[1px] border-outline flex items-center justify-between pt-28 pb-20">
       <button
@@ -66,7 +66,7 @@ function PageBox({ page, dummy, isSelected, setCurrentPage }: Props) {
         isSelected && "bg-secondary text-white"
       )}
       onClick={() => {
-        setCurrentPage && !dummy && page && setCurrentPage(page);
+        setCurrentPage && !dummy && page && setCurrentPage(page + 1);
         console.log(page);
       }}
     >

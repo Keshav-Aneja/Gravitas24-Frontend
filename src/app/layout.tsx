@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "@/styles/globals.css";
 import "@/styles/buttons.css";
 import Header from "@/components/landing/Header";
+import GlobalContextProvider from "@/context/GlobalContext";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -18,8 +19,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Header />
-        {children}
+        <GlobalContextProvider>
+          <Header />
+          {children}
+        </GlobalContextProvider>
       </body>
     </html>
   );
