@@ -25,7 +25,7 @@ const MerchCard = (props: Props) => {
       className="p-0 w-[400px] max-w-full flex flex-col bg-white items-center border-primary"
     >
       <Image
-        src={images.merch1}
+        src={props.item.image}
         alt={props.item.name}
         width={300}
         height={300}

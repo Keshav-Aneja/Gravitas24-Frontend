@@ -23,7 +23,6 @@ const MerchBox = () => {
             <MerchCard key={index} item={item} />
           ))}
         </div>
-
       </BorderBox>
     </div>
   );

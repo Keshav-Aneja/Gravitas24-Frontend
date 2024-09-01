@@ -5,8 +5,7 @@ import data from "@/constants/merch.json";
 import React, { useEffect, useState } from "react";
 
 const MerchDetailsPage = ({ params }: { params: { merchId: number } }) => {
-
-    const [merchItem, setMerchItem] = useState<any>();
+  const [merchItem, setMerchItem] = useState<any>();
 
   useEffect(() => {
     console.log(params.merchId);
@@ -26,7 +25,7 @@ const MerchDetailsPage = ({ params }: { params: { merchId: number } }) => {
       </div>
       <div className="w-[90%] mx-auto border-x-[1px] border-outline pt-16 py-8 flex items-start justify-between"></div>
       <div className="w-[90%]  border-outline mx-auto">
-        {merchItem != undefined ? <DetailedMerchCard item={merchItem} /> : "not found"}
+      {merchItem && <DetailedMerchCard item={merchItem} />}
       </div>
     </div>
   );

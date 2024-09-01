@@ -32,7 +32,7 @@ const Navbar = () => {
         </section>
         <span className="w-full flex items-center gap-4 justify-around font-auxMono text-[1rem] font-medium">
           <Link
-            href="/"
+            href="/team"
             className="hover:text-primary transition-all duration-200 ease-linear hover:underline underline-offset-8"
           >
             TEAM
