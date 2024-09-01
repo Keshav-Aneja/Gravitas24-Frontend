@@ -8,12 +8,25 @@ function instantiateMerchData(data: any): merchType {
     totalAvailable: data.totalAvailable,
     description: data.description,
     images: data.images,
+    category: data.category,
+    name: data.name,
+    tagline: data.tagline,
+    sizes: data.sizes,
   } as merchType;
 }
 export async function getAllMerch() {
   try {
     const response = await getHandler("/merch");
     return response.data.map((data: any) => instantiateMerchData(data));
+  } catch (error: any) {
+    throw new Error(error.message ?? "Failed to fetch merch");
+  }
+}
+
+export async function getMerchById(id: string) {
+  try {
+    const response = await getHandler(`/merch/${id}`);
+    return instantiateMerchData(response.data);
   } catch (error: any) {
     throw new Error(error.message ?? "Failed to fetch merch");
   }

@@ -4,25 +4,10 @@ import Image from "next/image";
 import { useState } from "react";
 import { LuShirt } from "react-icons/lu";
 import { MdOutlineCurrencyRupee } from "react-icons/md";
+import { merchType } from "@/constants/types/types";
 
-type Props = {
-  item: {
-    id: number;
-    name: string;
-    tagline: string;
-    price: number;
-    image: string;
-    images: string[];
-    title: string;
-    caption: string;
-    desc: string;
-    sizes: string[];
-  };
-};
-
-const DetailedMerchCard = (props: Props) => {
-  const [currVis, setCurrVis] = useState<string>(props.item.images[0]);
-
+const DetailedMerchCard = ({ item }: { item: merchType }) => {
+  const [currVis, setCurrVis] = useState<string>(item.images[0]);
   return (
     <BorderBox className=" py-10 w-full  flex flex-col gap-8 px-0">
       <div className="w-full flex flex-col md:flex-row items-start justify-between gap-8 px-0">
@@ -40,8 +25,8 @@ const DetailedMerchCard = (props: Props) => {
             height={300}
           />
           <div className="flex gap-3 flex-wrap mt-4">
-            {props.item.images
-              ? props.item.images.map((image, index) => {
+            {item.images
+              ? item.images.map((image, index) => {
                   return (
                     <Image
                       key={index}
@@ -59,22 +44,22 @@ const DetailedMerchCard = (props: Props) => {
         </div>
         <section className="--main flex flex-col font-auxMono w-full">
           <h1 className="text-5xl leading-none font-medium uppercase px-2">
-            {props.item.title}
+            {item.name}
           </h1>
           <p className="text-primary text-2xl leading-none px-2">
-            {props.item.caption}
+            {item.tagline}
           </p>
           <div className="w-full h-[2px] bg-outline my-2 mb-4"></div>
           <section className=" flex items-center p-2 gap-0 min-w-fit text-xl">
             <MdOutlineCurrencyRupee size={20} />
-            <p>{props.item.price}/-</p>
+            <p>{item.price}/-</p>
           </section>
           <section className="flex flex-col gap-2 mt-4 p-2 text-[1rem]">
-            {props.item.desc}
+            {item.description}
           </section>
-          {props.item.sizes ? (
+          {item.sizes ? (
             <section className="flex gap-2 p-2">
-              {props.item.sizes.map((size, index) => (
+              {item.sizes.map((size, index) => (
                 <span
                   key={index}
                   className="text-xl border border-[#c2c2c2] p-2 px-4"
@@ -83,20 +68,22 @@ const DetailedMerchCard = (props: Props) => {
                 </span>
               ))}
             </section>
-          ) : null}
+          ) : (
+            ""
+          )}
         </section>
       </div>
       <div className="w-full bg-primaryLight flex items-center justify-between mt-6 font-auxMono">
         <span className="text-sm text-black flex items-center justify-center flex-grow">
-          {props.item.title}
+          {item.name}
         </span>
         <span className="text-sm text-black hidden md:flex items-center gap-2 p-4 px-6 border-x-[1px] border-primary flex-grow justify-center">
           <LuShirt size={18} />
-          {props.item.sizes.join(",")}
+          {item.sizes.join(",")}
         </span>
         <span className="text-sm text-black hidden md:flex items-center gap-2 p-4 px-6 flex-grow justify-center">
           <MdOutlineCurrencyRupee size={20} />
-          <p>Rs. {props.item.price}/-</p>
+          <p>Rs. {item.price}/-</p>
         </span>
         <button className="text-white bg-primary h-full flex-grow p-4 px-8">
           BUY MERCH

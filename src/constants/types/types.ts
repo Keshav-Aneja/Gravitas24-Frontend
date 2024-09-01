@@ -28,4 +28,8 @@ export type merchType = {
   totalAvailable: number;
   description: string;
   images: string[];
+  name: string;
+  tagline: string;
+  category: string;
+  sizes: string[];
 };
