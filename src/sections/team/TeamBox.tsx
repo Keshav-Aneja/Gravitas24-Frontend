@@ -25,6 +25,7 @@ const TeamBox = () => {
                     <div className="w-full flex flex-wrap gap-5 justify-start">
                       {group.people.map((person, k) => (
                         <TeamCard
+                          key={k}
                           image={person.img}
                           name={person.name}
                           desig={person.position}

@@ -44,6 +44,7 @@ const DetailedMerchCard = (props: Props) => {
               ? props.item.images.map((image, index) => {
                   return (
                     <Image
+                      key={index}
                       onClick={() => setCurrVis(image)}
                       className="hover:cursor-pointer hover:scale-110 transition-all h-12 md:h-16 w-auto"
                       src={image}
