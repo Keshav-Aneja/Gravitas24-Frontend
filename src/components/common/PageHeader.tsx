@@ -13,7 +13,7 @@ export const PageHeader = ({
   title = "Events",
   tagline = "Tagline Tagline Tagline",
   breadcrumb = "Home // Internal Events",
-  breadcrumbColor = "#0c5eff",
+  breadcrumbColor = "#0C5EFF",
 }: Props) => {
   return (
     <div
@@ -34,7 +34,7 @@ export const PageHeader = ({
         <div className="w-[40%] bg-white h-3 absolute bottom-0 right-6 --clip-shape-pageheader-bottom"></div>
       </div>
       <div
-        className="w-[15%]  h-6 absolute -bottom-6 left-0 --clip-shape-pageheader-intro flex items-center justify-center"
+        className="w-[15%] h-6 absolute -bottom-6 left-0 --clip-shape-pageheader-intro flex items-center justify-center"
         style={{ background: breadcrumbColor }}
       >
         <h2 className="text-xs text-white font-auxMono relative -left-2">
