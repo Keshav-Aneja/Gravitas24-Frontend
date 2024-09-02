@@ -33,7 +33,6 @@ export default function Home() {
         <Sponsors />
         <Patrons />
         <Gallery />
-        <Footer />
       </ReactLenis>
     </main>
   );
