@@ -6,6 +6,7 @@ import { Suspense, useEffect, useState } from "react";
 import Cookie from "js-cookie";
 import { useRouter } from "next/navigation";
 import { BACKEND_URL } from "@/constants/routes";
+import ProfileBox from "@/sections/auth/ProfileBox";
 
 function SignupCallback() {
   const params = useSearchParams();
@@ -37,18 +38,7 @@ function SignupCallback() {
     Cookie.set("refresh_token", refesh_token);
     router.push("/");
   };
-  return (
-    <main className="bg-base w-full pb-6">
-      <input
-        type="text"
-        placeholder="Enter your phone number"
-        value={phoneNumber}
-        onChange={handlePhoneNumberChange}
-        className="mb-4 p-2 border border-gray-300 rounded"
-      />
-      <button onClick={handleSignUp}>Sign up finally</button>
-    </main>
-  );
+  return <ProfileBox handleSignup={handleSignUp} />;
 }
 
 export default function SignupCallbackWrapper() {

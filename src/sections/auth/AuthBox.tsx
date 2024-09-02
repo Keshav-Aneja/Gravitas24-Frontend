@@ -1,7 +1,6 @@
-import EventCard from "@/components/events/EventCard";
+"use client";
 import { BACKEND_URL } from "@/constants/routes";
 import { svgs } from "@/constants/svgs";
-import Link from "next/link";
 import React from "react";
 import Image from "next/image";
 const AuthBox = () => {

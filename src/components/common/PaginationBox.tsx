@@ -7,7 +7,7 @@ import { RxCaretLeft } from "react-icons/rx";
 const PaginationBox = () => {
   const { totalPages, currentPage, setCurrentPage } = useGlobalContext();
   return (
-    <div className="w-[90%] mx-auto border-x-[1px] border-outline flex items-center justify-between pt-28 pb-20">
+    <div className="w-[90%] mx-auto border-x-[1px] border-b-[1px] border-outline flex items-center justify-between pt-28 pb-20">
       <button
         className="bg-secondary text-[1rem] font-auxMono uppercase flex items-center gap-3 w-60 justify-center h-10 text-white "
         onClick={() => {

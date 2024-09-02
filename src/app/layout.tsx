@@ -4,6 +4,7 @@ import "@/styles/globals.css";
 import "@/styles/buttons.css";
 import Header from "@/components/landing/Header";
 import GlobalContextProvider from "@/context/GlobalContext";
+import Footer from "@/sections/landing/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -22,6 +23,7 @@ export default function RootLayout({
         <GlobalContextProvider>
           <Header />
           {children}
+          <Footer />
         </GlobalContextProvider>
       </body>
     </html>
