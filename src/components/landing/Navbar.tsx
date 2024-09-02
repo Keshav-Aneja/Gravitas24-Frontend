@@ -11,28 +11,32 @@ import {
 } from "@/constants/routes";
 const Navbar = () => {
   return (
-    <div className="w-full border-y-[1px] border-outline h-[4rem] sticky top-0 left-0 z-[2000] bg-white">
+    <div className="w-full border-y-[1px] border-outline h-[4rem] sticky top-0 left-0 z-[2000] bg-white/50 backdrop-blur-xl">
       <div className="w-[90%] mx-auto grid grid-cols-5 h-full">
         <section className="flex items-center justify-center h-full border-x-[1px] border-outline relative">
-          <Image
-            src={images.vitLogo}
-            alt="Vellore Institue of Technology"
-            width={200}
-            height={200}
-            className=" grayscale h-[2.5rem] w-auto"
-          />
+          <Link href="https://vit.ac.in">
+            <Image
+              src={images.vitLogo}
+              alt="Vellore Institue of Technology"
+              width={200}
+              height={200}
+              className=" grayscale h-[2.5rem] w-auto"
+            />
+          </Link>
           <span className="w-[6px] h-[6px] bg-outline absolute -bottom-[3px] -left-[3px]"></span>
           <span className="w-[6px] h-[6px] bg-outline absolute -bottom-[3px] -right-[3px]"></span>
         </section>
         <section />
         <section className="flex items-center justify-center h-full border-x-[1px] border-outline relative">
-          <Image
-            src={images.gravitasLogo}
-            alt="Vellore Institue of Technology"
-            width={200}
-            height={200}
-            className=" invert w-[60%] h-auto"
-          />
+          <Link href="/">
+            <Image
+              src={images.gravitasLogo}
+              alt="Vellore Institue of Technology"
+              width={200}
+              height={200}
+              className=" invert w-[60%] h-auto"
+            />
+          </Link>
           <span className="w-[6px] h-[6px] bg-outline absolute -bottom-[3px] -left-[3px]"></span>
           <span className="w-[6px] h-[6px] bg-outline absolute -bottom-[3px] -right-[3px]"></span>
         </section>
@@ -57,10 +61,9 @@ const Navbar = () => {
           >
             MERCH
           </Link>
-          <Button className="z-0">
+          <Button className="z-0 --event-button">
             <a href={EVENT_PAGE}>
               <span>EVENTS</span>
-              <div className="bg-base w-7 h-3 absolute -top-1 -right-2 rotate-[30deg] rounded-t-full "></div>
             </a>
           </Button>
 

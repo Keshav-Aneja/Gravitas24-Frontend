@@ -29,3 +29,7 @@
 .--clip-shape-about-banner-3 {
   clip-path: polygon(0 0, 96% 0, 100% 40%, 100% 100%, 0 100%);
 }
+
+.--event-button {
+  clip-path: polygon(0% 0%, 81% 0, 100% 28%, 100% 100%, 0% 100%);
+}
