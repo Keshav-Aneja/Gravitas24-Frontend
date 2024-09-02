@@ -31,7 +31,7 @@ const Gallery = () => {
       <Marquee
         autoFill
         speed={30}
-        className="font-clash z-[20] border-y-2 border-black"
+        className="font-clash z-[20] border-y-2 border-black overflow-y-hidden"
       >
         <section className="text-[120px] px-4 mx-6">GALLERY</section>
         <section className="flex flex-col font-extralight h-full mx-6 justify-around px-4 text-8xl">

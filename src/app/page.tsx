@@ -1,3 +1,4 @@
+"use client";
 import Header from "@/components/landing/Header";
 import AboutGravitas from "@/sections/landing/AboutGravitas";
 import Hero from "@/sections/landing/Hero";
@@ -8,19 +9,32 @@ import Patrons from "@/sections/landing/Patrons";
 import Gallery from "@/sections/landing/gallery";
 import Footer from "@/sections/landing/Footer";
 import AboutVIT from "@/sections/landing/AboutVIT";
+import { ReactLenis } from "@studio-freight/react-lenis";
+import { useEffect, useRef } from "react";
 
 export default function Home() {
   return (
     <main className="bg-base w-full pb-6">
-      <Hero />
-      <Timer />
-      <AboutGravitas />
-      <AboutVIT />
-      <PremiumEvents />
-      <Sponsors />
-      <Patrons />
-      <Gallery />
-      <Footer />
+      <ReactLenis
+        root
+        options={{
+          lerp: 0.04,
+          duration: 2.5,
+          smoothWheel: true,
+          easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+          orientation: "vertical",
+        }}
+      >
+        <Hero />
+        <Timer />
+        <AboutGravitas />
+        <AboutVIT />
+        <PremiumEvents />
+        <Sponsors />
+        <Patrons />
+        <Gallery />
+        <Footer />
+      </ReactLenis>
     </main>
   );
 }
