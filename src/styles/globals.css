@@ -18,6 +18,12 @@
   src: url("/fonts/ClashGrotesk-Medium.otf");
 }
 
+@font-face {
+  font-family: "Clash Grotesk Variable";
+  src: url("/fonts/ClashGrotesk-Variable.ttf");
+}
+
+
 .galleryImageTop {
   clip-path: polygon(0 0, 100% 0%, 100% 100%, 16% 100%, 0 87%);
 }

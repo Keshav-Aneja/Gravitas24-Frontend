@@ -27,6 +27,7 @@ const config: Config = {
         ibmPlex: ["IBM Plex Mono", "monospace"],
         clash: ["Clash Grotesk Regular", "sans-serif"],
         clashBold: ["Clash Grotesk Medium", "sans-serif"],
+        clashVar: ["Clash Grotesk Variable", "sans-serif"],
       },
     },
   },
