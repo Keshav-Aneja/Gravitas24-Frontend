@@ -25,6 +25,11 @@ const EventsBox = () => {
   }, [currentPage, query, eventType]);
   return (
     <div className="w-full border-y-[1px] border-outline flex flex-col">
+      {events.length === 0 && (
+        <p className="text-xl text-red-500 font-auxMono text-center py-6">
+          No Matched Events found!
+        </p>
+      )}
       {events.map((event, index) => (
         <EventCard key={index} data={event} />
       ))}

@@ -1,21 +1,21 @@
 "use client";
 import DetailedMerchCard from "@/components/merch/DetailedMerchCard";
 import data from "@/constants/merch.json";
+import { AUTH_PAGE } from "@/constants/routes";
+import ValidateToken from "@/lib/ValidateToken";
 import { getMerchById } from "@/services/merch.service";
+import { useRouter } from "next/navigation";
 
 import React, { useEffect, useState } from "react";
 
 const MerchDetailsPage = ({ params }: { params: { merchId: string } }) => {
   const [merchItem, setMerchItem] = useState<any>();
-  // useEffect(() => {
-  //   console.log(params.merchId);
-  //   const merchItem =
-  //     data.Solos.find((item) => item.id == params.merchId) ||
-  //     data.Combos.find((item) => item.id == params.merchId);
-  //   setMerchItem(merchItem);
-  //   console.log(merchItem);
-  // }, [params.merchId]);
+  const router = useRouter();
   useEffect(() => {
+    const isValid = ValidateToken();
+    if (!isValid) {
+      router.push(AUTH_PAGE);
+    }
     (async () => {
       try {
         const response = await getMerchById(params.merchId);

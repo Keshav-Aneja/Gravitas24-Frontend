@@ -3,6 +3,8 @@ import React from "react";
 import Image from "next/image";
 import { svgs } from "@/constants/svgs";
 import SeparatorBottom from "@/components/landing/SeparatorBottom";
+import Link from "next/link";
+import { EVENT_PAGE, MERCH_PAGE } from "@/constants/routes";
 
 export default function Hero() {
   return (
@@ -51,34 +53,38 @@ export default function Hero() {
 
 function EventBtn() {
   return (
-    <div className="relative w-48 scale-x-110 font-auxMono cursor-pointer hover:scale-x-[115%] hover:scale-y-[105%] transition-all duration-100 ease-linear active:scale-x-110 active:scale-y-[100%]">
-      <Image
-        src={svgs.HeroBtnA}
-        alt=""
-        width={400}
-        height={300}
-        className="w-full h-auto"
-      />
-      <p className="absolute bottom-1 left-1/2 -translate-x-1/2  text-white  font-medium text-[1rem] tracking-widest ">
-        EVENTS
-      </p>
-    </div>
+    <Link href={EVENT_PAGE}>
+      <div className="relative w-48 scale-x-110 font-auxMono cursor-pointer hover:scale-x-[115%] hover:scale-y-[105%] transition-all duration-100 ease-linear active:scale-x-110 active:scale-y-[100%]">
+        <Image
+          src={svgs.HeroBtnA}
+          alt=""
+          width={400}
+          height={300}
+          className="w-full h-auto"
+        />
+        <p className="absolute bottom-1 left-1/2 -translate-x-1/2  text-white  font-medium text-[1rem] tracking-widest ">
+          EVENTS
+        </p>
+      </div>
+    </Link>
   );
 }
 function MerchBtn() {
   return (
-    <div className="relative w-48 scale-x-110 font-auxMono top-[14px] cursor-pointer hover:scale-x-[115%] hover:scale-y-[105%] transition-all duration-100 ease-linear active:scale-x-110 active:scale-y-[100%]">
-      <Image
-        src={svgs.HeroBtnB}
-        alt=""
-        width={400}
-        height={300}
-        className="w-full h-auto"
-      />
-      <p className="absolute top-1 left-12   font-medium text-[1rem] tracking-widest text-nowrap ">
-        BUY MERCH
-      </p>
-    </div>
+    <Link href={MERCH_PAGE}>
+      <div className="relative w-48 scale-x-110 font-auxMono top-[14px] cursor-pointer hover:scale-x-[115%] hover:scale-y-[105%] transition-all duration-100 ease-linear active:scale-x-110 active:scale-y-[100%]">
+        <Image
+          src={svgs.HeroBtnB}
+          alt=""
+          width={400}
+          height={300}
+          className="w-full h-auto"
+        />
+        <p className="absolute top-1 left-12   font-medium text-[1rem] tracking-widest text-nowrap ">
+          BUY MERCH
+        </p>
+      </div>
+    </Link>
   );
 }
 

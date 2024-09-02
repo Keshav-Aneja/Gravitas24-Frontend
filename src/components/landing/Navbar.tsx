@@ -3,9 +3,15 @@ import Image from "next/image";
 import images from "@/constants/images";
 import Link from "next/link";
 import Button from "../common/Button";
+import {
+  EVENT_PAGE,
+  FAQ_PAGE,
+  MERCH_PAGE,
+  TEAM_PAGE,
+} from "@/constants/routes";
 const Navbar = () => {
   return (
-    <div className="w-full border-y-[1px] border-outline h-[4rem]">
+    <div className="w-full border-y-[1px] border-outline h-[4rem] sticky top-0 left-0 z-[2000] bg-white">
       <div className="w-[90%] mx-auto grid grid-cols-5 h-full">
         <section className="flex items-center justify-center h-full border-x-[1px] border-outline relative">
           <Image
@@ -32,13 +38,13 @@ const Navbar = () => {
         </section>
         <span className="w-full flex items-center gap-4 justify-around font-auxMono text-[1rem] font-medium">
           <Link
-            href="/team"
+            href={TEAM_PAGE}
             className="hover:text-primary transition-all duration-200 ease-linear hover:underline underline-offset-8"
           >
             TEAM
           </Link>
           <Link
-            href="/"
+            href={FAQ_PAGE}
             className="hover:text-primary transition-all duration-200 ease-linear hover:underline underline-offset-8"
           >
             FAQ&apos;s
@@ -46,13 +52,13 @@ const Navbar = () => {
         </span>
         <section className="w-full flex items-center gap-4 justify-around font-auxMono text-[1rem] font-medium border-x-[1px] border-outline relative ">
           <Link
-            href="/merch"
+            href={MERCH_PAGE}
             className="hover:text-primary transition-all duration-200 ease-linear hover:underline underline-offset-8"
           >
             MERCH
           </Link>
           <Button className="z-0">
-            <a href="/events">
+            <a href={EVENT_PAGE}>
               <span>EVENTS</span>
               <div className="bg-base w-7 h-3 absolute -top-1 -right-2 rotate-[30deg] rounded-t-full "></div>
             </a>

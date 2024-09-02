@@ -5,6 +5,7 @@ import { useSearchParams } from "next/navigation";
 import { Suspense, useEffect, useState } from "react";
 import Cookie from "js-cookie";
 import { useRouter } from "next/navigation";
+import { BACKEND_URL } from "@/constants/routes";
 
 function SignupCallback() {
   const params = useSearchParams();
@@ -20,7 +21,7 @@ function SignupCallback() {
 
   const handleSignUp = async () => {
     const response = await axios.post(
-      "http://localhost:8000/auth/vit/signup",
+      `${BACKEND_URL}/auth/vit/signup`,
       {
         phoneNumber,
       },

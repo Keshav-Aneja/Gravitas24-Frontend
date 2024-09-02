@@ -12,6 +12,7 @@ import IconCog from "@/assets/svg/cog.svg";
 import IconPuzzle from "@/assets/svg/puzzle.svg";
 import IconBulb from "@/assets/svg/blub.svg";
 import IconSingleArrow from "@/assets/svg/single-arrow.svg";
+import GoogleLogo from "@/assets/svg/GoogleLogo.svg";
 export const svgs = {
   HeroBtnA,
   HeroBtnB,
@@ -27,4 +28,5 @@ export const svgs = {
   IconPuzzle,
   IconBulb,
   IconSingleArrow,
+  GoogleLogo,
 };
