@@ -15,7 +15,7 @@ function LoginCallback() {
   useEffect(() => {
     const getAuthTokens = async () => {
       if (redirect_token) {
-        const response = await axios.get(`${BACKEND_URL}/auth/vit/login`, {
+        const response = await axios.get(`${BACKEND_URL}auth/vit/login`, {
           headers: {
             Authorization: `Bearer ${redirect_token}`,
           },
