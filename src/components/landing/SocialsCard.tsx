@@ -19,9 +19,9 @@ const SocialsCard = (props: Props) => {
       )}
     >
       <a href={props.link} className="h-full w-full p-6">
-        <div className="flex flex-col h-full justify-between items-start ">
+        <div className="flex flex-col h-full items-center justify-between md:items-start ">
           <props.icon className="h-8 w-8" />
-          <div className="text-xl font-auxMono  uppercase">
+          <div className="text-[1rem] md:text-xl font-auxMono  uppercase">
             <h1>{props.name}</h1>
           </div>
         </div>
