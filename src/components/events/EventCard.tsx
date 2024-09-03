@@ -10,6 +10,8 @@ import { GrGroup } from "react-icons/gr";
 import { eventType } from "@/constants/types/types";
 import Link from "next/link";
 import { FRONTEND_URL } from "@/constants/routes";
+import { IoMdArrowUp } from "react-icons/io";
+import { IoArrowForwardOutline } from "react-icons/io5";
 const EventCard = ({ data }: { data: eventType }) => {
   const startDate = new Date(data.startDate);
   const endDate = new Date(data.endDate);
@@ -26,59 +28,74 @@ const EventCard = ({ data }: { data: eventType }) => {
 
   return (
     <Link href={`/events/${data.id}`} className="w-full">
-      <BorderBox className=" px-6 py-10 w-[90%] mx-auto flex items-start justify-between gap-8 group">
+      <BorderBox className="md:px-6 md:py-10 p-0 w-[90%] mx-auto flex flex-col md:flex-row items-start md:justify-between gap-4 md:gap-8 group border-primary md:border-outline">
         <Image
-          className="w-[17%] aspect-square border-[1px] border-black"
+          className="w-full md:w-[17%] aspect-square border-[1px] border-black"
           src={data.display}
           alt=""
           width={1000}
           height={1000}
         />
-        <section className="--main flex flex-col font-auxMono w-full">
-          <h1 className="text-3xl">{data.name}</h1>
-          <p className="text-primary text-[1rem]">{data.tagline}</p>
-          <div className="w-[40%] h-[2px] bg-outline my-2 mb-4"></div>
-          <div className="w-full flex items-start gap-4">
-            <span className="--winning-prize-box flex items-center gap-2 text-[#080C0B60] border-[2px] border-outline rounded-sm px-2 py-1 min-w-fit">
-              <Image
-                src={svgs.Trophy}
-                alt=""
-                width={60}
-                height={60}
-                className="w-4 h-auto"
-              />
-              <p className="text-sm">1,00,000</p>
-            </span>
-            <p className="text-black/60">{data.description}</p>
+        <section className="--main flex flex-col font-auxMono w-full ">
+          <div className="px-3 md:px-0">
+            <h1 className="text-xl md:text-3xl uppercase w-full">
+              {data.name}
+            </h1>
+            <p className="text-primary text-xs md:text-[1rem]">
+              {data.tagline}
+            </p>
+            <div className="w-full md:w-[40%] h-[1px] md:h-[2px] bg-outline my-2 mb-4"></div>
+            <div className="w-full flex flex-col md:flex-row items-start gap-4">
+              <span className="--winning-prize-box flex items-center gap-2 text-[#080C0B60] border-[2px] border-outline rounded-sm px-2 py-1 min-w-fit">
+                <Image
+                  src={svgs.Trophy}
+                  alt=""
+                  width={60}
+                  height={60}
+                  className="w-4 h-auto"
+                />
+                <p className="text-sm">1,00,000</p>
+              </span>
+              <p className="text-black/60 text-xs md:text-[1rem]">
+                {data.description}
+              </p>
+            </div>
           </div>
-          <div className="w-full bg-primaryLight flex items-center justify-between mt-6 font-auxMono">
-            <span className="text-sm text-black flex items-center gap-2 p-4 px-6 flex-grow justify-center">
-              <CiClock2 size={18} />
+          <div className="w-full h-16 bg-primaryLight flex items-center justify-between mt-6 font-auxMono ">
+            <span className="h-16 text-sm text-black  items-center gap-2 p-4 px-6 flex-grow justify-center hidden md:flex">
+              <CiClock2 className="text-[1rem]" />
               <p>
                 {startTime} - {endTime}
               </p>
             </span>
-            <span className="text-sm text-black flex items-center gap-2 p-4 px-6 border-x-[1px] border-primary flex-grow justify-center">
-              <CiCalendar size={18} />
-              <p>
-                {startDate.getDate()}{" "}
-                {startDate.toLocaleString("default", { month: "short" })} -{" "}
-                {endDate.getDate()}{" "}
-                {endDate.toLocaleString("default", { month: "short" })}
+            <span className="h-16 text-xs md:text-sm text-black flex items-center gap-2 p-4 px-2 md:px-6 border-r-[1px] md:border-x-[1px] border-primary flex-grow justify-center ">
+              <CiCalendar className="text-lg md:text-[1rem]" />
+              <p className="flex gap-1 flex-col md:flex-row">
+                <span>
+                  {startDate.getDate()}{" "}
+                  {startDate.toLocaleString("default", { month: "short" })} -{" "}
+                </span>
+                <span>
+                  {endDate.getDate()}{" "}
+                  {endDate.toLocaleString("default", { month: "short" })}
+                </span>
               </p>
             </span>
-            <span className="text-sm text-black flex items-center gap-2 p-4 px-6 flex-grow justify-center">
-              <GrGroup size={18} />
+            <span className="text-xs md:text-sm text-black flex items-center gap-2 p-4 px-2 md:px-6 border-r-[1px] border-primary flex-grow justify-center h-full">
+              <GrGroup className="text-[1rem]" />
               <p>{data.teamSize}</p>
             </span>
-            <span className="text-sm text-black flex items-center gap-2 p-4 px-6 border-l-[1px] border-primary flex-grow justify-center">
-              <MdOutlineCurrencyRupee size={18} />
-              <p>{data.price}</p>
+            <span className="text-xs md:text-sm text-black flex items-center gap-2 p-4 px-2 md:px-6  border-primary flex-grow justify-center">
+              <MdOutlineCurrencyRupee className="text-[1rem]" />
+              <p>{data.price}/-</p>
             </span>
           </div>
         </section>
 
-        <div className=" text-[#0C5EFF] text-6xl cursor-pointer w-[10%] group-hover:opacity-100 opacity-0 transition-all duration-200 ease-linear">
+        <div className="bg-primaryLight border-[1px] border-primaryLight rounded-full p-2 -rotate-[45deg] absolute top-4 right-4 md:hidden">
+          <IoArrowForwardOutline />
+        </div>
+        <div className=" text-[#0C5EFF] text-6xl cursor-pointer w-[10%] group-hover:opacity-100 opacity-0 transition-all duration-200 ease-linear hidden md:block">
           <Image
             src={svgs.ArrowRedirect}
             alt=""

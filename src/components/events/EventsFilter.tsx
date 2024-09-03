@@ -20,11 +20,14 @@ const EventsFilter = () => {
     };
   }, [temp]);
   return (
-    <div className="w-[90%] mx-auto border-x-[1px] border-outline pt-16 py-8 flex items-start justify-between">
-      <div className="relative w-[35%]">
+    <div
+      className="w-[90%] mx-auto border-x-[1px] border-outline pt-16 py-8 flex items-start justify-between"
+      id="eventFilter"
+    >
+      <div className="relative w-[70%] md:w-[35%]">
         <input
           type="text"
-          className="text-sm font-auxMono text-black border-[1px] border-black pl-8 pr-2 py-1 rounded-none focus:outline-none w-full active:outline-none placeholder:text-black h-8"
+          className="text-xs md:text-sm font-auxMono text-black border-[1px] border-r-0 md:border-r-[1px] border-black pl-8 pr-2 py-1 rounded-none focus:outline-none w-full active:outline-none placeholder:text-black h-8"
           placeholder="SEARCH"
           value={temp}
           onChange={(e) => {
@@ -41,9 +44,11 @@ const EventsFilter = () => {
           }}
         ></div>
       )}
-      <div className={cn("relative w-[12%]", isMenuOpen && "z-[2100]")}>
+      <div
+        className={cn("relative w-[50%] md:w-[12%]", isMenuOpen && "z-[2100]")}
+      >
         <button
-          className="p-1 px-4 font-auxMono text-sm text-black  border-[1px] border-black relative flex items-center gap-8 w-full h-8"
+          className="p-1 px-4 font-auxMono text-xs md:text-sm text-black  border-[1px] border-black relative flex items-center gap-8 w-full h-8"
           onClick={() => {
             setIsMenuOpen(!isMenuOpen);
           }}
@@ -56,7 +61,7 @@ const EventsFilter = () => {
             {["All", "Workshop", "Competition", "Hackathon"].map(
               (item, index) => (
                 <button
-                  className="text-sm font-auxMono hover:bg-primary/20 py-1 text-left pl-4 bg-white uppercase"
+                  className="text-xs md:text-sm font-auxMono hover:bg-primary/20 py-1 text-left pl-4 bg-white uppercase"
                   key={index}
                   onClick={() => {
                     if (item === "All") {

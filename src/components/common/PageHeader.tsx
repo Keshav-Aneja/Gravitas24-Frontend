@@ -23,7 +23,7 @@ export const PageHeader = ({
       <span className="w-[90%] h-[0.5rem] lg:h-[2rem] mx-auto border-x-[1px] border-outline"></span>
       <div className="w-full border-y-[1px] border-outline">
         <BorderBox className="border-y-0 w-[90%] mx-auto">
-          <h1 className="text-6xl lg:text-9xl text-white  text-center">
+          <h1 className="text-5xl lg:text-9xl text-white  text-center">
             {title}
           </h1>
         </BorderBox>

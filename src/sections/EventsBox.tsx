@@ -31,11 +31,11 @@ const EventsBox = () => {
   }, [currentPage, query, eventType]);
 
   return (
-    <div className="w-full border-y-[1px] border-outline flex flex-col">
+    <div className="w-full border-y-[1px] border-outline flex flex-col gap-4 md:gap-0">
       {loading &&
         [1, 2, 3, 4, 5].map((data) => <EventCardSkeleton key={data} />)}
       {!loading && events.length === 0 && (
-        <p className="text-xl text-red-500 font-auxMono text-center py-6">
+        <p className="text-[1rem] md:text-xl text-red-500 font-auxMono text-center py-6">
           No Matched Events found!
         </p>
       )}
