@@ -14,7 +14,7 @@ const SocialsCard = (props: Props) => {
   return (
     <BorderBox
       className={cn(
-        "bg-base relative flex hover:bg-primary hover:text-white group transition-all duration-200 ease-linear flex-col justify-center items-center max-w-full w-full aspect-square max-h-full ",
+        "bg-base relative flex hover:bg-[#121212] hover:text-white group transition-all duration-200 ease-linear flex-col justify-center items-center max-w-full w-full aspect-square max-h-full ",
         props.className
       )}
     >

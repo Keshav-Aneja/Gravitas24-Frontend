@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import images from "@/constants/images";
 import Link from "next/link";
@@ -13,8 +13,18 @@ import {
 } from "@/constants/routes";
 import { AiOutlineMenu } from "react-icons/ai";
 import { IoMdClose } from "react-icons/io";
+import ValidateToken from "@/lib/ValidateToken";
 const Navbar = () => {
   const [openMenu, setOpenMenu] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  useEffect(() => {
+    const verification = ValidateToken();
+    if (!verification) {
+      setIsLoggedIn(false);
+    } else {
+      setIsLoggedIn(true);
+    }
+  }, []);
   return (
     <div className="w-full border-y-[1px] border-outline h-[3rem] md:h-[4rem] sticky top-0 left-0 z-[2000] bg-white/50 backdrop-blur-xl">
       <div className="w-full lg:w-[90%] mx-auto grid grid-cols-4 lg:grid-cols-5 h-full">
@@ -75,11 +85,20 @@ const Navbar = () => {
             </Link>
           </span>
 
-          <Button className="z-0 --event-button mr-8">
-            <a href={AUTH_PAGE}>
-              <span className="text-nowrap">SIGN-IN</span>
-            </a>
-          </Button>
+          {!isLoggedIn && (
+            <Link href={AUTH_PAGE}>
+              <Button className="z-0 --event-button mr-8">
+                <span className="text-nowrap">SIGN-IN</span>
+              </Button>
+            </Link>
+          )}
+          {isLoggedIn && (
+            <Link href={AUTH_PAGE}>
+              <Button className="z-0 --event-button mr-8">
+                <span className="text-nowrap">Profile</span>
+              </Button>
+            </Link>
+          )}
 
           <span className="w-[6px] h-[6px] bg-outline absolute -bottom-[3px] -right-[3px]"></span>
         </section>
