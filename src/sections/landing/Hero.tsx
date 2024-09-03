@@ -9,7 +9,7 @@ import { EVENT_PAGE, MERCH_PAGE } from "@/constants/routes";
 export default function Hero() {
   return (
     <div
-      className="w-full overflow-x-hidden relative"
+      className="w-full overflow-x-hidden relative hidden md:block"
       style={{ height: "calc(100vh-4.5rem)" }}
     >
       <Image

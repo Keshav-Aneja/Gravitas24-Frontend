@@ -35,7 +35,7 @@ export const PageHeader = ({
             innoVate. sustaIn. Transform
           </h1>
         </span>
-        <div className="w-[40%] bg-white h-2 md:h-3 absolute bottom-0 right-6 --clip-shape-pageheader-bottom"></div>
+        <div className="w-[25%] lg:w-[40%] bg-white h-2 md:h-3 absolute bottom-0 right-3 md:right-6 --clip-shape-pageheader-bottom"></div>
       </div>
       <div
         className="min-w-fit  h-4 md:h-6 absolute -bottom-4 md:-bottom-6 left-0 --clip-shape-pageheader-intro flex items-center justify-start pl-4 pr-8"

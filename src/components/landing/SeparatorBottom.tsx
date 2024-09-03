@@ -44,10 +44,7 @@ export default function SeparatorBottom() {
           <BorderBox className="py-5 border-x-0 w-full">
             <span className="flex items-center justify-center gap-6 text-2xl text-primary">
               <FaFacebook />
-              <a
-                href="https://www.instagram.com/vitgravitas?igsh=MW5veTY4NjJvbmpqcg=="
-                target="_blank"
-              >
+              <a href="https://www.instagram.com/vitgravitas?igsh=MW5veTY4NjJvbmpqcg==">
                 <FaInstagram />
               </a>
               <a

@@ -11,7 +11,9 @@ import Footer from "@/sections/landing/Footer";
 import AboutVIT from "@/sections/landing/AboutVIT";
 import { ReactLenis } from "@studio-freight/react-lenis";
 import { useEffect, useRef } from "react";
-
+import Image from "next/image";
+import images from "@/constants/images";
+import MiniHero from "@/sections/landing/MiniHero";
 export default function Home() {
   return (
     <main className="bg-base w-full pb-6">
@@ -25,6 +27,7 @@ export default function Home() {
           orientation: "vertical",
         }}
       >
+        <MiniHero />
         <Hero />
         <Timer />
         <AboutGravitas />

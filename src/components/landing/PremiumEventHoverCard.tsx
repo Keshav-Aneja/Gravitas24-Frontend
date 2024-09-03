@@ -19,7 +19,7 @@ const PremiumEventHoverCard = ({
   return (
     <div
       className={cn(
-        "p-6 border-[1px] bg-base border-black relative flex flex-col justify-between min-h-80 hover:bg-primary hover:text-white text-black transition-all duration-200 ease-linear group hover:translate-y-[30px] cursor-pointer",
+        "p-3 md:p-6 border-[1px] bg-base border-black relative flex flex-col justify-between min-h-80 hover:bg-primary hover:text-white text-black transition-all duration-200 ease-linear group md:hover:translate-y-[30px] cursor-pointer",
         className
       )}
     >
@@ -29,7 +29,9 @@ const PremiumEventHoverCard = ({
           alt=""
           width={200}
           height={200}
-          className={cn("w-10 h-auto hidden group-hover:block ")}
+          className={cn(
+            "w-6 md:w-10 h-auto invert group-hover:invert-0 md:invert-0  md:hidden group-hover:block "
+          )}
         />
         <Image
           src={icon}
@@ -37,16 +39,18 @@ const PremiumEventHoverCard = ({
           width={200}
           height={200}
           className={cn(
-            "w-12 h-auto group-hover:invert ",
+            "w-6 md:w-12 h-auto group-hover:invert ",
             title === "Workshops" && "invert group-hover:invert-0"
           )}
         />
       </div>
       <div className="flex flex-col gap-4">
-        <div className="text-2xl font-auxMono font-medium">
+        <div className="text-[1rem] md:text-2xl font-auxMono font-medium select-none">
           <h1>{title}</h1>
         </div>
-        <p className="font-ibmPlex hidden group-hover:block">{description}</p>
+        <p className="font-ibmPlex hidden group-hover:block text-xs md:text-[1rem] select-none">
+          {description}
+        </p>
       </div>
       <span
         className={cn(
