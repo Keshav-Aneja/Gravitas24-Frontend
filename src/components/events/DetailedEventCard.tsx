@@ -8,9 +8,6 @@ import React, {
 } from "react";
 import BorderBox from "../common/BorderBox";
 import Image from "next/image";
-import images from "@/constants/images";
-import { RiArrowRightUpLine, RiTeamLine } from "react-icons/ri";
-import { svgs } from "@/constants/svgs";
 import { CiCalendar, CiClock2 } from "react-icons/ci";
 import { MdOutlineCurrencyRupee } from "react-icons/md";
 import { GrCaretDown, GrGroup } from "react-icons/gr";
@@ -18,9 +15,10 @@ import { BiCaretDown } from "react-icons/bi";
 import { getEventDetails } from "@/services/event.service";
 import { eventType, slotType } from "@/constants/types/types";
 import { cn } from "@/lib/utils";
-import { EVENT_PAGE } from "@/constants/routes";
-import Link from "next/link";
-import DetailedEventCardSkeleton from "./DetailedEventCardSkeleton";
+import Cookie from 'js-cookie';
+import axiosInstance from "@/config/axios";
+import { CreateTransactionResponse } from "@/constants/types/transaction";
+
 const DetailedEventCard = ({
   id,
   setEventName,
@@ -49,6 +47,40 @@ const DetailedEventCard = ({
   }, []);
   if (!eventDetails) {
     return null;
+  }
+
+  const registerEvent = async () => {
+    console.log("Registering event");
+    const token = Cookie.get("access_token");
+    console.log(token)
+    const payload = {
+      "event_id": eventDetails.id,
+      "event_slot_id": selectedSlot
+    }
+    try {
+      const response = await axiosInstance.post("/registration/start", payload)
+      const data = response.data as CreateTransactionResponse
+      const transactionFormData = data.data
+      const form = document.createElement("form");
+      form.method = "POST";
+      form.action = "https://events.vit.ac.in/events/GRV24/cnfpay"
+      form.target = "_blank"
+      for (const [key, value] of Object.entries(transactionFormData)) {
+        const input = document.createElement("input")
+        input.type = "hidden"
+        input.name =  key
+        input.value = value as string
+        form.appendChild(input)
+      }
+      document.body.appendChild(form)
+      form.submit()
+    } catch (err: unknown){
+      if (err instanceof Error){
+        // TOASTER
+        console.log(err.message)
+      }
+      console.log("An error occured. Kindly contact the admin.")
+    }
   }
 
   return (
@@ -155,7 +187,7 @@ const DetailedEventCard = ({
             </p>
           )}
         </span>
-        <button className="text-white bg-primary h-full flex-grow p-4 px-8">
+        <button className="text-white bg-primary h-full flex-grow p-4 px-8" onClick={registerEvent}>
           REGISTER
         </button>
       </div>
