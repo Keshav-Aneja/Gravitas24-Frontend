@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import Image from "next/image";
 import images from "@/constants/images";
 import Link from "next/link";
@@ -11,7 +12,9 @@ import {
   TEAM_PAGE,
 } from "@/constants/routes";
 import { AiOutlineMenu } from "react-icons/ai";
+import { IoMdClose } from "react-icons/io";
 const Navbar = () => {
+  const [openMenu, setOpenMenu] = useState(false);
   return (
     <div className="w-full border-y-[1px] border-outline h-[3rem] md:h-[4rem] sticky top-0 left-0 z-[2000] bg-white/50 backdrop-blur-xl">
       <div className="w-full lg:w-[90%] mx-auto grid grid-cols-4 lg:grid-cols-5 h-full">
@@ -80,8 +83,68 @@ const Navbar = () => {
 
           <span className="w-[6px] h-[6px] bg-outline absolute -bottom-[3px] -right-[3px]"></span>
         </section>
-        <section className="w-full col-span-1 flex items-center justify-end text-3xl lg:hidden pr-4">
-          <AiOutlineMenu />
+        <section
+          className="w-full col-span-1 flex items-center justify-end text-3xl lg:hidden pr-4"
+          onClick={() => {
+            setOpenMenu(!openMenu);
+          }}
+        >
+          {!openMenu && <AiOutlineMenu />}
+          {openMenu && <IoMdClose />}
+          {openMenu && (
+            <div className="w-full flex flex-col items-start p-12 gap-8 text-xl font-auxMono h-screen bg-white fixed top-12 right-0">
+              <span className="w-full flex flex-col gap-2">
+                <Link
+                  href={TEAM_PAGE}
+                  className="hover:text-primary text-black"
+                >
+                  Team
+                </Link>
+                <div className="w-full h-[1px] bg-gray-300 relative">
+                  <div className="w-2 h-2 bg-gray-300 absolute -top-1 left-0"></div>
+                  <div className="w-2 h-2 bg-gray-300 absolute -top-1 right-0"></div>
+                </div>
+              </span>
+              <span className="w-full flex flex-col gap-2">
+                <Link href={FAQ_PAGE} className="hover:text-primary text-black">
+                  FAQs
+                </Link>
+                <div className="w-full h-[1px] bg-gray-300 relative">
+                  <div className="w-2 h-2 bg-gray-300 absolute -top-1 left-0"></div>
+                  <div className="w-2 h-2 bg-gray-300 absolute -top-1 right-0"></div>
+                </div>
+              </span>{" "}
+              <span className="w-full flex flex-col gap-2">
+                <Link
+                  href={MERCH_PAGE}
+                  className="hover:text-primary text-black"
+                >
+                  Merch
+                </Link>
+                <div className="w-full h-[1px] bg-gray-300 relative">
+                  <div className="w-2 h-2 bg-gray-300 absolute -top-1 left-0"></div>
+                  <div className="w-2 h-2 bg-gray-300 absolute -top-1 right-0"></div>
+                </div>
+              </span>{" "}
+              <span className="w-full flex flex-col gap-2">
+                <Link
+                  href={EVENT_PAGE}
+                  className="hover:text-primary text-black"
+                >
+                  Events
+                </Link>
+                <div className="w-full h-[1px] bg-gray-300 relative">
+                  <div className="w-2 h-2 bg-gray-300 absolute -top-1 left-0"></div>
+                  <div className="w-2 h-2 bg-gray-300 absolute -top-1 right-0"></div>
+                </div>
+              </span>
+              <Button className="z-0 --event-button-2 w-full">
+                <a href={AUTH_PAGE}>
+                  <span className="text-nowrap text-[1rem]">SIGN-IN</span>
+                </a>
+              </Button>
+            </div>
+          )}
         </section>
       </div>
     </div>
