@@ -5,14 +5,16 @@ import React from "react";
 
 const PremiumEvents = () => {
   return (
-    <div className="w-[90%] mx-auto pt-28 flex flex-col gap-20">
+    <div className="w-[90%] mx-auto pt-28 flex flex-col gap-12 md:gap-20">
       <span className="flex flex-col gap-1">
-        <h1 className="font-clash text-6xl font-semibold">Events</h1>
-        <p className="text-3xl text-main font-auxMono text-primary">
+        <h1 className="font-clash text-4xl md:text-6xl font-semibold">
+          Events
+        </h1>
+        <p className="text-xl md:text-3xl text-main font-auxMono text-primary">
           Premium Events
         </p>
       </span>
-      <section className="w-full grid grid-cols-4 ">
+      <section className="w-full grid-cols-4 hidden md:grid">
         <PremiumEventHoverCard
           title="Hackathons"
           icon={svgs.IconDiamond}
@@ -39,6 +41,39 @@ const PremiumEvents = () => {
           description="Get ready to level up and dive into our games events, where epic battles and fun await at every turn!"
           icon={svgs.IconPuzzle}
         />
+      </section>
+      <section className="w-full flex items-start md:hidden">
+        <div className="w-1/2 flex flex-col">
+          <PremiumEventHoverCard
+            title="Hackathons"
+            icon={svgs.IconDiamond}
+            description="Code, create, and innovate—join the hackathon and make something great!"
+            className="w-full  min-h-52"
+          />
+          <PremiumEventHoverCard
+            className="relative w-full min-h-52"
+            title="Workshops"
+            description="Get your hands dirty and your brain buzzing—join our workshop and
+          learn something new!"
+            icon={svgs.IconCog}
+          />
+        </div>
+
+        <div className="w-1/2 flex flex-col relative top-20">
+          <PremiumEventHoverCard
+            className=" min-h-52"
+            title="Tech-events"
+            description="Unleash your tech-genius at our epic technical events."
+            icon={svgs.IconBulb}
+          />
+
+          <PremiumEventHoverCard
+            className="min-h-52"
+            title="Games"
+            description="Get ready to level up and dive into our games events, where epic battles and fun await at every turn!"
+            icon={svgs.IconPuzzle}
+          />
+        </div>
       </section>
     </div>
   );

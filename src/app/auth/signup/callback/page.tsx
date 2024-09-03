@@ -2,7 +2,7 @@
 
 import axios from "axios";
 import { useSearchParams } from "next/navigation";
-import { Suspense, useEffect, useState } from "react";
+import { Suspense } from "react";
 import Cookie from "js-cookie";
 import { useRouter } from "next/navigation";
 import { BACKEND_URL } from "@/constants/routes";
@@ -11,20 +11,13 @@ import ProfileBox from "@/sections/auth/ProfileBox";
 function SignupCallback() {
   const params = useSearchParams();
   const token = params.get("token");
-  const [phoneNumber, setPhoneNumber] = useState("");
   const router = useRouter();
-  // useEffect(() => {}, [token]);
-  const handlePhoneNumberChange = (
-    event: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    setPhoneNumber(event.target.value);
-  };
 
-  const handleSignUp = async () => {
+  const handleSignUp = async (phoneNumber: number) => {
     const response = await axios.post(
-      `${BACKEND_URL}auth/vit/signup`,
+      `${BACKEND_URL}/auth/vit/signup`,
       {
-        phoneNumber,
+        phoneNumber: phoneNumber.toString(),
       },
       {
         headers: {

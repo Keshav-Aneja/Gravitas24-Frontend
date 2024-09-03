@@ -30,8 +30,8 @@ const FAQItem: React.FC<FAQListProps> = ({
       className={cn(
         `w-full p-4 lg:p-6 font-manrope border-y-[1px] bg-white dark:bg-dark_comp border-outline ${
           openItem === index
-            ? `${styleClass ?? "h-32"}`
-            : "h-16 md:h-20 overflow-hidden"
+            ? `${styleClass ?? "h-40"}`
+            : "h-24  md:h-24 overflow-hidden"
         } transition-height duration-200`,
         condition
       )}
@@ -44,7 +44,7 @@ const FAQItem: React.FC<FAQListProps> = ({
       }}
     >
       <div
-        className={`text-xs md:text-[1rem] lg:text-lg flex justify-between cursor-pointer`}
+        className={`text-xs md:text-[1rem] lg:text-lg flex justify-between cursor-pointer items-start`}
       >
         <div className="flex gap-6 items-center">
           <p className="font-auxMono uppercase">{que}</p>

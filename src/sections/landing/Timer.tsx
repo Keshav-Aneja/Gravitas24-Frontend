@@ -54,57 +54,57 @@ const Timer = () => {
     if (timeLeft.days > 0) {
       return (
         <>
-          <span className="text-3xl font-auxMono text-center">
+          <span className="text-xl md:text-3xl font-auxMono text-center">
             <h1>{timeLeft.days.toString().padStart(2, "0")}</h1>
-            <p className="text-xl">DAYS</p>
+            <p className="text-sm md:text-lg lg:text-xl">DAYS</p>
           </span>
           <p>:</p>
-          <span className="text-3xl font-auxMono text-center">
+          <span className="text-xl md:text-3xl font-auxMono text-center">
             <h1>{timeLeft.hours.toString().padStart(2, "0")}</h1>
-            <p className="text-xl">HOURS</p>
+            <p className="text-sm md:text-lg lg:text-xl">HOURS</p>
           </span>
           <p>:</p>
-          <span className="text-3xl font-auxMono text-center">
+          <span className="text-xl md:text-3xl font-auxMono text-center">
             <h1>{timeLeft.minutes.toString().padStart(2, "0")}</h1>
-            <p className="text-xl">MINS</p>
+            <p className="text-sm md:text-lg lg:text-xl">MINS</p>
           </span>
         </>
       );
     } else if (timeLeft.hours > 0) {
       return (
         <>
-          <span className="text-3xl font-auxMono text-center">
+          <span className="text-xl md:text-3xl font-auxMono text-center">
             <h1>{timeLeft.hours.toString().padStart(2, "0")}</h1>
-            <p className="text-xl">HOURS</p>
+            <p className="text-sm md:text-lg lg:text-xl">HOURS</p>
           </span>
           <p>:</p>
-          <span className="text-3xl font-auxMono text-center">
+          <span className="text-xl md:text-3xl font-auxMono text-center">
             <h1>{timeLeft.minutes.toString().padStart(2, "0")}</h1>
-            <p className="text-xl">MINS</p>
+            <p className="text-sm md:text-lg lg:text-xl">MINS</p>
           </span>
           <p>:</p>
-          <span className="text-3xl font-auxMono text-center">
+          <span className="text-xl md:text-3xl font-auxMono text-center">
             <h1>{timeLeft.seconds.toString().padStart(2, "0")}</h1>
-            <p className="text-xl">SECS</p>
+            <p className="text-sm md:text-lg lg:text-xl">SECS</p>
           </span>
         </>
       );
     } else {
       return (
         <>
-          <span className="text-3xl font-auxMono text-center">
+          <span className="text-xl md:text-3xl font-auxMono text-center">
             <h1>{timeLeft.minutes.toString().padStart(2, "0")}</h1>
-            <p className="text-xl">MINS</p>
+            <p className="text-sm md:text-lg lg:text-xl">MINS</p>
           </span>
           <p>:</p>
-          <span className="text-3xl font-auxMono text-center">
+          <span className="text-xl md:text-3xl font-auxMono text-center">
             <h1>{timeLeft.seconds.toString().padStart(2, "0")}</h1>
-            <p className="text-xl">SECS</p>
+            <p className="text-sm md:text-lg lg:text-xl">SECS</p>
           </span>
           <p>:</p>
-          <span className="text-3xl font-auxMono text-center">
+          <span className="text-xl md:text-3xl font-auxMono text-center">
             <h1>{timeLeft.milliseconds?.toString().padStart(2, "0")}</h1>
-            <p className="text-xl">MS</p>
+            <p className="text-sm md:text-lg lg:text-xl">MS</p>
           </span>
         </>
       );
@@ -112,27 +112,30 @@ const Timer = () => {
   };
 
   return (
-    <div className="w-full bg-primary flex flex-col gap-8 pb-8 relative">
+    <div className="w-full bg-primary flex flex-col gap-4 md:gap-8 pb-8 relative z-[200]">
       <section className="w-[90%] mx-auto grid grid-cols-5 grid-rows-3">
-        <span className="border-x-[1px] border-outline border-t-0 relative">
-          <div className="bg-base w-full h-[30px] clip-rect-1 relative -top-1"></div>
+        <span className="lg:border-x-[1px]  border-outline border-t-0 relative">
+          <div className="bg-base w-full h-4 md:h-[30px] clip-rect-1 relative -top-1"></div>
         </span>
-        <span className="border-x-[1px] border-l-0 border-outline border-t-0 relative">
-          <div className="bg-base w-full h-[30px] clip-rect-1 scale-x-[-1] relative -top-1"></div>
+        <span>
+          <div className="bg-base w-full h-4 md:h-[30px] relative -top-1 md:hidden"></div>
+          <div className="bg-base w-full h-4 md:h-[30px] clip-rect-1 scale-x-[-1] relative -top-1 hidden md:block"></div>
         </span>
-        <span className="border-x-[1px] border-outline" />
-        <span />
-        <span className="border-x-[1px] border-outline" />
-        <span className="border-l-[1px] border-b-[1px] border-outline" />
-        <BorderBox className="--timeline col-span-3 bg-black text-white w-full py-3 mx-auto flex items-center justify-center gap-8 text-3xl">
+        <span className="lg:border-x-[1px] border-l-0 border-outline border-t-0 relative ">
+          <div className="bg-base w-full h-4 md:h-[30px] clip-rect-1 scale-x-[-1] relative -top-1 md:hidden"></div>
+        </span>
+        <span className="border-x-[1px] hidden lg:block border-outline" />
+        <span className="border-x-[1px] hidden lg:block border-outline" />
+        <span className="border-l-[1px] hidden lg:block border-b-[1px] border-outline" />
+        <BorderBox className="--timeline col-span-5 lg:col-span-3 bg-black text-white w-full py-3 mx-auto flex items-center justify-center gap-8 text-xl lg:text-3xl -mt-4 md:mt-0">
           {renderTime()}
         </BorderBox>
-        <span className="border-r-[1px] border-b-[1px] border-outline" />
-        <span className="col-span-5 border-[1px] border-t-0 border-outline flex items-center justify-center py-4 relative">
-          <span className="w-[6px] h-[6px] bg-outline absolute -top-[3px] -right-[3px]"></span>
-          <span className="w-[6px] h-[6px] bg-outline absolute -top-[3px] -left-[3px]"></span>
-          <h1 className="text-7xl font-aldrich font-semibold text-white text-center">
-            &lt;UNLEASH THE GENIUS/&gt;
+        <span className="hidden lg:block border-r-[1px] border-b-[1px] border-outline" />
+        <span className="col-span-5 lg:border-[1px] border-t-0 border-outline flex items-center justify-center py-4 relative">
+          <span className="hidden lg:block w-[6px] h-[6px] bg-outline absolute -top-[3px] -right-[3px]"></span>
+          <span className="hidden lg:block w-[6px] h-[6px] bg-outline absolute -top-[3px] -left-[3px]"></span>
+          <h1 className="text-2xl md:text-4xl lg:text-7xl font-aldrich font-medium md:font-semibold text-white text-center">
+            &lt;reVITalizeyourself!/&gt;
           </h1>
         </span>
       </section>
