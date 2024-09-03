@@ -4,8 +4,15 @@ import Image from "next/image";
 import images from "@/constants/images";
 import { merchType } from "@/constants/types/types";
 import Link from "next/link";
+import { cn } from "@/lib/utils";
 
-const MerchCard = ({ data }: { data: merchType }) => {
+const MerchCard = ({
+  data,
+  purchased,
+}: {
+  data: merchType;
+  purchased?: boolean;
+}) => {
   return (
     <BorderBox
       classNameSquares="bg-primary"
@@ -25,7 +32,10 @@ const MerchCard = ({ data }: { data: merchType }) => {
 
           <Link
             href={`/merch/${data.id}`}
-            className="bg-primaryLight w-full flex items-center justify-center text-black"
+            className={cn(
+              "bg-primaryLight w-full flex items-center justify-center text-black",
+              purchased && "bg-[#9ebfff]"
+            )}
           >
             Know More
           </Link>

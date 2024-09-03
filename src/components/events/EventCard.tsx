@@ -12,7 +12,15 @@ import Link from "next/link";
 import { FRONTEND_URL } from "@/constants/routes";
 import { IoMdArrowUp } from "react-icons/io";
 import { IoArrowForwardOutline } from "react-icons/io5";
-const EventCard = ({ data }: { data: eventType }) => {
+import { cn } from "@/lib/utils";
+import { register } from "module";
+const EventCard = ({
+  data,
+  registered,
+}: {
+  data: eventType;
+  registered?: boolean;
+}) => {
   const startDate = new Date(data.startDate);
   const endDate = new Date(data.endDate);
   const startTime = startDate.toLocaleTimeString([], {
@@ -61,7 +69,12 @@ const EventCard = ({ data }: { data: eventType }) => {
               </p>
             </div>
           </div>
-          <div className="w-full h-16 bg-primaryLight flex items-center justify-between mt-6 font-auxMono ">
+          <div
+            className={cn(
+              "w-full h-16 bg-primaryLight flex items-center justify-between mt-6 font-auxMono ",
+              registered && "bg-[#9ebfff]"
+            )}
+          >
             <span className="h-16 text-sm text-black  items-center gap-2 p-4 px-6 flex-grow justify-center hidden md:flex">
               <CiClock2 className="text-[1rem]" />
               <p>
