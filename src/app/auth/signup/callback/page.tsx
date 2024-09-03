@@ -22,7 +22,7 @@ function SignupCallback() {
 
   const handleSignUp = async () => {
     const response = await axios.post(
-      `${BACKEND_URL}/auth/vit/signup`,
+      `${BACKEND_URL}auth/vit/signup`,
       {
         phoneNumber,
       },
