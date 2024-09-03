@@ -2,8 +2,11 @@ import React from "react";
 import Marquee from "react-fast-marquee";
 import GalleryImageCard from "@/components/landing/galleryImageCard";
 import images from "@/constants/images";
+import {galleryTopImages, galleryBottomImages} from "@/constants/galleryImages";
 
 const Gallery = () => {
+  const imagesT = galleryTopImages; 
+  const imagesB = galleryBottomImages;
   return (
     <>
       <Marquee
@@ -19,13 +22,13 @@ const Gallery = () => {
       </Marquee>
       <div className="py-4 pt-16">
         <section className="w-full flex flex-row overflow-x-auto items-center justify-center gap-4">
-          <GalleryImageCard image={images.image1} />
-          <GalleryImageCard image={images.image1} />
-          <GalleryImageCard image={images.image1} />
-          <GalleryImageCard image={images.image1} />
-          <GalleryImageCard image={images.image1} />
-          <GalleryImageCard image={images.image1} />
-          <GalleryImageCard image={images.image1} />
+          <GalleryImageCard image={imagesT["1"]} />
+          <GalleryImageCard image={imagesT["2"]} />
+          <GalleryImageCard image={imagesT["3"]} />
+          <GalleryImageCard image={imagesT["4"]} />
+          <GalleryImageCard image={imagesT["5"]} />
+          <GalleryImageCard image={imagesT["6"]} />
+          <GalleryImageCard image={imagesT["7"]} />
         </section>
       </div>
       <Marquee
@@ -45,13 +48,13 @@ const Gallery = () => {
       </Marquee>
       <div className="pt-4">
         <section className="w-full overflow-x-auto flex flex-row items-center justify-center gap-4">
-          <GalleryImageCard top={false} image={images.image1} />
-          <GalleryImageCard top={false} image={images.image1} />
-          <GalleryImageCard top={false} image={images.image1} />
-          <GalleryImageCard top={false} image={images.image1} />
-          <GalleryImageCard top={false} image={images.image1} />
-          <GalleryImageCard top={false} image={images.image1} />
-          <GalleryImageCard top={false} image={images.image1} />
+          <GalleryImageCard top={false} image={imagesB["1"]} />
+          <GalleryImageCard top={false} image={imagesB["2"]} />
+          <GalleryImageCard top={false} image={imagesB["3"]} />
+          <GalleryImageCard top={false} image={imagesB["4"]} />
+          <GalleryImageCard top={false} image={imagesB["5"]} />
+          <GalleryImageCard top={false} image={imagesB["6"]} />
+          <GalleryImageCard top={false} image={imagesB["7"]} />
         </section>
       </div>
     </>

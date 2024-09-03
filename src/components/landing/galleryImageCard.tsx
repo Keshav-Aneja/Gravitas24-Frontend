@@ -1,7 +1,7 @@
 import Image, { StaticImageData } from "next/image";
 
 type Props = {
-  image: StaticImageData;
+  image: StaticImageData | string;
   top?: boolean;
 };
 
