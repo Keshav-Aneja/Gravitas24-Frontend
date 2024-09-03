@@ -32,28 +32,28 @@ export default function SeparatorBottom2() {
   }/${date.getFullYear()}`;
 
   return (
-    <div className="grid grid-cols-5 h-28 w-[90%] mx-auto">
-      <span className="border-x-[1px] h-full">
+    <div className="grid grid-cols-4 md:grid-cols-5 h-fit md:h-28 w-[90%] mx-auto ">
+      <span className="md:border-x-[1px] h-full col-span-2 md:col-span-1">
         <div className="w-full h-full mt-6">
-          <span className="relative w-full h-full text-primaryLight font-auxMono text-sm flex flex-col items-center justify-center">
+          <span className="relative w-full h-full text-primaryLight font-auxMono text-[0.6rem] font-semibold md:text-sm flex flex-col items-center justify-center ">
             <p>{ipAddress} IPV4</p>
             <p>632014 // VELLORE</p>
             <p>{formattedDate}</p>
-            <div className="w-10 h-2 bg-primary absolute top-0 left-0"></div>
-            <div className="w-2 h-4 bg-primary absolute top-0 left-0"></div>
-            <div className="w-2 h-4 bg-primary absolute top-0 right-0"></div>
-            <div className="w-2 h-4 bg-primary absolute bottom-0 left-0"></div>
-            <div className="w-2 h-4 bg-primary absolute bottom-0 right-0"></div>
-            <div className="w-10 h-2 bg-primary absolute top-0 right-0"></div>
-            <div className="w-10 h-2 bg-primary absolute bottom-0 left-0"></div>
-            <div className="w-10 h-2 bg-primary absolute bottom-0 right-0"></div>
+            <div className="w-10 h-1 md:h-2 bg-primary absolute top-0 left-0"></div>
+            <div className="w-1 md:w-2 h-4 bg-primary absolute top-0 left-0"></div>
+            <div className="w-1 md:w-2 h-4 bg-primary absolute top-0 right-0"></div>
+            <div className="w-1 md:w-2 h-4 bg-primary absolute bottom-0 left-0"></div>
+            <div className="w-1 md:w-2 h-4 bg-primary absolute bottom-0 right-0"></div>
+            <div className="w-10 h-1 md:h-2 bg-primary absolute top-0 right-0"></div>
+            <div className="w-10 h-1 md:h-2 bg-primary absolute bottom-0 left-0"></div>
+            <div className="w-10 h-1 md:h-2 bg-primary absolute bottom-0 right-0"></div>
           </span>
         </div>
       </span>
-      <span className="border-x-[1px]"></span>
-      <span className="border-x-[1px]"></span>
-      <span className="border-x-[1px]"></span>
-      <span className="border-x-[1px]"></span>
+      <span className="border-x-[1px] hidden md:block"></span>
+      <span className="border-x-[1px] hidden md:block"></span>
+      <span className="border-x-[1px] hidden md:block"></span>
+      <span className="border-x-[1px] hidden md:block"></span>
     </div>
   );
 }

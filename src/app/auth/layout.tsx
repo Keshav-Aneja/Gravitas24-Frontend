@@ -19,17 +19,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="w-full relative" style={{ height: "calc(100vh-4rem)" }}>
+    <div
+      className="w-full relative flex flex-col"
+      style={{ height: "calc(100vh-4rem)" }}
+    >
       <Separator />
-      <div className="grid grid-cols-5 w-[90%] mx-auto">
-        <span className="border-x-[1px] flex items-end col-span-1"></span>
+      <div className="grid grid-cols-5 w-[90%] mx-auto h-full">
+        <span className="border-x-[1px] items-end col-span-1 hidden md:flex"></span>
         <BorderBox
-          className="min-h-[500px] h-full col-span-3 col-start-2 border border-red-500 bg-white"
+          className="w-full min-h-[400px] h-full col-span-5 md:col-span-3 md:col-start-2 border border-red-500 bg-white"
           classNameSquares="bg-primary"
         >
           {children}
         </BorderBox>
-        <span className="border-x-[1px] col-span-1 col-start-5"></span>
+        <span className="border-x-[1px] col-span-1 col-start-5 hidden md:block"></span>
       </div>
       <SeparatorBottom2 />
     </div>
@@ -37,7 +40,7 @@ export default function RootLayout({
 }
 function Separator() {
   return (
-    <div className="grid grid-cols-5 h-24 w-[90%] mx-auto">
+    <div className="grid md:grid-cols-5 h-8 md:h-24 w-[90%] mx-auto">
       <span className="border-x-[1px]"></span>
       <span className="border-x-[1px]"></span>
       <span className="border-x-[1px]"></span>
