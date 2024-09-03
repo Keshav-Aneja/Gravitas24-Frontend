@@ -7,7 +7,7 @@ export const FAQBox = () => {
   const [openItem, setOpenItem] = useState(0);
   return (
     <div className="w-full  border-outline">
-      <div className="w-[90%] mx-auto border-[1px] border-outline flex flex-col py-12">
+      <div className="w-[90%] mx-auto border-[1px] border-outline flex flex-col py-6 lg:py-12">
         {faqData.map((faqItem, index) => (
           <FAQItem
             index={index}

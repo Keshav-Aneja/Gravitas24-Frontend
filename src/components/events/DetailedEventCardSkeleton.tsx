@@ -20,6 +20,7 @@ import { eventType, slotType } from "@/constants/types/types";
 import { cn } from "@/lib/utils";
 import { EVENT_PAGE } from "@/constants/routes";
 import Link from "next/link";
+import Skeleton from "../common/Skeleton";
 const DetailedEventCardSkeleton = () => {
   return (
     <BorderBox className=" py-10 w-full  flex flex-col gap-8 px-0">
@@ -189,13 +190,5 @@ function SlotBox({ data, setSlot, selectedSlot }: SlotProps) {
         {data.venue}
       </p>
     </button>
-  );
-}
-
-function Skeleton({ children }: { children: ReactNode }) {
-  return (
-    <div className="bg-gray-200 animate-pulse rounded-md">
-      <div className="opacity-0">{children}</div>
-    </div>
   );
 }

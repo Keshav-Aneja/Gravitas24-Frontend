@@ -132,7 +132,7 @@ const Timer = () => {
           <span className="w-[6px] h-[6px] bg-outline absolute -top-[3px] -right-[3px]"></span>
           <span className="w-[6px] h-[6px] bg-outline absolute -top-[3px] -left-[3px]"></span>
           <h1 className="text-7xl font-aldrich font-semibold text-white text-center">
-            &lt;UNLEASH THE GENIUS/&gt;
+            &lt;reVITalize yourself!/&gt;
           </h1>
         </span>
       </section>

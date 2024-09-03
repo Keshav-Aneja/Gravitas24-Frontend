@@ -69,21 +69,8 @@ const DetailedEventCard = ({
           />
         </div>
         <section className="--main flex flex-col font-auxMono w-full">
-          <div className="flex items-start justify-between pr-6">
-            <section className="">
-              <h1 className="text-4xl font-medium">{eventDetails.name}</h1>
-              <p className="text-primary text-lg">{eventDetails.club}</p>
-            </section>
-            <Link href={EVENT_PAGE}>
-              <Image
-                src={svgs.ArrowRedirect}
-                alt=""
-                width={200}
-                height={200}
-                className="w-10 h-auto float-end -rotate-[135deg]"
-              />
-            </Link>
-          </div>
+          <h1 className="text-4xl font-medium">{eventDetails.name}</h1>
+          <p className="text-primary text-lg">{eventDetails.club}</p>
           <div className="w-full h-[2px] bg-outline my-2 mb-4"></div>
           <section className=" flex items-center gap-0 min-w-fit text-xl">
             <MdOutlineCurrencyRupee size={20} />
