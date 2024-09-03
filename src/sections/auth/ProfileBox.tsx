@@ -25,9 +25,7 @@ const ProfileBox = ({ handleSignup }: { handleSignup: any }) => {
         className="z-0 --event-button"
         onClick={() => handleSignup(phoneNumber)}
       >
-        <a href={EVENT_PAGE}>
           <span>SUBMIT</span>
-        </a>
       </Button>
     </div>
   );

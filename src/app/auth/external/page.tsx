@@ -9,7 +9,7 @@ export default function Auth() {
         Get Started
       </p>
       <Link
-        href={`${BACKEND_URL}/auth/vit/google`}
+        href={`${BACKEND_URL}/auth/common/google`}
         className="bg-[#4285F4] py-2 w-[90%] md:w-[70%] flex items-center justify-center gap-6 rounded-md"
       >
         <Image

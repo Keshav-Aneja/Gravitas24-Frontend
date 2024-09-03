@@ -11,11 +11,16 @@ import ProfileBox from "@/sections/auth/ProfileBox";
 function SignupCallback() {
   const params = useSearchParams();
   const token = params.get("token");
+  const isVIT = params.get("isVIT")
   const router = useRouter();
 
   const handleSignUp = async (phoneNumber: number) => {
+    if (!token || !phoneNumber || !isVIT)  {
+      return;
+    }
+    const url = JSON.parse(isVIT) ? `${BACKEND_URL}/auth/vit/signup` : `${BACKEND_URL}/auth/common/signup`;
     const response = await axios.post(
-      `${BACKEND_URL}/auth/vit/signup`,
+      url,
       {
         phoneNumber: phoneNumber.toString(),
       },
