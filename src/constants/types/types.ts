@@ -19,6 +19,8 @@ export type slotType = {
   venue: string;
   totalEntries: number;
   isRegistrable: boolean;
+  startDate: string;
+  endDate: string;
 };
 
 export type merchType = {

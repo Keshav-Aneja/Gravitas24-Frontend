@@ -1,5 +1,11 @@
 "use client";
-import React, { ReactNode, useEffect, useState } from "react";
+import React, {
+  Dispatch,
+  ReactNode,
+  SetStateAction,
+  useEffect,
+  useState,
+} from "react";
 import BorderBox from "../common/BorderBox";
 import Image from "next/image";
 import images from "@/constants/images";
@@ -10,22 +16,41 @@ import { MdOutlineCurrencyRupee } from "react-icons/md";
 import { GrCaretDown, GrGroup } from "react-icons/gr";
 import { BiCaretDown } from "react-icons/bi";
 import { getEventDetails } from "@/services/event.service";
-import { eventType } from "@/constants/types/types";
-const DetailedEventCard = ({ id }: { id: string }) => {
+import { eventType, slotType } from "@/constants/types/types";
+import { cn } from "@/lib/utils";
+import { EVENT_PAGE } from "@/constants/routes";
+import Link from "next/link";
+import DetailedEventCardSkeleton from "./DetailedEventCardSkeleton";
+const DetailedEventCard = ({
+  id,
+  setEventName,
+  setLoading,
+}: {
+  id: string;
+  setEventName?: Dispatch<SetStateAction<string>>;
+  setLoading: Dispatch<SetStateAction<boolean>>;
+}) => {
   const [eventDetails, setEventDetails] = useState<eventType | null>(null);
   const startDate = eventDetails && new Date(eventDetails.startDate);
   const endDate = eventDetails && new Date(eventDetails.endDate);
+  const [selectedSlot, setSelectedSlot] = useState("");
   useEffect(() => {
     (async () => {
       try {
+        setLoading(true);
         const eventDetails = await getEventDetails(id);
+        setLoading(false);
         setEventDetails(eventDetails);
-      } catch (error) {}
+        setEventName && setEventName(eventDetails.name);
+      } catch (error) {
+        setLoading(false);
+      }
     })();
   }, []);
   if (!eventDetails) {
     return null;
   }
+
   return (
     <BorderBox className=" py-10 w-full  flex flex-col gap-8 px-0">
       <div className="w-full  flex items-start justify-between gap-8 px-0">
@@ -44,8 +69,21 @@ const DetailedEventCard = ({ id }: { id: string }) => {
           />
         </div>
         <section className="--main flex flex-col font-auxMono w-full">
-          <h1 className="text-4xl font-medium">{eventDetails.name}</h1>
-          <p className="text-primary text-lg">{eventDetails.club}</p>
+          <div className="flex items-start justify-between pr-6">
+            <section className="">
+              <h1 className="text-4xl font-medium">{eventDetails.name}</h1>
+              <p className="text-primary text-lg">{eventDetails.club}</p>
+            </section>
+            <Link href={EVENT_PAGE}>
+              <Image
+                src={svgs.ArrowRedirect}
+                alt=""
+                width={200}
+                height={200}
+                className="w-10 h-auto float-end -rotate-[135deg]"
+              />
+            </Link>
+          </div>
           <div className="w-full h-[2px] bg-outline my-2 mb-4"></div>
           <section className=" flex items-center gap-0 min-w-fit text-xl">
             <MdOutlineCurrencyRupee size={20} />
@@ -71,6 +109,22 @@ const DetailedEventCard = ({ id }: { id: string }) => {
               <h2>SOLO MEMBER</h2>
             </ArrowBox>
           </div>
+          <ArrowBox
+            className="text-black text-sm font-auxMono w-full flex flex-col items-center gap-3 mt-6"
+            invert
+          >
+            <h1 className="text-secondary text-lg font-semibold">SLOTS</h1>
+            <div className="w-full grid grid-cols-2 gap-1">
+              {eventDetails.slots?.map((slot, index) => (
+                <SlotBox
+                  key={index}
+                  data={slot}
+                  setSlot={setSelectedSlot}
+                  selectedSlot={selectedSlot}
+                />
+              ))}
+            </div>
+          </ArrowBox>
         </section>
       </div>
       <div className="w-full bg-primaryLight flex items-center justify-between mt-6 font-auxMono">
@@ -127,17 +181,62 @@ export default DetailedEventCard;
 function ArrowBox({
   children,
   className,
+  invert,
 }: {
   children: ReactNode;
   className?: string;
+  invert?: boolean;
 }) {
   return (
-    <div className="w-fit relative p-3 px-6">
-      <BiCaretDown className="absolute top-0 left-0 -rotate-45" />
-      <BiCaretDown className="absolute top-0 right-0 -rotate-45" />
+    <div className={cn("w-fit relative p-3 px-6", className)}>
+      <BiCaretDown className="absolute w-4 h-4 top-0 left-0 -rotate-45" />
+      <BiCaretDown className="absolute w-4 h-4 top-0 right-0 -rotate-45" />
       <GrCaretDown className="absolute w-3 h-3 bottom-0 right-0 rotate-[135deg]" />
       <GrCaretDown className="absolute w-3 h-3 bottom-0 left-0 rotate-[135deg]" />
       {children}
     </div>
+  );
+}
+type SlotProps = {
+  data: slotType;
+  setSlot: Dispatch<SetStateAction<string>>;
+  selectedSlot: string;
+};
+function SlotBox({ data, setSlot, selectedSlot }: SlotProps) {
+  const startDate = new Date(data.startDate);
+  console.log(startDate, data.startDate);
+  const endDate = new Date(data.endDate);
+  return (
+    <button
+      className={cn(
+        "w-full px-4 py-2 border-[1px] border-black text-xs hover:bg-primaryLight",
+        selectedSlot === data.slotId && "bg-primaryLight"
+      )}
+      onClick={() => {
+        setSlot(data.slotId);
+      }}
+    >
+      {startDate.getDate()}{" "}
+      {startDate.toLocaleString("default", { month: "short" })}-{" "}
+      {startDate.toLocaleString("en-US", {
+        hour: "numeric",
+        minute: "numeric",
+        hour12: true,
+      })}{" "}
+      {" / "}
+      {endDate.getDate()}{" "}
+      {endDate.toLocaleString("default", { month: "short" })}
+      {" - "}
+      {endDate.toLocaleString("en-US", {
+        hour: "numeric",
+        minute: "numeric",
+        hour12: true,
+      })}
+      <br />
+      <p>
+        {"// "}
+        {data.venue}
+      </p>
+    </button>
   );
 }

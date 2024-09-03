@@ -18,6 +18,7 @@ const EventsBox = () => {
           name: query,
           type: eventType,
         });
+
         setEvents(response.data);
         setTotalPages(response.totalPages);
       } catch (error) {}
