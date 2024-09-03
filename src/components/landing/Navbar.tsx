@@ -4,6 +4,7 @@ import images from "@/constants/images";
 import Link from "next/link";
 import Button from "../common/Button";
 import {
+  AUTH_PAGE,
   EVENT_PAGE,
   FAQ_PAGE,
   MERCH_PAGE,
@@ -72,7 +73,7 @@ const Navbar = () => {
           </span>
 
           <Button className="z-0 --event-button mr-8">
-            <a href={EVENT_PAGE}>
+            <a href={AUTH_PAGE}>
               <span className="text-nowrap">SIGN-IN</span>
             </a>
           </Button>
