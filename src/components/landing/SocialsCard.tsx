@@ -10,20 +10,18 @@ type Props = {
   link: string;
   name: string;
 };
-const SocialsCard = (props : Props) => {
+const SocialsCard = (props: Props) => {
   return (
     <BorderBox
       className={cn(
-        "bg-base relative flex flex-col justify-center items-center max-w-full w-[250px] max-h-full h-[230px] ",
+        "bg-base relative flex hover:bg-primary hover:text-white group transition-all duration-200 ease-linear flex-col justify-center items-center max-w-full w-full aspect-square max-h-full ",
         props.className
       )}
     >
       <a href={props.link} className="h-full w-full p-6">
         <div className="flex flex-col h-full justify-between items-start ">
-          <props.icon 
-            className="h-8 w-8"
-            />
-          <div className="text-2xl font-auxMono text-[#212121]">
+          <props.icon className="h-8 w-8" />
+          <div className="text-xl font-auxMono  uppercase">
             <h1>{props.name}</h1>
           </div>
         </div>

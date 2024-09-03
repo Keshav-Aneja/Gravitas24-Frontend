@@ -5,52 +5,69 @@ import PatronCard from "@/components/landing/PatronCard";
 import images from "@/constants/images";
 import { FaInstagram } from "react-icons/fa6";
 import SocialsCard from "@/components/landing/SocialsCard";
+import { SlSocialLinkedin, SlSocialYoutube } from "react-icons/sl";
+import { LiaFacebook } from "react-icons/lia";
+import { RiTwitterXLine } from "react-icons/ri";
 
 const Footer = () => {
   return (
-    <div className=" mx-auto pt-20 flex flex-col">
+    <div className=" mx-auto pt-20 flex flex-col relative w-full">
       <div className="dotted-bg flex flex-col lg:flex-row gap-4 items-center justify-around py-24 p-4 w-full relative">
-        <p className="text-7xl font-clash font-medium text-wrap">
-          Venture. Innovate. Transform
-        </p>
-        <div className="bg-black py-12 font-clash text-white w-auto flex flex-row items-center justify-center">
-          <section className="border-r px-6 border-white">
-            <h1 className="text-4xl text-nowrap">Dr. Sharmila N</h1>
-            <p className="text-xl text-nowrap">Convenor graVITas&apos;24</p>
-          </section>
-          <section className="px-6 text-2xl">
-            <a href="mailto:convenor.gravitas@vit.ac.in">
-              convenor.gravitas@vit.ac.in
-            </a>
-          </section>
+        <div className="w-[90%] mx-auto">
+          <div className="text-7xl font-clash font-semibold text-wrap">
+            <p>
+              inno<span className="text-primary">V</span>ate
+            </p>
+            <p>
+              susta<span className="text-primary">I</span>n.
+            </p>
+            <p>
+              <span className="text-primary">T</span>ransform.
+            </p>
+          </div>
+        </div>
+        <div className="absolute right-0 top-20">
+          <div className="bg-[#212121] w-[80%] h-6 absolute -bottom-5 right-0 --clip-shape-footer-2"></div>
+
+          <div className="bg-[#212121] py-12 pb-6 font-clash text-white w-auto flex flex-row items-center justify-center --clip-shape-footer relative">
+            <section className="border-r px-6 border-white">
+              <h1 className="text-4xl text-nowrap">Dr. Sharmila N</h1>
+              <p className="text-xl text-nowrap">Convenor graVITas&apos;24</p>
+            </section>
+            <section className="px-6 text-2xl">
+              <a href="mailto:convenor.gravitas@vit.ac.in">
+                convenor.gravitas@vit.ac.in
+              </a>
+            </section>
+          </div>
         </div>
       </div>
-      <div className="w-auto mx-auto">
-        <section className="w-full flex flex-wrap items-center justify-center">
+      <div className="w-[90%] mx-auto">
+        <section className="w-full grid grid-cols-5">
           <SocialsCard
             name="Instagram"
             link="https://www.instagram.com/gravitas_vit/"
             icon={FaInstagram}
           />
           <SocialsCard
-            name="Instagram"
+            name="Youtube"
             link="https://www.instagram.com/gravitas_vit/"
-            icon={FaInstagram}
+            icon={SlSocialYoutube}
           />
           <SocialsCard
-            name="Instagram"
+            name="Facebook"
             link="https://www.instagram.com/gravitas_vit/"
-            icon={FaInstagram}
+            icon={LiaFacebook}
           />{" "}
           <SocialsCard
-            name="Instagram"
+            name="X.com"
             link="https://www.instagram.com/gravitas_vit/"
-            icon={FaInstagram}
+            icon={RiTwitterXLine}
           />
           <SocialsCard
-            name="Instagram"
+            name="Linkedin"
             link="https://www.instagram.com/gravitas_vit/"
-            icon={FaInstagram}
+            icon={SlSocialLinkedin}
           />
         </section>
         <section className="pt-6 px-4 flex flex-row justify-between font-auxMono">

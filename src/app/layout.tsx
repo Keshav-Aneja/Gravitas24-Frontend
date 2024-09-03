@@ -23,7 +23,7 @@ export default function RootLayout({
         <GlobalContextProvider>
           <Header />
           {children}
-          {/* <Footer /> */}
+          <Footer />
         </GlobalContextProvider>
       </body>
     </html>
