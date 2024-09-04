@@ -4,12 +4,15 @@ import EventCard from "@/components/events/EventCard";
 import MerchCard from "@/components/merch/MerchCard";
 import { eventType, merchType } from "@/constants/types/types";
 import { cn } from "@/lib/utils";
-import { getProfileDetails } from "@/services/user.service";
+import { getProfileDetails, getRegisteredEvents, getRegisteredMerch } from "@/services/user.service";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import ValidateToken from "@/lib/ValidateToken";
 export default function ProfilePage() {
   const [activeTab, setActiveTab] = useState(0);
+  const [registeredEvents, setRegisteredEvents] = useState<any[]>([]);
+  const [registeredMerch, merchRegisteredMerch] = useState<any[]>([]);
+
   const router = useRouter();
   useEffect(() => {
     const isVerified = ValidateToken();
@@ -19,6 +22,10 @@ export default function ProfilePage() {
     (async () => {
       try {
         const response = await getProfileDetails();
+        const registeredEvents = (await getRegisteredEvents()).data;
+        const registeredMerch = (await getRegisteredMerch()).data;
+        console.log(registeredEvents)
+        console.log(registeredMerch)
         console.log(response);
       } catch (error: any) {
         console.log(error);
