@@ -1,3 +1,5 @@
+'use client'
+
 import React from "react";
 import BorderBox from "../common/BorderBox";
 import Image from "next/image";
@@ -5,9 +7,47 @@ import { useState } from "react";
 import { LuShirt } from "react-icons/lu";
 import { MdOutlineCurrencyRupee } from "react-icons/md";
 import { merchType } from "@/constants/types/types";
+import Cookie from 'js-cookie'
+import axiosInstance from "@/config/axios";
+import { CreateTransactionResponse } from "@/constants/types/transaction";
+import { toast } from "@/hooks/use-toast";
 
 const DetailedMerchCard = ({ item }: { item: merchType }) => {
   const [currVis, setCurrVis] = useState<string>(item.images[0]);
+
+  const handleMerchPayment = async (merchID: string) => {
+    console.log("Buying merch");
+    const payload = {
+      merch_id: merchID,
+    };
+    try {
+      const response = await axiosInstance.post("/registration/start-merch", payload);
+      const data = response.data as CreateTransactionResponse;
+      const transactionFormData = data.data;
+      const form = document.createElement("form");
+      form.method = "POST";
+      form.action = "https://events.vit.ac.in/events/GRV24/cnfpay";
+      form.target = "_blank";
+      for (const [key, value] of Object.entries(transactionFormData)) {
+        const input = document.createElement("input");
+        input.type = "hidden";
+        input.name = key;
+        input.value = value as string;
+        form.appendChild(input);
+      }
+      document.body.appendChild(form);
+      form.submit();
+    } catch (err: unknown) {
+      if (err instanceof Error) {
+        toast({
+          title: "Error",
+          description: err.message,
+        });
+      }
+      console.log("An error occured. Kindly contact the admin.");
+    }
+  };
+
   return (
     <BorderBox className=" py-10 w-full  flex flex-col gap-8 px-0">
       <div className="w-full flex flex-col md:flex-row items-start justify-between gap-8 px-0">
@@ -85,7 +125,7 @@ const DetailedMerchCard = ({ item }: { item: merchType }) => {
           <MdOutlineCurrencyRupee size={20} />
           <p>Rs. {item.price}/-</p>
         </span>
-        <button className="text-white bg-primary h-full flex-grow p-4 px-8">
+        <button className="text-white bg-primary h-full flex-grow p-4 px-8"  onClick = {() => handleMerchPayment(item.id)}>
           BUY MERCH
         </button>
       </div>

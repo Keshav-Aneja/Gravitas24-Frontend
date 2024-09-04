@@ -81,6 +81,7 @@ const DetailedEventCard = ({
         toast({
           title: "Error",
           description: err.message,
+          variant: "destructive"
         });
       }
       console.log("An error occured. Kindly contact the admin.");

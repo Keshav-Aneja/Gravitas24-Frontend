@@ -13,7 +13,7 @@ const MerchDetailsPage = ({ params }: { params: { merchId: string } }) => {
     (async () => {
       try {
         const response = await getMerchById(params.merchId);
-        setMerchItem(response);
+        setMerchItem(response); 
       } catch (error) {}
     })();
   }, []);
