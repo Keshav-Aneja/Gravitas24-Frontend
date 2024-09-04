@@ -2,7 +2,6 @@ import React from "react";
 import Image, { StaticImageData } from "next/image";
 import { cn } from "@/lib/utils";
 import BorderBox from "../common/BorderBox";
-import images from "@/constants/images";
 
 type Props = {
   className?: string;
@@ -15,7 +14,7 @@ const TeamCard = ({ className, image, name, desig, label }: Props) => {
   return (
     <BorderBox
       className={cn(
-        "bg-base p-0 relative border-primary flex flex-col justify-between items-center max-w-full w-[320px] min-h-[350px]",
+        "bg-base p-0 relative border-primary flex flex-col justify-between items-center max-w-full w-[320px] h-full min-h-[350px]",
         className
       )}
       classNameSquares="bg-primary"
@@ -23,11 +22,11 @@ const TeamCard = ({ className, image, name, desig, label }: Props) => {
       {image ? (
         <>
           <Image
-            src={images.patron1}
+            src={image}
             alt=""
             width={200}
             height={200}
-            className="w-full h-auto max-h-[320px] top-0"
+            className="w-full aspect-square object-cover"
           />
           <div className="text-2xl w-full text-left font-auxMono font-medium">
             <h1 className="p-1">{name}</h1>

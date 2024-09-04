@@ -27,7 +27,7 @@ const PatronCard = ({ className, image, name, desig, label }: Props) => {
             height={200}
             className="w-full h-auto max-h-[320px] top-0"
           />
-          <div className="text-sm lg:text-2xl p-1 md:p-2 w-full text-left font-auxMono font-medium">
+          <div className="text-sm lg:text-xl p-1 md:p-2 w-full text-left font-auxMono font-medium">
             <h1>{name}</h1>
             <h2 className="text-xs md:text-xl text-primary">{desig}</h2>
           </div>

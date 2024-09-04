@@ -6,11 +6,13 @@ import Cookie from "js-cookie";
 import axiosInstance from "@/config/axios";
 import axios from "axios";
 import { BACKEND_URL } from "@/constants/routes";
+import { useGlobalContext } from "@/context/GlobalContext";
 
 function LoginCallback() {
   const params = useSearchParams();
   const router = useRouter();
   const redirect_token = params.get("token");
+  const { setIsLoggedin } = useGlobalContext();
 
   useEffect(() => {
     const getAuthTokens = async () => {
@@ -24,10 +26,12 @@ function LoginCallback() {
         const refesh_token = response.data.refresh_token;
         Cookie.set("access_token", access_token);
         Cookie.set("refresh_token", refesh_token);
+        setIsLoggedin(true);
         router.push("/");
       }
     };
     getAuthTokens();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [redirect_token, router]);
 
   return (

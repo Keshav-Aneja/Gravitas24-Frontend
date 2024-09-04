@@ -1,94 +1,92 @@
 [
-    [
-        {
-            "title": "patron",
-            "people": [
-                {
-                    "img": "/team/images/drgviswanathan.jpeg",
-                    "name": "G Viswanathan",
-                    "position": "Chancellor"
-                }
-            ]
-        },
-        {
-            "title": "co-patrons",
-            "people": [
-                {
-                    "img": "/team/images/co-patrons/co-patron1.webp",
-                    "name": "Mr.Sankar Viswanathan",
-                    "position": "Vice President"
-                },
-                {
-                    "img": "/team/images/co-patrons/co-patron2.webp",
-                    "name": "Dr.Sekar Viswanathan",
-                    "position": "Vice President"
-                },
-                {
-                    "img": "/team/images/co-patrons/co-patron3.jpeg",
-                    "name": "Dr. G V Selvam",
-                    "position": "Vice President"
-                },
-                {
-                    "img": "/team/images/co-patrons/co-patron4.jpeg",
-                    "name": "Dr. V. S. Kanchana",
-                    "position": "Vice Chancellor"
-                },
-                {
-                    "img": "/team/images/co-patrons/co-patron5.webp",
-                    "name": "Dr. Partha S Mallick",
-                    "position": "Pro-Vice Chancellor"
-                },
-                {
-                    "img": "/team/images/co-patrons/co-patron6.webp",
-                    "name": "Dr. Jayabarathi T",
-                    "position": "Registrar"
-                }
-            ]
-        },
-        {
-            "title": "Convenor",
-            "people": [
-                {
-                    "name": "Dr. Gokul Kumar K.",
-                    "position": "SMEC",
-                    "img": ""
-                }
-            ]
-        },
-        {
-            "title": "Co-Convenors",
-            "people": [
-                {
-                    "name": "Mr. Sudheer C. V.",
-                    "position": "SSL",
-                    "img": ""
-                },
-                {
-                    "name": "Dr. Sankar Ganesh S.",
-                    "position": "SENSE",
-                    "img": ""
-                },
-                {
-                    "name": "Dr. Naga Venkata Raghuram J.",
-                    "position": "VITBS",
-                    "img": ""
-                },
-                {
-                    "name": "Dr. Gitanjali J.",
-                    "position": "SCORE",
-                    "img": ""
-                },
-                {
-                    "name": "Dr. Thiyagachanthan N. V.",
-                    "position": "PED",
-                    "img": ""
-                },
-                {
-                    "name": "Mr. Dinesh Raghavan E. S.",
-                    "position": "V-SPARC",
-                    "img": ""
-                }
-            ]
-        }
-    ]
+    {
+        "title": "patron",
+        "people": [
+            {
+                "img": "https://imgur.com/zwGBgWz.png",
+                "name": "G Viswanathan",
+                "position": "Chancellor"
+            }
+        ]
+    },
+    {
+        "title": "co-patrons",
+        "people": [
+            {
+                "img": "https://imgur.com/ceZGxzJ.png",
+                "name": "Mr.Sankar Viswanathan",
+                "position": "Vice President"
+            },
+            {
+                "img": "https://imgur.com/aOCPpNt.png",
+                "name": "Dr.Sekar Viswanathan",
+                "position": "Vice President"
+            },
+            {
+                "img": "https://imgur.com/4QHXA3o.png",
+                "name": "Dr. G V Selvam",
+                "position": "Vice President"
+            },
+            {
+                "img": "https://imgur.com/JDfYDFK.png",
+                "name": "Dr. V. S. Kanchana",
+                "position": "Vice Chancellor"
+            },
+            {
+                "img": "https://imgur.com/ClLcE3j.png",
+                "name": "Dr. Partha S Mallick",
+                "position": "Pro-Vice Chancellor"
+            },
+            {
+                "img": "https://imgur.com/nsgxJhS.png",
+                "name": "Dr. Jayabarathi T",
+                "position": "Registrar"
+            }
+        ]
+    },
+    {
+        "title": "Convenor",
+        "people": [
+            {
+                "name": "Dr. Gokul Kumar K.",
+                "position": "SMEC",
+                "img": ""
+            }
+        ]
+    },
+    {
+        "title": "Co-Convenors",
+        "people": [
+            {
+                "name": "Mr. Sudheer C. V.",
+                "position": "SSL",
+                "img": ""
+            },
+            {
+                "name": "Dr. Sankar Ganesh S.",
+                "position": "SENSE",
+                "img": ""
+            },
+            {
+                "name": "Dr. Naga Venkata Raghuram J.",
+                "position": "VITBS",
+                "img": ""
+            },
+            {
+                "name": "Dr. Gitanjali J.",
+                "position": "SCORE",
+                "img": ""
+            },
+            {
+                "name": "Dr. Thiyagachanthan N. V.",
+                "position": "PED",
+                "img": ""
+            },
+            {
+                "name": "Mr. Dinesh Raghavan E. S.",
+                "position": "V-SPARC",
+                "img": ""
+            }
+        ]
+    }
 ]

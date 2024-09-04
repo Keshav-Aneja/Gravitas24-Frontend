@@ -19,6 +19,8 @@ type GlobalContextType = {
   setCurrentPage: Dispatch<SetStateAction<number>>;
   eventQuery: string;
   setEventQuery: Dispatch<SetStateAction<string>>;
+  isLoggedin: boolean;
+  setIsLoggedin: Dispatch<SetStateAction<boolean>>;
 };
 
 export const GlobalContext = createContext<GlobalContextType | null>(null);
@@ -32,6 +34,7 @@ export default function GlobalContextProvider({
   const [eventType, setEventType] = useState("");
   const [eventQuery, setEventQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
+  const [isLoggedin, setIsLoggedin] = useState(false);
   return (
     <GlobalContext.Provider
       value={{
@@ -43,6 +46,8 @@ export default function GlobalContextProvider({
         setCurrentPage,
         eventQuery,
         setEventQuery,
+        isLoggedin,
+        setIsLoggedin,
       }}
     >
       {children}

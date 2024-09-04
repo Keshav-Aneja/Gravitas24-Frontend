@@ -4,6 +4,7 @@ import Image from "next/image";
 import PatronCard from "@/components/landing/PatronCard";
 import images from "@/constants/images";
 import Link from "next/link";
+import data from "@/constants/team.json"
 
 const Patrons = () => {
   return (
@@ -20,23 +21,23 @@ const Patrons = () => {
       </span>
       <section className="w-full h-auto flex flex-col gap-4 lg:gap-0 lg:flex-row items-center justify-center">
         <PatronCard
-          image={images.patron1}
-          name="G Vishwanathan"
-          desig="Chancellor"
-          label="PATRON"
+          image={data[0].people[0].img}
+          name={data[0].people[0].name}
+          desig={data[0].people[0].position}
+          label="Patron"
         />
         <PatronCard
-          image={images.patron1}
-          name="G Vishwanathan"
-          desig="Chancellor"
-          label="PATRON"
+          image={data[1].people[0].img}
+          name={data[1].people[0].name}
+          desig={data[1].people[0].position}
+          label="Co-Patron"
           className="hidden lg:flex"
         />
         <PatronCard
-          image={images.patron1}
-          name="G Vishwanathan"
-          desig="Chancellor"
-          label="PATRON"
+          image={data[1].people[1].img}
+          name={data[1].people[1].name}
+          desig={data[1].people[1].position}
+          label="CO-PATRON"
           className="hidden lg:flex"
         />
         <PatronCard

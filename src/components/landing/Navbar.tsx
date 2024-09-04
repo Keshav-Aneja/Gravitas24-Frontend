@@ -14,17 +14,13 @@ import {
 import { AiOutlineMenu } from "react-icons/ai";
 import { IoMdClose } from "react-icons/io";
 import ValidateToken from "@/lib/ValidateToken";
+import { useGlobalContext } from "@/context/GlobalContext";
+
 const Navbar = () => {
   const [openMenu, setOpenMenu] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  useEffect(() => {
-    const verification = ValidateToken();
-    if (!verification) {
-      setIsLoggedIn(false);
-    } else {
-      setIsLoggedIn(true);
-    }
-  }, []);
+  const { isLoggedin } = useGlobalContext();
+
+
   return (
     <div className="w-full border-y-[1px] border-outline h-[3rem] md:h-[4rem] sticky top-0 left-0 z-[2000] bg-white/50 backdrop-blur-xl">
       <div className="w-full lg:w-[90%] mx-auto grid grid-cols-4 lg:grid-cols-5 h-full">
@@ -85,15 +81,15 @@ const Navbar = () => {
             </Link>
           </span>
 
-          {!isLoggedIn && (
+          {!isLoggedin && (
             <Link href={AUTH_PAGE}>
               <Button className="z-0 --event-button mr-8">
                 <span className="text-nowrap">SIGN-IN</span>
               </Button>
             </Link>
           )}
-          {isLoggedIn && (
-            <Link href={AUTH_PAGE}>
+          {isLoggedin && (
+            <Link href="/profile">
               <Button className="z-0 --event-button mr-8">
                 <span className="text-nowrap">Profile</span>
               </Button>
