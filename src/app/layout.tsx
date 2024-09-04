@@ -23,7 +23,7 @@ export default function RootLayout({
     <html lang="en">
       <Head>
         <title>Gravitas&apos;24</title>
-        <link rel="shortcut icon" href="icon.ico" type="image/x-icon" />
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
       </Head>
       <body className={inter.className}>
         <Toaster />

@@ -4,7 +4,7 @@
         "people": [
             {
                 "img": "https://imgur.com/zwGBgWz.png",
-                "name": "Dr. G Viswanathan",
+                "name": "Dr. G. Viswanathan",
                 "position": "Chancellor"
             }
         ]
@@ -49,8 +49,8 @@
         "people": [
             {
                 "name": "Dr. Sharmila N",
-                "position": "SMEC",
-                "img": "https://i.imgur.com/jWXSb8W.png"
+                "position": "SENSE",
+                "img": "https://imgur.com/j9K41tQ.png"
             }
         ]
     },
@@ -59,18 +59,18 @@
         "people": [
             {
                 "name": "Mr. Mohafiz Riyaz",
-                "position": "SSL",
-                "img": "https://imgur.com/4IaSu9S.png"
+                "position": "VSPARC",
+                "img": "https://imgur.com/2kqjbko.png"
             },
             {
                 "name": "Mr. Ramesh N.",
-                "position": "SENSE",
-                "img": "https://imgur.com/JFup8Js.png"
+                "position": "SBST",
+                "img": "https://imgur.com/r8VYjTd.png"
             },
             {
                 "name": "Mr. Tapano Kumar Hotta",
-                "position": "VITBS",
-                "img": "https://imgur.com/SMZjwpJ.png"
+                "position": "SMEC",
+                "img": "https://imgur.com/HMFkwVN.png"
             }
         ]
     },
@@ -85,7 +85,7 @@
             {
                 "name": "K Abhimanyu Nair",
                 "position": "Finance",
-                "img": "https://imgur.com/LqiMI9u.png"
+                "img": "https://imgur.com/s70LHq0.png"
             },
             {
                 "name": "Hubert Franton",

@@ -101,10 +101,7 @@ function SeparatorTop() {
       <div className="w-full  h-[20px] bg-base absolute top-0 left-0 z-[100]">
         <div className="w-[90%] h-full mx-auto grid grid-cols-5">
           <span className="border-x-[1px] border-outline relative">
-            <span className="w-[6px] h-[6px] bg-outline absolute -bottom-[3px] -right-[3px]"></span>
             <span className="w-[6px] h-[6px] bg-outline absolute -bottom-[3px] -left-[3px]"></span>
-            <span className="w-[6px] h-[6px] bg-outline absolute -top-[3px] -left-[3px]"></span>
-            <span className="w-[6px] h-[6px] bg-outline absolute -top-[3px] -right-[3px]"></span>
           </span>
           <span></span>
           <span className="border-x-[1px] border-outline"></span>
