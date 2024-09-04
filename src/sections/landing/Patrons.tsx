@@ -4,13 +4,15 @@ import Image from "next/image";
 import PatronCard from "@/components/landing/PatronCard";
 import images from "@/constants/images";
 import Link from "next/link";
-import data from "@/constants/team.json"
+import data from "@/constants/team.json";
 
 const Patrons = () => {
   return (
     <div className="w-[90%] relative mx-auto py-20 flex flex-col gap-20">
       <span className="flex flex-col md:flex-row items-center md:items-end gap-4 w-full relative">
-        <h1 className="font-clash text-4xl w-full md:text-6xl font-semibold">Meet The Team.</h1>
+        <h1 className="font-clash text-4xl w-full md:text-6xl font-semibold">
+          Meet The Team.
+        </h1>
         <Image
           src={svgs.Patrons}
           alt=""
@@ -19,7 +21,7 @@ const Patrons = () => {
           className="hidden md:block py-6"
         />
       </span>
-      <section className="w-full h-auto flex flex-col gap-4 lg:gap-0 lg:flex-row items-center justify-center">
+      <section className="w-full h-auto grid grid-cols-4 gap-4 relative">
         <PatronCard
           image={data[0].people[0].img}
           name={data[0].people[0].name}
@@ -48,21 +50,21 @@ const Patrons = () => {
           className="hidden lg:flex"
         />
         <div className="flex flex-row gap-4 lg:hidden">
-        <PatronCard
-          image={data[1].people[1].img}
-          name={data[1].people[1].name}
-          desig={data[1].people[1].position}
-          label="Co-Patron"
-        />
-        <PatronCard
-          image={data[1].people[2].img}
-          name={data[1].people[2].name}
-          desig={data[1].people[2].position}
-          label="Co-Patron"
-        />
+          <PatronCard
+            image={data[1].people[1].img}
+            name={data[1].people[1].name}
+            desig={data[1].people[1].position}
+            label="Co-Patron"
+          />
+          <PatronCard
+            image={data[1].people[2].img}
+            name={data[1].people[2].name}
+            desig={data[1].people[2].position}
+            label="Co-Patron"
+          />
         </div>
         <Link
-          className="--sponsor-floater h-[300px] left-0 bottom-0 w-[45px] hidden lg:flex flex-row items-center justify-center bg-primary hover:scale-110 transition-all"
+          className="--sponsor-floater h-[300px] absolute -right-10 bottom-0 w-10 hidden lg:flex flex-row items-center justify-center bg-primary hover:scale-110 transition-all"
           href="/team"
         >
           <p className="rotate-90 text-nowrap text-xl text-white font-auxMono">
