@@ -31,12 +31,12 @@ const EventsBox = () => {
         setLoading(false);
         setEvents(response.data);
         setTotalPages(response.totalPages);
-      } catch (error: unknown) {
+      } catch (err: any) {
         setLoading(false);
-        if (error instanceof Error) {
+        if (err.response.data.message) {
           toast({
             title: "Error",
-            description: error.message,
+            description: err,
             variant: "destructive",
           });
         }

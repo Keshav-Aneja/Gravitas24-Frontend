@@ -29,13 +29,13 @@ function LoginCallback() {
           Cookie.set("refresh_token", refesh_token);
           setIsLoggedin(true);
           router.push("/");
-        } catch (error: unknown) {
-          if (error instanceof Error) {
+        } catch (err: any) {
+          if (err.response.data.message) {
             toast({
               title: "Error",
-              description: error.message,
+              description: err,
               variant: "destructive",
-            })
+            });
           }
         }
       }
