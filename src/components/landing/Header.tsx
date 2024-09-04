@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <>
       <Marquee autoFill speed={30} className="z-[20]">
-        <div className="flex items-center gap-12 ml-12">
+        <div id="top" className="flex items-center gap-12 ml-12">
           <h1 className="font-auxMono text-sm uppercase">
             reVITalize yourself!
           </h1>

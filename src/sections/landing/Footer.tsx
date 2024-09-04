@@ -1,8 +1,5 @@
-import React from "react";
-import { svgs } from "@/constants/svgs";
-import Image from "next/image";
-import PatronCard from "@/components/landing/PatronCard";
-import images from "@/constants/images";
+"use client";
+import React, { useEffect, useState } from "react";
 import { FaInstagram } from "react-icons/fa6";
 import SocialsCard from "@/components/landing/SocialsCard";
 import { SlSocialLinkedin, SlSocialYoutube } from "react-icons/sl";
@@ -11,8 +8,15 @@ import { RiTwitterXLine } from "react-icons/ri";
 import Marquee from "react-fast-marquee";
 
 const Footer = () => {
+  const [scroll, setScroll] = useState(false);
+
+  useEffect(() => {
+    const hero = window.document.getElementById("top");
+    hero?.scrollIntoView({ behavior: "smooth" });
+  }, [scroll]);
+
   return (
-    <div className=" mx-auto pt-20 flex flex-col relative w-full">
+    <div className="mx-auto pt-20 flex relative flex-col w-full">
       <Marquee
         autoFill
         speed={30}
@@ -59,7 +63,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="w-[90%] mx-auto">
-        <section className="w-full flex flex-row items-center justify-center">
+        <section className="w-full flex relative flex-row items-center justify-center">
           <SocialsCard
             name="Instagram"
             link="https://www.instagram.com/vitgravitas"
@@ -91,6 +95,14 @@ const Footer = () => {
           <p>OFFICE OF STUDENTS&apos; WELFARE</p>
         </section>
       </div>
+      <button
+        className="--sponsor-floater absolute h-[240px] left-0 bottom-20 w-[45px] hidden lg:flex flex-row items-center justify-center bg-primary hover:scale-110 transition-all"
+        onClick={() => setScroll(!scroll)}
+      >
+        <p className="-rotate-90 text-nowrap text-xl text-white font-auxMono">
+          To Top &gt;&gt;&gt;
+        </p>
+      </button>
     </div>
   );
 };
