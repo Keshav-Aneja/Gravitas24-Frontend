@@ -6,6 +6,7 @@ import Header from "@/components/landing/Header";
 import GlobalContextProvider from "@/context/GlobalContext";
 import Footer from "@/sections/landing/Footer";
 import { Toaster } from "@/components/ui/toaster";
+import Head from "next/head";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -20,6 +21,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <Head>
+        <title>Gravitas&apos;24</title>
+        <link rel="shortcut icon" href="icon.ico" type="image/x-icon" />
+      </Head>
       <body className={inter.className}>
         <Toaster />
         <GlobalContextProvider>
