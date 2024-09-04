@@ -13,7 +13,7 @@ const TeamBox = () => {
           <div className="flex flex-col w-full gap-24">
             {data.map((group, j) => (
               <section key={j}>
-                <h2 className="text-6xl uppercase p-4  w-full text-center font-clash font-semimbold">
+                <h2 className="text-4xl md:text-6xl uppercase p-4 w-full text-center font-clash font-semimbold">
                   {group.title}
                 </h2>
                 <div className="w-full flex flex-wrap gap-5 justify-center">

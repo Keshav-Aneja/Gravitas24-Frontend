@@ -1,8 +1,5 @@
-import React from "react";
-import { svgs } from "@/constants/svgs";
-import Image from "next/image";
-import PatronCard from "@/components/landing/PatronCard";
-import images from "@/constants/images";
+"use client";
+import React, { useEffect, useState } from "react";
 import { FaInstagram } from "react-icons/fa6";
 import SocialsCard from "@/components/landing/SocialsCard";
 import { SlSocialLinkedin, SlSocialYoutube } from "react-icons/sl";
@@ -11,8 +8,16 @@ import { RiTwitterXLine } from "react-icons/ri";
 import Marquee from "react-fast-marquee";
 
 const Footer = () => {
+  const [scroll, setScroll] = useState(false);
+
+  useEffect(() => {
+    const hero = window.document.getElementById("top");
+    console.log(hero)
+    hero?.scrollIntoView({ behavior: "smooth" });
+  }, [scroll]);
+
   return (
-    <div className=" mx-auto pt-20 flex flex-col relative w-full">
+    <div className="mx-auto pt-20 flex relative flex-col w-full">
       <Marquee
         autoFill
         speed={30}
@@ -25,8 +30,8 @@ const Footer = () => {
         </div>
       </Marquee>
       <div className="flex flex-col lg:flex-row gap-4 items-center justify-around py-16 md:py-24 p-4 w-full relative">
-        <div className="w-[90%] mx-auto mb-36 md:mb-0">
-          <div className="text-5xl md:text-7xl font-clash font-semibold text-wrap">
+        <div className="w-full mx-auto md:mb-0">
+          <div className="text-5xl ml-8 md:ml-16 md:text-7xl font-clash font-semibold text-wrap">
             <p>
               inno<span className="text-primary">V</span>ate
             </p>
@@ -38,10 +43,8 @@ const Footer = () => {
             </p>
           </div>
         </div>
-        <div className="absolute right-0 top-[60%] md:top-[25%] min-w-[350px] w-[40%]">
-          {/* <div className="bg-[#212121] w-[60%] md:w-[80%] h-6 absolute -bottom-5 right-0 --clip-shape-footer-2"></div> */}
-
-          <div className="bg-[#212121] --footer-bg py-5 md:py-12 pb-6 font-clash text-white w-auto flex flex-col   justify-center --clip-shape-footer relative">
+        <div className="w-full flex flex-row items-end justify-end md:w-full">
+          <div className="bg-[#212121] --footer-bg py-5 md:py-12 pb-6 font-clash text-white md:w-auto flex flex-col   justify-center --clip-shape-footer relative">
             <section className="md:border-r px-6 border-white">
               <h1 className="text-xl md:text-4xl text-nowrap">
                 Dr. Sharmila N
@@ -59,7 +62,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="w-[90%] mx-auto">
-        <section className="w-full flex flex-row items-center justify-center">
+        <section className="w-full flex relative flex-row items-center justify-center">
           <SocialsCard
             name="Instagram"
             link="https://www.instagram.com/vitgravitas"
@@ -91,6 +94,14 @@ const Footer = () => {
           <p>OFFICE OF STUDENTS&apos; WELFARE</p>
         </section>
       </div>
+      <button
+        className="--sponsor-floater absolute h-[240px] left-0 bottom-20 w-[45px] hidden lg:flex flex-row items-center justify-center bg-primary hover:scale-110 transition-all"
+        onClick={() => setScroll(!scroll)}
+      >
+        <p className="-rotate-90 text-nowrap text-xl text-white font-auxMono">
+          To Top &gt;&gt;&gt;
+        </p>
+      </button>
     </div>
   );
 };

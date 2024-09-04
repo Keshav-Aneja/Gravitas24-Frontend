@@ -10,7 +10,12 @@ const EventsBox = () => {
   const [events, setEvents] = useState<eventType[]>([]);
   const [loading, setLoading] = useState(true);
   const { setTotalPages } = useGlobalContext();
-  const { eventType, currentPage, eventQuery: query } = useGlobalContext();
+  const {
+    eventType,
+    currentPage,
+    eventQuery: query,
+    eventScope,
+  } = useGlobalContext();
   useEffect(() => {
     (async () => {
       try {
@@ -20,6 +25,7 @@ const EventsBox = () => {
           limit: 5,
           name: query,
           type: eventType,
+          scope: eventScope,
         });
         setLoading(false);
         setEvents(response.data);
@@ -28,7 +34,7 @@ const EventsBox = () => {
         setLoading(false);
       }
     })();
-  }, [currentPage, query, eventType]);
+  }, [currentPage, query, eventType, eventScope]);
 
   return (
     <div className="w-full border-y-[1px] border-outline flex flex-col gap-4 md:gap-0">

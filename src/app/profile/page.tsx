@@ -6,13 +6,19 @@ import { eventType, merchType } from "@/constants/types/types";
 import { cn } from "@/lib/utils";
 import { getProfileDetails, getRegisteredEvents, getRegisteredMerch } from "@/services/user.service";
 import { useEffect, useState } from "react";
-
+import { useRouter } from "next/navigation";
+import ValidateToken from "@/lib/ValidateToken";
 export default function ProfilePage() {
   const [activeTab, setActiveTab] = useState(0);
   const [registeredEvents, setRegisteredEvents] = useState<any[]>([]);
   const [registeredMerch, merchRegisteredMerch] = useState<any[]>([]);
 
+  const router = useRouter();
   useEffect(() => {
+    const isVerified = ValidateToken();
+    if (!isVerified) {
+      router.push("/");
+    }
     (async () => {
       try {
         const response = await getProfileDetails();

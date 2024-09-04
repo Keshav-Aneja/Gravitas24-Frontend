@@ -14,13 +14,13 @@ const TeamCard = ({ className, image, name, desig, label }: Props) => {
   return (
     <BorderBox
       className={cn(
-        "bg-base p-0 relative border-primary flex flex-col justify-between items-center max-w-full w-[320px] h-full min-h-[350px]",
+        "bg-base p-0 relative border-primary flex flex-col justify-between items-center max-w-full w-[260px] md:w-[320px] h-full",
         className
       )}
       classNameSquares="bg-primary"
     >
-      {image ? (
-        <>
+      <>
+        {image && (
           <Image
             src={image}
             alt=""
@@ -28,16 +28,14 @@ const TeamCard = ({ className, image, name, desig, label }: Props) => {
             height={200}
             className="w-full aspect-square object-cover"
           />
-          <div className="text-2xl w-full text-left font-auxMono font-medium">
-            <h1 className="p-1">{name}</h1>
-            <h2 className="text-lg p-2 border border-primary bg-primaryLight text-black">{desig}</h2>
-          </div>
-        </>
-      ) : (
-        <div className="text-2xl font-auxMono font-medium">
-          <h1>Coming Soon</h1>
+        )}
+        <div className="text-lg md:text-2xl w-full flex flex-col h-full text-left font-auxMono font-medium">
+          <h1 className="p-1 line-clamp-2 h-[2lh] flex items-center justify-center">{name}</h1>
+          <h2 className="text-[0.8rem] md:text-lg p-2 border border-primary bg-primaryLight text-black">
+            {desig}
+          </h2>
         </div>
-      )}
+      </>
     </BorderBox>
   );
 };

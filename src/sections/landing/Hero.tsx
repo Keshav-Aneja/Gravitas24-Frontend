@@ -1,5 +1,5 @@
 import images from "@/constants/images";
-import React from "react";
+import React, { useEffect } from "react";
 import Image from "next/image";
 import { svgs } from "@/constants/svgs";
 import SeparatorBottom from "@/components/landing/SeparatorBottom";
@@ -11,6 +11,7 @@ export default function Hero() {
     <div
       className="w-full overflow-x-hidden relative hidden md:block"
       style={{ height: "calc(100vh-4.5rem)" }}
+      id="hero"
     >
       <Image
         src={svgs.Floater1}

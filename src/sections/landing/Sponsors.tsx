@@ -17,18 +17,15 @@ const Sponsors = () => {
           <Image src={svgs.SponsorsFloaters} alt="" width={250} height={80} />
           <span className="absolute font-sans font-bold text-primary z-10 w-3/5 h-full mt-2 right-0">
             <h1>Option 1</h1>
-            <p className="text-[8px] mt-2">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            <p className="text-[12px] mt-2">
+              Innovate Sustain Transform
             </p>
           </span>
         </div>
       </span>
       <section className="w-[90%] mx-auto flex flex-wrap items-center justify-center  ">
-        <SponsorCard />
-        <SponsorCard />
-        <SponsorCard />
-        <SponsorCard />
-        <SponsorCard />
+        <SponsorCard image="https://imgur.com/P9Lg4yH.png"/>
+        <SponsorCard image="https://imgur.com/uUqE8Oi.png"/>
       </section>
     </div>
   );

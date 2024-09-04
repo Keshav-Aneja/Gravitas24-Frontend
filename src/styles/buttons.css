@@ -74,3 +74,74 @@
     0 15%
   );
 }
+.scroll-menu {
+  display: grid;
+  grid-auto-flow: column;
+  gap: 3%;
+  grid-auto-columns: 28%;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  overscroll-behavior-inline: contain;
+}
+@media (min-width: 768px) {
+  .scroll-menu {
+    gap: 5% !important;
+    grid-auto-columns: 48% !important;
+  }
+}
+.scroll-menu-3 {
+  display: grid;
+  grid-auto-flow: column;
+  gap: 5%;
+  grid-auto-columns: 48%;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  overscroll-behavior-inline: contain;
+}
+
+.scroll-menu-2 {
+  display: grid;
+  grid-auto-flow: column;
+
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  overscroll-behavior-inline: contain;
+}
+.thinScroller::-webkit-scrollbar {
+  width: 0.3em;
+  height: 0.3em;
+}
+.thinScroller2::-webkit-scrollbar {
+  height: 10px;
+}
+.thinScroller2::-webkit-scrollbar-thumb {
+  background-color: #aeaeae;
+  border-radius: 5em;
+}
+.scrollHide::-webkit-scrollbar,
+.scroll-menu::-webkit-scrollbar,
+.scroll-menu-2::-webkit-scrollbar,
+.scroll-menu-3::-webkit-scrollbar {
+  width: 0em;
+  height: 0em;
+  scrollbar-width: none;
+}
+.scroll-menu:active {
+  cursor: grabbing;
+}
+.scroll-menu-2:active {
+  cursor: grabbing;
+}
+
+.--toTopButton {
+  clip-path: polygon(
+    20% 0%,
+    66% 0,
+    100% 5%,
+    100% 95%,
+    66% 100%,
+    20% 100%,
+    0 100%,
+    0 0
+  );
+}

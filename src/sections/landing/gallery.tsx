@@ -28,12 +28,12 @@ const Gallery = () => {
         speed={30}
         className="font-clashVar z-[20] border-y-2 border-black overflow-y-hidden"
       >
-        <section className="text-[120px] px-4 mx-6">GALLERY</section>
-        <section className="flex flex-col font-extralight h-full mx-6 justify-around px-4 text-8xl">
+        <section className="text-7xl md:text-8xl px-4 mx-6">GALLERY</section>
+        <section className="flex flex-col font-extralight h-full mx-6 justify-around px-4 text-3xl md:text-8xl">
           <p>GALLERY</p>
           <p>GALLERY</p>
         </section>
-        <section className="w-40 h-20 relative flex items-center mx-6">
+        <section className="w-24 md:w-40 h-10 md:h-20 relative flex items-center mx-6">
           <div className="w-6 h-6 border-r-black top-0 left-0 absolute border-b-black border-t-transparent border-l-transparent border-[14px]"></div>
           <p className="w-full text-right  font-thin text-2xl">2024</p>
         </section>

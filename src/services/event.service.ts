@@ -42,12 +42,14 @@ export async function getEventList({
   limit,
   page,
   name,
+  scope,
   type,
 }: {
   limit: number;
   page: number;
   name: string;
   type: string;
+  scope: string;
 }) {
   try {
     const params = {
@@ -55,6 +57,7 @@ export async function getEventList({
       page,
       name,
       type,
+      scope,
     };
     const response = await getHandler(`/events`, params);
     // if (!response.success) {
