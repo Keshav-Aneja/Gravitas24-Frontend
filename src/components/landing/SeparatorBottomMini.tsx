@@ -43,19 +43,25 @@ export default function SeparatorBottomMini() {
         <div className=" border-outline h-full flex items-center w-full">
           <BorderBox className="py-5  w-full">
             <span className="flex items-center justify-around text-lg text-primary">
-              <a href="">
+            <a href="https://www.facebook.com/Gravitas.VITvellore/"
+                target="_blank"
+                >
                 <FaFacebook />
               </a>
-              <a href="https://www.instagram.com/vitgravitas?igsh=MW5veTY4NjJvbmpqcg==">
+              <a href="https://www.instagram.com/vitgravitas"
+                target="_blank"
+                >
                 <FaInstagram />
               </a>
               <a
-                href="https://www.linkedin.com/company/gravitas-vit/"
+                href="https://www.linkedin.com/school/vellore-institute-of-technology"
                 target="_blank"
               >
                 <BsLinkedin />
               </a>
-              <a href="">
+              <a
+               href="https://twitter.com/GraVITas_VIT"
+               target="_blank">
                 <RiTwitterXLine />
               </a>
             </span>

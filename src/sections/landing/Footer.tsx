@@ -62,27 +62,27 @@ const Footer = () => {
         <section className="w-full flex flex-row items-center justify-center">
           <SocialsCard
             name="Instagram"
-            link="https://www.instagram.com/gravitas_vit/"
+            link="https://www.instagram.com/vitgravitas"
             icon={FaInstagram}
           />
           <SocialsCard
             name="Youtube"
-            link="https://www.instagram.com/gravitas_vit/"
+            link="https://www.youtube.com/@GravitasVITUniversity"
             icon={SlSocialYoutube}
           />
           <SocialsCard
             name="Facebook"
-            link="https://www.instagram.com/gravitas_vit/"
+            link="https://www.facebook.com/Gravitas.VITvellore/"
             icon={LiaFacebook}
           />{" "}
           <SocialsCard
             name="X.com"
-            link="https://www.instagram.com/gravitas_vit/"
+            link="https://twitter.com/GraVITas_VIT"
             icon={RiTwitterXLine}
           />
           <SocialsCard
             name="Linkedin"
-            link="https://www.instagram.com/gravitas_vit/"
+            link="https://www.linkedin.com/school/vellore-institute-of-technology/"
             icon={SlSocialLinkedin}
           />
         </section>
