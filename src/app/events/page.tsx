@@ -20,7 +20,7 @@ const EventsPage = () => {
         <PageHeader
           title="Events"
           tagline="Tagline Tagline Tagline"
-          breadcrumb="Home // Internal Events"
+          breadcrumb="Home // Events"
           color="#000000"
         />
         <EventsFilter />

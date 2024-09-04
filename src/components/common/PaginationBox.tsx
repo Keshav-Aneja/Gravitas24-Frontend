@@ -93,7 +93,7 @@ function PageBox({ page, dummy, isSelected, setCurrentPage }: Props) {
         isSelected && "bg-secondary text-white"
       )}
       onClick={() => {
-        setCurrentPage && !dummy && page && setCurrentPage(page + 1);
+        setCurrentPage && !dummy && page && setCurrentPage(page);
         console.log(page);
         const eventsSection = document.getElementById("eventFilter");
         if (eventsSection && !dummy) {
