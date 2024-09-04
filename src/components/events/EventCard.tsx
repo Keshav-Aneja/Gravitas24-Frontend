@@ -16,7 +16,7 @@ import { cn } from "@/lib/utils";
 import { register } from "module";
 const EventCard = ({
   data,
-  registered,
+  registered = false,
 }: {
   data: eventType;
   registered?: boolean;
@@ -111,7 +111,7 @@ const EventCard = ({
           </div>
         </section>
 
-        <div className="bg-primaryLight border-[1px] border-primaryLight rounded-full p-2 -rotate-[45deg] absolute top-4 right-4 md:hidden">
+        {!registered && <><div className="bg-primaryLight border-[1px] border-primaryLight rounded-full p-2 -rotate-[45deg] absolute top-4 right-4 md:hidden">
           <IoArrowForwardOutline />
         </div>
         <div className=" text-[#0C5EFF] text-6xl cursor-pointer w-[10%] group-hover:opacity-100 opacity-0 transition-all duration-200 ease-linear hidden md:block">
@@ -122,7 +122,7 @@ const EventCard = ({
             height={200}
             className="w-10 h-auto float-end"
           />
-        </div>
+        </div></>}
       </BorderBox>
     </Link>
   );

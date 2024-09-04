@@ -1,5 +1,7 @@
 import { Payment } from "@/constants/types/transaction";
 import getHandler from "@/handlers/get_handler";
+import { instantiateEventData } from "./event.service";
+import { eventType } from "@/constants/types/types";
 
 export async function getProfileDetails() {
   try {
@@ -21,7 +23,8 @@ export async function getRegisteredEvents() {
     if (!response.success) {
       throw new Error(response.message);
     }
-    return response;
+
+    return response.data.map((temp:any,index:number) => instantiateEventData(temp.event)) as eventType[];
   } catch (error: any) {
     throw new Error(
       error.message ?? "Something went wrong while fetching details."
