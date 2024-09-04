@@ -16,6 +16,13 @@ import images from "@/constants/images";
 import MiniHero from "@/sections/landing/MiniHero";
 import { toast } from "@/hooks/use-toast";
 export default function Home() {
+  // useEffect(() => {
+  //   toast({
+  //     title: "Test",
+  //     description: "lorem ipsum dolor amet",
+  //   });
+  // }, []);
+
   return (
     <main className="bg-base w-full pb-6">
       <ReactLenis
