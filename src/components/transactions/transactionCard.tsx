@@ -5,7 +5,7 @@ import Image from "next/image";
 const TransactionCard = ({ data }: { data: Payment }) => {
   return (
     <div className=" w-full border border-outline flex flex-col md:flex-row">
-      <div className="aspect-square h-full w-auto border-r border-r-outline">
+      <div className="aspect-square h-[300px] w-auto border-r border-r-outline">
         <Image
           src={data.event_slot?.event.display || data.merch?.images[0] || ""}
           alt=""
@@ -47,7 +47,7 @@ const TransactionCard = ({ data }: { data: Payment }) => {
               <p>{data.status}</p>
             </section>
           </div>
-          <div className="flex flex-row justify-between text-2xl text-blue-500">
+          <div className="flex w-full flex-row justify-between text-2xl text-blue-500">
             <p>
               Total Amount {"{"}Exclusive of GST{"}"}
             </p>
