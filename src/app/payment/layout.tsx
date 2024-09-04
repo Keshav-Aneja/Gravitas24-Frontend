@@ -1,0 +1,51 @@
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import "@/styles/globals.css";
+import "@/styles/buttons.css";
+import Header from "@/components/landing/Header";
+import Footer from "@/sections/landing/Footer";
+import BorderBox from "@/components/common/BorderBox";
+import SeparatorBottom2 from "@/components/common/SeparatorBottom2";
+const inter = Inter({ subsets: ["latin"] });
+
+export const metadata: Metadata = {
+  title: "Gravitas",
+  description: "Gravitas - VIT Vellore",
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <div
+      className="w-full relative flex flex-col"
+      style={{ height: "calc(100vh-4rem)" }}
+    >
+      <Separator />
+      <div className="grid grid-cols-5 w-[90%] mx-auto h-full">
+        <span className="border-x-[1px] items-end col-span-1 hidden md:flex"></span>
+        <BorderBox
+          className="w-full min-h-[400px] h-full col-span-5 md:col-span-3 md:col-start-2 border border-red-500 bg-white"
+          classNameSquares="bg-primary"
+        >
+          {children}
+        </BorderBox>
+        <span className="border-x-[1px] col-span-1 col-start-5 hidden md:block"></span>
+      </div>
+      <SeparatorBottom2 />
+    </div>
+  );
+}
+function Separator() {
+  return (
+    <div className="grid md:grid-cols-5 h-8 md:h-24 w-[90%] mx-auto">
+      <span className="border-x-[1px]"></span>
+      <span className="border-x-[1px]"></span>
+      <span className="border-x-[1px]"></span>
+      <span className="border-x-[1px]"></span>
+      <span className="border-x-[1px]"></span>
+    </div>
+  );
+}
