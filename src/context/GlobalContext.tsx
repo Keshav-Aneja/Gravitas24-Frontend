@@ -9,6 +9,7 @@ import {
   useEffect,
   useState,
 } from "react";
+import Cookies from "js-cookie";
 
 type GlobalContextType = {
   totalPages: number;
@@ -38,6 +39,13 @@ export default function GlobalContextProvider({
   const [currentPage, setCurrentPage] = useState(1);
   const [isLoggedin, setIsLoggedin] = useState(false);
   const [eventScope, setEventScope] = useState("both");
+
+  useEffect(() => {
+    const token = Cookies.get("access_token");
+    if (token && token != " ") {
+      setIsLoggedin(true);
+    }
+  }, []);
   return (
     <GlobalContext.Provider
       value={{
