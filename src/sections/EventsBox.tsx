@@ -36,7 +36,7 @@ const EventsBox = () => {
         if (err.response.data.message) {
           toast({
             title: "Error",
-            description: err,
+            description: err.response.data.message,
             variant: "destructive",
           });
         }
