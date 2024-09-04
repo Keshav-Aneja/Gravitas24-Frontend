@@ -17,16 +17,20 @@ const SponsorCard = ({ className, image }: Props) => {
     >
       {image ? (
         <Image
+          src={image}
+          alt=""
+          width={200}
+          height={200}
+          className="w-full h-auto"
+        />
+      ) : (
+        <Image
           src={svgs.IconDiamond}
           alt=""
           width={200}
           height={200}
           className="w-12 h-auto"
         />
-      ) : (
-        <div className="text-2xl font-auxMono font-medium">
-          <h1>Coming Soon</h1>
-        </div>
       )}
     </BorderBox>
   );
