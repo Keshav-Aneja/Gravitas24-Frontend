@@ -21,7 +21,7 @@ const Patrons = () => {
           className="hidden md:block py-6"
         />
       </span>
-      <section className="w-full h-auto grid grid-cols-4 gap-4 relative">
+      <section className="flex flex-wrap justify-center items-center mb-10 relative overflow-hidden">
         <PatronCard
           image={data[0].people[0].img}
           name={data[0].people[0].name}
@@ -33,38 +33,21 @@ const Patrons = () => {
           name={data[1].people[0].name}
           desig={data[1].people[0].position}
           label="Co-Patron"
-          className="hidden lg:flex"
         />
         <PatronCard
           image={data[1].people[1].img}
           name={data[1].people[1].name}
           desig={data[1].people[1].position}
           label="Co-Patron"
-          className="hidden lg:flex"
         />
         <PatronCard
           image={data[1].people[2].img}
           name={data[1].people[2].name}
           desig={data[1].people[2].position}
           label="Co-Patron"
-          className="hidden lg:flex"
         />
-        <div className="flex flex-row gap-4 lg:hidden">
-          <PatronCard
-            image={data[1].people[1].img}
-            name={data[1].people[1].name}
-            desig={data[1].people[1].position}
-            label="Co-Patron"
-          />
-          <PatronCard
-            image={data[1].people[2].img}
-            name={data[1].people[2].name}
-            desig={data[1].people[2].position}
-            label="Co-Patron"
-          />
-        </div>
         <Link
-          className="--sponsor-floater h-[300px] absolute -right-10 bottom-0 w-10 hidden lg:flex flex-row items-center justify-center bg-primary hover:scale-110 transition-all"
+          className="--sponsor-floater h-[300px] w-10 hidden lg:flex flex-row items-center justify-center bg-primary hover:scale-110 transition-all"
           href="/team"
         >
           <p className="rotate-90 text-nowrap text-xl text-white font-auxMono">
