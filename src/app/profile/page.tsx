@@ -4,37 +4,67 @@ import EventCard from "@/components/events/EventCard";
 import MerchCard from "@/components/merch/MerchCard";
 import { eventType, merchType } from "@/constants/types/types";
 import { cn } from "@/lib/utils";
-import { getProfileDetails, getRegisteredEvents, getRegisteredMerch } from "@/services/user.service";
+import {
+  getProfileDetails,
+  getRegisteredEvents,
+  getRegisteredMerch,
+  getUserTransactions,
+} from "@/services/user.service";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import ValidateToken from "@/lib/ValidateToken";
-import { EventRegistration, MerchRegistration } from "@/constants/types/registered";
+import {
+  EventRegistration,
+  MerchRegistration,
+} from "@/constants/types/registered";
+import { Payment } from "@/constants/types/transaction";
+
 export default function ProfilePage() {
   const [activeTab, setActiveTab] = useState(0);
-  const [registeredEvents, setRegisteredEvents] = useState<EventRegistration[]>([] as EventRegistration[]);
-  const [registeredMerch, setRegisteredMerch] = useState<MerchRegistration[]>([] as MerchRegistration[]);
+  const [registeredEvents, setRegisteredEvents] = useState<eventType[]>(
+    [] as eventType[]
+  );
+  const [registeredMerch, setRegisteredMerch] = useState<MerchRegistration[]>(
+    [] as MerchRegistration[]
+  );
+  const [profileDetails, setProfileDetails] = useState<any>(null); // Adjust the type as necessary
+  const [transactions, setTransactions] = useState<Payment[]>([]);
 
   const router = useRouter();
+
   useEffect(() => {
     const isVerified = ValidateToken();
     if (!isVerified) {
       router.push("/");
+      return;
     }
+
     (async () => {
       try {
-        const response = await getProfileDetails();
-        const registeredEvents = (await getRegisteredEvents()).data as EventRegistration[];
-        const registeredMerch = (await getRegisteredMerch()).data as MerchRegistration[];
-        setRegisteredEvents(registeredEvents);
-        setRegisteredMerch(registeredMerch);
-        console.log(registeredEvents) 
-        console.log(registeredMerch)
-        console.log(response);
+        // Run all the requests concurrently
+        const [profileResponse, eventsResponse, merchResponse, transactionsResponse] = await Promise.all([
+          getProfileDetails(),
+          getRegisteredEvents(),
+          getRegisteredMerch(),
+          getUserTransactions(),
+        ]);
+
+        // Process the responses
+        setProfileDetails(profileResponse);
+        setRegisteredEvents(eventsResponse);
+        setRegisteredMerch((merchResponse as any).data as MerchRegistration[]);
+        setTransactions(transactionsResponse);
+
+        console.log(transactionsResponse);
+        console.log(eventsResponse);
+        console.log((merchResponse as any).data);
+        console.log(profileResponse);
       } catch (error: any) {
         console.log(error);
       }
     })();
-  }, []);
+  }, [router]);
+
   return (
     <div className="w-full">
       <PageHeader
@@ -43,51 +73,64 @@ export default function ProfilePage() {
         breadcrumb="Home // Profile"
       />
       <div className="w-[90%] mx-auto">
-        <div className="h-28 w-full border-x-[1px] border-outline"></div>
-        <div className="w-full flex items-center gap-0 bg-primary text-white font-auxMono --clip-shape-footer-2">
+        <div className="h-12 md:h-28 w-full border-x-[1px] border-outline"></div>
+        <div className="w-full  flex items-center gap-0 bg-primary text-white font-auxMono --clip-shape-profile-header">
           <button
             className={cn(
-              "w-1/3 h-full py-3",
-              activeTab === 0 && "border-b-[8px] border-white"
+              "w-1/3 h-full py-3 text-xs",
+              activeTab === 0 && "border-b-[4px] md:border-b-[8px] border-primaryLight"
             )}
-            onClick={() => {
-              setActiveTab(0);
-            }}
+            onClick={() => setActiveTab(0)}
           >
             Registered Events
           </button>
           <button
             className={cn(
-              "w-1/3 h-full py-3",
-              activeTab === 1 && "border-b-[8px] border-white"
+              "w-1/3 h-full py-3 text-xs",
+              activeTab === 1 && "border-b-[4px] md:border-b-[8px] border-primaryLight"
             )}
-            onClick={() => {
-              setActiveTab(1);
-            }}
+            onClick={() => setActiveTab(1)}
           >
             Purchased Merch
           </button>
+          <button
+            className={cn(
+              "w-1/3 h-full py-3 text-xs",
+              activeTab === 2 && "border-b-[4px] md:border-b-[8px] border-primaryLight"
+            )}
+            onClick={() => setActiveTab(2)}
+          >
+            Transaction History
+          </button>
         </div>
-        {activeTab === 0 && <MyEvents eventRegisteration = {registeredEvents} />}
-        {activeTab === 1 && <MyMerch merchRegisteration = {registeredMerch}/>}
+        {activeTab === 0 && <MyEvents eventRegisteration={registeredEvents} />}
+        {activeTab === 1 && <MyMerch merchRegisteration={registeredMerch} />}
       </div>
     </div>
   );
 }
 
-function MyEvents({ eventRegisteration }: { eventRegisteration: EventRegistration[] }) {
+function MyEvents({
+  eventRegisteration,
+}: {
+  eventRegisteration: eventType[];
+}) {
   return (
     <div className="w-full flex flex-col gap-4 my-8">
       {eventRegisteration.map((data) => (
-        <EventCard key={data.id} data={data.event} registered />
+        <EventCard key={data.id} data={data} registered />
       ))}
     </div>
   );
 }
 
-function MyMerch({ merchRegisteration }: { merchRegisteration: MerchRegistration[] }) {
+function MyMerch({
+  merchRegisteration,
+}: {
+  merchRegisteration: MerchRegistration[];
+}) {
   return (
-    <div className="w-full grid grid-cols-3 my-8 gap-8">
+    <div className="w-full grid grid-cols-1 md:grid-cols-3 my-8 gap-8">
       {merchRegisteration.map((data) => (
         <MerchCard key={data.id} data={data.merch} purchased />
       ))}

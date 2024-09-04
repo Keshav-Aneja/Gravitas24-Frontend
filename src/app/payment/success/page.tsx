@@ -18,7 +18,7 @@ function PaymentSuccess() {
         Payment Success!
       </p>
       <div className="w-full flex flex-col gap-1 items-center justify-center mt-4">
-        <p>Event: {eventName}</p>
+        {eventName && eventName?.length > 0 && <p>Event: {eventName}</p>}
         <p>Transaction No: {trnNo}</p>
       </div>
     </div>
