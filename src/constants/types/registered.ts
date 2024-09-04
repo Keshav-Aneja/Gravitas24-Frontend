@@ -1,3 +1,5 @@
+import { eventType, merchType } from "./types";
+
 interface User {
     id: string;
     name: string;
@@ -9,24 +11,6 @@ interface User {
     registeredEvents: any | null;
 }
 
-interface Event {
-    id: string;
-    name: string;
-    // "type": string;
-    description: string;
-    judgement_criteria: string;
-    rules_and_regulations: string;
-    prize_distribution: string;
-    club: string;
-    tagline: string;
-    scope: string;
-    price_per_ticket: number;
-    image: string;
-    start_date: string;
-    team_size: string;
-    end_date: string;
-    slots: any | null;
-}
 
 interface EventSlot {
     id: string;
@@ -46,32 +30,19 @@ interface Payment {
     event_slot_id: string | null;
     event_slot: EventSlot | null;
     merch_id: string | null;
-    merch: Merch | null;
+    merch: merchType | null;
     amount: number;
     status: string;
     remarks: string;
     transaction: any | null;
 }
 
-interface Merch {
-    id: string;
-    name: string;
-    type: string;
-    tagline: string;
-    description: string;
-    category: string;
-    price: number;
-    total_available: number;
-    sizes: string[];
-    images: string[];
-}
-
-interface EventRegistration {
+export interface EventRegistration {
     id: string;
     user_id: string;
     user: User;
     event_id: string;
-    event: Event;
+    event: eventType;
     event_slot_id: string;
     event_slot: EventSlot;
     payment_id: string;
@@ -80,12 +51,12 @@ interface EventRegistration {
     status: string;
     remarks: string;
 }
-interface MerchTransaction {
+export interface MerchRegistration {
     id: string;
     user_id: string;
     user: User;
     event_id: string;
-    merch: Merch;
+    merch: merchType;
     payment_id: string;
     payment: Payment;
     status: string;
