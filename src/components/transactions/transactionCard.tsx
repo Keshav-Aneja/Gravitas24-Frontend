@@ -11,7 +11,7 @@ const TransactionCard = ({ data }: { data: Payment }) => {
           alt=""
           width={400}
           height={300}
-          className="aspect-square h-full object-cover"
+          className="aspect-square h-[300px] object-cover"
         />
       </div>
       <div className="flex flex-col gap-4 items-center w-full p-4">
@@ -47,11 +47,11 @@ const TransactionCard = ({ data }: { data: Payment }) => {
               <p>{data.status}</p>
             </section>
           </div>
-          <div>
+          <div className="flex flex-row justify-between text-2xl text-blue-500">
             <p>
               Total Amount {"{"}Exclusive of GST{"}"}
             </p>
-            <p className="text-3xl text-blue-500 ">
+            <p className="text-3xl">
               {data.amount}
             </p>
           </div>
