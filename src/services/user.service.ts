@@ -1,4 +1,4 @@
-import { Payment } from "@/constants/types/transaction";
+import { Payment } from "@/constants/types/registered";
 import getHandler from "@/handlers/get_handler";
 import { instantiateEventData } from "./event.service";
 import { eventType } from "@/constants/types/types";

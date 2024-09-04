@@ -2,6 +2,7 @@
 import { PageHeader } from "@/components/common/PageHeader";
 import EventCard from "@/components/events/EventCard";
 import MerchCard from "@/components/merch/MerchCard";
+import TransactionCard from "@/components/transactions/transactionCard"
 import { eventType, merchType } from "@/constants/types/types";
 import { cn } from "@/lib/utils";
 import {
@@ -16,8 +17,8 @@ import ValidateToken from "@/lib/ValidateToken";
 import {
   EventRegistration,
   MerchRegistration,
+  Payment,
 } from "@/constants/types/registered";
-import { Payment } from "@/constants/types/transaction";
 
 export default function ProfilePage() {
   const [activeTab, setActiveTab] = useState(0);
@@ -84,7 +85,7 @@ export default function ProfilePage() {
           >
             Registered Events
           </button>
-          <button
+          {/* <button
             className={cn(
               "w-1/3 h-full py-3 text-xs",
               activeTab === 1 && "border-b-[4px] md:border-b-[8px] border-primaryLight"
@@ -92,7 +93,7 @@ export default function ProfilePage() {
             onClick={() => setActiveTab(1)}
           >
             Purchased Merch
-          </button>
+          </button> */}
           <button
             className={cn(
               "w-1/3 h-full py-3 text-xs",
@@ -104,7 +105,8 @@ export default function ProfilePage() {
           </button>
         </div>
         {activeTab === 0 && <MyEvents eventRegisteration={registeredEvents} />}
-        {activeTab === 1 && <MyMerch merchRegisteration={registeredMerch} />}
+        {/* {activeTab === 1 && <MyMerch merchRegisteration={registeredMerch} />} */}
+        {activeTab === 2 && <MyTransactions transactionHistory={transactions}/>}
       </div>
     </div>
   );
@@ -137,3 +139,19 @@ function MyMerch({
     </div>
   );
 }
+
+function MyTransactions({
+  transactionHistory,
+}: {
+  transactionHistory: Payment[];
+}) {
+  return (
+    <div className="w-full flex flex-col gap-4 my-8">
+      {transactionHistory.map((data) => (
+        <TransactionCard key={data.id} data={data} />
+      ))}
+    </div>
+  );
+}
+
+
