@@ -11,11 +11,10 @@ interface User {
     registeredEvents: any | null;
 }
 
-
 interface EventSlot {
     id: string;
     event_id: string;
-    event: Partial<Event>;
+    event: Partial<eventType>;
     venue: string;
     total_entries: number;
     start_date: string;
@@ -23,7 +22,7 @@ interface EventSlot {
     is_registrable: boolean;
 }
 
-interface Payment {
+export interface Payment {
     id: string;
     user_id: string;
     user: Partial<User>;

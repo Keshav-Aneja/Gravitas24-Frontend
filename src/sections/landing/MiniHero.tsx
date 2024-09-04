@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { EVENT_PAGE, MERCH_PAGE } from "@/constants/routes";
+import { EVENT_PAGE, MERCH_PAGE, FAQ_PAGE } from "@/constants/routes";
 import Link from "next/link";
 import { svgs } from "@/constants/svgs";
 import images from "@/constants/images";
@@ -71,7 +71,7 @@ function EventBtn() {
 }
 function MerchBtn() {
   return (
-    <Link href={MERCH_PAGE}>
+    <Link href={FAQ_PAGE}>
       <div className="relative w-32 md:w-48 scale-x-110 font-auxMono top-[12px] cursor-pointer hover:scale-x-[115%] hover:scale-y-[105%] transition-all duration-100 ease-linear active:scale-x-110 active:scale-y-[100%]">
         <Image
           src={svgs.HeroBtnB}
@@ -81,7 +81,7 @@ function MerchBtn() {
           className="w-full h-auto scale-y-[130%]"
         />
         <p className="absolute top-1 right-4   font-medium text-xs md:text-[1rem] tracking-widest text-nowrap ">
-          BUY MERCH
+          FAQs
         </p>
       </div>
     </Link>

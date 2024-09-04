@@ -2,6 +2,7 @@
 import { PageHeader } from "@/components/common/PageHeader";
 import EventCard from "@/components/events/EventCard";
 import MerchCard from "@/components/merch/MerchCard";
+import TransactionCard from "@/components/transactions/transactionCard";
 import { eventType, merchType } from "@/constants/types/types";
 import { cn } from "@/lib/utils";
 import {
@@ -16,104 +17,105 @@ import ValidateToken from "@/lib/ValidateToken";
 import {
   EventRegistration,
   MerchRegistration,
+  Payment,
 } from "@/constants/types/registered";
 import { ReactLenis } from "@studio-freight/react-lenis";
 export default function ProfilePage() {
   const [activeTab, setActiveTab] = useState(0);
-  const [registeredEvents, setRegisteredEvents] = useState<EventRegistration[]>(
-    [] as EventRegistration[]
+  const [registeredEvents, setRegisteredEvents] = useState<eventType[]>(
+    [] as eventType[]
   );
   const [registeredMerch, setRegisteredMerch] = useState<MerchRegistration[]>(
     [] as MerchRegistration[]
   );
+  const [profileDetails, setProfileDetails] = useState<any>(null); // Adjust the type as necessary
+  const [transactions, setTransactions] = useState<Payment[]>([]);
 
   const router = useRouter();
+
   useEffect(() => {
     const isVerified = ValidateToken();
     if (!isVerified) {
       router.push("/");
+      return;
     }
+
     (async () => {
       try {
-        const response = await getProfileDetails();
-        const registeredEvents = (await getRegisteredEvents())
-          .data as EventRegistration[];
-        const registeredMerch = (await getRegisteredMerch())
-          .data as MerchRegistration[];
-        const transactions = await getUserTransactions();
-        console.log(transactions);
-        setRegisteredEvents(registeredEvents);
-        setRegisteredMerch(registeredMerch);
-        console.log(registeredEvents);
-        console.log(registeredMerch);
-        console.log(response);
+        // Run all the requests concurrently
+        const [
+          profileResponse,
+          eventsResponse,
+          merchResponse,
+          transactionsResponse,
+        ] = await Promise.all([
+          getProfileDetails(),
+          getRegisteredEvents(),
+          getRegisteredMerch(),
+          getUserTransactions(),
+        ]);
+
+        // Process the responses
+        setProfileDetails(profileResponse);
+        setRegisteredEvents(eventsResponse);
+        setRegisteredMerch((merchResponse as any).data as MerchRegistration[]);
+        setTransactions(transactionsResponse);
+
+        console.log(transactionsResponse);
+        console.log(eventsResponse);
+        console.log((merchResponse as any).data);
+        console.log(profileResponse);
       } catch (error: any) {
         console.log(error);
       }
     })();
-  }, []);
+  }, [router]);
+
   return (
-    <ReactLenis
-      root
-      options={{
-        lerp: 0.04,
-        duration: 2.5,
-        smoothWheel: true,
-        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-        orientation: "vertical",
-      }}
-    >
-      <div className="w-full">
-        <PageHeader
-          title="My Profile"
-          color="#ff550c"
-          breadcrumb="Home // Profile"
-        />
-        <div className="w-[90%] mx-auto">
-          <div className="h-28 w-full border-x-[1px] border-outline"></div>
-          <div className="w-full flex items-center gap-0 bg-primary text-white font-auxMono --clip-shape-footer-2">
-            <button
-              className={cn(
-                "w-1/3 h-full py-3",
-                activeTab === 0 && "border-b-[8px] border-white"
-              )}
-              onClick={() => {
-                setActiveTab(0);
-              }}
-            >
-              Registered Events
-            </button>
-            <button
-              className={cn(
-                "w-1/3 h-full py-3",
-                activeTab === 1 && "border-b-[8px] border-white"
-              )}
-              onClick={() => {
-                setActiveTab(1);
-              }}
-            >
-              Purchased Merch
-            </button>
-          </div>
-          {activeTab === 0 && (
-            <MyEvents eventRegisteration={registeredEvents} />
-          )}
-          {activeTab === 1 && <MyMerch merchRegisteration={registeredMerch} />}
+    <div className="w-full">
+      <PageHeader
+        title="My Profile"
+        color="#ff550c"
+        breadcrumb="Home // Profile"
+      />
+      <div className="w-[90%] mx-auto">
+        <div className="h-28 w-full border-x-[1px] border-outline"></div>
+        <div className="w-full flex items-center gap-0 bg-primary text-white font-auxMono --clip-shape-footer-2">
+          <button
+            className={cn(
+              "w-1/3 h-full py-3",
+              activeTab === 0 && "border-b-[8px] border-white"
+            )}
+            onClick={() => {
+              setActiveTab(0);
+            }}
+          >
+            Registered Events
+          </button>
+          <button
+            className={cn(
+              "w-1/3 h-full py-3",
+              activeTab === 1 && "border-b-[8px] border-white"
+            )}
+            onClick={() => {
+              setActiveTab(1);
+            }}
+          >
+            Purchased Merch
+          </button>
         </div>
+        {activeTab === 0 && <MyEvents eventRegisteration={registeredEvents} />}
+        {activeTab === 1 && <MyMerch merchRegisteration={registeredMerch} />}
       </div>
-    </ReactLenis>
+    </div>
   );
 }
 
-function MyEvents({
-  eventRegisteration,
-}: {
-  eventRegisteration: EventRegistration[];
-}) {
+function MyEvents({ eventRegisteration }: { eventRegisteration: eventType[] }) {
   return (
     <div className="w-full flex flex-col gap-4 my-8">
       {eventRegisteration.map((data) => (
-        <EventCard key={data.id} data={data.event} registered />
+        <EventCard key={data.id} data={data} registered />
       ))}
     </div>
   );
@@ -125,9 +127,23 @@ function MyMerch({
   merchRegisteration: MerchRegistration[];
 }) {
   return (
-    <div className="w-full grid grid-cols-3 my-8 gap-8">
+    <div className="w-full grid grid-cols-1 md:grid-cols-3 my-8 gap-8">
       {merchRegisteration.map((data) => (
         <MerchCard key={data.id} data={data.merch} purchased />
+      ))}
+    </div>
+  );
+}
+
+function MyTransactions({
+  transactionHistory,
+}: {
+  transactionHistory: Payment[];
+}) {
+  return (
+    <div className="w-full flex flex-col gap-4 my-8">
+      {transactionHistory.map((data) => (
+        <TransactionCard key={data.id} data={data} />
       ))}
     </div>
   );

@@ -36,7 +36,9 @@
 .--event-button-2 {
   clip-path: polygon(0% 0%, 91% 0, 100% 28%, 100% 100%, 0% 100%);
 }
-
+.--clip-shape-profile-header{
+  clip-path: polygon(0 0, 100% 0, 96% 100%, 4% 100%);
+}
 .--sponsor-floater {
   clip-path: polygon(
     100% 0,

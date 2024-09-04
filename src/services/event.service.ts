@@ -11,7 +11,7 @@ function instantiateSlotData(data: any): slotType {
     isRegistrable: data.is_registrable,
   } as slotType;
 }
-function instantiateEventData(data: any): eventType {
+export function instantiateEventData(data: any): eventType {
   return {
     id: data.id,
     name: data.name,

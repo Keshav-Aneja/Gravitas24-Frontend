@@ -4,7 +4,7 @@
         "people": [
             {
                 "img": "https://imgur.com/zwGBgWz.png",
-                "name": "G Viswanathan",
+                "name": "Dr. G Viswanathan",
                 "position": "Chancellor"
             }
         ]
@@ -75,7 +75,7 @@
         ]
     },
     {
-        "title": "Student Managers",
+        "title": "Student Organizers",
         "people": [
             {
                 "name": "Yashita",
@@ -91,31 +91,6 @@
                 "name": "Hubert Franton",
                 "position": "Transport & Logistics",
                 "img": "https://imgur.com/8jROLfY.png"
-            }
-        ]
-    },
-    {
-        "title": "Student Managers",
-        "people": [
-            {
-                "name": "Tejasv Goyal",
-                "position": "Events",
-                "img": "https://imgur.com/eNp4JKJ.png"
-            },
-            {
-                "name": "Aditya Boral",
-                "position": "Sponsors & MoU",
-                "img": "https://imgur.com/OLE4UuT.png"
-            },
-            {
-                "name": "Ragavendra Raja J",
-                "position": "Sales",
-                "img": "https://imgur.com/pdiF4YQ.png"
-            },
-            {
-                "name": "Swayam Ambashtha",
-                "position": "Finance",
-                "img": "https://imgur.com/yk0K7yk.png"
             }
         ]
     }

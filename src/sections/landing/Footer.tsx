@@ -44,16 +44,16 @@ const Footer = () => {
           </div>
         </div>
         <div className="w-full flex flex-row items-end justify-end md:w-full">
-          <div className="bg-[#212121] --footer-bg py-5 md:py-12 pb-6 font-clash text-white md:w-auto flex flex-col   justify-center --clip-shape-footer relative">
+          <div className="bg-[#212121] --footer-bg py-5 md:py-12 pb-6 font-clash text-white md:w-auto flex flex-col justify-center --clip-shape-footer relative">
             <section className="md:border-r px-6 border-white">
               <h1 className="text-xl md:text-4xl text-nowrap">
                 Dr. Sharmila N
               </h1>
-              <p className="text-sm md:text-xl text-nowrap uppercase font-auxMono">
+              <p className="text-sm md:text-2xl  text-nowrap">
                 Convenor graVITas&apos;24
               </p>
             </section>
-            <section className="px-6 text-xs uppercase font-auxMono md:text-2xl">
+            <section className="px-6 text-xs md:text-2xl">
               <a href="mailto:convenor.gravitas@vit.ac.in">
                 convenor.gravitas@vit.ac.in
               </a>
