@@ -3,6 +3,7 @@ import EventCard from "@/components/events/EventCard";
 import EventCardSkeleton from "@/components/events/EventCardSkeleton";
 import { eventType } from "@/constants/types/types";
 import { useGlobalContext } from "@/context/GlobalContext";
+import { toast } from "@/hooks/use-toast";
 import { getEventList } from "@/services/event.service";
 import React, { useEffect, useState } from "react";
 
@@ -30,8 +31,15 @@ const EventsBox = () => {
         setLoading(false);
         setEvents(response.data);
         setTotalPages(response.totalPages);
-      } catch (error) {
+      } catch (error: unknown) {
         setLoading(false);
+        if (error instanceof Error) {
+          toast({
+            title: "Error",
+            description: error.message,
+            variant: "destructive",
+          });
+        }
       }
     })();
   }, [currentPage, query, eventType, eventScope]);

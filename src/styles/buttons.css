@@ -74,6 +74,19 @@
     0 15%
   );
 }
+
+.--toast {
+  clip-path: polygon(
+    5% 0,
+    80% 0%,
+    100% 0,
+    100% 100%,
+    24% 100%,
+    18% 88%,
+    0% 88%,
+    0 15%
+  );
+}
 .scroll-menu {
   display: grid;
   grid-auto-flow: column;

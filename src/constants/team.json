@@ -48,9 +48,9 @@
         "title": "Convenor",
         "people": [
             {
-                "name": "Dr. Gokul Kumar K.",
+                "name": "Dr. Sharmila N",
                 "position": "SMEC",
-                "img": ""
+                "img": "https://i.imgur.com/jWXSb8W.png"
             }
         ]
     },
@@ -58,34 +58,64 @@
         "title": "Co-Convenors",
         "people": [
             {
-                "name": "Mr. Sudheer C. V.",
+                "name": "Mr. Mohafiz Riyaz",
                 "position": "SSL",
-                "img": ""
+                "img": "https://imgur.com/4IaSu9S.png"
             },
             {
-                "name": "Dr. Sankar Ganesh S.",
+                "name": "Mr. Ramesh N.",
                 "position": "SENSE",
-                "img": ""
+                "img": "https://imgur.com/JFup8Js.png"
             },
             {
-                "name": "Dr. Naga Venkata Raghuram J.",
+                "name": "Mr. Tapano Kumar Hotta",
                 "position": "VITBS",
-                "img": ""
+                "img": "https://imgur.com/SMZjwpJ.png"
+            }
+        ]
+    },
+    {
+        "title": "Student Managers",
+        "people": [
+            {
+                "name": "Yashita",
+                "position": "Sales",
+                "img": "https://imgur.com/k2ffJWa.png"
             },
             {
-                "name": "Dr. Gitanjali J.",
-                "position": "SCORE",
-                "img": ""
+                "name": "K Abhimanyu Nair",
+                "position": "Finance",
+                "img": "https://imgur.com/LqiMI9u.png"
             },
             {
-                "name": "Dr. Thiyagachanthan N. V.",
-                "position": "PED",
-                "img": ""
+                "name": "Hubert Franton",
+                "position": "Transport & Logistics",
+                "img": "https://imgur.com/8jROLfY.png"
+            }
+        ]
+    },
+    {
+        "title": "Student Managers",
+        "people": [
+            {
+                "name": "Tejasv Goyal",
+                "position": "Events",
+                "img": "https://imgur.com/eNp4JKJ.png"
             },
             {
-                "name": "Mr. Dinesh Raghavan E. S.",
-                "position": "V-SPARC",
-                "img": ""
+                "name": "Aditya Boral",
+                "position": "Sponsors & MoU",
+                "img": "https://imgur.com/OLE4UuT.png"
+            },
+            {
+                "name": "Ragavendra Raja J",
+                "position": "Sales",
+                "img": "https://imgur.com/pdiF4YQ.png"
+            },
+            {
+                "name": "Swayam Ambashtha",
+                "position": "Finance",
+                "img": "https://imgur.com/yk0K7yk.png"
             }
         ]
     }
