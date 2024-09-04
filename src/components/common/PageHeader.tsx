@@ -32,7 +32,7 @@ export const PageHeader = ({
       <div className="w-[90%] h-[4rem] lg:h-[6rem] mx-auto border-x-[1px] border-outline relative">
         <span className="absolute top-4 left-1/2 -translate-x-1/2 lg:left-[53%] lg:-translate-x-[47%] flex items-center gap-2">
           <div className="w-3 md:w-4 lg:w-6 aspect-square rounded-full bg-white "></div>
-          <h1 className="text-white text-sm md:text-lg lg:text-2xl font-light text-nowrap">
+          <h1 className="text-white text-sm md:text-lg lg:text-2xl font-light text-nowrap italic">
             innoVate. sustaIn. Transform
           </h1>
         </span>

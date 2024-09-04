@@ -10,6 +10,8 @@ const Header = () => {
             reVITalize yourself!
           </h1>
           <div className="w-1 h-1 bg-black rounded-full"></div>
+          <h1 className="font-auxMono text-sm uppercase">Unleash the Genius</h1>
+          <div className="w-1 h-1 bg-black rounded-full"></div>
         </div>
       </Marquee>
       <Navbar />
