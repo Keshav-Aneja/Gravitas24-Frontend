@@ -24,7 +24,7 @@ const EventsBox = () => {
           page: currentPage,
           limit: 5,
           name: query,
-          type: eventType,
+          type: eventType === "All" ? "" : eventType,
           scope: eventScope,
         });
         setLoading(false);

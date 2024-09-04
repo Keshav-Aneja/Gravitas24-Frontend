@@ -11,7 +11,7 @@ const EventsFilter = () => {
   const [eventTypeMenu, setEventTypeMenu] = useState(false);
   const [temp, setTemp] = useState("");
   const { eventType, setEventType } = useGlobalContext();
-  const { setCurrentPage, setEventScope } = useGlobalContext();
+  const { setCurrentPage, setEventScope, eventScope } = useGlobalContext();
   useEffect(() => {
     const interval = setTimeout(() => {
       setQuery(temp);
@@ -60,7 +60,7 @@ const EventsFilter = () => {
               setIsMenuOpen(!isMenuOpen);
             }}
           >
-            <h1>ALL</h1>
+            <h1>{eventType}</h1>
             <RxCaretDown className="absolute top-1/2 -translate-y-1/2 right-2" />
           </button>
           {isMenuOpen && (
@@ -99,7 +99,7 @@ const EventsFilter = () => {
               setEventTypeMenu(!eventTypeMenu);
             }}
           >
-            <h1>Both</h1>
+            <h1>{eventScope}</h1>
             <RxCaretDown className="absolute top-1/2 -translate-y-1/2 right-2" />
           </button>
           {eventTypeMenu && (

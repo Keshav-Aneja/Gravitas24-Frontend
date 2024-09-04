@@ -1,9 +1,22 @@
+"use client";
 import BorderBox from "@/components/common/BorderBox";
 import PremiumEventHoverCard from "@/components/landing/PremiumEventHoverCard";
+import { EVENT_PAGE } from "@/constants/routes";
 import { svgs } from "@/constants/svgs";
-import React from "react";
+import { Link } from "lucide-react";
+import React, { useEffect, useState } from "react";
 
 const PremiumEvents = () => {
+  const [cycle, setCycle] = useState(0);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCycle((cycle + 1) % 4);
+    }, 2000);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, [cycle]);
   return (
     <div className="w-[90%] mx-auto pt-28 flex flex-col gap-12 md:gap-20">
       <span className="flex flex-col gap-1">
@@ -46,6 +59,7 @@ const PremiumEvents = () => {
             icon={svgs.IconDiamond}
             description="Code, create, and innovate—join the hackathon and make something great!"
             className="w-full  min-h-52"
+            glow={cycle === 0}
           />
           <PremiumEventHoverCard
             className="relative w-full min-h-52"
@@ -53,6 +67,7 @@ const PremiumEvents = () => {
             description="Get your hands dirty and your brain buzzing—join our workshop and
           learn something new!"
             icon={svgs.IconCog}
+            glow={cycle === 1}
           />
         </div>
 
@@ -62,6 +77,7 @@ const PremiumEvents = () => {
             title="Tech-events"
             description="Unleash your tech-genius at our epic technical events."
             icon={svgs.IconBulb}
+            glow={cycle === 2}
           />
 
           <PremiumEventHoverCard
@@ -69,6 +85,7 @@ const PremiumEvents = () => {
             title="Games"
             description="Get ready to level up and dive into our games events, where epic battles and fun await at every turn!"
             icon={svgs.IconPuzzle}
+            glow={cycle === 3}
           />
         </div>
       </section>

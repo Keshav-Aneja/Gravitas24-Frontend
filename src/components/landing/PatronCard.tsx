@@ -13,7 +13,7 @@ const PatronCard = ({ className, image, name, desig, label }: Props) => {
   return (
     <BorderBox
       className={cn(
-        "bg-base p-0 relative border-primary flex flex-col justify-between items-center w-[175px] md:w-[250px] lg:w-[300px] max-w-full",
+        "bg-base p-0 relative border-primary flex flex-col justify-between items-center w-full max-w-full",
         className
       )}
       classNameSquares="bg-primary"
