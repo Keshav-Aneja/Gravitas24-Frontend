@@ -30,8 +30,8 @@ const Footer = () => {
         </div>
       </Marquee>
       <div className="flex flex-col lg:flex-row gap-4 items-center justify-around py-16 md:py-24 p-4 w-full relative">
-        <div className="w-[90%] mx-auto mb-36 md:mb-0">
-          <div className="text-5xl md:text-7xl font-clash font-semibold text-wrap">
+        <div className="w-full mx-auto md:mb-0">
+          <div className="text-5xl ml-8 md:ml-16 md:text-7xl font-clash font-semibold text-wrap">
             <p>
               inno<span className="text-primary">V</span>ate
             </p>
@@ -43,10 +43,8 @@ const Footer = () => {
             </p>
           </div>
         </div>
-        <div className="absolute right-0 top-[60%] md:top-[25%] min-w-[350px] w-[40%]">
-          {/* <div className="bg-[#212121] w-[60%] md:w-[80%] h-6 absolute -bottom-5 right-0 --clip-shape-footer-2"></div> */}
-
-          <div className="bg-[#212121] --footer-bg py-5 md:py-12 pb-6 font-clash text-white w-auto flex flex-col   justify-center --clip-shape-footer relative">
+        <div className="w-full flex flex-row items-end justify-end md:w-full">
+          <div className="bg-[#212121] --footer-bg py-5 md:py-12 pb-6 font-clash text-white md:w-auto flex flex-col   justify-center --clip-shape-footer relative">
             <section className="md:border-r px-6 border-white">
               <h1 className="text-xl md:text-4xl text-nowrap">
                 Dr. Sharmila N
