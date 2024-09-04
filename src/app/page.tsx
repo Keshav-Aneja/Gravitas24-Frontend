@@ -14,7 +14,14 @@ import { useEffect, useRef } from "react";
 import Image from "next/image";
 import images from "@/constants/images";
 import MiniHero from "@/sections/landing/MiniHero";
+import { toast } from "@/hooks/use-toast";
 export default function Home() {
+  useEffect(() => {
+    toast({
+      title: "ARYAN ",
+      description: "AUR USKI BANDI",
+    });
+  }, []);
   return (
     <main className="bg-base w-full pb-6">
       <ReactLenis

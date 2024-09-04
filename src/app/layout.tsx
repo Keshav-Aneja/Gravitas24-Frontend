@@ -5,6 +5,7 @@ import "@/styles/buttons.css";
 import Header from "@/components/landing/Header";
 import GlobalContextProvider from "@/context/GlobalContext";
 import Footer from "@/sections/landing/Footer";
+import { Toaster } from "@/components/ui/toaster";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -20,6 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
+        <Toaster />
         <GlobalContextProvider>
           <Header />
           {children}

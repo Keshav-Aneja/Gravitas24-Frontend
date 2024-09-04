@@ -1,5 +1,5 @@
 import images from "@/constants/images";
-import React from "react";
+import React, { useEffect } from "react";
 import Image from "next/image";
 import { svgs } from "@/constants/svgs";
 import SeparatorBottom from "@/components/landing/SeparatorBottom";

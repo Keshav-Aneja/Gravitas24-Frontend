@@ -19,6 +19,7 @@ import Cookie from "js-cookie";
 import axiosInstance from "@/config/axios";
 import { CreateTransactionResponse } from "@/constants/types/transaction";
 import Scroller from "../common/Scroller";
+import { toast } from "@/hooks/use-toast";
 
 const DetailedEventCard = ({
   id,
@@ -77,8 +78,10 @@ const DetailedEventCard = ({
       form.submit();
     } catch (err: unknown) {
       if (err instanceof Error) {
-        // TOASTER
-        console.log(err.message);
+        toast({
+          title: "Error",
+          description: err.message,
+        });
       }
       console.log("An error occured. Kindly contact the admin.");
     }
