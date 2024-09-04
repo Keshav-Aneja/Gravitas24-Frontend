@@ -14,14 +14,14 @@ const SocialsCard = (props: Props) => {
   return (
     <BorderBox
       className={cn(
-        "bg-base relative flex hover:bg-[#121212] hover:text-white group transition-all duration-200 ease-linear flex-col justify-center items-center max-w-full w-full aspect-square max-h-full ",
+        "bg-base relative flex hover:bg-[#121212] hover:text-white group transition-all duration-200 ease-linear flex-col justify-center items-center max-w-full w-16 md:w-full aspect-square max-h-full ",
         props.className
       )}
     >
-      <a href={props.link} className="h-full w-full p-6">
+      <a href={props.link} className="h-full w-full p-2 md:p-6">
         <div className="flex flex-col h-full items-center justify-between md:items-start ">
           <props.icon className="h-8 w-8" />
-          <div className="text-[1rem] md:text-xl font-auxMono  uppercase">
+          <div className="hidden md:block md:text-xl font-auxMono  uppercase">
             <h1>{props.name}</h1>
           </div>
         </div>

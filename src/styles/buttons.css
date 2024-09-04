@@ -57,3 +57,20 @@
 .--clip-shape-footer-2 {
   clip-path: polygon(0 0, 100% 0, 100% 100%, 5% 100%);
 }
+
+.--patron-floater {
+  clip-path: polygon(0 0, 100% 0%, 100% 100%, 7% 100%, 0% 50%);
+}
+
+.--footer-bg {
+  clip-path: polygon(
+    5% 0,
+    80% 0%,
+    100% 0,
+    100% 100%,
+    24% 100%,
+    18% 88%,
+    0% 88%,
+    0 15%
+  );
+}

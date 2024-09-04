@@ -2,24 +2,16 @@ import React from "react";
 import Marquee from "react-fast-marquee";
 import GalleryImageCard from "@/components/landing/galleryImageCard";
 import images from "@/constants/images";
-import {galleryTopImages, galleryBottomImages} from "@/constants/galleryImages";
+import {
+  galleryTopImages,
+  galleryBottomImages,
+} from "@/constants/galleryImages";
 
 const Gallery = () => {
-  const imagesT = galleryTopImages; 
+  const imagesT = galleryTopImages;
   const imagesB = galleryBottomImages;
   return (
     <>
-      <Marquee
-        autoFill
-        speed={30}
-        direction="right"
-        className="z-[20] border-y-2 border-black"
-      >
-        <div className="flex items-center gap-12 ml-12">
-          <h1 className="font-auxMono text-xl uppercase">Unleash the Genius</h1>
-          <div className="w-0 h-0 border-y-8 border-y-transparent border-l-[14px] border-black"></div>
-        </div>
-      </Marquee>
       <div className="py-4 pt-16">
         <section className="w-full flex flex-row overflow-x-auto items-center justify-center gap-4">
           <GalleryImageCard image={imagesT["1"]} />

@@ -10,9 +10,6 @@ const PremiumEvents = () => {
         <h1 className="font-clash text-4xl md:text-6xl font-semibold">
           Events
         </h1>
-        <p className="text-xl md:text-3xl text-main font-auxMono text-primary">
-          Premium Events
-        </p>
       </span>
       <section className="w-full grid-cols-4 hidden md:grid">
         <PremiumEventHoverCard

@@ -13,7 +13,7 @@ const PatronCard = ({ className, image, name, desig, label }: Props) => {
   return (
     <BorderBox
       className={cn(
-        "bg-base p-0 relative border-primary flex flex-col justify-between items-center max-w-full w-[320px] min-h-[400px]",
+        "bg-base p-0 relative border-primary flex flex-col justify-between items-center w-[175px] md:w-[250px] lg:w-[300px] max-w-full",
         className
       )}
       classNameSquares="bg-primary"
@@ -27,13 +27,13 @@ const PatronCard = ({ className, image, name, desig, label }: Props) => {
             height={200}
             className="w-full h-auto max-h-[320px] top-0"
           />
-          <div className="text-2xl p-2 w-full text-left font-auxMono font-medium">
+          <div className="text-sm lg:text-2xl p-1 md:p-2 w-full text-left font-auxMono font-medium">
             <h1>{name}</h1>
-            <h2 className="text-xl text-primary">{desig}</h2>
+            <h2 className="text-xs md:text-xl text-primary">{desig}</h2>
           </div>
           {label && (
-            <div className="text-lg bg-primary w-full p-2 text-white font-auxMono font-normal">
-              <h3>{label}</h3>
+            <div className="absolute --patron-floater bg-primary w-[60px] lg:w-[100px] right-0 top-[10%] p-1 px-2 text-center text-white font-auxMono font-normal ">
+              <h3 className="text-xs lg:text-base ">{label}</h3>
             </div>
           )}
         </>

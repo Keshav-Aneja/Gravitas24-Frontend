@@ -8,11 +8,23 @@ import SocialsCard from "@/components/landing/SocialsCard";
 import { SlSocialLinkedin, SlSocialYoutube } from "react-icons/sl";
 import { LiaFacebook } from "react-icons/lia";
 import { RiTwitterXLine } from "react-icons/ri";
+import Marquee from "react-fast-marquee";
 
 const Footer = () => {
   return (
     <div className=" mx-auto pt-20 flex flex-col relative w-full">
-      <div className="dotted-bg flex flex-col lg:flex-row gap-4 items-center justify-around py-16 md:py-24 p-4 w-full relative">
+      <Marquee
+        autoFill
+        speed={30}
+        direction="right"
+        className="z-[20] border-y-2 border-black"
+      >
+        <div className="flex items-center gap-12 ml-12">
+          <h1 className="font-auxMono uppercase">Revitalize yourself!</h1>
+          <div className="w-1 h-1 border rounded-full bg-black border-black"></div>
+        </div>
+      </Marquee>
+      <div className="flex flex-col lg:flex-row gap-4 items-center justify-around py-16 md:py-24 p-4 w-full relative">
         <div className="w-[90%] mx-auto mb-36 md:mb-0">
           <div className="text-5xl md:text-7xl font-clash font-semibold text-wrap">
             <p>
@@ -26,10 +38,10 @@ const Footer = () => {
             </p>
           </div>
         </div>
-        <div className="absolute right-0 md:top-20 top-60 w-[80%] md:w-[40%]">
-          <div className="bg-[#212121] w-[60%] md:w-[80%] h-6 absolute -bottom-5 right-0 --clip-shape-footer-2"></div>
+        <div className="absolute right-0 top-[60%] md:top-[25%] min-w-[350px] w-[40%]">
+          {/* <div className="bg-[#212121] w-[60%] md:w-[80%] h-6 absolute -bottom-5 right-0 --clip-shape-footer-2"></div> */}
 
-          <div className="bg-[#212121] py-5 md:py-12 pb-6 font-clash text-white w-auto flex flex-col   justify-center --clip-shape-footer relative">
+          <div className="bg-[#212121] --footer-bg py-5 md:py-12 pb-6 font-clash text-white w-auto flex flex-col   justify-center --clip-shape-footer relative">
             <section className="md:border-r px-6 border-white">
               <h1 className="text-xl md:text-4xl text-nowrap">
                 Dr. Sharmila N
@@ -47,7 +59,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="w-[90%] mx-auto">
-        <section className="w-full grid grid-cols-2 md:grid-cols-5">
+        <section className="w-full flex flex-row items-center justify-center">
           <SocialsCard
             name="Instagram"
             link="https://www.instagram.com/gravitas_vit/"
@@ -74,7 +86,7 @@ const Footer = () => {
             icon={SlSocialLinkedin}
           />
         </section>
-        <section className="pt-6  flex flex-col md:flex-row justify-between text-xs text-center gap-2 font-auxMono">
+        <section className="p-6 flex flex-col md:flex-row justify-between text-xs text-center gap-2 font-auxMono">
           <p>2024 © Vellore Institute of Technology, Vellore</p>
           <p>OFFICE OF STUDENTS&apos; WELFARE</p>
         </section>
