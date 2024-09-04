@@ -46,9 +46,15 @@ const EventCard = ({
         />
         <section className="--main flex flex-col font-auxMono w-full ">
           <div className="px-3 md:px-0">
-            <h1 className="text-xl md:text-3xl uppercase w-full">
-              {data.name}
-            </h1>
+            <div className="flex w-full flex-col md:flex-row justify-between items-start md:items-center">
+              <h1 className="text-xl md:text-3xl uppercase w-full">
+                {data.name}
+              </h1>
+              <p className="text-xs text-nowrap md:text-[1rem]">
+                {data.type}
+              </p>
+            </div>
+
             <p className="text-primary text-xs md:text-[1rem]">
               {data.tagline}
             </p>
