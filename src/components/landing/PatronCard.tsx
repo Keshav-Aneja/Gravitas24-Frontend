@@ -32,7 +32,7 @@ const PatronCard = ({ className, image, name, desig, label }: Props) => {
             <h2 className="text-xs md:text-xl text-primary">{desig}</h2>
           </div>
           {label && (
-            <div className="absolute --patron-floater bg-primary w-[60px] lg:w-[100px] right-0 top-[10%] p-1 px-2 text-center text-white font-auxMono font-normal ">
+            <div className="absolute --patron-floater bg-primary right-0 top-[10%] p-1 px-2 text-center text-white font-auxMono font-normal ">
               <h3 className="text-xs lg:text-base ">{label}</h3>
             </div>
           )}
