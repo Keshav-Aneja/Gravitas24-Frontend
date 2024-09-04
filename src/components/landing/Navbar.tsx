@@ -25,7 +25,10 @@ const Navbar = () => {
   const router = useRouter();
 
   return (
-    <div className="w-full border-y-[1px] border-outline h-[3rem] md:h-[4rem] sticky top-0 left-0 z-[2000] bg-white/50 backdrop-blur-xl">
+    <div
+      className="w-full border-y-[1px] border-outline h-[3rem] md:h-[4rem] sticky top-0 left-0 z-[2000] bg-white/50 backdrop-blur-xl"
+      id="nav"
+    >
       <div className="w-full lg:w-[90%] mx-auto grid grid-cols-4 lg:grid-cols-5 h-full">
         <section className="flex items-center lg:col-span-2 justify-start lg:pl-8 h-full border-x-[1px] border-outline relative">
           <Link href="https://vit.ac.in" className="w-full">

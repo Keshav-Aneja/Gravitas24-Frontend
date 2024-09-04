@@ -19,6 +19,7 @@ export const PageHeader = ({
     <div
       className={cn(`w-full flex flex-col font-clash relative`)}
       style={{ background: color }}
+      id={title}
     >
       <span className="w-[90%] h-[0.5rem] lg:h-[2rem] mx-auto border-x-[1px] border-outline"></span>
       <div className="w-full border-y-[1px] border-outline">

@@ -4,7 +4,14 @@ import PaginationBox from "@/components/common/PaginationBox";
 import EventsFilter from "@/components/events/EventsFilter";
 import EventsBox from "@/sections/EventsBox";
 import { ReactLenis } from "@studio-freight/react-lenis";
+import { useEffect } from "react";
 const EventsPage = () => {
+  useEffect(() => {
+    const top = document.getElementById("nav");
+    if (top) {
+      top.scrollIntoView({ behavior: "smooth" });
+    }
+  }, []);
   return (
     <ReactLenis
       root

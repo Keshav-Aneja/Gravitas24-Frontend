@@ -7,7 +7,7 @@ import IconDiamond from "@/assets/svg/iconDiamond.svg";
 import Trophy from "@/assets/svg/trophy.svg";
 import ArrowRedirect from "@/assets/svg/arrow.svg";
 import SponsorsFloaters from "@/assets/svg/SponsorFloater.svg";
-import Patrons from "@/assets/svg/PatronsFloater.svg";
+import Patrons from "@/assets/svg/patronFloater.svg";
 import IconCog from "@/assets/svg/cog.svg";
 import IconPuzzle from "@/assets/svg/puzzle.svg";
 import IconBulb from "@/assets/svg/blub.svg";

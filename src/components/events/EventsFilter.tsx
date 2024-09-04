@@ -47,7 +47,7 @@ const EventsFilter = () => {
           }}
         ></div>
       )}
-      <div className="w-full flex items-center justify-end">
+      <div className="w-full flex items-center justify-end ">
         <div
           className={cn(
             "relative w-[50%] md:w-[20%]",
@@ -60,11 +60,11 @@ const EventsFilter = () => {
               setIsMenuOpen(!isMenuOpen);
             }}
           >
-            <h1>{eventType}</h1>
+            <h1 className="uppercase">{eventType}</h1>
             <RxCaretDown className="absolute top-1/2 -translate-y-1/2 right-2" />
           </button>
           {isMenuOpen && (
-            <div className="w-full border-[1px] border-black border-t-0 flex flex-col absolute top-8 right-0">
+            <div className="w-full border-[1px] border-black border-t-0 flex flex-col absolute top-8 right-0 bg-white z-[1000]">
               {["All", "Workshop", "Tech-Events", "Hackathon", "Games"].map(
                 (item, index) => (
                   <button
@@ -74,8 +74,10 @@ const EventsFilter = () => {
                       if (item === "All") {
                         setEventType("");
                         setCurrentPage(1);
+                        setIsMenuOpen(false);
                       } else {
                         setEventType(item);
+                        setIsMenuOpen(false);
                         setCurrentPage(1);
                       }
                     }}
@@ -99,7 +101,7 @@ const EventsFilter = () => {
               setEventTypeMenu(!eventTypeMenu);
             }}
           >
-            <h1>{eventScope}</h1>
+            <h1 className="uppercase">{eventScope.split("_").join(" ")}</h1>
             <RxCaretDown className="absolute top-1/2 -translate-y-1/2 right-2" />
           </button>
           {eventTypeMenu && (
