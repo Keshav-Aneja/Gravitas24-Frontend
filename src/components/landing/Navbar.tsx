@@ -144,7 +144,7 @@ const Navbar = () => {
                   <div className="w-2 h-2 bg-gray-300 absolute -top-1 right-0"></div>
                 </div>
               </span>{" "}
-              <span className="w-full flex flex-col gap-2">
+              {/* <span className="w-full flex flex-col gap-2">
                 <Link
                   href={MERCH_PAGE}
                   className="hover:text-primary text-black"
@@ -155,7 +155,7 @@ const Navbar = () => {
                   <div className="w-2 h-2 bg-gray-300 absolute -top-1 left-0"></div>
                   <div className="w-2 h-2 bg-gray-300 absolute -top-1 right-0"></div>
                 </div>
-              </span>{" "}
+              </span>{" "} */}
               <span className="w-full flex flex-col gap-2">
                 <Link
                   href={EVENT_PAGE}
