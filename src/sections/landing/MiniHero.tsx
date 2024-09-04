@@ -80,7 +80,7 @@ function MerchBtn() {
           height={300}
           className="w-full h-auto scale-y-[130%]"
         />
-        <p className="absolute top-1 right-4   font-medium text-xs md:text-[1rem] tracking-widest text-nowrap ">
+        <p className="absolute top-1 right-10 font-medium text-xs md:text-[1rem] tracking-widest text-nowrap ">
           FAQs
         </p>
       </div>

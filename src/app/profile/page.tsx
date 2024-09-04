@@ -90,7 +90,7 @@ export default function ProfilePage() {
         />
         <div className="w-[90%] mx-auto">
           <div className="h-28 w-full border-x-[1px] border-outline"></div>
-          <div className="w-full flex items-center gap-0 bg-primary text-white font-auxMono --clip-shape-profile-header">
+          <div className="w-full text-xs md:text-[1rem] flex items-center gap-0 bg-primary text-white font-auxMono --clip-shape-profile-header">
             <button
               className={cn(
                 "w-1/2 h-full py-3",

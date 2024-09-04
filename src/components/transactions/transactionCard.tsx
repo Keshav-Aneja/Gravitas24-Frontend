@@ -9,7 +9,7 @@ const TransactionCard = ({ data }: { data: Payment }) => {
       <BorderBox className="md:px-6 md:py-10 p-0 w-[90%] mx-auto flex flex-col md:flex-row items-start md:justify-between gap-4 md:gap-8 group border-primary md:border-outline">
         <Image
           className="w-full md:w-[17%] aspect-square border-[1px] border-black"
-          src={data.event_slot?.event.display || data.merch?.images[0] || ""}
+          src={data.event_slot?.event.image || data.merch?.images[0] || ""}
           alt=""
           width={1000}
           height={1000}
@@ -30,10 +30,10 @@ const TransactionCard = ({ data }: { data: Payment }) => {
           {/*body*/}
           <div className="w-full flex flex-col h-full gap-4 justify-between items-center">
             <div className="flex flex-col gap-2 w-full text-sm md:text-xl font-auxMono">
-              {/* <section className="flex flex-row justify-between">
-                <p>No. of Participants:</p>
-                <p>{data.event_slot?.event.teamSize}</p>
-              </section> */}
+              <section className="flex flex-row justify-between">
+                <p>Transaction ID:</p>
+                <p>{data.id}</p>
+              </section>
               <section className="flex flex-row justify-between">
                 <p>Payment Mode:</p>
                 <p>Online</p>
@@ -46,7 +46,7 @@ const TransactionCard = ({ data }: { data: Payment }) => {
             <div className="flex w-full flex-row justify-between text-sm md:text-xl text-blue-500">
               <p>
                 Total Amount{" "}
-                <span className="text-xs">
+                <span className="hidden md:block text-xs">
                   *Exclusive of GST
                 </span>
               </p>

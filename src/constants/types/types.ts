@@ -5,6 +5,7 @@ export type eventType = {
   description: string;
   club: string;
   display: string;
+  image?: string;
   tagline: string;
   price: number;
   slots: slotType[] | null;
