@@ -13,3 +13,35 @@ export async function getProfileDetails() {
     );
   }
 }
+
+
+export async function getRegisteredEvents() {
+  try {
+    const response = await getHandler("/users/events");
+    if (!response.success) {
+      throw new Error(response.message);
+    }
+    return response;
+  } catch (error: any) {
+    throw new Error(
+      error.message ?? "Something went wrong while fetching details."
+    );
+  }
+}
+
+
+
+export async function getRegisteredMerch() {
+  try {
+    const response = await getHandler("/users/merch");
+    if (!response.success) {
+      throw new Error(response.message);
+    }
+    return response;
+  } catch (error: any) {
+    throw new Error(
+      error.message ?? "Something went wrong while fetching details."
+    );
+  }
+}
+
