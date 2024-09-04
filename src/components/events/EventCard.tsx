@@ -54,7 +54,7 @@ const EventCard = ({
             </p>
             <div className="w-full md:w-[40%] h-[1px] md:h-[2px] bg-outline my-2 mb-4"></div>
             <div className="w-full flex flex-col md:flex-row items-start gap-4">
-              <span className="--winning-prize-box flex items-center gap-2 text-[#080C0B60] border-[2px] border-outline rounded-sm px-2 py-1 min-w-fit">
+              {/* <span className="--winning-prize-box flex items-center gap-2 text-[#080C0B60] border-[2px] border-outline rounded-sm px-2 py-1 min-w-fit">
                 <Image
                   src={svgs.Trophy}
                   alt=""
@@ -63,7 +63,7 @@ const EventCard = ({
                   className="w-4 h-auto"
                 />
                 <p className="text-sm">1,00,000</p>
-              </span>
+              </span> */}
               <p className="text-black/60 text-xs md:text-[1rem]">
                 {data.description}
               </p>
