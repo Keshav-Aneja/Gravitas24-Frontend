@@ -72,7 +72,7 @@ const FAQItem: React.FC<FAQListProps> = ({
             : "mt-20 opacity-0"
         }  `}
       >
-        <p className="">{ans}</p>
+        <p className="font-ibmPlex">{ans}</p>
         {list?.map((listItem, i) => (
           <p key={i} className="text-content">
             {listItem}

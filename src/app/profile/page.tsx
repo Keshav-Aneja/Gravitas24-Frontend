@@ -74,7 +74,7 @@ export default function ProfilePage() {
   return (
     <div className="w-full">
       <PageHeader
-        title="My Profile"
+        title="My Purchases"
         color="#ff550c"
         breadcrumb="Home // Profile"
       />
@@ -83,7 +83,7 @@ export default function ProfilePage() {
         <div className="w-full flex items-center gap-0 bg-primary text-white font-auxMono --clip-shape-footer-2">
           <button
             className={cn(
-              "w-1/3 h-full py-3",
+              "w-1/2 h-full py-3",
               activeTab === 0 && "border-b-[8px] border-white"
             )}
             onClick={() => {
@@ -92,7 +92,7 @@ export default function ProfilePage() {
           >
             Registered Events
           </button>
-          <button
+          {/* <button
             className={cn(
               "w-1/3 h-full py-3",
               activeTab === 1 && "border-b-[8px] border-white"
@@ -102,10 +102,24 @@ export default function ProfilePage() {
             }}
           >
             Purchased Merch
+          </button> */}
+          <button
+            className={cn(
+              "w-1/2 h-full py-3",
+              activeTab === 2 && "border-b-[8px] border-white"
+            )}
+            onClick={() => {
+              setActiveTab(2);
+            }}
+          >
+            Transaction History
           </button>
         </div>
         {activeTab === 0 && <MyEvents eventRegisteration={registeredEvents} />}
-        {activeTab === 1 && <MyMerch merchRegisteration={registeredMerch} />}
+        {/* {activeTab === 1 && <MyMerch merchRegisteration={registeredMerch} />} */}
+        {activeTab === 2 && (
+          <MyTransactions transactionHistory={transactions} />
+        )}
       </div>
     </div>
   );
