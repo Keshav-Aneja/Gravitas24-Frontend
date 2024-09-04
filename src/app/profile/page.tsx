@@ -4,15 +4,28 @@ import EventCard from "@/components/events/EventCard";
 import MerchCard from "@/components/merch/MerchCard";
 import { eventType, merchType } from "@/constants/types/types";
 import { cn } from "@/lib/utils";
-import { getProfileDetails, getRegisteredEvents, getRegisteredMerch } from "@/services/user.service";
+import {
+  getProfileDetails,
+  getRegisteredEvents,
+  getRegisteredMerch,
+  getUserTransactions,
+} from "@/services/user.service";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import ValidateToken from "@/lib/ValidateToken";
-import { EventRegistration, MerchRegistration } from "@/constants/types/registered";
+import {
+  EventRegistration,
+  MerchRegistration,
+} from "@/constants/types/registered";
+import { Payment } from "@/constants/types/transaction";
 export default function ProfilePage() {
   const [activeTab, setActiveTab] = useState(0);
-  const [registeredEvents, setRegisteredEvents] = useState<EventRegistration[]>([] as EventRegistration[]);
-  const [registeredMerch, setRegisteredMerch] = useState<MerchRegistration[]>([] as MerchRegistration[]);
+  const [registeredEvents, setRegisteredEvents] = useState<EventRegistration[]>(
+    [] as EventRegistration[]
+  );
+  const [registeredMerch, setRegisteredMerch] = useState<MerchRegistration[]>(
+    [] as MerchRegistration[]
+  );
 
   const router = useRouter();
   useEffect(() => {
@@ -23,12 +36,16 @@ export default function ProfilePage() {
     (async () => {
       try {
         const response = await getProfileDetails();
-        const registeredEvents = (await getRegisteredEvents()).data as EventRegistration[];
-        const registeredMerch = (await getRegisteredMerch()).data as MerchRegistration[];
+        const registeredEvents = (await getRegisteredEvents())
+          .data as EventRegistration[];
+        const registeredMerch = (await getRegisteredMerch())
+          .data as MerchRegistration[];
+        const transactions = await getUserTransactions();
+        console.log(transactions);
         setRegisteredEvents(registeredEvents);
         setRegisteredMerch(registeredMerch);
-        console.log(registeredEvents) 
-        console.log(registeredMerch)
+        console.log(registeredEvents);
+        console.log(registeredMerch);
         console.log(response);
       } catch (error: any) {
         console.log(error);
@@ -68,14 +85,18 @@ export default function ProfilePage() {
             Purchased Merch
           </button>
         </div>
-        {activeTab === 0 && <MyEvents eventRegisteration = {registeredEvents} />}
-        {activeTab === 1 && <MyMerch merchRegisteration = {registeredMerch}/>}
+        {activeTab === 0 && <MyEvents eventRegisteration={registeredEvents} />}
+        {activeTab === 1 && <MyMerch merchRegisteration={registeredMerch} />}
       </div>
     </div>
   );
 }
 
-function MyEvents({ eventRegisteration }: { eventRegisteration: EventRegistration[] }) {
+function MyEvents({
+  eventRegisteration,
+}: {
+  eventRegisteration: EventRegistration[];
+}) {
   return (
     <div className="w-full flex flex-col gap-4 my-8">
       {eventRegisteration.map((data) => (
@@ -85,7 +106,11 @@ function MyEvents({ eventRegisteration }: { eventRegisteration: EventRegistratio
   );
 }
 
-function MyMerch({ merchRegisteration }: { merchRegisteration: MerchRegistration[] }) {
+function MyMerch({
+  merchRegisteration,
+}: {
+  merchRegisteration: MerchRegistration[];
+}) {
   return (
     <div className="w-full grid grid-cols-3 my-8 gap-8">
       {merchRegisteration.map((data) => (

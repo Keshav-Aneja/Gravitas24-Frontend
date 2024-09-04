@@ -172,11 +172,33 @@ const Navbar = () => {
                   <div className="w-2 h-2 bg-gray-300 absolute -top-1 right-0"></div>
                 </div>
               </span>
-              <Button className="z-0 --event-button-2 w-full">
-                <a href={AUTH_PAGE}>
-                  <span className="text-nowrap text-[1rem]">SIGN-IN</span>
-                </a>
-              </Button>
+              {!isLoggedin && (
+                <Link href={AUTH_PAGE}>
+                  <Button className="z-0 --event-button-2 w-full">
+                    <span className="text-nowrap text-[1rem]">SIGN-IN</span>
+                  </Button>
+                </Link>
+              )}
+              {isLoggedin && (
+                <Link href="/profile">
+                  <Button className="z-0 --event-button mr-8">
+                    <span className="text-nowrap">PROFILE</span>
+                  </Button>
+                </Link>
+              )}
+              {isLoggedin && (
+                <Button
+                  className="z-0 --event-button mr-8"
+                  onClick={() => {
+                    Cookies.remove("access_token");
+                    Cookies.remove("refresh_token");
+                    setIsLoggedin(false);
+                    router.push("/");
+                  }}
+                >
+                  <span className="text-nowrap">LOGOUT</span>
+                </Button>
+              )}
             </div>
           )}
         </section>

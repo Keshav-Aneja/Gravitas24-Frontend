@@ -1,3 +1,4 @@
+import { Payment } from "@/constants/types/transaction";
 import getHandler from "@/handlers/get_handler";
 
 export async function getProfileDetails() {
@@ -14,7 +15,6 @@ export async function getProfileDetails() {
   }
 }
 
-
 export async function getRegisteredEvents() {
   try {
     const response = await getHandler("/users/events");
@@ -28,8 +28,6 @@ export async function getRegisteredEvents() {
     );
   }
 }
-
-
 
 export async function getRegisteredMerch() {
   try {
@@ -45,3 +43,16 @@ export async function getRegisteredMerch() {
   }
 }
 
+export async function getUserTransactions() {
+  try {
+    const response = await getHandler("/users/transaction");
+    if (!response.success) {
+      throw new Error(response.message);
+    }
+    return response.data as Payment[];
+  } catch (error: any) {
+    throw new Error(
+      error.message ?? "Something went wrong while fetching details."
+    );
+  }
+}
