@@ -37,29 +37,29 @@ const Patrons = () => {
           image={data[1].people[1].img}
           name={data[1].people[1].name}
           desig={data[1].people[1].position}
-          label="CO-PATRON"
+          label="Co-Patron"
           className="hidden lg:flex"
         />
         <PatronCard
-          image={images.patron1}
-          name="G Vishwanathan"
-          desig="Chancellor"
-          label="PATRON"
+          image={data[1].people[2].img}
+          name={data[1].people[2].name}
+          desig={data[1].people[2].position}
+          label="Co-Patron"
           className="hidden lg:flex"
         />
         <div className="flex flex-row gap-4 lg:hidden">
-          <PatronCard
-            image={images.patron1}
-            name="G Vishwanathan"
-            desig="Chancellor"
-            label="PATRON"
-          />
-          <PatronCard
-            image={images.patron1}
-            name="G Vishwanathan"
-            desig="Chancellor"
-            label="PATRON"
-          />
+        <PatronCard
+          image={data[1].people[1].img}
+          name={data[1].people[1].name}
+          desig={data[1].people[1].position}
+          label="Co-Patron"
+        />
+        <PatronCard
+          image={data[1].people[2].img}
+          name={data[1].people[2].name}
+          desig={data[1].people[2].position}
+          label="Co-Patron"
+        />
         </div>
         <Link
           className="--sponsor-floater h-[300px] left-0 bottom-0 w-[45px] hidden lg:flex flex-row items-center justify-center bg-primary hover:scale-110 transition-all"
