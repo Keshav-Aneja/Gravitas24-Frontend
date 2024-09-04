@@ -9,7 +9,7 @@ import data from "@/constants/team.json";
 const Patrons = () => {
   return (
     <div className="w-[90%] relative mx-auto py-20 flex flex-col">
-      <span className="flex flex-col md:flex-row items-center md:items-end gap-4 w-full relative">
+      <span className="flex flex-col md:flex-row items-center md:items-end gap-4 w-full relative mb-20">
         <h1 className="font-clash text-4xl w-full md:text-6xl font-semibold">
           Meet The Team
         </h1>
@@ -18,7 +18,7 @@ const Patrons = () => {
           alt=""
           width={250}
           height={80}
-          className="hidden md:block py-6"
+          className="hidden h-[60px] w-auto md:block"
         />
       </span>
       <section className="flex flex-wrap justify-center items-center mb-10 relative overflow-hidden">
