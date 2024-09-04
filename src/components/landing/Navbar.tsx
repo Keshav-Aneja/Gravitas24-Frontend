@@ -15,11 +15,14 @@ import { AiOutlineMenu } from "react-icons/ai";
 import { IoMdClose } from "react-icons/io";
 import ValidateToken from "@/lib/ValidateToken";
 import { useGlobalContext } from "@/context/GlobalContext";
-
+import { usePathname } from "next/navigation";
+import { useRouter } from "next/navigation";
+import Cookies from "js-cookie";
 const Navbar = () => {
   const [openMenu, setOpenMenu] = useState(false);
   const { isLoggedin } = useGlobalContext();
-
+  const path = usePathname();
+  const router = useRouter();
 
   return (
     <div className="w-full border-y-[1px] border-outline h-[3rem] md:h-[4rem] sticky top-0 left-0 z-[2000] bg-white/50 backdrop-blur-xl">
@@ -88,12 +91,24 @@ const Navbar = () => {
               </Button>
             </Link>
           )}
-          {isLoggedin && (
+          {isLoggedin && !path.includes("profile") && (
             <Link href="/profile">
               <Button className="z-0 --event-button mr-8">
-                <span className="text-nowrap">Profile</span>
+                <span className="text-nowrap">PROFILE</span>
               </Button>
             </Link>
+          )}
+          {isLoggedin && path.includes("profile") && (
+            <Button
+              className="z-0 --event-button mr-8"
+              onClick={() => {
+                Cookies.remove("access_token");
+                Cookies.remove("refresh_token");
+                router.push("/");
+              }}
+            >
+              <span className="text-nowrap">LOGOUT</span>
+            </Button>
           )}
 
           <span className="w-[6px] h-[6px] bg-outline absolute -bottom-[3px] -right-[3px]"></span>
