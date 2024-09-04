@@ -34,7 +34,7 @@ export default function GlobalContextProvider({
   children: ReactNode;
 }) {
   const [totalPages, setTotalPages] = useState(1);
-  const [eventType, setEventType] = useState("");
+  const [eventType, setEventType] = useState("All");
   const [eventQuery, setEventQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [isLoggedin, setIsLoggedin] = useState(false);
