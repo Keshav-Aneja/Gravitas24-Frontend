@@ -50,7 +50,7 @@ const EventsFilter = () => {
       <div className="w-full flex items-center justify-end ">
         <div
           className={cn(
-            "relative w-[50%] md:w-[20%]",
+            "relative w-[50%] md:w-[25%]",
             isMenuOpen && "z-[2100]"
           )}
         >

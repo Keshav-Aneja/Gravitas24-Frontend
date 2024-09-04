@@ -58,7 +58,7 @@ const Navbar = () => {
               alt="Vellore Institue of Technology"
               width={200}
               height={200}
-              className=" invert w-[80%] lg:w-[60%] mx-auto h-auto"
+              className=" invert w-[70%] md:w-[60%] mx-auto h-auto"
             />
           </Link>
           <span className="w-[6px] h-[6px] bg-outline absolute -bottom-[3px] -left-[3px]"></span>
