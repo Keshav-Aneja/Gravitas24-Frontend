@@ -25,7 +25,7 @@ const PatronCard = ({ className, image, name, desig, label }: Props) => {
             alt=""
             width={200}
             height={200}
-            className="w-full h-auto max-h-[320px] top-0"
+            className="w-full object-cover aspect-square"
           />
           <div className="text-sm lg:text-xl p-1 md:p-2 w-full text-left font-auxMono font-medium">
             <h1>{name}</h1>
