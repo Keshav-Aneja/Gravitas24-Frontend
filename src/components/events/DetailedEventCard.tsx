@@ -20,6 +20,7 @@ import axiosInstance from "@/config/axios";
 import { CreateTransactionResponse } from "@/constants/types/transaction";
 import Scroller from "../common/Scroller";
 import { toast } from "@/hooks/use-toast";
+import { AxiosError } from "axios";
 
 const DetailedEventCard = ({
   id,
@@ -76,12 +77,12 @@ const DetailedEventCard = ({
       }
       document.body.appendChild(form);
       form.submit();
-    } catch (err: unknown) {
-      if (err instanceof Error) {
+    } catch (err: any) {
+      if (err.response.data.message) {
         toast({
           title: "Error",
-          description: err.message,
-          variant: "destructive"
+          description: err,
+          variant: "destructive",
         });
       }
       console.log("An error occured. Kindly contact the admin.");
