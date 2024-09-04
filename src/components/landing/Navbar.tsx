@@ -20,7 +20,7 @@ import { useRouter } from "next/navigation";
 import Cookies from "js-cookie";
 const Navbar = () => {
   const [openMenu, setOpenMenu] = useState(false);
-  const { isLoggedin } = useGlobalContext();
+  const { isLoggedin, setIsLoggedin } = useGlobalContext();
   const path = usePathname();
   const router = useRouter();
 
@@ -104,6 +104,7 @@ const Navbar = () => {
               onClick={() => {
                 Cookies.remove("access_token");
                 Cookies.remove("refresh_token");
+                setIsLoggedin(false);
                 router.push("/");
               }}
             >

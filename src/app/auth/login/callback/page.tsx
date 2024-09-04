@@ -3,7 +3,7 @@
 import { useRouter, useSearchParams } from "next/navigation";
 import { Suspense, useEffect } from "react";
 import Cookie from "js-cookie";
-import axiosInstance from "@/config/axios";
+import { toast } from "@/hooks/use-toast";
 import axios from "axios";
 import { BACKEND_URL } from "@/constants/routes";
 import { useGlobalContext } from "@/context/GlobalContext";
@@ -17,21 +17,31 @@ function LoginCallback() {
   useEffect(() => {
     const getAuthTokens = async () => {
       if (redirect_token) {
-        const response = await axios.get(`${BACKEND_URL}/auth/vit/login`, {
-          headers: {
-            Authorization: `Bearer ${redirect_token}`,
-          },
-        });
-        const access_token = response.data.token;
-        const refesh_token = response.data.refresh_token;
-        Cookie.set("access_token", access_token);
-        Cookie.set("refresh_token", refesh_token);
-        setIsLoggedin(true);
-        router.push("/");
+        try {
+          const response = await axios.get(`${BACKEND_URL}/auth/vit/login`, {
+            headers: {
+              Authorization: `Bearer ${redirect_token}`,
+            },
+          });
+          const access_token = response.data.token;
+          const refesh_token = response.data.refresh_token;
+          Cookie.set("access_token", access_token);
+          Cookie.set("refresh_token", refesh_token);
+          setIsLoggedin(true);
+          router.push("/");
+        } catch (error: unknown) {
+          if (error instanceof Error) {
+            toast({
+              title: "Error",
+              description: error.message,
+              variant: "destructive",
+            })
+          }
+        }
       }
     };
     getAuthTokens();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [redirect_token, router]);
 
   return (
