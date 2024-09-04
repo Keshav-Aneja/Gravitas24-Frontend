@@ -29,6 +29,7 @@ const PremiumEvents = () => {
           title="Hackathons"
           icon={svgs.IconDiamond}
           description="Code, create, and innovate—join the hackathon and make something great!"
+          type="Hackathon"
         />
         <PremiumEventHoverCard
           className="relative"
@@ -36,6 +37,7 @@ const PremiumEvents = () => {
           description="Get your hands dirty and your brain buzzing—join our workshop and
           learn something new!"
           icon={svgs.IconCog}
+          type="Workshop"
         />
 
         <PremiumEventHoverCard
@@ -43,6 +45,7 @@ const PremiumEvents = () => {
           title="Tech-events"
           description="Unleash your tech-genius at our epic technical events."
           icon={svgs.IconBulb}
+          type="Tech-Events"
         />
 
         <PremiumEventHoverCard
@@ -50,6 +53,7 @@ const PremiumEvents = () => {
           title="Games"
           description="Get ready to level up and dive into our games events, where epic battles and fun await at every turn!"
           icon={svgs.IconPuzzle}
+          type="Games"
         />
       </section>
       <section className="w-full flex items-start md:hidden">
@@ -60,6 +64,7 @@ const PremiumEvents = () => {
             description="Code, create, and innovate—join the hackathon and make something great!"
             className="w-full  min-h-52"
             glow={cycle === 0}
+            type="Hackathon"
           />
           <PremiumEventHoverCard
             className="relative w-full min-h-52"
@@ -68,6 +73,7 @@ const PremiumEvents = () => {
           learn something new!"
             icon={svgs.IconCog}
             glow={cycle === 1}
+            type="Workshop"
           />
         </div>
 
@@ -78,6 +84,7 @@ const PremiumEvents = () => {
             description="Unleash your tech-genius at our epic technical events."
             icon={svgs.IconBulb}
             glow={cycle === 2}
+            type="Tech-Events"
           />
 
           <PremiumEventHoverCard
@@ -86,6 +93,7 @@ const PremiumEvents = () => {
             description="Get ready to level up and dive into our games events, where epic battles and fun await at every turn!"
             icon={svgs.IconPuzzle}
             glow={cycle === 3}
+            type="Games"
           />
         </div>
       </section>

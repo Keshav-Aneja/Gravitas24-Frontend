@@ -13,6 +13,7 @@ type Props = {
   icon: StaticImageData;
   description: string;
   glow?: boolean;
+  type: string;
 };
 const PremiumEventHoverCard = ({
   className,
@@ -20,13 +21,14 @@ const PremiumEventHoverCard = ({
   icon,
   description,
   glow,
+  type,
 }: Props) => {
   const { setEventType, eventType } = useGlobalContext();
   return (
     <Link
       href={EVENT_PAGE}
       onClick={() => {
-        setEventType(title);
+        setEventType(type);
       }}
     >
       <div
