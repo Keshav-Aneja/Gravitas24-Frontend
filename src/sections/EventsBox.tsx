@@ -33,10 +33,10 @@ const EventsBox = () => {
         setTotalPages(response.totalPages);
       } catch (err: any) {
         setLoading(false);
-        if (err.response.data.message) {
+        if (err.message) {
           toast({
             title: "Error",
-            description: err.response.data.message,
+            description: err.message,
             variant: "destructive",
           });
         }

@@ -4,12 +4,17 @@ import DetailedEventCardSkeleton from "@/components/events/DetailedEventCardSkel
 import EventCard from "@/components/events/EventCard";
 import { AUTH_PAGE } from "@/constants/routes";
 import ValidateToken from "@/lib/ValidateToken";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ReactLenis } from "@studio-freight/react-lenis";
 const EventDetailsPage = ({ params }: { params: { eventId: string } }) => {
   const [eventName, setEventName] = useState("");
   const [loading, setLoading] = useState(false);
-
+  useEffect(() => {
+    const top = document.getElementById("nav");
+    if (top) {
+      top.scrollIntoView({ behavior: "smooth" });
+    }
+  }, []);
   return (
     <ReactLenis
       root
