@@ -45,7 +45,7 @@ const PremiumEvents = () => {
           title="Tech-events"
           description="Unleash your tech-genius at our epic technical events."
           icon={svgs.IconBulb}
-          type="Tech-Events"
+          type="Competition"
         />
 
         <PremiumEventHoverCard
@@ -84,7 +84,7 @@ const PremiumEvents = () => {
             description="Unleash your tech-genius at our epic technical events."
             icon={svgs.IconBulb}
             glow={cycle === 2}
-            type="Tech-Events"
+            type="Competition"
           />
 
           <PremiumEventHoverCard

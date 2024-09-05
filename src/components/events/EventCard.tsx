@@ -50,9 +50,7 @@ const EventCard = ({
               <h1 className="text-xl md:text-3xl uppercase w-full">
                 {data.name}
               </h1>
-              <p className="text-xs text-nowrap md:text-[1rem]">
-                {data.type}
-              </p>
+              <p className="text-xs text-nowrap md:text-[1rem]">{data.type}</p>
             </div>
 
             <p className="text-primary text-xs md:text-[1rem]">
@@ -71,7 +69,9 @@ const EventCard = ({
                 <p className="text-sm">1,00,000</p>
               </span> */}
               <p className="text-black/60 text-xs md:text-[1rem]">
-                {data.description}
+                {data.description.length > 200
+                  ? `${data.description.slice(0, 200)}...`
+                  : data.description}
               </p>
             </div>
           </div>
@@ -111,18 +111,22 @@ const EventCard = ({
           </div>
         </section>
 
-        {!registered && <><div className="bg-primaryLight border-[1px] border-primaryLight rounded-full p-2 -rotate-[45deg] absolute top-4 right-4 md:hidden">
-          <IoArrowForwardOutline />
-        </div>
-        <div className=" text-[#0C5EFF] text-6xl cursor-pointer w-[10%] group-hover:opacity-100 opacity-0 transition-all duration-200 ease-linear hidden md:block">
-          <Image
-            src={svgs.ArrowRedirect}
-            alt=""
-            width={200}
-            height={200}
-            className="w-10 h-auto float-end"
-          />
-        </div></>}
+        {!registered && (
+          <>
+            <div className="bg-primaryLight border-[1px] border-primaryLight rounded-full p-2 -rotate-[45deg] absolute top-4 right-4 md:hidden">
+              <IoArrowForwardOutline />
+            </div>
+            <div className=" text-[#0C5EFF] text-6xl cursor-pointer w-[10%] group-hover:opacity-100 opacity-0 transition-all duration-200 ease-linear hidden md:block">
+              <Image
+                src={svgs.ArrowRedirect}
+                alt=""
+                width={200}
+                height={200}
+                className="w-10 h-auto float-end"
+              />
+            </div>
+          </>
+        )}
       </BorderBox>
     </Link>
   );
