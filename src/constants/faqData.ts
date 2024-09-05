@@ -1,5 +1,9 @@
 export const faqData = [
   {
+    que: "What to do if payment status is pending?",
+    ans: "If the payment status is pending, please wait for 24 hours for the payment to be processed. If the payment status is still pending after 24 hours, please contact the Gravitas team.",
+  },
+  {
     que: "Are there accommodation facilities available for outstation participants?",
     ans: "Yes, accommodation is provided for outstation participants in the VIT hostels on a paid first come first serve basis.",
   },

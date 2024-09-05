@@ -88,7 +88,7 @@ export default function ProfilePage() {
       <div className="w-full">
         <PageHeader
           title="My Purchases"
-          color="#ff550c"
+          color="#d94c0f"
           breadcrumb="Home // Profile"
         />
         <div className="w-[90%] mx-auto">

@@ -25,7 +25,7 @@ export default function FAQPage() {
       <div className="w-full">
         <PageHeader
           title="FAQs"
-          color="#ff550c"
+          color="#d94c0f"
           breadcrumb="Home // FAQs"
           breadcrumbColor="#000000"
         />
