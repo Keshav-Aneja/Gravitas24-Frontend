@@ -28,9 +28,9 @@ const TransactionCard = ({ data }: { data: Payment }) => {
             <div className="w-full md:w-[40%] h-[1px] md:h-[2px] bg-outline my-2 mb-4"></div>
           </div>
           {/*body*/}
-          <div className="w-full flex flex-col h-full gap-4 justify-between items-center">
+          <div className="w-full flex flex-col h-full px-4 gap-4 justify-between items-center">
             <div className="flex flex-col gap-2 w-full text-sm md:text-xl font-auxMono">
-              <section className="flex flex-row justify-between">
+              <section className="flex gap-2 flex-col md:flex-row justify-between">
                 <p>Transaction ID:</p>
                 <p>{data.id}</p>
               </section>
@@ -40,7 +40,17 @@ const TransactionCard = ({ data }: { data: Payment }) => {
               </section>
               <section className="flex flex-row justify-between">
                 <p>Payment Status:</p>
-                <p>{data.status}</p>
+                <p
+                  className={`${
+                    data.status === "success"
+                      ? "text-green-600"
+                      : data.status === "pending"
+                      ? "text-yellow-500"
+                      : "text-red-500"
+                  }`}
+                >
+                  {data.status}
+                </p>
               </section>
             </div>
             <div className="flex w-full flex-row justify-between text-sm md:text-xl text-blue-500">

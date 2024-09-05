@@ -58,6 +58,11 @@
         "title": "Co-Convenors",
         "people": [
             {
+                "name": "Ms. Mohana Priya",
+                "position": "SBST",
+                "img": "https://i.imgur.com/PrwaVib.jpeg"
+            },
+            {
                 "name": "Mr. Mohafiz Riyaz",
                 "position": "VSPARC",
                 "img": "https://imgur.com/2kqjbko.png"
@@ -75,22 +80,389 @@
         ]
     },
     {
-        "title": "Student Organizers",
+        "title": "Student Organisers",
         "people": [
             {
+                "name": "Anuj Parihar",
+                "position": "Tech Team"
+            },
+            {
+                "name": "Tanya Nijhawan",
+                "position": "Sponsorship and MoU"
+            },
+            {
                 "name": "Yashita",
-                "position": "Sales",
-                "img": "https://imgur.com/k2ffJWa.png"
+                "position": "Sales"
             },
             {
                 "name": "K Abhimanyu Nair",
-                "position": "Finance",
-                "img": "https://imgur.com/s70LHq0.png"
+                "position": "Finance"
+            },
+            {
+                "name": "Gayathri S",
+                "position": "Finance"
             },
             {
                 "name": "Hubert Franton",
-                "position": "Transport & Logistics",
-                "img": "https://imgur.com/8jROLfY.png"
+                "position": "Transport & Logistics"
+            },
+            {
+                "name": "Sanjeeva Reddy S",
+                "position": "Premium Events"
+            },
+            {
+                "name": "Prasad Katekar",
+                "position": "Press & Media"
+            },
+            {
+                "name": "Raghav Mittal",
+                "position": "Events"
+            },
+            {
+                "name": "Abhinav Sai Gogula",
+                "position": "RnR"
+            },
+            {
+                "name": "Navadhesh M",
+                "position": "General Enquiry"
+            },
+            {
+                "name": "Preetha S",
+                "position": "Hall & Refreshment"
+            },
+            {
+                "name": "Harish S",
+                "position": "Publicity & Marketing"
+            },
+            {
+                "name": "Sarim Moin Warsi",
+                "position": "Design & Printing"
+            },
+            {
+                "name": "Dhanushya",
+                "position": "Campus Decoration"
+            },
+            {
+                "name": "Sai Manoj",
+                "position": "Campus Decoration"
+            },
+            {
+                "name": "Deeksha S",
+                "position": "Guest Care"
+            },
+            {
+                "name": "Aravind S",
+                "position": "Documentation"
+            },
+            {
+                "name": "Abhiraman V J",
+                "position": "Purchase"
+            },
+            {
+                "name": "Amitesh B",
+                "position": "Stalls"
+            },
+            {
+                "name": "Claire Alex",
+                "position": "Stalls"
+            }
+        ]
+    },
+    {
+        "title": "Faculty Organizers",
+        "people": [
+            {
+                "name": "Prof. Kovendan AKP",
+                "position": "Sponsorship and MoU"
+            },
+            {
+                "name": "Prof. Pradheep T",
+                "position": "Premium Events"
+            },
+            {
+                "name": "Prof. Nageshwar Rao Ragi",
+                "position": "Tech Team"
+            },
+            {
+                "name": "Prof. Joel J",
+                "position": "Press & Media"
+            },
+            {
+                "name": "Prof. Sujatha R",
+                "position": "Events"
+            },
+            {
+                "name": "Prof. Faraz Ahmad",
+                "position": "Events"
+            },
+            {
+                "name": "Prof. Ethiraj KR",
+                "position": "Events"
+            },
+            {
+                "name": "Prof. Lincy Kirubhadharsini",
+                "position": "RnR & GE"
+            },
+            {
+                "name": "Prof. Deepa M",
+                "position": "RnR & GE"
+            },
+            {
+                "name": "Prof. Balamurugan S",
+                "position": "Hall & Refreshment"
+            },
+            {
+                "name": "Prof. Shivam Sakshi",
+                "position": "Publicity & Marketing"
+            },
+            {
+                "name": "Prof. Gowthaman E",
+                "position": "Design & Printing"
+            },
+            {
+                "name": "Prof. Jayadev N",
+                "position": "Campus Decoration"
+            },
+            {
+                "name": "Prof. Suresh P",
+                "position": "Sales"
+            },
+            {
+                "name": "Prof. Kumaresan A",
+                "position": "Guest Care"
+            },
+            {
+                "name": "Prof. Padma R",
+                "position": "Guest Care"
+            },
+            {
+                "name": "Prof. Thirumoorthy K",
+                "position": "Transport & Logistics"
+            },
+            {
+                "name": "Prof. RameshKumar S",
+                "position": "Transport & Logistics"
+            },
+            {
+                "name": "Prof. Sumit Kumar Jindal",
+                "position": "Documentation"
+            },
+            {
+                "name": "Prof. Sathya K",
+                "position": "Finance"
+            },
+            {
+                "name": "Prof. Jayakrishnan P",
+                "position": "Purchase"
+            },
+            {
+                "name": "Prof. Belwin Edward",
+                "position": "Stalls"
+            }
+        ]
+    },
+    {
+        "title": "Student Managers",
+        "people": [
+            {
+                "name": "Dhruv Rajeshkumar Shah",
+                "position": "Tech Team"
+            },
+            {
+                "name": "Aditya Boral",
+                "position": "Sponsorship and MoU"
+            },
+            {
+                "name": "Arshita Nag",
+                "position": "Sponsorship and MoU"
+            },
+            {
+                "name": "Santhosh Kumar",
+                "position": "Sponsorship and MoU"
+            },
+            {
+                "name": "Arjun Pandey",
+                "position": "Premium Events"
+            },
+            {
+                "name": "Gracy",
+                "position": "Premium Events"
+            },
+            {
+                "name": "Gauri Bajaj",
+                "position": "Premium Events"
+            },
+            {
+                "name": "Anjana Rose",
+                "position": "Premium Events"
+            },
+            {
+                "name": "Simran Jha",
+                "position": "Press & Media"
+            },
+            {
+                "name": "Kandipati Varun",
+                "position": "Press & Media"
+            },
+            {
+                "name": "Reddy Naga Sai Yashwant",
+                "position": "Press & Media"
+            },
+            {
+                "name": "Tejasv Goyal",
+                "position": "Events"
+            },
+            {
+                "name": "Shatakshi Mohan",
+                "position": "Events"
+            },
+            {
+                "name": "Mehta Rikkinpritesh",
+                "position": "Events"
+            },
+            {
+                "name": "Jay Shah",
+                "position": "Events"
+            },
+            {
+                "name": "Adheethi Ponnapalli",
+                "position": "RnR"
+            },
+            {
+                "name": "Vaibhav Pathak",
+                "position": "RnR"
+            },
+            {
+                "name": "Tharun Aakash S",
+                "position": "General Enquiry"
+            },
+            {
+                "name": "Neha Biji Philip",
+                "position": "General Enquiry"
+            },
+            {
+                "name": "Richard L",
+                "position": "General Enquiry"
+            },
+            {
+                "name": "Kalyana Venkat S",
+                "position": "Hall & Refreshment"
+            },
+            {
+                "name": "Vishwajith Prabhakar",
+                "position": "Hall & Refreshment"
+            },
+            {
+                "name": "Naga Sindhura Padala",
+                "position": "Hall & Refreshment"
+            },
+            {
+                "name": "Vani Suresh",
+                "position": "Hall & Refreshment"
+            },
+            {
+                "name": "P Praveen Kumar",
+                "position": "Hall & Refreshment"
+            },
+            {
+                "name": "Abishek Ram S S",
+                "position": "Hall & Refreshment"
+            },
+            {
+                "name": "Tejasri Sirigiri",
+                "position": "Hall & Refreshment"
+            },
+            {
+                "name": "Abrar Ahamed",
+                "position": "Publicity & Marketing"
+            },
+            {
+                "name": "Manisha T",
+                "position": "Publicity & Marketing"
+            },
+            {
+                "name": "Sukanya Jain",
+                "position": "Design & Printing"
+            },
+            {
+                "name": "Aditi Jagwan",
+                "position": "Design & Printing"
+            },
+            {
+                "name": "Vashishta Kothamasu",
+                "position": "Design & Printing"
+            },
+            {
+                "name": "V S Priya",
+                "position": "Design & Printing"
+            },
+            {
+                "name": "Surya Rajeev",
+                "position": "Campus Decoration"
+            },
+            {
+                "name": "Rithikaa B",
+                "position": "Campus Decoration"
+            },
+            {
+                "name": "Catherine Tomy",
+                "position": "Campus Decoration"
+            },
+            {
+                "name": "Aditya Pratap Singh",
+                "position": "Guest Care"
+            },
+            {
+                "name": "Aryaman Ashish Bajpai",
+                "position": "Guest Care"
+            },
+            {
+                "name": "Tamanna Sood",
+                "position": "Guest Care"
+            },
+            {
+                "name": "Naidu Sai Charmi",
+                "position": "Guest Care"
+            },
+            {
+                "name": "Harshit Setia",
+                "position": "Transport & Logistics"
+            },
+            {
+                "name": "Aditi Sridhar",
+                "position": "Transport & Logistics"
+            },
+            {
+                "name": "Swayam Ambashtha",
+                "position": "Finance"
+            },
+            {
+                "name": "Roshini B",
+                "position": "Finance"
+            },
+            {
+                "name": "Chidara Prajwal Chander",
+                "position": "Purchase"
+            },
+            {
+                "name": "Theresa Jacob",
+                "position": "Purchase"
+            },
+            {
+                "name": "Tharun Raj R",
+                "position": "Stalls"
+            },
+            {
+                "name": "Jayashree Asr",
+                "position": "Stalls"
+            },
+            {
+                "name": "Mohamed Rizwan A",
+                "position": "Stalls"
+            },
+            {
+                "name": "Swarnim Sharma",
+                "position": "Stalls"
             }
         ]
     }

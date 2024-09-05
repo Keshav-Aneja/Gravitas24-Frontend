@@ -30,7 +30,7 @@ const TeamCard = ({ className, image, name, desig, label }: Props) => {
           />
         )}
         <div className="text-lg md:text-2xl w-full flex flex-col h-full text-left font-auxMono font-medium">
-          <h1 className="p-1 line-clamp-2 h-[2lh] flex items-center justify-center">{name}</h1>
+          <h1 className="p-1 line-clamp-2 h-[2lh] flex items-center text-center justify-center">{name}</h1>
           <h2 className="text-[0.8rem] md:text-lg p-2 border border-primary bg-primaryLight text-black">
             {desig}
           </h2>
