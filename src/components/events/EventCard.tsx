@@ -72,9 +72,10 @@ const EventCard = ({
                 <p className="text-sm">1,00,000</p>
               </span> */}
               <p className="text-black/60 text-xs md:text-[1rem]">
-                {data.description.length > 200
+                {/* {data.description.length > 200
                   ? `${data.description.slice(0, 200)}...`
-                  : data.description}
+                  : data.description} */}
+                {data.short_description}
               </p>
             </div>
           </div>

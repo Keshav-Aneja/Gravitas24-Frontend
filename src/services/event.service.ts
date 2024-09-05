@@ -18,13 +18,12 @@ export function instantiateEventData(data: any): eventType {
     name: data.name,
     type: data.type,
     description: data.description,
+    short_description: data.short_description,
     club: data.club,
     display: data.image,
     tagline: data.tagline,
     price: data.price_per_ticket,
-    // slots: data.eventSlots
-    //   ? data.slots.map((slot: any) => instantiateSlotData(slot))
-    //   : null,
+    slots: null,
     startDate: data.start_date,
     endDate: data.end_date,
     teamSize: data.team_size,
