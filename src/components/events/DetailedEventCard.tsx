@@ -271,6 +271,37 @@ function SlotBox({ data, setSlot, selectedSlot }: SlotProps) {
   const startDate = new Date(data.startDate);
   console.log(startDate, data.startDate);
   const endDate = new Date(data.endDate);
+
+  function formatTimeTo12Hour(hours: number, minutes: number) {
+    const period = hours >= 12 ? "PM" : "AM";
+    const adjustedHours = hours % 12 || 12; // Convert 0-23 hour format to 12-hour format
+    return `${String(adjustedHours).padStart(2, "0")}:${String(
+      minutes
+    ).padStart(2, "0")} ${period}`;
+  }
+
+  const startTime = formatTimeTo12Hour(
+    startDate.getUTCHours(),
+    startDate.getUTCMinutes()
+  );
+  const endTime = formatTimeTo12Hour(
+    endDate.getUTCHours(),
+    endDate.getUTCMinutes()
+  );
+
+  const startDateFormatted = `${String(startDate.getUTCDate()).padStart(
+    2,
+    "0"
+  )}-${startDate.toLocaleString("default", {
+    month: "short",
+  })}`;
+  const endDateFormatted = `${String(endDate.getUTCDate()).padStart(
+    2,
+    "0"
+  )}-${endDate.toLocaleString("default", {
+    month: "short",
+  })}`;
+
   return (
     <button
       className={cn(
@@ -294,22 +325,13 @@ function SlotBox({ data, setSlot, selectedSlot }: SlotProps) {
         {"// "}
         {data.venue}
       </p>
-      {startDate.toLocaleString("en-US", {
-        hour: "numeric",
-        minute: "numeric",
-        hour12: true,
-      })}
+        {startTime}
       {", "}
-      {startDate.getDate()}{" "}
-      {startDate.toLocaleString("default", { month: "short" })} {" - "}
-      {endDate.toLocaleString("en-US", {
-        hour: "numeric",
-        minute: "numeric",
-        hour12: true,
-      })}
+      {startDateFormatted}
+      {" - "}
+      {endTime}
       {", "}
-      {endDate.getDate()}{" "}
-      {endDate.toLocaleString("default", { month: "short" })}
+      {endDateFormatted}
       <p className="text-xs md:text-sm">Available Seats: {data.totalEntries}</p>
     </button>
   );
