@@ -30,10 +30,10 @@ function LoginCallback() {
           setIsLoggedin(true);
           router.push("/");
         } catch (err: any) {
-          if (err.response.data.message) {
+          if (err.message) {
             toast({
               title: "Error",
-              description: err.response.data.message,
+              description: err.message,
               variant: "destructive",
             });
           }

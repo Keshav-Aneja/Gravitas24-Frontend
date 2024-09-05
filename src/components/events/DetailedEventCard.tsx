@@ -88,10 +88,10 @@ const DetailedEventCard = ({
       form.submit();
     } catch (err: any) {
       console.log(err);
-      if (err.response.data.message) {
+      if (err.message) {
         toast({
           title: "Error",
-          description: err.response.data.message,
+          description: err.message,
           variant: "destructive",
         });
       }
