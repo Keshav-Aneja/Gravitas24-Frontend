@@ -48,7 +48,9 @@ const AboutGravitas = () => {
                   <div className="w-3 h-3 rounded-full bg-primary"></div>
                 </div>
               </div>
-              <p>A Techno-Management Odyssey Begins!</p>
+              <p className="font-auxMono w-full text-white text-right text-xs md:text-sm ">
+                A Techno-Management Odyssey Begins!
+              </p>
             </div>
             <div className="w-[7%] md:w-full h-[2px] border-t-[1px] border-primary border-dashed absolute top-1/2 -translate-y-1/2 left-[100%]">
               <div className="w-12 md:w-20 h-[2px] border-t-[1px] border-primary border-dashed absolute top-5 -right-9 md:right-[98%] rotate-[60deg] md:-rotate-[30deg] md:hidden"></div>

@@ -20,9 +20,10 @@ export const metadata: Metadata = {
     description: "VIT Vellore's annual technical fest",
     images: [
       {
-        url: "https://gravitas.org.in/gravitas.png",
+        url: "https://gravitas.vit.ac.in/gravitas.png",
         width: 1200,
         height: 630,
+        alt: "Gravitas '24",
       },
     ],
   },

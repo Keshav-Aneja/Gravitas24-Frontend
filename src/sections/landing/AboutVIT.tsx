@@ -10,7 +10,7 @@ const AboutVIT = () => {
       <div className="w-full grid gird-cols-1 md:grid-cols-3 gap-10 md:gap-20">
         <div className="w-full flex flex-col gap-6">
           <span className="relative w-full h-16 text-black font-auxMono text-[1rem] md:text-lg flex flex-col items-center justify-center font-medium">
-            <p>Institute of Eminence</p>
+            <p className="text-center">Institute of Eminence</p>
             <div className="w-6 h-1 bg-secondary absolute top-0 left-0"></div>
             <div className="w-1 h-4 bg-secondary absolute top-0 left-0"></div>
             <div className="w-1 h-4 bg-secondary absolute top-0 right-0"></div>
@@ -32,7 +32,7 @@ const AboutVIT = () => {
         </div>
         <div className="w-full flex flex-col gap-6">
           <span className="relative w-full h-16 text-black font-auxMono text-[1rem] md:text-lg flex flex-col items-center justify-center font-medium">
-            <p>A Hub for Learning</p>
+            <p className="text-center">A Hub for Learning</p>
             <div className="w-6 h-1 bg-secondary absolute top-0 left-0"></div>
             <div className="w-1 h-4 bg-secondary absolute top-0 left-0"></div>
             <div className="w-1 h-4 bg-secondary absolute top-0 right-0"></div>
