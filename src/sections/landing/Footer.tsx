@@ -27,7 +27,7 @@ const Footer = () => {
         <div className="flex items-center gap-12 ml-12">
           <h1 className="font-auxMono uppercase">Revitalize yourself!</h1>
           <div className="w-1 h-1 border rounded-full bg-black border-black"></div>
-          <h1 className="font-auxMono uppercase">Unleash the Genius</h1>
+          <h1 className="font-auxMono uppercase">Unleash Your Genius</h1>
           <div className="w-1 h-1 border rounded-full bg-black border-black"></div>
         </div>
       </Marquee>
