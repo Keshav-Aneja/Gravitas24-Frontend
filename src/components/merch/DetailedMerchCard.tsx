@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import React from "react";
 import BorderBox from "../common/BorderBox";
@@ -7,7 +7,7 @@ import { useState } from "react";
 import { LuShirt } from "react-icons/lu";
 import { MdOutlineCurrencyRupee } from "react-icons/md";
 import { merchType } from "@/constants/types/types";
-import Cookie from 'js-cookie'
+import Cookie from "js-cookie";
 import axiosInstance from "@/config/axios";
 import { CreateTransactionResponse } from "@/constants/types/transaction";
 import { toast } from "@/hooks/use-toast";
@@ -16,12 +16,15 @@ const DetailedMerchCard = ({ item }: { item: merchType }) => {
   const [currVis, setCurrVis] = useState<string>(item.images[0]);
 
   const handleMerchPayment = async (merchID: string) => {
-    console.log("Buying merch");
+    // console.log("Buying merch");
     const payload = {
       merch_id: merchID,
     };
     try {
-      const response = await axiosInstance.post("/registration/start-merch", payload);
+      const response = await axiosInstance.post(
+        "/registration/start-merch",
+        payload
+      );
       const data = response.data as CreateTransactionResponse;
       const transactionFormData = data.data;
       const form = document.createElement("form");
@@ -125,7 +128,10 @@ const DetailedMerchCard = ({ item }: { item: merchType }) => {
           <MdOutlineCurrencyRupee size={20} />
           <p>Rs. {item.price}/-</p>
         </span>
-        <button className="text-white bg-primary h-full flex-grow p-4 px-8"  onClick = {() => handleMerchPayment(item.id)}>
+        <button
+          className="text-white bg-primary h-full flex-grow p-4 px-8"
+          onClick={() => handleMerchPayment(item.id)}
+        >
           BUY MERCH
         </button>
       </div>

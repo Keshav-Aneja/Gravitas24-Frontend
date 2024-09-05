@@ -12,7 +12,7 @@ const Footer = () => {
 
   useEffect(() => {
     const hero = window.document.getElementById("top");
-    console.log(hero)
+    // console.log(hero)
     hero?.scrollIntoView({ behavior: "smooth" });
   }, [scroll]);
 

@@ -49,6 +49,12 @@ const DetailedEventCard = ({
         setLocalLoad(false);
         setEventDetails(eventDetails.data);
         setSlotData(eventDetails.slots);
+        // setSelectedSlot(eventDetails.slots);
+        // console.log(eventDetails.slots);
+        if (eventDetails.slots[0].slotId) {
+          setSelectedSlot(eventDetails.slots[0].slotId);
+        }
+        // console.log(eventDetails.slots[0].slotId);
         setEventName && setEventName(eventDetails.data.name);
       } catch (error) {
         setLoading(false);
@@ -63,9 +69,9 @@ const DetailedEventCard = ({
     return <DetailedEventCardSkeleton />;
   }
   const registerEvent = async () => {
-    console.log("Registering event");
+    // console.log("Registering event");
     const token = Cookie.get("access_token");
-    console.log(token);
+    // console.log(token);
     const payload = {
       event_id: eventDetails.id,
       event_slot_id: selectedSlot,
@@ -269,7 +275,7 @@ type SlotProps = {
 };
 function SlotBox({ data, setSlot, selectedSlot }: SlotProps) {
   const startDate = new Date(data.startDate);
-  console.log(startDate, data.startDate);
+  // console.log(startDate, data.startDate);
   const endDate = new Date(data.endDate);
   return (
     <button
