@@ -3,6 +3,7 @@ export type eventType = {
   name: string;
   type: string;
   description: string;
+  short_description?: string;
   club: string;
   display: string;
   image?: string;

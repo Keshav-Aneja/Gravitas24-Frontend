@@ -115,7 +115,7 @@ const EventsFilter = () => {
                       setCurrentPage(1);
                       setEventTypeMenu(false);
                       if (item === "all") {
-                        setEventScope("");
+                        setEventScope("All");
                       } else {
                         setEventScope(item);
                       }
