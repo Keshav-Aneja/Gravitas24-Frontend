@@ -22,6 +22,7 @@ import Scroller from "../common/Scroller";
 import { toast } from "@/hooks/use-toast";
 import { AxiosError } from "axios";
 import DetailedEventCardSkeleton from "./DetailedEventCardSkeleton";
+import postHandler from "@/handlers/post_handler";
 
 const DetailedEventCard = ({
   id,
@@ -70,32 +71,39 @@ const DetailedEventCard = ({
       event_slot_id: selectedSlot,
     };
     try {
-      const response = await axiosInstance.post("/registration/start", payload);
-      const data = response.data as CreateTransactionResponse;
-      const status = response.data.status;
-      console.log(status);
+      const response = await postHandler("/registration/start", payload);
+      //  axiosInstance.post("/registration/start", payload);
+      const data = response as CreateTransactionResponse;
+      const status = response.success;
       if (!status) {
         toast({
           title: "Error",
-          description: response.data.data.message,
+          description: response.message,
           variant: "destructive",
         });
         return;
+      } else {
+        toast({
+          title: "Success",
+          description: response.message,
+        });
       }
-      const transactionFormData = data.data;
-      const form = document.createElement("form");
-      form.method = "POST";
-      form.action = "https://events.vit.ac.in/events/GRV24/cnfpay";
-      form.target = "_blank";
-      for (const [key, value] of Object.entries(transactionFormData)) {
-        const input = document.createElement("input");
-        input.type = "hidden";
-        input.name = key;
-        input.value = value as string;
-        form.appendChild(input);
+      if (data.data != null) {
+        const transactionFormData = data.data;
+        const form = document.createElement("form");
+        form.method = "POST";
+        form.action = "https://events.vit.ac.in/events/GRV24/cnfpay";
+        form.target = "_blank";
+        for (const [key, value] of Object.entries(transactionFormData)) {
+          const input = document.createElement("input");
+          input.type = "hidden";
+          input.name = key;
+          input.value = value as string;
+          form.appendChild(input);
+        }
+        document.body.appendChild(form);
+        form.submit();
       }
-      document.body.appendChild(form);
-      form.submit();
     } catch (err: any) {
       if (err.message) {
         toast({

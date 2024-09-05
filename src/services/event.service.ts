@@ -79,3 +79,4 @@ export async function getEventList({
     throw new Error(error.message ?? "Failed to fetch event list");
   }
 }
+
