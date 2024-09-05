@@ -8,6 +8,7 @@ import Footer from "@/sections/landing/Footer";
 import { Toaster } from "@/components/ui/toaster";
 import Head from "next/head";
 const inter = Inter({ subsets: ["latin"] });
+import GoogleAnalytics from "@/services/GA";
 
 export const metadata: Metadata = {
   title: "Gravitas",
@@ -26,6 +27,9 @@ export default function RootLayout({
         <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
       </Head>
       <body className={inter.className}>
+        {process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS && (
+          <GoogleAnalytics ga_id={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS} />
+        )}
         <Toaster />
         <GlobalContextProvider>
           <Header />

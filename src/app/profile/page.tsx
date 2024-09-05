@@ -144,9 +144,15 @@ export default function ProfilePage() {
 function MyEvents({ eventRegisteration, statusArr }: { eventRegisteration: eventType[]; statusArr: string[]; }) {
   return (
     <div className="w-full flex flex-col gap-4 my-8">
-      {eventRegisteration.map((data, index) => statusArr[index] ==="success" && (
-        <EventCard key={data.id} data={data} registered />
-      ))}
+      {eventRegisteration.length > 0 ? (
+        eventRegisteration.map((data, index) => statusArr[index] ==="success" && (
+          <EventCard key={data.id} data={data} registered />
+        ))
+      ) : (
+        <p className="text-red-500 text-xl font-auxMono">
+          No Registered Events found
+        </p>
+      )}
     </div>
   );
 }
@@ -172,9 +178,15 @@ function MyTransactions({
 }) {
   return (
     <div className="w-full flex flex-col gap-4 my-8">
-      {transactionHistory.map((data) => (
-        <TransactionCard key={data.id} data={data} />
-      ))}
+      {transactionHistory.length > 0 ? (
+        transactionHistory.map((data) => (
+          <TransactionCard key={data.id} data={data} />
+        ))
+      ) : (
+        <p className="text-red-500 text-xl font-auxMono">
+          No Transaction History Found
+        </p>
+      )}
     </div>
   );
 }
