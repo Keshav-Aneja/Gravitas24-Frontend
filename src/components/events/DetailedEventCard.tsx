@@ -80,6 +80,7 @@ const DetailedEventCard = ({
           description: response.data.data.message,
           variant: "destructive",
         });
+        return;
       }
       const transactionFormData = data.data;
       const form = document.createElement("form");
@@ -103,7 +104,7 @@ const DetailedEventCard = ({
           variant: "destructive",
         });
       }
-      console.log("An error occured. Kindly contact the admin.");
+      console.log(err, "An error occured. Kindly contact the admin.");
     }
   };
 
