@@ -35,14 +35,16 @@ const DetailedEventCard = ({
   const startDate = eventDetails && new Date(eventDetails.startDate);
   const endDate = eventDetails && new Date(eventDetails.endDate);
   const [selectedSlot, setSelectedSlot] = useState("");
+  const [slotData, setSlotData] = useState<slotType[] | null>([]);
   useEffect(() => {
     (async () => {
       try {
         setLoading(true);
         const eventDetails = await getEventDetails(id);
         setLoading(false);
-        setEventDetails(eventDetails);
-        setEventName && setEventName(eventDetails.name);
+        setEventDetails(eventDetails.data);
+        setSlotData(eventDetails.slots);
+        setEventName && setEventName(eventDetails.data.name);
       } catch (error) {
         setLoading(false);
       }
@@ -128,8 +130,10 @@ const DetailedEventCard = ({
               <h1 className="text-secondary text-[1rem] md:text-lg font-semibold">
                 VENUE
               </h1>
-              {eventDetails.slots?.map((slot, index) => (
-                <h2 key={index}>{slot?.venue}</h2>
+              {slotData?.map((slot, index) => (
+                <h2 key={index} className="uppercase">
+                  {slot?.venue}
+                </h2>
               ))}
             </ArrowBox>
             <ArrowBox className="w-full flex md:w-fit flex-col gap-1 md:block items-center justify-center text-black text-xs md:text-sm font-auxMono">
@@ -139,24 +143,26 @@ const DetailedEventCard = ({
               <h2>{eventDetails.teamSize}</h2>
             </ArrowBox>
           </div>
-          <ArrowBox className="text-black text-sm font-auxMono w-full flex flex-col items-center gap-0 md:gap-3 mt-6">
-            <h1 className="text-secondary text-lg font-semibold">SLOTS</h1>
-            <div className="w-full gap-1">
-              <Scroller
-                uniqueName="slots"
-                className="auto-cols-[80%] md:auto-cols-[40%]  w-full mx-auto"
-              >
-                {eventDetails.slots?.map((slot, index) => (
-                  <SlotBox
-                    key={index}
-                    data={slot}
-                    setSlot={setSelectedSlot}
-                    selectedSlot={selectedSlot}
-                  />
-                ))}
-              </Scroller>
-            </div>
-          </ArrowBox>
+          {slotData && (
+            <ArrowBox className="text-black text-sm font-auxMono w-full flex flex-col items-center gap-0 md:gap-3 mt-6">
+              <h1 className="text-secondary text-lg font-semibold">SLOTS</h1>
+              <div className="w-full gap-1">
+                <Scroller
+                  uniqueName="slots"
+                  className="auto-cols-[80%] md:auto-cols-[40%]  w-full mx-auto"
+                >
+                  {slotData.map((slot, index) => (
+                    <SlotBox
+                      key={index}
+                      data={slot}
+                      setSlot={setSelectedSlot}
+                      selectedSlot={selectedSlot}
+                    />
+                  ))}
+                </Scroller>
+              </div>
+            </ArrowBox>
+          )}
         </section>
       </div>
       <div className="w-full  flex items-center justify-end mt-0 font-auxMono md:px-6">
@@ -245,13 +251,22 @@ function SlotBox({ data, setSlot, selectedSlot }: SlotProps) {
     <button
       className={cn(
         "w-full px-2 py-2 border-[1px] border-black text-xs tracking-tighter hover:bg-primaryLight select-none",
-        selectedSlot === data.slotId && "bg-primaryLight"
+        selectedSlot === data.slotId && "bg-primaryLight",
+        data.totalEntries === 0 && "bg-gray-300"
       )}
       onClick={() => {
-        setSlot(data.slotId);
+        if (data.totalEntries === 0) {
+          toast({
+            title: "Seats Full",
+            description: "No available seats in the selected slot",
+            variant: "destructive",
+          });
+        } else {
+          setSlot(data.slotId);
+        }
       }}
     >
-      <p>
+      <p className="uppercase">
         {"// "}
         {data.venue}
       </p>

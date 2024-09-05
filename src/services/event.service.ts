@@ -13,27 +13,38 @@ function instantiateSlotData(data: any): slotType {
 }
 export function instantiateEventData(data: any): eventType {
   return {
-    id: data.id,
-    name: data.name,
-    type: data.type,
-    description: data.description,
-    club: data.club,
-    display: data.image,
-    tagline: data.tagline,
-    price: data.price_per_ticket,
-    slots: data.slots
-      ? data.slots.map((slot: any) => instantiateSlotData(slot))
-      : null,
-    startDate: data.start_date,
-    endDate: data.end_date,
-    teamSize: data.team_size,
+    id: data.event.id,
+    name: data.event.name,
+    type: data.event.type,
+    description: data.event.description,
+    club: data.event.club,
+    display: data.event.image,
+    tagline: data.event.tagline,
+    price: data.event.price_per_ticket,
+    // slots: data.eventSlots
+    //   ? data.slots.map((slot: any) => instantiateSlotData(slot))
+    //   : null,
+    startDate: data.event.start_date,
+    endDate: data.event.end_date,
+    teamSize: data.event.team_size,
   } as eventType;
 }
 
 export async function getEventDetails(eventId: string) {
   try {
     const response = await getHandler(`/events/${eventId}`);
-    return instantiateEventData(response.data);
+    console.log({
+      data: instantiateEventData(response.data),
+      slots: response.data.eventSlots.map((slot: any) =>
+        instantiateSlotData(slot)
+      ),
+    });
+    return {
+      data: instantiateEventData(response.data),
+      slots: response.data.eventSlots.map((slot: any) =>
+        instantiateSlotData(slot)
+      ),
+    };
   } catch (error: any) {
     throw new Error(error.message ?? "Failed to fetch event details");
   }

@@ -37,13 +37,15 @@ const EventCard = ({
   return (
     <Link href={`/events/${data.id}`} className="w-full">
       <BorderBox className="md:px-6 md:py-10 p-0 w-[90%] mx-auto flex flex-col md:flex-row items-start md:justify-between gap-4 md:gap-8 group border-primary md:border-outline">
-        <Image
-          className="w-full md:w-[17%] aspect-square border-[1px] border-black"
-          src={data.display}
-          alt=""
-          width={1000}
-          height={1000}
-        />
+        <div className="w-full md:w-[20%] p-2 aspect-square border-[1px] border-black">
+          <Image
+            className="w-full h-full object-cover"
+            src={data.display}
+            alt=""
+            width={1000}
+            height={1000}
+          />
+        </div>
         <section className="--main flex flex-col font-auxMono w-full ">
           <div className="px-3 md:px-0">
             <div className="flex w-full flex-col md:flex-row justify-between items-start md:items-center">
