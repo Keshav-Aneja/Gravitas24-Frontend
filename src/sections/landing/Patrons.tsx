@@ -6,7 +6,23 @@ import images from "@/constants/images";
 import Link from "next/link";
 import data from "@/constants/team.json";
 
+
+type person = {
+  name: string;
+  position: string;
+  img?: string;
+}
+
+interface dataType {
+  title: string;
+  people: person[];
+}
+
+
 const Patrons = () => {
+
+  const people: dataType[] = data;
+
   return (
     <div className="w-[90%] relative mx-auto py-20 flex flex-col">
       <span className="flex flex-col md:flex-row items-center md:items-end gap-4 w-full relative mb-20">
@@ -23,27 +39,27 @@ const Patrons = () => {
       </span>
       <section className="flex flex-wrap justify-center items-center mb-10 relative overflow-hidden">
         <PatronCard
-          image={data[0].people[0].img}
-          name={data[0].people[0].name}
-          desig={data[0].people[0].position}
+          image={people[0].people[0]?.img || ""}
+          name={people[0].people[0].name}
+          desig={people[0].people[0].position}
           label="Patron"
         />
         <PatronCard
-          image={data[1].people[0].img}
-          name={data[1].people[0].name}
-          desig={data[1].people[0].position}
+          image={people[1].people[0].img}
+          name={people[1].people[0].name}
+          desig={people[1].people[0].position}
           label="Co-Patron"
         />
         <PatronCard
-          image={data[1].people[1].img}
-          name={data[1].people[1].name}
-          desig={data[1].people[1].position}
+          image={people[1].people[1].img}
+          name={people[1].people[1].name}
+          desig={people[1].people[1].position}
           label="Co-Patron"
         />
         <PatronCard
-          image={data[1].people[2].img}
-          name={data[1].people[2].name}
-          desig={data[1].people[2].position}
+          image={people[1].people[2]?.img}
+          name={people[1].people[2].name}
+          desig={people[1].people[2].position}
           label="Co-Patron"
         />
         <Link
