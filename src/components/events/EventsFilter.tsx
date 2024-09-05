@@ -72,7 +72,7 @@ const EventsFilter = () => {
                     key={index}
                     onClick={() => {
                       if (item === "All") {
-                        setEventType("");
+                        setEventType("All");
                         setCurrentPage(1);
                         setIsMenuOpen(false);
                       } else {

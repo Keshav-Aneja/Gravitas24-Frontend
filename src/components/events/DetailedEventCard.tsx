@@ -21,6 +21,7 @@ import { CreateTransactionResponse } from "@/constants/types/transaction";
 import Scroller from "../common/Scroller";
 import { toast } from "@/hooks/use-toast";
 import { AxiosError } from "axios";
+import DetailedEventCardSkeleton from "./DetailedEventCardSkeleton";
 
 const DetailedEventCard = ({
   id,
@@ -36,24 +37,30 @@ const DetailedEventCard = ({
   const endDate = eventDetails && new Date(eventDetails.endDate);
   const [selectedSlot, setSelectedSlot] = useState("");
   const [slotData, setSlotData] = useState<slotType[] | null>([]);
+  const [localLoad, setLocalLoad] = useState(true);
   useEffect(() => {
     (async () => {
       try {
         setLoading(true);
+        setLocalLoad(true);
         const eventDetails = await getEventDetails(id);
         setLoading(false);
+        setLocalLoad(false);
         setEventDetails(eventDetails.data);
         setSlotData(eventDetails.slots);
         setEventName && setEventName(eventDetails.data.name);
       } catch (error) {
         setLoading(false);
+        setLocalLoad(false);
       }
     })();
   }, []);
   if (!eventDetails) {
     return null;
   }
-
+  if (localLoad) {
+    return <DetailedEventCardSkeleton />;
+  }
   const registerEvent = async () => {
     console.log("Registering event");
     const token = Cookie.get("access_token");

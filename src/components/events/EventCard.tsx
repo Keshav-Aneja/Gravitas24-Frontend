@@ -41,6 +41,7 @@ const EventCard = ({
           <Image
             className="w-full h-full object-cover"
             src={data.display}
+            priority
             alt=""
             width={1000}
             height={1000}
