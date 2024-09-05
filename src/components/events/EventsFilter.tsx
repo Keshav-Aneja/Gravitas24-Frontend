@@ -65,7 +65,7 @@ const EventsFilter = () => {
           </button>
           {isMenuOpen && (
             <div className="w-full border-[1px] border-black border-t-0 flex flex-col absolute top-8 right-0 bg-white z-[1000]">
-              {["All", "Workshop", "Tech-Events", "Hackathon", "Games"].map(
+              {["All", "Workshop", "Competition", "Hackathon", "Games"].map(
                 (item, index) => (
                   <button
                     className="text-xs md:text-sm font-auxMono hover:bg-primary/20 py-1 text-left pl-4 bg-white uppercase"
@@ -106,19 +106,25 @@ const EventsFilter = () => {
           </button>
           {eventTypeMenu && (
             <div className="w-full border-[1px] border-black border-t-0 flex flex-col absolute top-8 right-0 bg-white z-[200]">
-              {["both", "internal_only", "external_only"].map((item, index) => (
-                <button
-                  className="text-xs md:text-sm font-auxMono hover:bg-primary/20 py-1 text-left pl-4 bg-white uppercase"
-                  key={index}
-                  onClick={() => {
-                    setCurrentPage(1);
-                    setEventTypeMenu(false);
-                    setEventScope(item);
-                  }}
-                >
-                  {item.split("_").join(" ")}
-                </button>
-              ))}
+              {["all", "both", "internal only", "external only"].map(
+                (item, index) => (
+                  <button
+                    className="text-xs md:text-sm font-auxMono hover:bg-primary/20 py-1 text-left pl-4 bg-white uppercase"
+                    key={index}
+                    onClick={() => {
+                      setCurrentPage(1);
+                      setEventTypeMenu(false);
+                      if (item === "all") {
+                        setEventScope("");
+                      } else {
+                        setEventScope(item);
+                      }
+                    }}
+                  >
+                    {item}
+                  </button>
+                )
+              )}
             </div>
           )}
         </div>

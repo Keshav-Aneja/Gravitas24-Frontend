@@ -26,7 +26,7 @@ const EventsBox = () => {
           limit: 5,
           name: query,
           type: eventType === "All" ? "" : eventType,
-          scope: eventScope,
+          scope: eventScope === "All" ? "" : eventScope,
         });
         setLoading(false);
         setEvents(response.data);

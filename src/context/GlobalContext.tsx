@@ -38,7 +38,7 @@ export default function GlobalContextProvider({
   const [eventQuery, setEventQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [isLoggedin, setIsLoggedin] = useState(false);
-  const [eventScope, setEventScope] = useState("both");
+  const [eventScope, setEventScope] = useState("All");
 
   useEffect(() => {
     const token = Cookies.get("access_token");
