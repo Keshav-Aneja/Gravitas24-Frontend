@@ -30,7 +30,7 @@ export default function ProfilePage() {
   );
   const [profileDetails, setProfileDetails] = useState<any>(null); // Adjust the type as necessary
   const [transactions, setTransactions] = useState<Payment[]>([]);
-
+  const [statusArr, setStatusArr] = useState<string[]>([]);
   const router = useRouter();
 
   useEffect(() => {
@@ -57,7 +57,10 @@ export default function ProfilePage() {
 
         // Process the responses
         setProfileDetails(profileResponse);
-        setRegisteredEvents(eventsResponse);
+        setStatusArr(eventsResponse.status);
+        setRegisteredEvents(eventsResponse.data);
+        console.log(eventsResponse.status);
+        console.log(eventsResponse.data);
         setRegisteredMerch((merchResponse as any).data as MerchRegistration[]);
         setTransactions(transactionsResponse);
 
@@ -126,7 +129,7 @@ export default function ProfilePage() {
             </button>
           </div>
           {activeTab === 0 && (
-            <MyEvents eventRegisteration={registeredEvents} />
+            <MyEvents eventRegisteration={registeredEvents} statusArr={statusArr} />
           )}
           {/* {activeTab === 1 && <MyMerch merchRegisteration={registeredMerch} />} */}
           {activeTab === 2 && (
@@ -138,10 +141,10 @@ export default function ProfilePage() {
   );
 }
 
-function MyEvents({ eventRegisteration }: { eventRegisteration: eventType[] }) {
+function MyEvents({ eventRegisteration, statusArr }: { eventRegisteration: eventType[]; statusArr: string[]; }) {
   return (
     <div className="w-full flex flex-col gap-4 my-8">
-      {eventRegisteration.map((data) => (
+      {eventRegisteration.map((data, index) => statusArr[index] ==="success" && (
         <EventCard key={data.id} data={data} registered />
       ))}
     </div>

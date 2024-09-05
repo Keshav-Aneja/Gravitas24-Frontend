@@ -24,7 +24,10 @@ export async function getRegisteredEvents() {
       throw new Error(response.message);
     }
 
-    return response.data.map((temp:any,index:number) => instantiateEventData(temp.event)) as eventType[];
+    return {
+      data:response.data.map((temp:any,index:number) => instantiateEventData(temp.event)) as eventType[],
+      status:response.data.map((temp:any,index:number) => temp.status) as string[],
+    };
   } catch (error: any) {
     throw new Error(
       error.message ?? "Something went wrong while fetching details."
