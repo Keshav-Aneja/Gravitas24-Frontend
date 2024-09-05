@@ -23,16 +23,36 @@ const EventCard = ({
 }) => {
   const startDate = new Date(data.startDate);
   const endDate = new Date(data.endDate);
-  const startTime = startDate.toLocaleTimeString([], {
-    hour: "2-digit",
-    minute: "2-digit",
-    hour12: true,
-  });
-  const endTime = endDate.toLocaleTimeString([], {
-    hour: "2-digit",
-    minute: "2-digit",
-    hour12: true,
-  });
+
+  function formatTimeTo12Hour(hours: number, minutes: number) {
+    const period = hours >= 12 ? "PM" : "AM";
+    const adjustedHours = hours % 12 || 12; // Convert 0-23 hour format to 12-hour format
+    return `${String(adjustedHours).padStart(2, "0")}:${String(
+      minutes
+    ).padStart(2, "0")} ${period}`;
+  }
+
+  const startTime = formatTimeTo12Hour(
+    startDate.getUTCHours(),
+    startDate.getUTCMinutes()
+  );
+  const endTime = formatTimeTo12Hour(
+    endDate.getUTCHours(),
+    endDate.getUTCMinutes()
+  );
+
+  const startDateFormatted = `${String(startDate.getUTCDate()).padStart(
+    2,
+    "0"
+  )}-${startDate.toLocaleString("default", {
+    month: "short",
+  })}`;
+  const endDateFormatted = `${String(endDate.getUTCDate()).padStart(
+    2,
+    "0"
+  )}-${endDate.toLocaleString("default", {
+    month: "short",
+  })}`;
 
   return (
     <Link href={`/events/${data.id}`} className="w-full">
@@ -93,15 +113,9 @@ const EventCard = ({
             </span>
             <span className="h-16 text-xs md:text-sm text-black flex items-center gap-2 p-4 px-2 md:px-6 border-r-[1px] md:border-x-[1px] border-primary flex-grow justify-center ">
               <CiCalendar className="text-lg md:text-[1rem]" />
-              <p className="flex gap-1 flex-col md:flex-row">
-                <span>
-                  {startDate.getDate()}{" "}
-                  {startDate.toLocaleString("default", { month: "short" })} -{" "}
-                </span>
-                <span>
-                  {endDate.getDate()}{" "}
-                  {endDate.toLocaleString("default", { month: "short" })}
-                </span>
+              <p className="flex gap-2 flex-col md:flex-row">
+                <span>{startDateFormatted}</span>
+                <span>{endDateFormatted}</span>
               </p>
             </span>
             <span className="text-xs md:text-sm text-black flex items-center gap-2 p-4 px-2 md:px-6 border-r-[1px] border-primary flex-grow justify-center h-full">
