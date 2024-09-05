@@ -29,7 +29,7 @@ const PaginationBox = () => {
         <button
           className="bg-secondary text-xs md:text-[1rem] font-auxMono uppercase flex items-center gap-1 md:gap-3 w-44 md:w-60 justify-center h-7 md:h-10 text-white "
           onClick={() => {
-            if (currentPage > 0) {
+            if (currentPage > 1) {
               setCurrentPage(currentPage - 1);
             }
             const eventsSection = document.getElementById("eventFilter");
