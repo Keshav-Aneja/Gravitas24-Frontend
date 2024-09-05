@@ -68,11 +68,6 @@ const Timer = () => {
             <h1>{timeLeft.minutes.toString().padStart(2, "0")}</h1>
             <p className="text-sm md:text-lg lg:text-xl">MINS</p>
           </span>
-          <p>:</p>
-          <span className="text-xl md:text-3xl font-auxMono text-center">
-            <h1>{timeLeft.seconds.toString().padStart(2, "0")}</h1>
-            <p className="text-sm md:text-lg lg:text-xl">SECS</p>
-          </span>
         </>
       );
     } else if (timeLeft.hours > 0) {
