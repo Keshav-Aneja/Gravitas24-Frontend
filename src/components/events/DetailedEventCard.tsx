@@ -72,6 +72,15 @@ const DetailedEventCard = ({
     try {
       const response = await axiosInstance.post("/registration/start", payload);
       const data = response.data as CreateTransactionResponse;
+      const status = response.data.status;
+      console.log(status);
+      if (!status) {
+        toast({
+          title: "Error",
+          description: response.data.data.message,
+          variant: "destructive",
+        });
+      }
       const transactionFormData = data.data;
       const form = document.createElement("form");
       form.method = "POST";
@@ -87,7 +96,6 @@ const DetailedEventCard = ({
       document.body.appendChild(form);
       form.submit();
     } catch (err: any) {
-      console.log(err);
       if (err.message) {
         toast({
           title: "Error",
