@@ -23,7 +23,7 @@ const TeamPage = () => {
           title="The Team"
           tagline="Create. Code. Conquer"
           breadcrumb="Home // The Team"
-          color="#FF550C"
+          color="#d94c0f"
           breadcrumbColor="#000000"
         />
         <TeamBox />
