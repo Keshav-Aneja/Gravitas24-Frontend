@@ -12,7 +12,7 @@ type TimeLeft = {
 
 const Timer = () => {
   const calculateTimeLeft = (): TimeLeft => {
-    const targetDate = new Date("September 16, 2024 12:00:00");
+    const targetDate = new Date("September 27, 2024 00:00:00");
     const now = new Date();
     const difference = targetDate.getTime() - now.getTime();
 
@@ -67,6 +67,11 @@ const Timer = () => {
           <span className="text-xl md:text-3xl font-auxMono text-center">
             <h1>{timeLeft.minutes.toString().padStart(2, "0")}</h1>
             <p className="text-sm md:text-lg lg:text-xl">MINS</p>
+          </span>
+          <p>:</p>
+          <span className="text-xl md:text-3xl font-auxMono text-center">
+            <h1>{timeLeft.seconds.toString().padStart(2, "0")}</h1>
+            <p className="text-sm md:text-lg lg:text-xl">SECS</p>
           </span>
         </>
       );
@@ -135,7 +140,7 @@ const Timer = () => {
           <span className="hidden lg:block w-[6px] h-[6px] bg-outline absolute -top-[3px] -right-[3px]"></span>
           <span className="hidden lg:block w-[6px] h-[6px] bg-outline absolute -top-[3px] -left-[3px]"></span>
           <h1 className="text-2xl md:text-4xl lg:text-7xl font-aldrich font-medium md:font-semibold text-white text-center">
-            &lt;reVITalizeyourself!/&gt;
+            &lt;reVITalize yourself/&gt;
           </h1>
         </span>
       </section>
