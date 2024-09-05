@@ -42,7 +42,7 @@ const PremiumEvents = () => {
 
         <PremiumEventHoverCard
           className="relative"
-          title="Tech-events"
+          title="Competitions"
           description="Unleash your tech-genius at our epic technical events."
           icon={svgs.IconBulb}
           type="Competition"
@@ -80,7 +80,7 @@ const PremiumEvents = () => {
         <div className="w-1/2 flex flex-col relative top-20">
           <PremiumEventHoverCard
             className=" min-h-52"
-            title="Tech-events"
+            title="Competitions"
             description="Unleash your tech-genius at our epic technical events."
             icon={svgs.IconBulb}
             glow={cycle === 2}
