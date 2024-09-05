@@ -6,17 +6,16 @@ import { ReactLenis } from "@studio-freight/react-lenis";
 import { useEffect } from "react";
 
 export default function FAQPage() {
-
   useEffect(() => {
     document.title = "Gravitas | FAQs";
   }, []);
-  
+
   return (
     <ReactLenis
       root
       options={{
         lerp: 0.04,
-        duration: 2.5,
+        duration: 1.5,
         smoothWheel: true,
         easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
         orientation: "vertical",
