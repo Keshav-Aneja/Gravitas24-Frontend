@@ -6,6 +6,7 @@ const nextConfig = {
   images: {
     domains: ["imgur.com", "i.imgur.com"],
   },
+  output: "standalone",
 };
 
 export default nextConfig;
