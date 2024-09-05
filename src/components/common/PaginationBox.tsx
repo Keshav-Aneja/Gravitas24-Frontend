@@ -94,7 +94,7 @@ function PageBox({ page, dummy, isSelected, setCurrentPage }: Props) {
       )}
       onClick={() => {
         setCurrentPage && !dummy && page && setCurrentPage(page);
-        console.log(page);
+        // console.log(page);
         const eventsSection = document.getElementById("eventFilter");
         if (eventsSection && !dummy) {
           eventsSection.scrollIntoView({ behavior: "smooth" });
