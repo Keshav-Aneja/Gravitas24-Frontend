@@ -8,7 +8,7 @@ type Props = {
 export default function GalleryImageCard({ image, top = true }: Props) {
   return (
     <div
-      className={`min-w-[120px] md:min-w-[200px] min-h-[145px] md:min-h-[246px] bg-black p-[1px] relative ${
+      className={`w-[120px] md:w-[200px] min-h-[145px] md:h-[246px] bg-black p-[1px] relative ${
         top ? "galleryImageTop" : "galleryImageBottom"
       }`}
     >
