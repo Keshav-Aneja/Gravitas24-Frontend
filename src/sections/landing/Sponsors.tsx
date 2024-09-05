@@ -17,8 +17,8 @@ const Sponsors = () => {
         </h1>
         <div className="relative hidden md:flex items-center justify-center">
           <Image src={svgs.SponsorsFloaters} alt="" width={250} height={80} />
-          <span className="absolute font-sans font-bold text-primary z-10 w-3/5 h-full mt-2 right-0">
-            <h1>Option 1</h1>
+          <span className="absolute font-sans font-bold text-primary z-10 w-3/5 h-full mt-6 right-0">
+            {/* <h1>Option 1</h1> */}
             <p className="text-[12px] mt-2">Innovate Sustain Transform</p>
           </span>
         </div>
