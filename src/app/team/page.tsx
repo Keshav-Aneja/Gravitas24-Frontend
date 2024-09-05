@@ -1,12 +1,18 @@
 "use client";
 
 import { PageHeader } from "@/components/common/PageHeader";
+import { useEffect } from "react";
 import EventsFilter from "@/components/events/EventsFilter";
 import TeamBox from "@/sections/team/TeamBox";
 import React from "react";
 import { ReactLenis } from "@studio-freight/react-lenis";
 
 const TeamPage = () => {
+
+  useEffect(() => {
+    document.title = "Gravitas | Team";
+  }, []);
+
   return (
     <ReactLenis
       root

@@ -5,36 +5,41 @@ import EventsFilter from "@/components/events/EventsFilter";
 import EventsBox from "@/sections/EventsBox";
 import { ReactLenis } from "@studio-freight/react-lenis";
 import { useEffect } from "react";
+import Head from "next/head";
+
 const EventsPage = () => {
   useEffect(() => {
+    document.title = "Gravitas | Events";
     const top = document.getElementById("nav");
     if (top) {
       top.scrollIntoView({ behavior: "smooth" });
     }
   }, []);
   return (
-    <ReactLenis
-      root
-      options={{
-        lerp: 0.04,
-        duration: 2.5,
-        smoothWheel: true,
-        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-        orientation: "vertical",
-      }}
-    >
-      <div>
-        <PageHeader
-          title="Events"
-          tagline="Tagline Tagline Tagline"
-          breadcrumb="Home // Events"
-          color="#000000"
-        />
-        <EventsFilter />
-        <EventsBox />
-        <PaginationBox />
-      </div>
-    </ReactLenis>
+    <>
+      <ReactLenis
+        root
+        options={{
+          lerp: 0.04,
+          duration: 2.5,
+          smoothWheel: true,
+          easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+          orientation: "vertical",
+        }}
+      >
+        <div>
+          <PageHeader
+            title="Events"
+            tagline="Tagline Tagline Tagline"
+            breadcrumb="Home // Events"
+            color="#000000"
+          />
+          <EventsFilter />
+          <EventsBox />
+          <PaginationBox />
+        </div>
+      </ReactLenis>
+    </>
   );
 };
 

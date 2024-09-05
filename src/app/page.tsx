@@ -15,6 +15,7 @@ import Image from "next/image";
 import images from "@/constants/images";
 import MiniHero from "@/sections/landing/MiniHero";
 import { toast } from "@/hooks/use-toast";
+import Head from "next/head";
 export default function Home() {
   // useEffect(() => {
   //   toast({

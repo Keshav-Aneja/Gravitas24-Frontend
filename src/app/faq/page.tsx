@@ -3,7 +3,14 @@ import { PageHeader } from "@/components/common/PageHeader";
 import { FAQBox } from "@/sections/FAQBox";
 import React from "react";
 import { ReactLenis } from "@studio-freight/react-lenis";
+import { useEffect } from "react";
+
 export default function FAQPage() {
+
+  useEffect(() => {
+    document.title = "Gravitas | FAQs";
+  }, []);
+  
   return (
     <ReactLenis
       root
