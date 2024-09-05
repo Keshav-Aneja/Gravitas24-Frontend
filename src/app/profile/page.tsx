@@ -59,15 +59,15 @@ export default function ProfilePage() {
         setProfileDetails(profileResponse);
         setStatusArr(eventsResponse.status);
         setRegisteredEvents(eventsResponse.data);
-        console.log(eventsResponse.status);
-        console.log(eventsResponse.data);
+        // console.log(eventsResponse.status);
+        // console.log(eventsResponse.data);
         setRegisteredMerch((merchResponse as any).data as MerchRegistration[]);
         setTransactions(transactionsResponse);
 
-        console.log(transactionsResponse);
-        console.log(eventsResponse);
-        console.log((merchResponse as any).data);
-        console.log(profileResponse);
+        // console.log(transactionsResponse);
+        // console.log(eventsResponse);
+        // console.log((merchResponse as any).data);
+        // console.log(profileResponse);
       } catch (error: any) {
         console.log(error);
       }
@@ -129,7 +129,10 @@ export default function ProfilePage() {
             </button>
           </div>
           {activeTab === 0 && (
-            <MyEvents eventRegisteration={registeredEvents} statusArr={statusArr} />
+            <MyEvents
+              eventRegisteration={registeredEvents}
+              statusArr={statusArr}
+            />
           )}
           {/* {activeTab === 1 && <MyMerch merchRegisteration={registeredMerch} />} */}
           {activeTab === 2 && (
@@ -141,12 +144,27 @@ export default function ProfilePage() {
   );
 }
 
-function MyEvents({ eventRegisteration, statusArr }: { eventRegisteration: eventType[]; statusArr: string[]; }) {
+function MyEvents({
+  eventRegisteration,
+  statusArr,
+}: {
+  eventRegisteration: eventType[];
+  statusArr: string[];
+}) {
   return (
     <div className="w-full flex flex-col gap-4 my-8">
-      {eventRegisteration.map((data, index) => statusArr[index] ==="success" && (
-        <EventCard key={data.id} data={data} registered />
-      ))}
+      {eventRegisteration.length > 0 ? (
+        eventRegisteration.map(
+          (data, index) =>
+            statusArr[index] === "success" && (
+              <EventCard key={data.id} data={data} registered />
+            )
+        )
+      ) : (
+        <p className="text-red-500 text-xl font-auxMono">
+          No Registered Events found
+        </p>
+      )}
     </div>
   );
 }
@@ -172,9 +190,15 @@ function MyTransactions({
 }) {
   return (
     <div className="w-full flex flex-col gap-4 my-8">
-      {transactionHistory.map((data) => (
-        <TransactionCard key={data.id} data={data} />
-      ))}
+      {transactionHistory.length > 0 ? (
+        transactionHistory.map((data) => (
+          <TransactionCard key={data.id} data={data} />
+        ))
+      ) : (
+        <p className="text-red-500 text-xl font-auxMono">
+          No Transaction History Found
+        </p>
+      )}
     </div>
   );
 }

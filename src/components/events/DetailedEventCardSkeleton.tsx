@@ -171,7 +171,7 @@ type SlotProps = {
 };
 function SlotBox({ data, setSlot, selectedSlot }: SlotProps) {
   const startDate = new Date(data.startDate);
-  console.log(startDate, data.startDate);
+  // console.log(startDate, data.startDate);
   const endDate = new Date(data.endDate);
   return (
     <button
