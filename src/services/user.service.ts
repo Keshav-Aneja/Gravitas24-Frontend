@@ -1,6 +1,7 @@
 import { Payment } from "@/constants/types/registered";
 import getHandler from "@/handlers/get_handler";
 import { EventRegistration } from "@/constants/types/registered";
+import { instantiateEventData } from "./event.service";
 
 export function instantiateEventRegistrationData(data: any): EventRegistration {
   console.log(data);
@@ -9,7 +10,7 @@ export function instantiateEventRegistrationData(data: any): EventRegistration {
     user_id: data.user_id,
     user: data.user,
     event_id: data.event_id,
-    event: data.event,
+    event: instantiateEventData(data.event),
     event_slot_id: data.event_slot_id,
     event_slot: data.event_slot,
     payment_id: data.payment_id,

@@ -41,7 +41,7 @@ const TransactionCard = ({ data }: { data: Payment }) => {
               <section className="flex flex-row justify-between">
                 <p>Payment Status:</p>
                 <p
-                  className={`${
+                  className={`uppercase ${
                     data.status === "success"
                       ? "text-green-600"
                       : data.status === "pending"

@@ -93,7 +93,6 @@ const Footer = () => {
         </section>
         <section className="p-6 flex flex-col md:flex-row justify-between text-xs text-center gap-2 font-auxMono">
           <p>2024 © Vellore Institute of Technology, Vellore</p>
-          <p>OFFICE OF STUDENTS&apos; WELFARE</p>
         </section>
       </div>
       <button

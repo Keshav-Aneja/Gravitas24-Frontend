@@ -57,7 +57,7 @@ const EventRegCard = ({
         <div className="w-full md:w-[20%] p-2 aspect-square border-[1px] border-black">
           <Image
             className="w-full h-full object-cover"
-            src={data.event.image || ""}
+            src={data.event.display || ""}
             priority
             alt=""
             width={1000}
