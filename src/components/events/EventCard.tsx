@@ -108,10 +108,12 @@ const EventCard = ({
               </p>
             </span>
             <span className="h-16 text-xs md:text-sm text-black flex items-center gap-2 p-4 px-2 md:px-6 border-r-[1px] md:border-x-[1px] border-primary flex-grow justify-center ">
-              <CiCalendar className="text-lg md:text-[1rem]" />
+              <CiCalendar className="text-lg md:text-[1rem] " />
               <p className="flex gap-2 flex-col md:flex-row">
                 <span>{startDateFormatted}</span>
-                <span>{endDateFormatted}</span>
+                {endDateFormatted !== startDateFormatted && (
+                  <span>- {endDateFormatted}</span>
+                )}
               </p>
             </span>
             <span className="text-xs md:text-sm text-black flex items-center gap-2 p-4 px-2 md:px-6 border-r-[1px] border-primary flex-grow justify-center h-full">

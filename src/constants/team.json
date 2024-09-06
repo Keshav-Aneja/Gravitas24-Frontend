@@ -177,94 +177,112 @@
     "title": "Student Organisers",
     "people": [
       {
+        "img": "https://i.imgur.com/mqDCeVi.png",
         "name": "Anuj Parihar",
         "position": "Tech Team"
       },
       {
+        "img": "https://i.imgur.com/YWafdBV.png",
         "name": "Anubhav Aryan",
         "position": "Events"
       },
       {
+        "img": "https://i.imgur.com/TP8eTpY.png",
         "name": "Aradhya Seghal",
-        "position": "R&R"
+        "position": "Reg. & Reception"
       },
       {
+        "img": "https://i.imgur.com/EQgmTiq.png",
         "name": "K Abhimanyu Nair",
         "position": "Finance"
       },
       {
-        "name": "Raghav Mittal",
-        "position": "Events"
-      },
-      {
+        "img": "https://i.imgur.com/LVux4PT.png",
         "name": "Tanya Nijhawan",
         "position": "Sponsorship and MoU"
       },
       {
-        "name": "Yashita",
-        "position": "Sales"
-      },
-      {
-        "name": "Gayathri S",
-        "position": "Finance"
-      },
-      {
-        "name": "Hubert Franton",
-        "position": "Transport & Logistics"
-      },
-      {
-        "name": "Sanjeeva Reddy S",
-        "position": "Premium Events"
-      },
-      {
-        "name": "Prasad Katekar",
-        "position": "Press & Media"
-      },
-      {
-        "name": "Abhinav Sai Gogula",
-        "position": "Reg. & Reception"
-      },
-      {
-        "name": "Navadhesh M",
-        "position": "General Enquiry"
-      },
-      {
-        "name": "Preetha S",
-        "position": "Hall & Refreshment"
-      },
-      {
-        "name": "Harish S",
-        "position": "Publicity & Marketing"
-      },
-      {
+        "img": "https://i.imgur.com/DdtQSEs.png",
         "name": "Sarim Moin Warsi",
         "position": "Design & Printing"
       },
       {
+        "img": "https://i.imgur.com/393EWe7.png",
+        "name": "Raghav Mittal",
+        "position": "Events"
+      },
+      {
+        "img": "https://i.imgur.com/1SLPF3I.png",
+        "name": "Yashita",
+        "position": "Sales"
+      },
+      {
+        "img": "https://i.imgur.com/9rQohJL.png",
+        "name": "Gayathri S",
+        "position": "Finance"
+      },
+      {
+        "img": "https://i.imgur.com/E9LV3Uh.png",
+        "name": "Hubert Franton",
+        "position": "Transport & Logistics"
+      },
+      {
+        "img": "https://i.imgur.com/KCV5IWh.png",
+        "name": "Sanjeeva Reddy S",
+        "position": "Premium Events"
+      },
+      {
+        "img": "https://i.imgur.com/1zDVHqi.png",
+        "name": "Prasad Katekar",
+        "position": "Press & Media"
+      },
+      {
+        "img": "https://i.imgur.com/JygFw7N.png",
+        "name": "Abhinav Sai Gogula",
+        "position": "Reg. & Reception"
+      },
+      {
+        "img": "https://i.imgur.com/uioyRqT.png",
+        "name": "Navadhesh M",
+        "position": "General Enquiry"
+      },
+      {
+        "img": "https://i.imgur.com/bdK2ovj.png",
+        "name": "Harish S",
+        "position": "Publicity & Marketing"
+      },
+      {
+        "img": "https://i.imgur.com/WkuOKb3.png",
         "name": "Dhanushya",
         "position": "Campus Decoration"
       },
       {
+        "img": "https://i.imgur.com/9CfVg2l.png",
         "name": "Sai Manoj",
         "position": "Campus Decoration"
       },
       {
+        "img": "https://i.imgur.com/YO3iNAG.png",
         "name": "Deeksha S",
         "position": "Guest Care"
       },
       {
+        "img": "https://i.imgur.com/006aqeX.png",
         "name": "Aravind S",
         "position": "Documentation"
       },
       {
+        "img": "https://i.imgur.com/arVEOuU.png",
         "name": "Abhiraman V J",
         "position": "Purchase"
       },
       {
+        "img": "https://i.imgur.com/z90crCG.png",
         "name": "Amitesh B",
         "position": "Stalls"
       },
       {
+        "img": "https://i.imgur.com/oCfFZ4b.png",
         "name": "Claire Alex",
         "position": "Stalls"
       }
