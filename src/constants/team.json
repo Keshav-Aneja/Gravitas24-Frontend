@@ -29,12 +29,12 @@
       },
       {
         "img": "https://imgur.com/JDfYDFK.png",
-        "name": "Dr. V. S. Kanchana",
+        "name": "Dr. V. S. Kanchana Bhaaskaran",
         "position": "Vice Chancellor"
       },
       {
         "img": "https://imgur.com/ClLcE3j.png",
-        "name": "Dr. Partha S Mallick",
+        "name": "Dr. Partha Sharathi Mallick",
         "position": "Pro-Vice Chancellor"
       },
       {
@@ -182,11 +182,6 @@
         "position": "Tech Team"
       },
       {
-        "img": "https://i.imgur.com/YWafdBV.png",
-        "name": "Anubhav Aryan",
-        "position": "Events"
-      },
-      {
         "img": "https://i.imgur.com/TP8eTpY.png",
         "name": "Aradhya Seghal",
         "position": "Reg. & Reception"
@@ -242,19 +237,9 @@
         "position": "Reg. & Reception"
       },
       {
-        "img": "https://i.imgur.com/uioyRqT.png",
-        "name": "Navadhesh M",
-        "position": "General Enquiry"
-      },
-      {
         "img": "https://i.imgur.com/bdK2ovj.png",
         "name": "Harish S",
         "position": "Publicity & Marketing"
-      },
-      {
-        "img": "https://i.imgur.com/WkuOKb3.png",
-        "name": "Dhanushya",
-        "position": "Campus Decoration"
       },
       {
         "img": "https://i.imgur.com/9CfVg2l.png",
@@ -285,6 +270,15 @@
         "img": "https://i.imgur.com/oCfFZ4b.png",
         "name": "Claire Alex",
         "position": "Stalls"
+      },
+      {
+        "img": "https://i.imgur.com/uioyRqT.png",
+        "name": "Navadhesh M",
+        "position": "Hall & Refreshment"
+      },
+      {
+        "name": "Dhanushya",
+        "position": "Campus Decoration"
       }
     ]
   },
