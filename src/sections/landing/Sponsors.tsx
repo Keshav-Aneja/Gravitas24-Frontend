@@ -25,7 +25,6 @@ const Sponsors = () => {
       </span>
       <section className="w-[90%] mx-auto flex flex-wrap items-center justify-center  ">
         <SponsorCard image="https://imgur.com/P9Lg4yH.png" />
-        <SponsorCard image="https://imgur.com/uUqE8Oi.png" />
       </section>
     </div>
   );
