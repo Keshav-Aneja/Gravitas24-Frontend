@@ -55,7 +55,7 @@ const EventCard = ({
       <BorderBox className="md:px-6 md:py-10 p-0 w-[90%] mx-auto flex flex-col md:flex-row items-start md:justify-between gap-4 md:gap-8 group border-primary md:border-outline">
         <div className="w-full md:w-[20%] p-2 aspect-square border-[1px] border-black">
           <Image
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover aspect-square"
             src={data.display}
             priority
             alt=""
@@ -101,7 +101,7 @@ const EventCard = ({
               registered && "bg-[#9ebfff]"
             )}
           >
-            <span className="h-16 text-sm text-black  items-center gap-2 p-4 px-6 flex-grow justify-center hidden md:flex">
+            <span className="h-16 text-xs md:text-sm text-black  items-center gap-2 p-4 px-6 flex-grow justify-center hidden md:flex">
               <CiClock2 className="text-[1rem]" />
               <p>
                 {startTime} - {endTime}

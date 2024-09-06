@@ -1,6 +1,7 @@
 import BorderBox from "@/components/common/BorderBox";
+import images from "@/constants/images";
 import React from "react";
-
+import Image from "next/image";
 const AboutVIT = () => {
   return (
     <div className="w-[90%] mx-auto pt-16 md:pt-28 flex flex-col gap-12 md:gap-20">
@@ -9,8 +10,16 @@ const AboutVIT = () => {
       </h1>
       <div className="w-full grid gird-cols-1 md:grid-cols-3 gap-10 md:gap-20">
         <div className="w-full flex flex-col gap-6">
-          <span className="relative w-full h-16 text-black font-auxMono text-[1rem] md:text-lg flex flex-col items-center justify-center font-medium">
-            <p className="text-center">Institute of Eminence</p>
+          <span className="relative w-full h-40 text-black font-auxMono text-[1rem] md:text-lg flex flex-col items-center justify-center font-medium p-3 overflow-hidden">
+            <div className="w-full h-full flex items-center justify-center">
+              <Image
+                src={images.Ranking1}
+                width={500}
+                height={400}
+                className="h-auto w-full object-cover"
+                alt=""
+              />
+            </div>
             <div className="w-6 h-1 bg-secondary absolute top-0 left-0"></div>
             <div className="w-1 h-4 bg-secondary absolute top-0 left-0"></div>
             <div className="w-1 h-4 bg-secondary absolute top-0 right-0"></div>
@@ -31,8 +40,16 @@ const AboutVIT = () => {
           </section>
         </div>
         <div className="w-full flex flex-col gap-6">
-          <span className="relative w-full h-16 text-black font-auxMono text-[1rem] md:text-lg flex flex-col items-center justify-center font-medium">
-            <p className="text-center">A Hub for Learning</p>
+          <span className="relative w-full h-40 text-black font-auxMono text-[1rem] md:text-lg flex flex-col items-center justify-center font-medium p-3 overflow-hidden">
+            <div className="w-full h-full flex items-center justify-center">
+              <Image
+                src={images.Ranking2}
+                width={500}
+                height={400}
+                className="h-auto w-full object-cover"
+                alt=""
+              />
+            </div>
             <div className="w-6 h-1 bg-secondary absolute top-0 left-0"></div>
             <div className="w-1 h-4 bg-secondary absolute top-0 left-0"></div>
             <div className="w-1 h-4 bg-secondary absolute top-0 right-0"></div>
@@ -53,8 +70,16 @@ const AboutVIT = () => {
           </section>
         </div>
         <div className="w-full flex flex-col gap-6">
-          <span className="relative w-full h-16 text-black font-auxMono text-[1rem] md:text-lg flex flex-col items-center justify-center font-medium">
-            <p>Global Powerhouse</p>
+          <span className="relative w-full h-40 text-black font-auxMono text-[1rem] md:text-lg flex flex-col items-center justify-center font-medium p-3 overflow-hidden">
+            <div className="w-full h-full flex items-center justify-center">
+              <Image
+                src={images.Ranking3}
+                width={500}
+                height={400}
+                className="h-auto w-full object-cover"
+                alt=""
+              />
+            </div>
             <div className="w-6 h-1 bg-secondary absolute top-0 left-0"></div>
             <div className="w-1 h-4 bg-secondary absolute top-0 left-0"></div>
             <div className="w-1 h-4 bg-secondary absolute top-0 right-0"></div>

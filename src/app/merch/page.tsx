@@ -25,7 +25,7 @@ const MerchPage = () => {
           color="#0C5EFF"
           breadcrumbColor="#000000"
         />
-        <EventsFilter />
+        {/* <EventsFilter /> */}
         <MerchBox />
       </div>
     </ReactLenis>

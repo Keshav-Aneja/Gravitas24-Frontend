@@ -17,16 +17,18 @@ const MerchBox = () => {
     })();
   }, []);
   return (
-    <div className="w-full border-y-[1px] border-[#c2c2c2] mb-12 flex flex-col">
+    <div className="w-full border-y-[1px] border-[#c2c2c2] mb-12 flex flex-col mt-12 md:mt-20">
       <BorderBox className="flex w-[90%] mx-auto flex-col gap-4 p-0">
-        <h2 className="text-7xl font-clash mb-4 p-4">Solos</h2>
+        <h2 className="font-clash text-4xl md:text-6xl font-semibold">Solos</h2>
         <div className="w-full grid grid-cols-3 gap-16">
           {merchData.map(
             (item, index) =>
               item.category === "Solo" && <MerchCard key={index} data={item} />
           )}
         </div>
-        <h2 className="text-7xl font-clash mb-4 mt-24 p-4">Combos</h2>
+        <h2 className="font-clash text-4xl md:text-6xl font-semibold">
+          Combos
+        </h2>
         <div className="w-full grid grid-cols-3 gap-12">
           {merchData.map(
             (item, index) =>
