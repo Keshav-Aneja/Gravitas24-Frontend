@@ -35,7 +35,7 @@ const Footer = () => {
         <div className="w-full mx-auto md:mb-0">
           <div className="text-5xl ml-8 md:ml-16 md:text-7xl font-clash font-semibold text-wrap">
             <p>
-              inno<span className="text-primary">V</span>ate
+              inno<span className="text-primary">V</span>ate.
             </p>
             <p>
               susta<span className="text-primary">I</span>n.
