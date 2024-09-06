@@ -185,16 +185,24 @@
         "position": "Events"
       },
       {
+        "name": "Aradhya Seghal",
+        "position": "R&R"
+      },
+      {
+        "name": "K Abhimanyu Nair",
+        "position": "Finance"
+      },
+      {
+        "name": "Raghav Mittal",
+        "position": "Events"
+      },
+      {
         "name": "Tanya Nijhawan",
         "position": "Sponsorship and MoU"
       },
       {
         "name": "Yashita",
         "position": "Sales"
-      },
-      {
-        "name": "K Abhimanyu Nair",
-        "position": "Finance"
       },
       {
         "name": "Gayathri S",
@@ -211,10 +219,6 @@
       {
         "name": "Prasad Katekar",
         "position": "Press & Media"
-      },
-      {
-        "name": "Raghav Mittal",
-        "position": "Events"
       },
       {
         "name": "Abhinav Sai Gogula",
@@ -269,10 +273,6 @@
   {
     "title": "Student Managers",
     "people": [
-      {
-        "name": "Dhruv Rajeshkumar Shah",
-        "position": "Tech Team"
-      },
       {
         "name": "Aditya Boral",
         "position": "Sponsorship and MoU"
@@ -476,6 +476,14 @@
       {
         "name": "Swarnim Sharma",
         "position": "Stalls"
+      },
+      {
+        "name": "Nishchay Sinha",
+        "position": "Tech Team"
+      },
+      {
+        "name": "Dhruv Rajeshkumar Shah",
+        "position": "Tech Team"
       }
     ]
   }
