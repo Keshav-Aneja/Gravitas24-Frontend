@@ -42,7 +42,7 @@ export async function getRegisteredEvents() {
     }
 
     return {
-      data:response.data.map((temp:any,index:number) => instantiateEventRegistrationData(temp.event)) as EventRegistration[],
+      data:response.data.map((temp:any,index:number) => instantiateEventRegistrationData(temp)) as EventRegistration[],
       status:response.data.map((temp:any,index:number) => temp.status) as string[],
     };
   } catch (error: any) {
