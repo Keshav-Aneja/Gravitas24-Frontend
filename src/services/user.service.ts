@@ -1,7 +1,24 @@
 import { Payment } from "@/constants/types/registered";
 import getHandler from "@/handlers/get_handler";
-import { instantiateEventData } from "./event.service";
-import { eventType } from "@/constants/types/types";
+import { EventRegistration } from "@/constants/types/registered";
+
+export function instantiateEventRegistrationData(data: any): EventRegistration {
+  console.log(data);
+  return {
+    id: data.id,
+    user_id: data.user_id,
+    user: data.user,
+    event_id: data.event_id,
+    event: data.event,
+    event_slot_id: data.event_slot_id,
+    event_slot: data.event_slot,
+    payment_id: data.payment_id,
+    payment: data.payment,
+    amount: data.amount,
+    status: data.status,
+    remarks: data.remarks,
+  } as EventRegistration;
+}
 
 export async function getProfileDetails() {
   try {
@@ -25,7 +42,7 @@ export async function getRegisteredEvents() {
     }
 
     return {
-      data:response.data.map((temp:any,index:number) => instantiateEventData(temp.event)) as eventType[],
+      data:response.data.map((temp:any,index:number) => instantiateEventRegistrationData(temp.event)) as EventRegistration[],
       status:response.data.map((temp:any,index:number) => temp.status) as string[],
     };
   } catch (error: any) {

@@ -1,6 +1,6 @@
 "use client";
 import { PageHeader } from "@/components/common/PageHeader";
-import EventCard from "@/components/events/EventCard";
+import EventRegCard from "@/components/events/EventRegCard";
 import MerchCard from "@/components/merch/MerchCard";
 import TransactionCard from "@/components/transactions/transactionCard";
 import { eventType, merchType } from "@/constants/types/types";
@@ -22,8 +22,8 @@ import {
 import { ReactLenis } from "@studio-freight/react-lenis";
 export default function ProfilePage() {
   const [activeTab, setActiveTab] = useState(0);
-  const [registeredEvents, setRegisteredEvents] = useState<eventType[]>(
-    [] as eventType[]
+  const [registeredEvents, setRegisteredEvents] = useState<EventRegistration[]>(
+    [] as EventRegistration[]
   );
   const [registeredMerch, setRegisteredMerch] = useState<MerchRegistration[]>(
     [] as MerchRegistration[]
@@ -148,7 +148,7 @@ function MyEvents({
   eventRegisteration,
   statusArr,
 }: {
-  eventRegisteration: eventType[];
+  eventRegisteration: EventRegistration[];
   statusArr: string[];
 }) {
   return (
@@ -157,7 +157,7 @@ function MyEvents({
         eventRegisteration.map(
           (data, index) =>
             statusArr[index] === "success" && (
-              <EventCard key={data.id} data={data} registered />
+              <EventRegCard key={data.id} data={data} registered />
             )
         )
       ) : (

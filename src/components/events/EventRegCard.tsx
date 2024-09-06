@@ -9,16 +9,17 @@ import { eventType } from "@/constants/types/types";
 import Link from "next/link";
 import { IoArrowForwardOutline } from "react-icons/io5";
 import { cn } from "@/lib/utils";
+import { EventRegistration } from "@/constants/types/registered";
 
-const EventCard = ({
+const EventRegCard = ({
   data,
   registered = false,
 }: {
-  data: eventType;
+  data: EventRegistration;
   registered?: boolean;
 }) => {
-  const startDate = new Date(data.startDate);
-  const endDate = new Date(data.endDate);
+  const startDate = new Date(data.event_slot.start_date);
+  const endDate = new Date(data.event_slot.end_date);
 
   function formatTimeTo12Hour(hours: number, minutes: number) {
     const period = hours >= 12 ? "PM" : "AM";
@@ -56,7 +57,7 @@ const EventCard = ({
         <div className="w-full md:w-[20%] p-2 aspect-square border-[1px] border-black">
           <Image
             className="w-full h-full object-cover"
-            src={data.display}
+            src={data.event.image || ""}
             priority
             alt=""
             width={1000}
@@ -67,13 +68,13 @@ const EventCard = ({
           <div className="px-3 md:px-0">
             <div className="flex w-full flex-col md:flex-row justify-between items-start md:items-center">
               <h1 className="text-xl md:text-3xl uppercase w-full">
-                {data.name}
+                {data.event.name}
               </h1>
-              <p className="text-xs text-nowrap md:text-[1rem]">{data.type}</p>
+              <p className="text-xs text-nowrap md:text-[1rem]">{data.event.type}</p>
             </div>
 
             <p className="text-primary text-xs md:text-[1rem]">
-              {data.tagline}
+              {data.event.tagline}
             </p>
             <div className="w-full md:w-[40%] h-[1px] md:h-[2px] bg-outline my-2 mb-4"></div>
             <div className="w-full flex flex-col md:flex-row items-start gap-4">
@@ -91,7 +92,7 @@ const EventCard = ({
                 {/* {data.description.length > 200
                   ? `${data.description.slice(0, 200)}...`
                   : data.description} */}
-                {data.short_description}
+                {data.event.short_description}
               </p>
             </div>
           </div>
@@ -116,11 +117,11 @@ const EventCard = ({
             </span>
             <span className="text-xs md:text-sm text-black flex items-center gap-2 p-4 px-2 md:px-6 border-r-[1px] border-primary flex-grow justify-center h-full">
               <GrGroup className="text-[1rem]" />
-              <p>{data.teamSize}</p>
+              <p>{data.event.teamSize}</p>
             </span>
             <span className="text-xs md:text-sm text-black flex items-center gap-2 p-4 px-2 md:px-6  border-primary flex-grow justify-center">
               <MdOutlineCurrencyRupee className="text-[1rem]" />
-              <p>{data.price}/-</p>
+              <p>{data.event.price}/-</p>
             </span>
           </div>
         </section>
@@ -146,4 +147,4 @@ const EventCard = ({
   );
 };
 
-export default EventCard;
+export default EventRegCard;
