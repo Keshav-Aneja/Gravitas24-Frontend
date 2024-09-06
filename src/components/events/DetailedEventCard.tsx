@@ -313,10 +313,10 @@ function SlotBox({ data, setSlot, selectedSlot }: SlotProps) {
       className={cn(
         "w-full px-2 py-2 border-[1px] border-black text-xs tracking-tighter hover:bg-primaryLight select-none",
         selectedSlot === data.slotId && "bg-primaryLight",
-        data.totalEntries === 0 && "bg-gray-300"
+        data.totalEntries <= 0 && "bg-gray-300"
       )}
       onClick={() => {
-        if (data.totalEntries === 0) {
+        if (data.totalEntries <= 0) {
           toast({
             title: "Seats Full",
             description: "No available seats in the selected slot",
@@ -331,14 +331,21 @@ function SlotBox({ data, setSlot, selectedSlot }: SlotProps) {
         {"// "}
         {data.venue}
       </p>
-        {startTime}
+      {startTime}
       {", "}
       {startDateFormatted}
       {" - "}
       {endTime}
       {", "}
       {endDateFormatted}
-      <p className="text-xs md:text-sm">Available Seats: {data.totalEntries}</p>
+      {data.totalEntries > 0 && (
+        <p className="text-xs md:text-sm">
+          Available Seats: {data.totalEntries}
+        </p>
+      )}
+      {data.totalEntries <= 0 && (
+        <p className="text-xs md:text-sm">Seats Full</p>
+      )}
     </button>
   );
 }

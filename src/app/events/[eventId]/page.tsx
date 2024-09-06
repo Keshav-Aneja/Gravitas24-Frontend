@@ -11,7 +11,7 @@ const EventDetailsPage = ({ params }: { params: { eventId: string } }) => {
   const [eventName, setEventName] = useState("");
   const [loading, setLoading] = useState(false);
   useEffect(() => {
-    document.title = `Gravitas | ${eventName}`; 
+    document.title = `Gravitas | ${eventName}`;
     const top = document.getElementById("nav");
     if (top) {
       top.scrollIntoView({ behavior: "smooth" });
@@ -24,7 +24,7 @@ const EventDetailsPage = ({ params }: { params: { eventId: string } }) => {
         root
         options={{
           lerp: 0.04,
-          duration: 2.5,
+          duration: 1.5,
           smoothWheel: true,
           easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
           orientation: "vertical",
