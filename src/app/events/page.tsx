@@ -5,9 +5,13 @@ import EventsFilter from "@/components/events/EventsFilter";
 import EventsBox from "@/sections/EventsBox";
 import { ReactLenis } from "@studio-freight/react-lenis";
 import { useEffect } from "react";
-import Head from "next/head";
+import { useSearchParams } from 'next/navigation';
 
 const EventsPage = () => {
+
+  const searchParams = useSearchParams();
+  const queryValue = searchParams.get('eventScope');
+
   useEffect(() => {
     document.title = "Gravitas | Events";
     const top = document.getElementById("nav");
@@ -34,8 +38,8 @@ const EventsPage = () => {
             breadcrumb="Home // Events"
             color="#000000"
           />
-          <EventsFilter />
-          <EventsBox />
+          <EventsFilter scope={queryValue || ""}/>
+          <EventsBox eventScope={queryValue || ""}/>
           <PaginationBox />
         </div>
       </ReactLenis>
