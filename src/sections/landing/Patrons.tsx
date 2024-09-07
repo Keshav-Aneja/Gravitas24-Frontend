@@ -81,11 +81,6 @@ const Patrons = () => {
           </p>
         </Link>
       </div>
-      <div className="text-secondary w-fit font-auxMono">
-        <p>&gt; Greetings</p>
-        <p>&gt; -</p>
-        <p>&gt; INITIALIZING SEQUENCE</p>
-      </div>
     </div>
   );
 };
