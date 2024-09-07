@@ -5,7 +5,7 @@ import React, { useEffect, useState } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
 import { RxCaretDown } from "react-icons/rx";
 
-const EventsFilter = ({ scope }: { scope: string }) => {
+const EventsFilter = () => {
   const { eventQuery: query, setEventQuery: setQuery } = useGlobalContext();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [eventTypeMenu, setEventTypeMenu] = useState(false);
@@ -16,7 +16,6 @@ const EventsFilter = ({ scope }: { scope: string }) => {
     const interval = setTimeout(() => {
       setQuery(temp);
     }, 200);
-    setEventScope(scope);
 
     return () => {
       clearInterval(interval);

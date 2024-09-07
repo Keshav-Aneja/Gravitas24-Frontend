@@ -338,13 +338,18 @@ function SlotBox({ data, setSlot, selectedSlot }: SlotProps) {
       {endTime}
       {", "}
       {endDateFormatted}
-      {data.totalEntries > 0 && (
-        <p className="text-xs md:text-sm">
-          Available Seats: {data.totalEntries}
-        </p>
-      )}
-      {data.totalEntries <= 0 && (
-        <p className="text-xs md:text-sm">Seats Full</p>
+      {data.isRegistrable ? (
+        data.totalEntries > 0 ? (
+          <p className="text-xs md:text-sm">
+            Available Seats: {data.totalEntries}
+          </p>
+        ) : (
+          data.totalEntries <= 0 && (
+            <p className="text-xs md:text-sm">Seats Full</p>
+          )
+        )
+      ) : (
+        <p className="text-xs md:text-sm">~</p>
       )}
     </button>
   );
