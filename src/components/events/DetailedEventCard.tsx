@@ -181,7 +181,7 @@ const DetailedEventCard = ({
                   uniqueName="slots"
                   className="auto-cols-[80%] md:auto-cols-[40%]  w-full mx-auto"
                 >
-                  {slotData.map((slot, index) => (
+                  {slotData.sort((a, b) => new Date(a.startDate).getTime() - new Date(b.startDate).getTime()).map((slot, index) => (
                     <SlotBox
                       key={index}
                       data={slot}
