@@ -52,7 +52,11 @@ const DetailedEventCard = ({
         // setSelectedSlot(eventDetails.slots);
         // console.log(eventDetails.slots);
         if (eventDetails.slots[0].slotId) {
-          setSelectedSlot(eventDetails.slots[0].slotId);
+          const sortedSlots = eventDetails.slots.sort(
+            (a: { startDate: string | number | Date; }, b: { startDate: string | number | Date; }) =>
+              new Date(a.startDate).getTime() - new Date(b.startDate).getTime()
+          );
+          setSelectedSlot(sortedSlots[0].slotId);
         }
         // console.log(eventDetails.slots[0].slotId);
         setEventName && setEventName(eventDetails.data.name);
