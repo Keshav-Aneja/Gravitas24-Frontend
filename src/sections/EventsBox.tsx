@@ -7,13 +7,12 @@ import { toast } from "@/hooks/use-toast";
 import { getEventList } from "@/services/event.service";
 import React, { useEffect, useState } from "react";
 
-const EventsBox = ({eventScope}: {eventScope:string}) => {
+const EventsBox = () => {
   const [events, setEvents] = useState<eventType[]>([]);
   const [loading, setLoading] = useState(true);
   const { setTotalPages } = useGlobalContext();
-  console.log(eventScope);
 
-  const { eventType, currentPage, eventQuery: query } = useGlobalContext();
+  const { eventType, currentPage, eventQuery: query, eventScope } = useGlobalContext();
   useEffect(() => {
     (async () => {
       try {
