@@ -20,6 +20,7 @@ const TransactionCard = ({ data }: { data: Payment }) => {
           setTxnData(response?.data);
         }
       } catch (error) {
+        setTxnData(null);
         setIsError(true);
       }
     })();
@@ -85,7 +86,7 @@ const TransactionCard = ({ data }: { data: Payment }) => {
               </p>
               <p className="text-2xl md:text-3xl">{data.amount}</p>
             </div>
-            {data.status === "success" && (
+            {data.status === "success" && txnData && (
               <button
                 className="flex items-center gap-4 bg-primary text-white px-6 py-2 self-end"
                 onClick={() => {
