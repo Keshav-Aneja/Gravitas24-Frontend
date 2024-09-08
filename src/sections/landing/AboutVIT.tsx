@@ -16,7 +16,7 @@ const AboutVIT = () => {
                 src={images.Ranking1}
                 width={500}
                 height={400}
-                className="h-auto w-full object-cover"
+                className="h-auto w-[80%] object-cover"
                 alt=""
               />
             </div>
@@ -46,7 +46,7 @@ const AboutVIT = () => {
                 src={images.Ranking2}
                 width={500}
                 height={400}
-                className="h-auto w-full object-cover"
+                className="h-auto w-[80%] object-cover"
                 alt=""
               />
             </div>
@@ -76,7 +76,7 @@ const AboutVIT = () => {
                 src={images.Ranking3}
                 width={500}
                 height={400}
-                className="h-auto w-full object-cover"
+                className="h-auto w-[80%] object-cover"
                 alt=""
               />
             </div>

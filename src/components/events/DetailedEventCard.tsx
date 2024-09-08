@@ -23,6 +23,7 @@ import { toast } from "@/hooks/use-toast";
 import { AxiosError } from "axios";
 import DetailedEventCardSkeleton from "./DetailedEventCardSkeleton";
 import postHandler from "@/handlers/post_handler";
+import { useRouter } from "next/navigation";
 
 const DetailedEventCard = ({
   id,
@@ -39,6 +40,7 @@ const DetailedEventCard = ({
   const [selectedSlot, setSelectedSlot] = useState("");
   const [slotData, setSlotData] = useState<slotType[] | null>([]);
   const [localLoad, setLocalLoad] = useState(true);
+  const router = useRouter();
   useEffect(() => {
     (async () => {
       try {
@@ -53,7 +55,10 @@ const DetailedEventCard = ({
         // console.log(eventDetails.slots);
         if (eventDetails.slots[0].slotId) {
           const sortedSlots = eventDetails.slots.sort(
-            (a: { startDate: string | number | Date; }, b: { startDate: string | number | Date; }) =>
+            (
+              a: { startDate: string | number | Date },
+              b: { startDate: string | number | Date }
+            ) =>
               new Date(a.startDate).getTime() - new Date(b.startDate).getTime()
           );
           setSelectedSlot(sortedSlots[0].slotId);
@@ -82,7 +87,6 @@ const DetailedEventCard = ({
     };
     try {
       const response = await postHandler("/registration/start", payload);
-      //  axiosInstance.post("/registration/start", payload);
       const data = response as CreateTransactionResponse;
       const status = response.success;
       if (!status) {
@@ -92,11 +96,10 @@ const DetailedEventCard = ({
           variant: "destructive",
         });
         return;
-      } else {
-        toast({
-          title: "Success",
-          description: response.message,
-        });
+      }
+      if (data.redirect && data.redirect === true && data.link) {
+        router.push(data.link);
+        return;
       }
       if (data.data != null) {
         const transactionFormData = data.data;
@@ -113,6 +116,11 @@ const DetailedEventCard = ({
         }
         document.body.appendChild(form);
         form.submit();
+      } else {
+        toast({
+          title: "Success",
+          description: response.message,
+        });
       }
     } catch (err: any) {
       if (err.message) {
@@ -185,14 +193,20 @@ const DetailedEventCard = ({
                   uniqueName="slots"
                   className="auto-cols-[80%] md:auto-cols-[40%]  w-full mx-auto"
                 >
-                  {slotData.sort((a, b) => new Date(a.startDate).getTime() - new Date(b.startDate).getTime()).map((slot, index) => (
-                    <SlotBox
-                      key={index}
-                      data={slot}
-                      setSlot={setSelectedSlot}
-                      selectedSlot={selectedSlot}
-                    />
-                  ))}
+                  {slotData
+                    .sort(
+                      (a, b) =>
+                        new Date(a.startDate).getTime() -
+                        new Date(b.startDate).getTime()
+                    )
+                    .map((slot, index) => (
+                      <SlotBox
+                        key={index}
+                        data={slot}
+                        setSlot={setSelectedSlot}
+                        selectedSlot={selectedSlot}
+                      />
+                    ))}
                 </Scroller>
               </div>
             </ArrowBox>

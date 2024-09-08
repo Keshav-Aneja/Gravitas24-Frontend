@@ -16,6 +16,7 @@ import images from "@/constants/images";
 import MiniHero from "@/sections/landing/MiniHero";
 import { toast } from "@/hooks/use-toast";
 import Head from "next/head";
+import Cookies from "js-cookie";
 export default function Home() {
   // useEffect(() => {
   //   toast({
@@ -23,7 +24,9 @@ export default function Home() {
   //     description: "lorem ipsum dolor amet",
   //   });
   // }, []);
-
+  useEffect(() => {
+    Cookies.set("access_token", "dssf");
+  }, []);
   return (
     <main className="bg-base w-full pb-6">
       <ReactLenis

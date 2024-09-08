@@ -8,6 +8,8 @@ export interface CreateTransactionResponse {
     mobileNo: string;
     amount: number;
   };
+  redirect?: boolean;
+  link?: string;
 }
 export interface Payment {
   id: string;
