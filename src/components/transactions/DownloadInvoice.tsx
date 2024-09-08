@@ -29,7 +29,7 @@ export const DownloadInvoice = ({
           pdf.internal.pageSize.height,
           "NONE"
         );
-        pdf.save("your-file-name.pdf");
+        pdf.save(`${data?.callback_invoice_no}`);
       } catch (error) {
         console.error("Error generating PDF:", error);
       }

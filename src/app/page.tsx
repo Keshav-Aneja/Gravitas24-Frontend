@@ -24,9 +24,7 @@ export default function Home() {
   //     description: "lorem ipsum dolor amet",
   //   });
   // }, []);
-  useEffect(() => {
-    Cookies.set("access_token", "dssf");
-  }, []);
+
   return (
     <main className="bg-base w-full pb-6">
       <ReactLenis
