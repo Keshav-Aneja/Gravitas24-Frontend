@@ -52,7 +52,7 @@ const EventCard = ({
 
   return (
     <Link href={`/events/${data.id}`} className="w-full">
-      <BorderBox className="md:px-6 md:py-10 p-0 w-[90%] mx-auto flex flex-col md:flex-row items-start md:justify-between gap-4 md:gap-8 group border-primary md:border-outline">
+      <BorderBox className="md:px-6 md:py-10 p-0 w-[90%] mx-auto flex flex-col md:flex-row items-start md:justify-between gap-4 md:gap-8 group border-primary md:border-outline ">
         <div className="w-full md:w-[20%] p-2 aspect-square border-[1px] border-black">
           <Image
             className="w-full h-full object-cover aspect-square"

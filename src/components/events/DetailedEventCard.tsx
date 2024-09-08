@@ -86,13 +86,14 @@ const DetailedEventCard = ({
       event_slot_id: selectedSlot,
     };
     try {
-      const response = await postHandler("/registration/start", payload);
-      const data = response as CreateTransactionResponse;
-      const status = response.success;
+      // const response = await postHandler("/registration/start", payload);
+      const response = await axiosInstance.post("/registration/start", payload);
+      const data = response.data as CreateTransactionResponse;
+      const status = data.success;
       if (!status) {
         toast({
           title: "Error",
-          description: response.message,
+          description: data.message,
           variant: "destructive",
         });
         return;
@@ -119,7 +120,7 @@ const DetailedEventCard = ({
       } else {
         toast({
           title: "Success",
-          description: response.message,
+          description: data.message,
         });
       }
     } catch (err: any) {
