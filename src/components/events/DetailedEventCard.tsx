@@ -181,7 +181,7 @@ const DetailedEventCard = ({
             </ArrowBox>
             <ArrowBox className="w-full flex md:w-fit flex-col gap-1 md:block items-center justify-center text-black text-xs md:text-sm font-auxMono">
               <h1 className="text-secondary text-[1rem] md:text-lg font-semibold">
-                NO OF PARTICIPANTS
+               NO OF PARTICIPANTS PER TEAM
               </h1>
               <h2>{eventDetails.teamSize}</h2>
             </ArrowBox>
