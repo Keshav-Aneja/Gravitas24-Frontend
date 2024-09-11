@@ -17,7 +17,7 @@ function SignupCallback() {
   const router = useRouter();
   const { setIsLoggedin } = useGlobalContext();
 
-  const handleSignUp = async (phoneNumber: number) => {
+  const handleSignUp = async (phoneNumber: number, external?: boolean) => {
     if (!token || !phoneNumber || !isVIT) {
       return;
     }
@@ -25,10 +25,16 @@ function SignupCallback() {
       ? `${BACKEND_URL}/auth/vit/signup`
       : `${BACKEND_URL}/auth/common/signup`;
     try {
+      var body: { phoneNumber: string; disclaimerChecked?: boolean } = {
+        phoneNumber: phoneNumber.toString(),
+      };
+      if (external) {
+        body = { ...body, disclaimerChecked: true };
+      }
       const response = await axios.post(
         url,
         {
-          phoneNumber: phoneNumber.toString(),
+          body,
         },
         {
           headers: {
@@ -52,7 +58,12 @@ function SignupCallback() {
       }
     }
   };
-  return <ProfileBox handleSignup={handleSignUp} />;
+  console.log(isVIT);
+  return JSON.parse(isVIT || "") ? (
+    <ProfileBox handleSignup={handleSignUp} />
+  ) : (
+    <ProfileBox handleSignup={handleSignUp} external={true} />
+  );
 }
 
 export default function SignupCallbackWrapper() {

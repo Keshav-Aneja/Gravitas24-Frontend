@@ -5,16 +5,19 @@ type Props = {
   className?: string;
   type?: "button" | "submit" | "reset";
   onClick?: any;
+  disabled?: boolean;
 };
-const Button = ({ children, className, type = "button", onClick }: Props) => {
+const Button = ({ children, className, type = "button", onClick, disabled }: Props) => {
   return (
     <button
       type={type}
       className={cn(
-        "px-4 py-2 bg-primary hover:bg-[#ff7438] transition-all duration-100 ease-linear text-white font-auxMono relative",
-        className
+      "px-4 py-2 bg-primary transition-all duration-100 ease-linear text-white font-auxMono relative",
+      className,
+      !disabled && "hover:bg-[#ff7438]"
       )}
       onClick={onClick}
+      disabled={disabled}
     >
       {children}
     </button>
