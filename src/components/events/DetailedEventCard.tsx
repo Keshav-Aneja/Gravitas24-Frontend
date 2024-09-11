@@ -65,12 +65,18 @@ const DetailedEventCard = ({
         }
         // console.log(eventDetails.slots[0].slotId);
         setEventName && setEventName(eventDetails.data.name);
-      } catch (error) {
+      } catch (error: any) {
+        toast({
+          title: "Error",
+          description: error.message,
+          variant: "destructive",
+        });
         setLoading(false);
         setLocalLoad(false);
       }
     })();
   }, []);
+
   if (!eventDetails) {
     return null;
   }
@@ -86,8 +92,8 @@ const DetailedEventCard = ({
       event_slot_id: selectedSlot,
     };
     try {
-      // const response = await postHandler("/registration/start", payload);
-      const response = await axiosInstance.post("/registration/start", payload);
+      const response = await postHandler("/registration/start", payload);
+      // const response = await axiosInstance.post("/registration/start", payload);
       const data = response.data as CreateTransactionResponse;
       const status = data.success;
       if (!status) {
@@ -124,42 +130,12 @@ const DetailedEventCard = ({
         });
       }
     } catch (err: any) {
-      if (err.response) {
-        // The request was made and the server responded with a status code that falls out of the range of 2xx
-        const errorMessage =
-          err.response.data.message ||
-          "An error occurred. Kindly contact tech.gravitas@vit.ac.in.";
-
-        toast({
-          title: "Error",
-          description: errorMessage, // Use the error message from the response
-          variant: "destructive",
-        });
-
-        console.log(err.response.data, "Full error response");
-      } else if (err.request) {
-        // The request was made but no response was received
-        console.log(err.request, "No response received from the server.");
-
-        toast({
-          title: "Error",
-          description: "No response from the server. Please try again later.",
-          variant: "destructive",
-        });
-      } else {
-        // Something happened in setting up the request that triggered an error
-        toast({
-          title: "Error",
-          description:
-            err.message || "Kindly contact at tech.gravitas@vit.ac.in.",
-          variant: "destructive",
-        });
-        console.log(err.message, "Request setup error");
-      }
-      console.log(
-        err,
-        "An error occured. Kindly contact at tech.gravitas@vit.ac.in."
-      );
+      console.log(err);
+      toast({
+        title: "Error",
+        description: err.message,
+        variant: "destructive",
+      });
     }
   };
 
@@ -180,7 +156,9 @@ const DetailedEventCard = ({
             height={1000}
           />
           {eventDetails.scope?.toLocaleLowerCase() === "internal only" && (
-            <p className="font-auxMono m-4 text-sm">**Not for External Participants</p>
+            <p className="font-auxMono m-4 text-sm">
+              **Not for External Participants
+            </p>
           )}
         </div>
         <section className="--main flex flex-col font-auxMono w-full md:w-[60%] px-2 md:px-0">

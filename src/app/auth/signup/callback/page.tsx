@@ -27,16 +27,13 @@ function SignupCallback() {
     try {
       var body: { phoneNumber: string; disclaimerChecked: boolean } = {
         phoneNumber: phoneNumber.toString(),
-        disclaimerChecked: true
+        disclaimerChecked: true,
       };
-      const response = await axios.post(
-        url, body,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+      const response = await axios.post(url, body, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
       const access_token = response.data.token;
       const refesh_token = response.data.refresh_token;
       Cookie.set("access_token", access_token);
@@ -44,10 +41,10 @@ function SignupCallback() {
       setIsLoggedin(true);
       router.push("/");
     } catch (err: any) {
-      if (err.message) {
+      if (err.response.data.message) {
         toast({
           title: "Error",
-          description: err.message,
+          description: err.response.data.message,
           variant: "destructive",
         });
       }

@@ -35,12 +35,17 @@ export async function getEventDetails(eventId: string) {
   try {
     const response = await getHandler(`/events/${eventId}`);
 
-    return {
-      data: instantiateEventData(response.data.event),
-      slots: response.data.eventSlots.map((slot: any) =>
-        instantiateSlotData(slot)
-      ),
-    };
+    if (response.success == true) {
+      return {
+        data: instantiateEventData(response.data.event),
+        slots: response.data.eventSlots.map((slot: any) =>
+          instantiateSlotData(slot)
+        ),
+      };
+    } else {
+      throw new Error(response.message);
+    }
+
   } catch (error: any) {
     throw new Error(error.message ?? "Failed to fetch event details");
   }
@@ -80,4 +85,3 @@ export async function getEventList({
     throw new Error(error.message ?? "Failed to fetch event list");
   }
 }
-
