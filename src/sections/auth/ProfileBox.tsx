@@ -27,13 +27,24 @@ const ProfileBox = ({
       <p className="text-xl text-center md:text-3xl font-auxMono text-black">
         Enter your contact number
       </p>
-      <input
-        type="text"
-        placeholder="Enter your phone number"
-        value={phoneNumber}
-        onChange={handlePhoneNumberChange}
-        className="w-[90%] md:w-[50%] p-2 border border-gray-300  font-aldrich py-2 px-4 md:px-6 rounded-none text-xs md:text-sm"
-      />
+      <div className="flex flex-row gap-4 w-[90%] md:w-[50%]">
+        <select
+          id="country code"
+          className="w-fit p-2 border border-gray-300  font-aldrich py-2 px-4 md:px-6 rounded-none text-xs md:text-sm"
+        >
+          <option defaultChecked value={"+91"}>
+            &#x1f1ee;&#x1f1f3; +91
+          </option>
+        </select>
+        <input
+          type="text"
+          placeholder="Enter your phone number"
+          value={phoneNumber}
+          onChange={handlePhoneNumberChange}
+          className="w-full p-2 border border-gray-300  font-aldrich py-2 px-4 md:px-6 rounded-none text-xs md:text-sm"
+        />
+      </div>
+
       {external && (
         <div className="flex flex-row gap-2">
           <input
@@ -49,6 +60,7 @@ const ProfileBox = ({
           className="z-0 --event-button"
           disabled={!isChecked}
           onClick={() => handleSignup(phoneNumber, true)}
+          title={isChecked ? "" : "Please agree to the terms and conditions"}
         >
           <span>SUBMIT</span>
         </Button>
