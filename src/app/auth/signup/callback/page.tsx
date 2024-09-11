@@ -32,10 +32,7 @@ function SignupCallback() {
         body = { ...body, disclaimerChecked: true };
       }
       const response = await axios.post(
-        url,
-        {
-          body,
-        },
+        url, body,
         {
           headers: {
             Authorization: `Bearer ${token}`,
