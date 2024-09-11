@@ -52,7 +52,7 @@ const ProfileBox = ({
             id="terms&conditions"
             onChange={handleConditionsToggle}
           />
-          <label htmlFor="terms&conditions">I agree {external || false}</label>
+          <label htmlFor="terms&conditions">I confirm that I am a college or university student. I understand that if I am not, and I purchase an event, I will not be eligible for a refund {external || false}</label>
         </div>
       )}
       {external ? (
