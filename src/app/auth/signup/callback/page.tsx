@@ -25,12 +25,10 @@ function SignupCallback() {
       ? `${BACKEND_URL}/auth/vit/signup`
       : `${BACKEND_URL}/auth/common/signup`;
     try {
-      var body: { phoneNumber: string; disclaimerChecked?: boolean } = {
+      var body: { phoneNumber: string; disclaimerChecked: boolean } = {
         phoneNumber: phoneNumber.toString(),
+        disclaimerChecked: true
       };
-      if (external) {
-        body = { ...body, disclaimerChecked: true };
-      }
       const response = await axios.post(
         url, body,
         {

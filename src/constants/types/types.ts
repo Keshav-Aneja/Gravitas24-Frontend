@@ -13,6 +13,7 @@ export type eventType = {
   startDate: string;
   teamSize: string;
   endDate: string;
+  scope?: string;
 };
 
 export type slotType = {

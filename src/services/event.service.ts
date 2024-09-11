@@ -27,6 +27,7 @@ export function instantiateEventData(data: any): eventType {
     startDate: data.start_date,
     endDate: data.end_date,
     teamSize: data.team_size,
+    scope: data.scope,
   } as eventType;
 }
 

@@ -126,19 +126,21 @@ const DetailedEventCard = ({
     } catch (err: any) {
       if (err.response) {
         // The request was made and the server responded with a status code that falls out of the range of 2xx
-        const errorMessage = err.response.data.message || "An error occurred. Kindly contact tech.gravitas@vit.ac.in.";
-        
+        const errorMessage =
+          err.response.data.message ||
+          "An error occurred. Kindly contact tech.gravitas@vit.ac.in.";
+
         toast({
           title: "Error",
-          description: errorMessage,  // Use the error message from the response
+          description: errorMessage, // Use the error message from the response
           variant: "destructive",
         });
-    
+
         console.log(err.response.data, "Full error response");
       } else if (err.request) {
         // The request was made but no response was received
         console.log(err.request, "No response received from the server.");
-        
+
         toast({
           title: "Error",
           description: "No response from the server. Please try again later.",
@@ -148,12 +150,16 @@ const DetailedEventCard = ({
         // Something happened in setting up the request that triggered an error
         toast({
           title: "Error",
-          description: err.message || "Kindly contact at tech.gravitas@vit.ac.in.",
+          description:
+            err.message || "Kindly contact at tech.gravitas@vit.ac.in.",
           variant: "destructive",
         });
         console.log(err.message, "Request setup error");
       }
-      console.log(err, "An error occured. Kindly contact at tech.gravitas@vit.ac.in.");
+      console.log(
+        err,
+        "An error occured. Kindly contact at tech.gravitas@vit.ac.in."
+      );
     }
   };
 
@@ -173,6 +179,9 @@ const DetailedEventCard = ({
             width={1000}
             height={1000}
           />
+          {eventDetails.scope?.toLocaleLowerCase() === "internal only" && (
+            <p className="font-auxMono m-4 text-sm">**Not for External Participants</p>
+          )}
         </div>
         <section className="--main flex flex-col font-auxMono w-full md:w-[60%] px-2 md:px-0">
           <h1 className="text-3xl md:text-4xl font-medium">
@@ -203,7 +212,7 @@ const DetailedEventCard = ({
             </ArrowBox>
             <ArrowBox className="w-full flex md:w-fit flex-col gap-1 md:block items-center justify-center text-black text-xs md:text-sm font-auxMono">
               <h1 className="text-secondary text-[1rem] md:text-lg font-semibold">
-               NO OF PARTICIPANTS PER TEAM
+                NO OF PARTICIPANTS PER TEAM
               </h1>
               <h2>{eventDetails.teamSize}</h2>
             </ArrowBox>
