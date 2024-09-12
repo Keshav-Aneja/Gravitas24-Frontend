@@ -23,10 +23,18 @@ const DetailedMerchCard = ({
 }) => {
   const [currVis, setCurrVis] = useState<string>(item.images[0]);
   const router = useRouter();
-  const [selectedSize, setSelectedSize] = useState();
+  const [selectedSize, setSelectedSize] = useState("");
   useEffect(() => {
     if (sizeOptions) {
-      setSelectedSize(sizeOptions[0].id);
+      // setSelectedSize(sizeOptions[0].id);
+      const firstAvailableSize = sizeOptions.find(
+        (option: any) => option.total_available > 0
+      );
+      if (firstAvailableSize) {
+        setSelectedSize(firstAvailableSize.id);
+      } else {
+        setSelectedSize("");
+      }
     }
   }, []);
   // const handleMerchPayment = async (merchID: string) => {
@@ -213,7 +221,9 @@ const DetailedMerchCard = ({
                     sizeOpt.id === selectedSize && "bg-primary text-white"
                   )}
                   onClick={() => {
-                    setSelectedSize(sizeOpt.id);
+                    if (sizeOpt.total_available > 0) {
+                      setSelectedSize(sizeOpt.id);
+                    }
                   }}
                 >
                   <p className="text-2xl">{sizeOpt.size}</p>
