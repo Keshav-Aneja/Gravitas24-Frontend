@@ -109,7 +109,7 @@ export default function ProfilePage() {
             >
               Registered Events
             </button>
-            <button
+            {/* <button
               className={cn(
                 "w-1/3 h-full py-3",
                 activeTab === 1 && "border-b-[8px] border-white"
@@ -119,7 +119,7 @@ export default function ProfilePage() {
               }}
             >
               Purchased Merch
-            </button>
+            </button> */}
             <button
               className={cn(
                 "w-1/2 h-full py-3",
