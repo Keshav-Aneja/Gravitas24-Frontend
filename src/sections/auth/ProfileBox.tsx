@@ -27,7 +27,7 @@ const ProfileBox = ({
       <p className="text-xl text-center md:text-3xl font-auxMono text-black">
         Enter your contact number
       </p>
-      <div className="flex flex-row gap-4 w-[90%] md:w-[50%]">
+      <div className="flex flex-row gap-4 w-[90%] md:w-[70%] lg:w-[50%]">
         <select
           id="country code"
           className="w-fit p-2 border border-gray-300  font-aldrich py-2 px-4 md:px-6 rounded-none text-xs md:text-sm"
@@ -46,13 +46,17 @@ const ProfileBox = ({
       </div>
 
       {external && (
-        <div className="flex flex-row gap-2">
+        <div className="flex flex-row gap-2 w-[90%] md:w-[50%] text-[.75rem]">
           <input
             type="checkbox"
             id="terms&conditions"
             onChange={handleConditionsToggle}
           />
-          <label htmlFor="terms&conditions">I confirm that I am a college or university student. I understand that if I am not, and I purchase an event, I will not be eligible for a refund {external || false}</label>
+          <label htmlFor="terms&conditions">
+            I confirm that I am a college or university student. I understand
+            that if I am not, and I purchase an event, I will not be eligible
+            for a refund {external || false}
+          </label>
         </div>
       )}
       {external ? (
