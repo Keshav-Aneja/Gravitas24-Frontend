@@ -209,14 +209,15 @@ const DetailedMerchCard = ({
                 <span
                   key={index}
                   className={cn(
-                    "text-xl border border-[#c2c2c2] p-2 px-4 cursor-pointer",
+                    "text-xl border border-[#c2c2c2] p-2 px-4 cursor-pointer flex flex-col items-center ",
                     sizeOpt.id === selectedSize && "bg-primary text-white"
                   )}
                   onClick={() => {
                     setSelectedSize(sizeOpt.id);
                   }}
                 >
-                  {sizeOpt.size}
+                  <p className="text-2xl">{sizeOpt.size}</p>
+                  <p className="text-xs">{sizeOpt.total_available} Left</p>
                 </span>
               ))}
             </section>
