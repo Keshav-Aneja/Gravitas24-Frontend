@@ -3,15 +3,15 @@ import getHandler from "@/handlers/get_handler";
 function instantiateMerchData(data: any): merchType {
   return {
     id: data.id,
-    type: data.type,
-    price: data.price,
-    totalAvailable: data.totalAvailable,
-    description: data.description,
-    images: data.images,
-    category: data.category,
     name: data.name,
+    type: data.type,
     tagline: data.tagline,
+    description: data.description,
+    category: data.category,
+    price: data.price,
+    total_available: data.total_available,
     sizes: data.sizes,
+    images: data.images,
   } as merchType;
 }
 export async function getAllMerch() {

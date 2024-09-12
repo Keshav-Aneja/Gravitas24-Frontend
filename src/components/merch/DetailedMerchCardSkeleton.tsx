@@ -3,8 +3,6 @@
 import React from "react";
 import BorderBox from "../common/BorderBox";
 import Image from "next/image";
-import { LuShirt } from "react-icons/lu";
-import { MdOutlineCurrencyRupee } from "react-icons/md";
 import images from "@/constants/images";
 import Skeleton from "../common/Skeleton";
 
