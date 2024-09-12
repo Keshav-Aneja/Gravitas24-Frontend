@@ -17,7 +17,16 @@ function instantiateMerchData(data: any): merchType {
 export async function getAllMerch() {
   try {
     const response = await getHandler("/merch");
-    return response.data.map((data: any) => instantiateMerchData(data));
+    const merchData = [];
+    if (response.data.length > 0) {
+      for (let i = 0; i < response.data.length; i++) {
+        const merchInfo = await getHandler(`/merch/${response.data[i].id}`);
+        merchData.push(merchInfo.data);
+      }
+    }
+    // return response.data.map((data: any) => instantiateMerchData(data));
+    console.log("MERCH", merchData[0]);
+    return merchData;
   } catch (error: any) {
     throw new Error(error.message ?? "Failed to fetch merch");
   }

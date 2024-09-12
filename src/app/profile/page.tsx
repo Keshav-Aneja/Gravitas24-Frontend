@@ -19,7 +19,11 @@ import {
   MerchRegistration,
   Payment,
 } from "@/constants/types/registered";
+import Image from "next/image";
 import { ReactLenis } from "@studio-freight/react-lenis";
+import BorderBox from "@/components/common/BorderBox";
+import images from "@/constants/images";
+import Link from "next/link";
 export default function ProfilePage() {
   const [activeTab, setActiveTab] = useState(0);
   const [registeredEvents, setRegisteredEvents] = useState<EventRegistration[]>(
@@ -93,7 +97,7 @@ export default function ProfilePage() {
         />
         <div className="w-[90%] mx-auto">
           <div className="h-28 w-full border-x-[1px] border-outline"></div>
-          <div className="w-full text-xs md:text-[1rem] flex items-center gap-0 bg-primary text-white font-auxMono --clip-shape-profile-header">
+          <div className="w-full text-[0.5rem] md:text-[1rem] flex items-center gap-0 bg-primary text-white font-auxMono --clip-shape-profile-header">
             <button
               className={cn(
                 "w-1/2 h-full py-3",
@@ -105,17 +109,17 @@ export default function ProfilePage() {
             >
               Registered Events
             </button>
-            {/* <button
-            className={cn(
-              "w-1/3 h-full py-3",
-              activeTab === 1 && "border-b-[8px] border-white"
-            )}
-            onClick={() => {
-              setActiveTab(1);
-            }}
-          >
-            Purchased Merch
-          </button> */}
+            <button
+              className={cn(
+                "w-1/3 h-full py-3",
+                activeTab === 1 && "border-b-[8px] border-white"
+              )}
+              onClick={() => {
+                setActiveTab(1);
+              }}
+            >
+              Purchased Merch
+            </button>
             <button
               className={cn(
                 "w-1/2 h-full py-3",
@@ -134,7 +138,7 @@ export default function ProfilePage() {
               statusArr={statusArr}
             />
           )}
-          {/* {activeTab === 1 && <MyMerch merchRegisteration={registeredMerch} />} */}
+          {activeTab === 1 && <MyMerch merchRegisteration={registeredMerch} />}
           {activeTab === 2 && (
             <MyTransactions transactionHistory={transactions} />
           )}
@@ -176,9 +180,15 @@ function MyMerch({
 }) {
   return (
     <div className="w-full grid grid-cols-1 md:grid-cols-3 my-8 gap-8">
-      {merchRegisteration.map((data) => (
-        <MerchCard key={data.id} data={data.merch} purchased />
-      ))}
+      {merchRegisteration.length > 0 ? (
+        merchRegisteration.map((data) => (
+          <MerchCard key={data.id} data={data.merch} purchased />
+        ))
+      ) : (
+        <p className="text-red-500 text-sm text-center md:text-xl font-auxMono">
+          No Transaction History Found
+        </p>
+      )}
     </div>
   );
 }

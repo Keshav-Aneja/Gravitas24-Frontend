@@ -126,7 +126,7 @@ const Navbar = () => {
           {!openMenu && <AiOutlineMenu />}
           {openMenu && <IoMdClose />}
           {openMenu && (
-            <div className="w-full md:hidden flex flex-col items-start p-12 gap-8 text-xl font-auxMono h-screen bg-white fixed top-12 right-0">
+            <div className="w-full lg:hidden flex flex-col items-start p-12 gap-8 text-xl font-auxMono h-screen bg-white fixed top-12 right-0">
               <span className="w-full flex flex-col gap-2">
                 <Link
                   href={TEAM_PAGE}

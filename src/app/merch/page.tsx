@@ -15,6 +15,7 @@ const MerchDetailsPage = () => {
       try {
         const response = await getAllMerch();
         setMerchItem(response[0]);
+        console.log(response[0]);
       } catch (error) {}
     })();
   }, []);
@@ -31,7 +32,10 @@ const MerchDetailsPage = () => {
       <div className="w-[90%] mx-auto border-x-[1px] border-outline pt-16 py-8 flex items-start justify-between"></div>
       <div className="w-[90%]  border-outline mx-auto">
         {merchItem ? (
-          <DetailedMerchCard item={merchItem} />
+          <DetailedMerchCard
+            item={merchItem.merch}
+            sizeOptions={merchItem.merchSize}
+          />
         ) : (
           <DetailedMerchCardSkeleton />
         )}

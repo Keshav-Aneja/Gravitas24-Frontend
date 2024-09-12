@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import BorderBox from "../common/BorderBox";
 import Image from "next/image";
 import { useState } from "react";
@@ -11,47 +11,149 @@ import Cookie from "js-cookie";
 import axiosInstance from "@/config/axios";
 import { CreateTransactionResponse } from "@/constants/types/transaction";
 import { toast } from "@/hooks/use-toast";
+import { useRouter } from "next/navigation";
+import { cn } from "@/lib/utils";
 
-const DetailedMerchCard = ({ item }: { item: merchType }) => {
-  console.log(item);
+const DetailedMerchCard = ({
+  item,
+  sizeOptions,
+}: {
+  item: merchType;
+  sizeOptions?: any;
+}) => {
   const [currVis, setCurrVis] = useState<string>(item.images[0]);
-
+  const router = useRouter();
+  const [selectedSize, setSelectedSize] = useState();
+  useEffect(() => {
+    if (sizeOptions) {
+      setSelectedSize(sizeOptions[0].id);
+    }
+  }, []);
+  // const handleMerchPayment = async (merchID: string) => {
+  //   // console.log("Buying merch");
+  //   const payload = {
+  //     merch_id: merchID,
+  //   };
+  //   try {
+  //     const response = await axiosInstance.post(
+  //       "/registration/start-merch",
+  //       payload
+  //     );
+  //     const data = response.data as CreateTransactionResponse;
+  //     const transactionFormData = data.data;
+  //     const form = document.createElement("form");
+  //     form.method = "POST";
+  //     form.action = "https://events.vit.ac.in/events/GRV24/cnfpay";
+  //     form.target = "_blank";
+  //     for (const [key, value] of Object.entries(transactionFormData)) {
+  //       const input = document.createElement("input");
+  //       input.type = "hidden";
+  //       input.name = key;
+  //       input.value = value as string;
+  //       form.appendChild(input);
+  //     }
+  //     document.body.appendChild(form);
+  //     form.submit();
+  //   } catch (err: any) {
+  //     if (err.response) {
+  //       toast({
+  //         title: "Error",
+  //         description: err.response.data.message,
+  //       });
+  //     }
+  //     console.log("An error occurred. Kindly contact the admin.");
+  //   }
+  // };
   const handleMerchPayment = async (merchID: string) => {
-    // console.log("Buying merch");
+    const token = Cookie.get("access_token");
+    // console.log(token);
+    if (!selectedSize || !merchID) {
+      return;
+    }
     const payload = {
       merch_id: merchID,
+      merch_size_id: selectedSize,
     };
     try {
+      // const response = await postHandler("/registration/start", payload);
       const response = await axiosInstance.post(
         "/registration/start-merch",
         payload
       );
       const data = response.data as CreateTransactionResponse;
-      const transactionFormData = data.data;
-      const form = document.createElement("form");
-      form.method = "POST";
-      form.action = "https://events.vit.ac.in/events/GRV24/cnfpay";
-      form.target = "_blank";
-      for (const [key, value] of Object.entries(transactionFormData)) {
-        const input = document.createElement("input");
-        input.type = "hidden";
-        input.name = key;
-        input.value = value as string;
-        form.appendChild(input);
-      }
-      document.body.appendChild(form);
-      form.submit();
-    } catch (err: any) {
-      if (err.response) {
+      const status = data.success;
+      if (!status) {
         toast({
           title: "Error",
-          description: err.response.data.message,
+          description: data.message,
+          variant: "destructive",
+        });
+        return;
+      }
+      if (data.redirect && data.redirect === true && data.link) {
+        router.push(data.link);
+        return;
+      }
+      if (data.data != null) {
+        const transactionFormData = data.data;
+        const form = document.createElement("form");
+        form.method = "POST";
+        form.action = "https://events.vit.ac.in/events/GRV24/cnfpay";
+        form.target = "_blank";
+        for (const [key, value] of Object.entries(transactionFormData)) {
+          const input = document.createElement("input");
+          input.type = "hidden";
+          input.name = key;
+          input.value = value as string;
+          form.appendChild(input);
+        }
+        document.body.appendChild(form);
+        form.submit();
+      } else {
+        toast({
+          title: "Success",
+          description: data.message,
         });
       }
-      console.log("An error occurred. Kindly contact the admin.");
+    } catch (err: any) {
+      if (err.response) {
+        // The request was made and the server responded with a status code that falls out of the range of 2xx
+        const errorMessage =
+          err.response.data.message ||
+          "An error occurred. Kindly contact tech.gravitas@vit.ac.in.";
+
+        toast({
+          title: "Error",
+          description: errorMessage, // Use the error message from the response
+          variant: "destructive",
+        });
+
+        console.log(err.response.data, "Full error response");
+      } else if (err.request) {
+        // The request was made but no response was received
+        console.log(err.request, "No response received from the server.");
+
+        toast({
+          title: "Error",
+          description: "No response from the server. Please try again later.",
+          variant: "destructive",
+        });
+      } else {
+        // Something happened in setting up the request that triggered an error
+        toast({
+          title: "Error",
+          description:
+            err.message || "Kindly contact at tech.gravitas@vit.ac.in.",
+          variant: "destructive",
+        });
+        console.log(err.message, "Request setup error");
+      }
+      console.log(
+        err,
+        "An error occured. Kindly contact at tech.gravitas@vit.ac.in."
+      );
     }
   };
-
   return (
     <BorderBox className=" py-10 w-full  flex flex-col gap-8 px-0">
       <div className="w-full flex flex-col md:flex-row items-start justify-between gap-8 px-0">
@@ -101,14 +203,20 @@ const DetailedMerchCard = ({ item }: { item: merchType }) => {
           <section className="flex flex-col gap-2 mt-4 p-2 text-[1rem]">
             {item.description}
           </section>
-          {item.sizes ? (
+          {sizeOptions ? (
             <section className="flex gap-2 p-2">
-              {item.sizes.map((size, index) => (
+              {sizeOptions.map((sizeOpt: any, index: number) => (
                 <span
                   key={index}
-                  className="text-xl border border-[#c2c2c2] p-2 px-4"
+                  className={cn(
+                    "text-xl border border-[#c2c2c2] p-2 px-4 cursor-pointer",
+                    sizeOpt.id === selectedSize && "bg-primary text-white"
+                  )}
+                  onClick={() => {
+                    setSelectedSize(sizeOpt.id);
+                  }}
                 >
-                  {size}
+                  {sizeOpt.size}
                 </span>
               ))}
             </section>
@@ -121,10 +229,10 @@ const DetailedMerchCard = ({ item }: { item: merchType }) => {
         <span className="text-sm text-black flex items-center justify-center flex-grow">
           {item.name}
         </span>
-        <span className="text-sm text-black hidden md:flex items-center gap-2 p-4 px-6 border-x-[1px] border-primary flex-grow justify-center">
+        {/* <span className="text-sm text-black hidden md:flex items-center gap-2 p-4 px-6 border-x-[1px] border-primary flex-grow justify-center">
           <LuShirt size={18} />
           {item.sizes.join(",")}
-        </span>
+        </span> */}
         <span className="text-sm text-black hidden md:flex items-center gap-2 p-4 px-6 flex-grow justify-center">
           <MdOutlineCurrencyRupee size={20} />
           <p>Rs. {item.price}/-</p>
