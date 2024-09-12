@@ -28,13 +28,13 @@ export type slotType = {
 
 export type merchType = {
   id: string;
-  type: string;
-  price: number;
-  totalAvailable: number;
-  description: string;
-  images: string[];
   name: string;
+  type: string;
   tagline: string;
+  description: string;
   category: string;
+  price: number;
+  total_available: number;
   sizes: string[];
+  images: string[];
 };

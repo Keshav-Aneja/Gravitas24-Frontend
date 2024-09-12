@@ -13,6 +13,7 @@ import { CreateTransactionResponse } from "@/constants/types/transaction";
 import { toast } from "@/hooks/use-toast";
 
 const DetailedMerchCard = ({ item }: { item: merchType }) => {
+  console.log(item);
   const [currVis, setCurrVis] = useState<string>(item.images[0]);
 
   const handleMerchPayment = async (merchID: string) => {
@@ -40,14 +41,14 @@ const DetailedMerchCard = ({ item }: { item: merchType }) => {
       }
       document.body.appendChild(form);
       form.submit();
-    } catch (err: unknown) {
-      if (err instanceof Error) {
+    } catch (err: any) {
+      if (err.response) {
         toast({
           title: "Error",
-          description: err.message,
+          description: err.response.data.message,
         });
       }
-      console.log("An error occured. Kindly contact the admin.");
+      console.log("An error occurred. Kindly contact the admin.");
     }
   };
 
