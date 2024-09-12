@@ -77,7 +77,7 @@ function EventBtn() {
 }
 function MerchBtn() {
   return (
-    <Link href={FAQ_PAGE}>
+    <Link href={MERCH_PAGE}>
       <div className="relative w-48 scale-x-110 font-auxMono top-[14px] cursor-pointer hover:scale-x-[115%] hover:scale-y-[105%] transition-all duration-100 ease-linear active:scale-x-110 active:scale-y-[100%]">
         <Image
           src={svgs.HeroBtnB}
@@ -87,7 +87,7 @@ function MerchBtn() {
           className="w-full h-auto"
         />
         <p className="absolute top-1 left-20   font-medium text-[1rem] tracking-widest text-nowrap ">
-          FAQs
+          Merch
         </p>
       </div>
     </Link>

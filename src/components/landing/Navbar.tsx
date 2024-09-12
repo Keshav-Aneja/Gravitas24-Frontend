@@ -172,6 +172,18 @@ const Navbar = () => {
                   <div className="w-2 h-2 bg-gray-300 absolute -top-1 right-0"></div>
                 </div>
               </span>
+              <span className="w-full flex flex-col gap-2">
+                <Link
+                  href={MERCH_PAGE}
+                  className="hover:text-primary text-black"
+                >
+                  Merch
+                </Link>
+                <div className="w-full h-[1px] bg-gray-300 relative">
+                  <div className="w-2 h-2 bg-gray-300 absolute -top-1 left-0"></div>
+                  <div className="w-2 h-2 bg-gray-300 absolute -top-1 right-0"></div>
+                </div>
+              </span>
               {!isLoggedin && (
                 <Link href={AUTH_PAGE}>
                   <Button className="z-0 --event-button-2 w-full">
