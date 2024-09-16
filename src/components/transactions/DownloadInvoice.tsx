@@ -2,18 +2,24 @@ import React, { useEffect } from "react";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 import Image from "next/image";
+import images from "@/constants/images";
 import getHandler from "@/handlers/get_handler";
 import { Payment } from "@/constants/types/registered";
 import { MdOutlineFileDownload } from "react-icons/md";
+
 export const DownloadInvoice = ({
   data,
   setOpen,
+  user,
 }: {
   data: any;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  user: any;
 }) => {
   const txnDate = new Date(data?.callback_transaction_date);
-  console.log("TXN::::", data);
+
+  console.log("data>>",data);
+
   const generatePdf = async () => {
     const element = document.getElementById("pdf-content"); // Replace with your actual div ID
     if (element) {
@@ -59,68 +65,134 @@ export const DownloadInvoice = ({
           setOpen(false);
         }}
       ></div>
-      <div className="bg-white w-[80%] md:w-auto md:h-[90vh] fixed top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2   z-[2100] flex  flex-col md:flex-row">
-        <div className="w-full aspect-[210/297]" id="pdf-content">
-          <header className="flex items-center justify-between w-full p-4 border-b-[2px] border-b-black/20">
+      <div className="bg-white w-[80%] md:w-auto md:h-[90vh] fixed top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 z-[2100] flex  flex-col md:flex-row">
+        <div
+          className="w-full aspect-[210/297] p-8 h-full flex flex-col gap-8 justify-between"
+          id="pdf-content"
+        >
+          <header className="flex items-center justify-between w-full m-4">
+            <Image
+              src={images.vitLogo}
+              alt=""
+              className=" w-32 h-auto"
+              width={300}
+              height={200}
+            />
             <Image
               src="/GravitasDark.svg"
               alt=""
-              className=" w-40 h-auto"
+              className=" w-32 h-auto"
               width={300}
               height={200}
             />
           </header>
-          <div className="font-clash p-4">
-            <h1 className="text-3xl font-semibold font-clash mb-4">
-              Invoice{" "}
-              <span className="text-sm">({data?.callback_invoice_no})</span>
-            </h1>
-            <h1 className="text-xl uppercase w-full">
-              {data?.payment?.event_slot?.event?.name}
-            </h1>
-            <p className="text-xs text-nowrap md:text-[1rem]">
-              {data?.payment?.event_slot?.event?.club}
+          <section className="py-4 text-sm h-full">
+            <h1 className="text-lg font-bold mb-4">Invoice Receipt</h1>
+
+            <div className="grid grid-cols-2 gap-4 mb-6 text-sm">
+              <div>
+                <h2 className="font-bold">Sold to:</h2>
+                <p>Name: {user.name}</p>
+                <p>Email: {user.email}</p>
+                <p>Phone: {user.phoneNumber}</p>
+              </div>
+              <div className="text-right">
+                <p className="flex flex-col items-start">
+                  <span className="font-semibold">Transaction Number:</span>{" "}
+                  <span className="text-xs">
+                    {data?.callback_transaction_id ||
+                      "5787dbab-9e14-4aea-869a-5e73515a490c"}
+                  </span>
+                </p>
+                <p className="flex flex-col items-start">
+                  <span className="font-semibold">Transaction Date:</span>{" "}
+                  {txnDate.toLocaleString() || "12/09/2024"}
+                </p>
+              </div>
+            </div>
+
+            <p className="mb-4">
+              <span className="font-bold">Customer Number:</span>{" "}
+              {user.id}
             </p>
-          </div>
-          <div className="p-4">
-            <table className="text-[0.4rem]  w-full font-clash">
-              <thead className="pb-4 ">
-                <th className="px-3">Transaction ID</th>
-                <th className="px-3">Reference No.</th>
-                <th className="px-3">Payment Mode</th>
-                <th className="px-3">Payment Status</th>
-                <th className="px-3">Transaction Date</th>
+
+            <h2 className="text-md font-semibold mb-4">Transaction Details:</h2>
+            <table className="w-full mb-6 border border-black text-sm">
+              <thead>
+                <tr className="border border-black">
+                  <th className="text-left p-2 border font-semibold border-black">
+                    Event Name
+                  </th>
+                  <th className="text-left p-2 border font-semibold border-black">
+                    Event Start Date
+                  </th>
+                  <th className="text-left p-2 border font-semibold border-black">
+                    Price
+                  </th>
+                  <th className="text-left p-2 border font-semibold border-black">
+                    Status
+                  </th>
+                </tr>
               </thead>
               <tbody>
-                <tr className="w-full h-8">
-                  <td className="text-center">
-                    {data?.callback_transaction_id}
+                <tr>
+                  <td className="p-2 border border-black">
+                    {data?.payment?.event_slot?.event?.name}
                   </td>
-                  <td className="text-center">{data?.callback_reference_no}</td>
-                  <td className="text-center">Online</td>
-                  <td className="text-center first-letter:uppercase">
+                  <td className="p-2 border border-black">
+                    {new Date(
+                      data?.payment?.event_slot?.start_time
+                    ).toLocaleString()}
+                  </td>
+                  <td className="text-right p-2 border border-black">
+                    ₹{data?.payment?.amount}
+                  </td>
+                  <td className="p-2 border border-black">
                     {data?.payment?.status}
                   </td>
-                  <td className="text-center">{txnDate.toLocaleString()}</td>
                 </tr>
               </tbody>
             </table>
-            <div className="w-full p-4">
-              <table className="font-clash text-[0.6rem] w-full">
-                <tr>
-                  <td>
-                    Total AmountTotal Amount
-                    <span className="hidden md:block text-[0.5rem]">
-                      (*Inclusive of GST)
-                    </span>
-                  </td>
-                  <td className="text-right font-bold">
-                    Rs. {data?.payment?.amount}
-                  </td>
-                </tr>
-              </table>
+
+            <div className="text-right mb-6">
+              <p>
+                <span className="font-semibold">Subtotal:</span> ₹
+                {data?.payment?.amount}
+              </p>
+              <p>
+                <span className="font-semibold">Total (with Tax):</span> ₹
+                {data?.payment?.amount}
+              </p>
             </div>
-          </div>
+
+            {/* <h2 className="text-xl font-semibold mb-4">Additional Info:</h2>
+            <table className="w-full mb-6">
+              <thead>
+                <tr className="bg-gray-100">
+                  <th className="text-left p-2">Invoice Number</th>
+                  <th className="text-left p-2">Reference Number</th>
+                  <th className="text-left p-2">Transaction ID</th>
+                  <th className="text-left p-2">Payment ID</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td className="p-2">{data?.callback_invoice_no}</td>
+                  <td className="p-2">{data?.callback_reference_no}</td>
+                  <td className="p-2">{data?.callback_transaction_id}</td>
+                  <td className="p-2">{data?.payment?.id}</td>
+                </tr>
+              </tbody>
+            </table> */}
+          </section>
+          <footer className="text-center text-sm text-gray-600">
+            <a
+              href="https://gravitas.vit.ac.in/"
+              className="text-blue-600 hover:underline"
+            >
+              https://gravitas.vit.ac.in
+            </a>
+          </footer>
         </div>
         <button
           onClick={generatePdf}

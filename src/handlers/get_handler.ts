@@ -17,7 +17,7 @@ export default async function getHandler(
   try {
     const res = await axiosInstance.get(URL, { headers, params });
     response.success = res.data.success;
-    response.data = res.data.data;
+    response.data = res.data.data || res.data.user;
     response.message = res.data.message;
     response.status = res.status;
   } catch (err: any) {

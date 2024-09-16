@@ -60,7 +60,7 @@ export default function ProfilePage() {
         ]);
 
         // Process the responses
-        setProfileDetails(profileResponse);
+        setProfileDetails(profileResponse.data);
         setStatusArr(eventsResponse.status);
         setRegisteredEvents(eventsResponse.data);
         // console.log(eventsResponse.status);
@@ -140,7 +140,7 @@ export default function ProfilePage() {
           )}
           {activeTab === 1 && <MyMerch merchRegisteration={registeredMerch} />}
           {activeTab === 2 && (
-            <MyTransactions transactionHistory={transactions} />
+            <MyTransactions transactionHistory={transactions} profile={profileDetails} />
           )}
         </div>
       </div>
@@ -195,14 +195,16 @@ function MyMerch({
 
 function MyTransactions({
   transactionHistory,
+  profile
 }: {
   transactionHistory: Payment[];
+  profile: any;
 }) {
   return (
     <div className="w-full flex flex-col gap-4 my-8">
       {transactionHistory.length > 0 ? (
         transactionHistory.map((data) => (
-          <TransactionCard key={data.id} data={data} />
+          <TransactionCard key={data.id} data={data} user={profile} />
         ))
       ) : (
         <p className="text-red-500 text-xl font-auxMono">

@@ -27,6 +27,7 @@ export async function getProfileDetails() {
     if (!response.success) {
       throw new Error(response.message);
     }
+    console.log("response>>", response);
     return response;
   } catch (error: any) {
     throw new Error(

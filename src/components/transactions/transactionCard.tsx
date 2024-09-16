@@ -2,34 +2,36 @@ import React, { useEffect, useState } from "react";
 import { Payment } from "@/constants/types/registered";
 import Image from "next/image";
 import BorderBox from "../common/BorderBox";
-// import { DownloadInvoice } from "./DownloadInvoice";
-// import axiosInstance from "@/config/axios";
-// import { MdOutlineFileDownload } from "react-icons/md";
+import { DownloadInvoice } from "./DownloadInvoice";
+import axiosInstance from "@/config/axios";
+import { MdOutlineFileDownload } from "react-icons/md";
 
-const TransactionCard = ({ data }: { data: Payment }) => {
-  // const [txnData, setTxnData] = useState<any>([]);
-  // const [isError, setIsError] = useState(false);
-  // const [openInvoice, setOpenInvoice] = useState(false);
-  // useEffect(() => {
-  //   (async () => {
-  //     try {
-  //       if (data.status === "success") {
-  //         const response = await axiosInstance.get(
-  //           `/transaction/${data.transaction?.id}`
-  //         );
-  //         setTxnData(response?.data);
-  //       }
-  //     } catch (error) {
-  //       setTxnData(null);
-  //       setIsError(true);
-  //     }
-  //   })();
-  // }, []);
+const TransactionCard = ({ data, user }: { data: Payment, user: any }) => {
+  const [txnData, setTxnData] = useState<any>([]);
+  const [isError, setIsError] = useState(false);
+  const [openInvoice, setOpenInvoice] = useState(false);
+
+  useEffect(() => {
+    (async () => {
+      try {
+        if (data.status === "success") {
+          const response = await axiosInstance.get(
+            `/transaction/${data.transaction.id}`
+          );
+          setTxnData(response?.data);
+        }
+      } catch (error) {
+        setTxnData(null);
+        setIsError(true);
+      }
+    })();
+  }, []);
+
   return (
     <div className="w-full">
-      {/* {openInvoice && (
-        <DownloadInvoice data={txnData.data} setOpen={setOpenInvoice} />
-      )} */}
+      {openInvoice && (
+        <DownloadInvoice data={txnData.data} user={user} setOpen={setOpenInvoice} />
+      )}
       <BorderBox className="md:px-6 md:py-10 p-0 w-[90%] mx-auto flex flex-col md:flex-row items-start md:justify-between gap-4 md:gap-8 group border-primary md:border-outline">
         <Image
           className="w-full md:w-[17%] aspect-square border-[1px] border-black"
@@ -56,7 +58,7 @@ const TransactionCard = ({ data }: { data: Payment }) => {
             <div className="flex flex-col gap-2 w-full text-sm md:text-xl font-auxMono">
               <section className="flex gap-2 flex-col md:flex-row justify-between">
                 <p>Transaction ID:</p>
-                <p>{data.id}</p>
+                <p>{data.transaction.id}</p>
               </section>
               <section className="flex flex-row justify-between">
                 <p>Payment Mode:</p>
@@ -86,7 +88,7 @@ const TransactionCard = ({ data }: { data: Payment }) => {
               </p>
               <p className="text-2xl md:text-3xl">Rs. {data.amount}</p>
             </div>
-            {/* {data.status === "success" && txnData && (
+            {/* {data.status === "success" && txnData && ( */}
               <button
                 className="flex items-center gap-4 bg-primary text-white px-6 py-2 self-end"
                 onClick={() => {
@@ -96,7 +98,7 @@ const TransactionCard = ({ data }: { data: Payment }) => {
                 <p>Invoice</p>
                 <MdOutlineFileDownload />
               </button>
-            )} */}
+            {/* )} */}
           </div>
         </section>
       </BorderBox>
