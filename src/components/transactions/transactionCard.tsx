@@ -84,11 +84,14 @@ const TransactionCard = ({ data, user }: { data: Payment; user: any }) => {
               </section>
             </div>
             <div className="flex w-full flex-row justify-between text-sm md:text-xl text-blue-500">
-              <p>
+              <p className="hidden md:block">
                 Total Amount{" "}
                 <span className="hidden md:block text-xs">
                   *Exclusive of GST
                 </span>
+              </p>
+              <p className="md:hidden">
+                Price*
               </p>
               <p className="text-2xl md:text-3xl">Rs. {data.amount}</p>
             </div>

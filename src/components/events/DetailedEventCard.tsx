@@ -204,7 +204,7 @@ const DetailedEventCard = ({
               <span className="text-primary text-sm">(per person)</span>
             </p>
           </section>
-          <section className="flex flex-col gap-2 text-sm md:text-[1rem]">
+          <section className="flex flex-col gap-2 text-sm md:text-[1rem] whitespace-pre-wrap mt-4">
             {eventDetails.description}
           </section>
           <div className="flex flex-col md:flex-row md:items-stretch gap-4 md:gap-16 mt-6">
