@@ -18,7 +18,7 @@ export const DownloadInvoice = ({
 }) => {
   const txnDate = new Date(data?.callback_transaction_date);
 
-  console.log("data>>",data);
+  console.log("data>>", data);
 
   const generatePdf = async () => {
     const element = document.getElementById("pdf-content"); // Replace with your actual div ID
@@ -87,7 +87,8 @@ export const DownloadInvoice = ({
             />
           </header>
           <section className="py-4 text-sm h-full">
-            <h1 className="text-lg font-bold mb-4">Invoice Receipt</h1>
+            <h1 className="text-lg font-bold">Invoice Receipt</h1>
+            <p className="mb-4">Date: {new Date().toLocaleString()}</p>
 
             <div className="grid grid-cols-2 gap-4 mb-6 text-sm">
               <div>
@@ -97,23 +98,19 @@ export const DownloadInvoice = ({
                 <p>Phone: {user.phoneNumber}</p>
               </div>
               <div className="text-right">
-                <p className="flex flex-col items-start">
+                <p className="flex flex-col items-end">
                   <span className="font-semibold">Transaction Number:</span>{" "}
-                  <span className="text-xs">
-                    {data?.callback_transaction_id ||
-                      "5787dbab-9e14-4aea-869a-5e73515a490c"}
-                  </span>
+                  <span className="text-xs">{data?.id}</span>
                 </p>
-                <p className="flex flex-col items-start">
+                <p className="flex flex-col items-end">
                   <span className="font-semibold">Transaction Date:</span>{" "}
-                  {txnDate.toLocaleString() || "12/09/2024"}
+                  {txnDate.toLocaleString()}
                 </p>
               </div>
             </div>
 
             <p className="mb-4">
-              <span className="font-bold">Customer Number:</span>{" "}
-              {user.id}
+              <span className="font-bold">Customer Number:</span> {user.id}
             </p>
 
             <h2 className="text-md font-semibold mb-4">Transaction Details:</h2>
@@ -124,13 +121,10 @@ export const DownloadInvoice = ({
                     Event Name
                   </th>
                   <th className="text-left p-2 border font-semibold border-black">
-                    Event Start Date
+                    Status
                   </th>
                   <th className="text-left p-2 border font-semibold border-black">
                     Price
-                  </th>
-                  <th className="text-left p-2 border font-semibold border-black">
-                    Status
                   </th>
                 </tr>
               </thead>
@@ -140,15 +134,10 @@ export const DownloadInvoice = ({
                     {data?.payment?.event_slot?.event?.name}
                   </td>
                   <td className="p-2 border border-black">
-                    {new Date(
-                      data?.payment?.event_slot?.start_time
-                    ).toLocaleString()}
-                  </td>
-                  <td className="text-right p-2 border border-black">
-                    ₹{data?.payment?.amount}
+                    {data?.payment?.status}
                   </td>
                   <td className="p-2 border border-black">
-                    {data?.payment?.status}
+                    ₹{data?.payment?.amount}
                   </td>
                 </tr>
               </tbody>
@@ -165,25 +154,41 @@ export const DownloadInvoice = ({
               </p>
             </div>
 
-            {/* <h2 className="text-xl font-semibold mb-4">Additional Info:</h2>
-            <table className="w-full mb-6">
+            <h2 className="text-md font-semibold mb-4">Additional Info:</h2>
+            <table className="w-full mb-6 border border-black text-sm">
               <thead>
-                <tr className="bg-gray-100">
-                  <th className="text-left p-2">Invoice Number</th>
-                  <th className="text-left p-2">Reference Number</th>
-                  <th className="text-left p-2">Transaction ID</th>
-                  <th className="text-left p-2">Payment ID</th>
+                <tr className="border border-black">
+                  <th className="text-left p-2 border font-semibold border-black">
+                    Invoice Number
+                  </th>
+                  <th className="text-left p-2 border font-semibold border-black">
+                    Reference Number
+                  </th>
+                  <th className="text-left p-2 border font-semibold border-black">
+                    Transaction ID
+                  </th>
+                  <th className="text-left p-2 border font-semibold border-black">
+                    Payment ID
+                  </th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td className="p-2">{data?.callback_invoice_no}</td>
-                  <td className="p-2">{data?.callback_reference_no}</td>
-                  <td className="p-2">{data?.callback_transaction_id}</td>
-                  <td className="p-2">{data?.payment?.id}</td>
+                  <td className="p-2 border border-black">
+                    {data?.callback_invoice_no}
+                  </td>
+                  <td className="p-2 border border-black">
+                    {data?.callback_reference_no}
+                  </td>
+                  <td className="p-2 border border-black">
+                    {data?.callback_transaction_id}
+                  </td>
+                  <td className="p-2 border border-black">
+                    {data?.payment?.id}
+                  </td>
                 </tr>
               </tbody>
-            </table> */}
+            </table>
           </section>
           <footer className="text-center text-sm text-gray-600">
             <a

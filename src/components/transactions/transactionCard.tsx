@@ -6,7 +6,7 @@ import { DownloadInvoice } from "./DownloadInvoice";
 import axiosInstance from "@/config/axios";
 import { MdOutlineFileDownload } from "react-icons/md";
 
-const TransactionCard = ({ data, user }: { data: Payment, user: any }) => {
+const TransactionCard = ({ data, user }: { data: Payment; user: any }) => {
   const [txnData, setTxnData] = useState<any>([]);
   const [isError, setIsError] = useState(false);
   const [openInvoice, setOpenInvoice] = useState(false);
@@ -30,7 +30,11 @@ const TransactionCard = ({ data, user }: { data: Payment, user: any }) => {
   return (
     <div className="w-full">
       {openInvoice && (
-        <DownloadInvoice data={txnData.data} user={user} setOpen={setOpenInvoice} />
+        <DownloadInvoice
+          data={txnData.data}
+          user={user}
+          setOpen={setOpenInvoice}
+        />
       )}
       <BorderBox className="md:px-6 md:py-10 p-0 w-[90%] mx-auto flex flex-col md:flex-row items-start md:justify-between gap-4 md:gap-8 group border-primary md:border-outline">
         <Image
@@ -88,7 +92,7 @@ const TransactionCard = ({ data, user }: { data: Payment, user: any }) => {
               </p>
               <p className="text-2xl md:text-3xl">Rs. {data.amount}</p>
             </div>
-            {/* {data.status === "success" && txnData && ( */}
+            {data.status === "success" && txnData && data.event_slot != null && (
               <button
                 className="flex items-center gap-4 bg-primary text-white px-6 py-2 self-end"
                 onClick={() => {
@@ -98,7 +102,7 @@ const TransactionCard = ({ data, user }: { data: Payment, user: any }) => {
                 <p>Invoice</p>
                 <MdOutlineFileDownload />
               </button>
-            {/* )} */}
+            )}
           </div>
         </section>
       </BorderBox>
