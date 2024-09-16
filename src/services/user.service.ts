@@ -4,7 +4,6 @@ import { EventRegistration } from "@/constants/types/registered";
 import { instantiateEventData } from "./event.service";
 
 export function instantiateEventRegistrationData(data: any): EventRegistration {
-  console.log(data);
   return {
     id: data.id,
     user_id: data.user_id,
@@ -27,7 +26,6 @@ export async function getProfileDetails() {
     if (!response.success) {
       throw new Error(response.message);
     }
-    console.log("response>>", response);
     return response;
   } catch (error: any) {
     throw new Error(

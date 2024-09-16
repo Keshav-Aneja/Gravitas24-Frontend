@@ -15,7 +15,6 @@ const MerchDetailsPage = () => {
       try {
         const response = await getAllMerch();
         setMerchItem(response[0]);
-        console.log(response[0]);
       } catch (error) {}
     })();
   }, []);

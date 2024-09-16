@@ -12,7 +12,6 @@ function instantiateSlotData(data: any): slotType {
   } as slotType;
 }
 export function instantiateEventData(data: any): eventType {
-  console.log(data);
   return {
     id: data.id,
     name: data.name,

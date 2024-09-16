@@ -50,7 +50,7 @@ function SignupCallback() {
       }
     }
   };
-  console.log(isVIT);
+  // console.log(isVIT);
   return JSON.parse(isVIT || "") ? (
     <ProfileBox handleSignup={handleSignUp} />
   ) : (

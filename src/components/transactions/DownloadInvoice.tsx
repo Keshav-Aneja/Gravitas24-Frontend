@@ -18,8 +18,6 @@ export const DownloadInvoice = ({
 }) => {
   const txnDate = new Date(data?.callback_transaction_date);
 
-  console.log("data>>", data);
-
   const generatePdf = async () => {
     const element = document.getElementById("pdf-content"); // Replace with your actual div ID
     if (element) {

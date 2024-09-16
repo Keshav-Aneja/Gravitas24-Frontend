@@ -59,13 +59,19 @@ export default function ProfilePage() {
           getUserTransactions(),
         ]);
 
+        const filteredMerch = merchResponse.data.filter(
+          (data: MerchRegistration) => data.status === "success"
+        );
+
+
+
         // Process the responses
         setProfileDetails(profileResponse.data);
         setStatusArr(eventsResponse.status);
-        setRegisteredEvents(eventsResponse.data);
+        setRegisteredEvents(eventsResponse.data as EventRegistration[]);
         // console.log(eventsResponse.status);
         // console.log(eventsResponse.data);
-        setRegisteredMerch((merchResponse as any).data as MerchRegistration[]);
+        setRegisteredMerch(filteredMerch as MerchRegistration[]);
         setTransactions(transactionsResponse);
 
         // console.log(transactionsResponse);
@@ -109,7 +115,7 @@ export default function ProfilePage() {
             >
               Registered Events
             </button>
-            {/* <button
+            <button
               className={cn(
                 "w-1/3 h-full py-3",
                 activeTab === 1 && "border-b-[8px] border-white"
@@ -119,7 +125,7 @@ export default function ProfilePage() {
               }}
             >
               Purchased Merch
-            </button> */}
+            </button>
             <button
               className={cn(
                 "w-1/2 h-full py-3",
@@ -140,7 +146,10 @@ export default function ProfilePage() {
           )}
           {activeTab === 1 && <MyMerch merchRegisteration={registeredMerch} />}
           {activeTab === 2 && (
-            <MyTransactions transactionHistory={transactions} profile={profileDetails} />
+            <MyTransactions
+              transactionHistory={transactions}
+              profile={profileDetails}
+            />
           )}
         </div>
       </div>
@@ -186,7 +195,7 @@ function MyMerch({
         ))
       ) : (
         <p className="text-red-500 text-sm text-center md:text-xl font-auxMono">
-          No Transaction History Found
+          No Merch History Found
         </p>
       )}
     </div>
@@ -195,7 +204,7 @@ function MyMerch({
 
 function MyTransactions({
   transactionHistory,
-  profile
+  profile,
 }: {
   transactionHistory: Payment[];
   profile: any;

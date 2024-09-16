@@ -25,7 +25,6 @@ export async function getAllMerch() {
       }
     }
     // return response.data.map((data: any) => instantiateMerchData(data));
-    console.log("MERCH", merchData[0]);
     return merchData;
   } catch (error: any) {
     throw new Error(error.message ?? "Failed to fetch merch");
