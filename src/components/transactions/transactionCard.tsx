@@ -101,9 +101,9 @@ const TransactionCard = ({ data, user }: { data: Payment; user: any }) => {
               <p className="md:hidden">Price*</p>
               <p className="text-2xl md:text-3xl">Rs. {data.amount}</p>
             </div>
-            {data.status === "success" &&
+            {/* {data.status === "success" &&
               txnData &&
-              data.event_slot != null && (
+              data.event_slot != null && ( */}
                 <button
                   className="flex items-center gap-4 bg-primary text-white px-6 py-2 self-end"
                   onClick={() => {
@@ -114,7 +114,7 @@ const TransactionCard = ({ data, user }: { data: Payment; user: any }) => {
                   <p>Invoice</p>
                   <MdOutlineFileDownload />
                 </button>
-              )}
+              {/* )} */}
           </div>
         </section>
       </BorderBox>

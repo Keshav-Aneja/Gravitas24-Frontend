@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { FaInstagram } from "react-icons/fa6";
 import SocialsCard from "@/components/landing/SocialsCard";
 import { SlSocialLinkedin, SlSocialYoutube } from "react-icons/sl";
+import { FaWhatsapp } from "react-icons/fa";
 import { LiaFacebook } from "react-icons/lia";
 import { RiTwitterXLine } from "react-icons/ri";
 import Marquee from "react-fast-marquee";
@@ -86,9 +87,9 @@ const Footer = () => {
             icon={RiTwitterXLine}
           />
           <SocialsCard
-            name="Linkedin"
-            link="https://www.linkedin.com/school/vellore-institute-of-technology/"
-            icon={SlSocialLinkedin}
+            name="Whatsapp"
+            link="https://whatsapp.com/channel/0029ValvXsz8KMqtVfWOym1Q"
+            icon={FaWhatsapp}
           />
         </section>
         <section className="p-6 flex flex-col md:flex-row justify-between text-xs text-center gap-2 font-auxMono">
