@@ -7,7 +7,7 @@ export const generatePdf = async (data: any, user: any) => {
     <div id="pdf-content" style="width: 210mm; height: 297mm; padding: 20mm; font-family: Arial, sans-serif;">
       <header style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20mm;">
         <img src="./vitLogo.png" alt="VIT Logo" style="width: 180px; height: auto;" />
-        <img src="/GravitasDark.svg" alt="Gravitas Logo" style="width: 180px; height: auto;" />
+        <img src="./GravitasDark.svg" alt="Gravitas Logo" style="width: 180px; height: auto;" />
       </header>
       <section style="font-size: 12px; width:100;">
         <h1 style="font-size: 18px; font-weight: bold;">Invoice Receipt</h1>
