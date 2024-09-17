@@ -6,6 +6,7 @@ import { RiTwitterXLine } from "react-icons/ri";
 import Image from "next/image";
 import { svgs } from "@/constants/svgs";
 import { useEffect, useState } from "react";
+import { FaWhatsapp } from "react-icons/fa";
 import axios from "axios";
 
 export default function SeparatorBottom() {
@@ -54,10 +55,10 @@ export default function SeparatorBottom() {
                 <FaInstagram />
               </a>
               <a
-                href="https://www.linkedin.com/school/vellore-institute-of-technology"
+                href="https://whatsapp.com/channel/0029ValvXsz8KMqtVfWOym1Q"
                 target="_blank"
               >
-                <BsLinkedin />
+                <FaWhatsapp />
               </a>
               <a
                href="https://twitter.com/GraVITas_VIT"

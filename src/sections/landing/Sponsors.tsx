@@ -27,6 +27,12 @@ const Sponsors = () => {
         <SponsorCard image="https://imgur.com/P9Lg4yH.png" />
         <SponsorCard image="https://i.imgur.com/zVNtEkF.png" />
       </section>
+      <section className="w-[90%] mx-auto flex flex-col items-center justify-center  ">
+        <h1 className="font-clash text-2xl md:text-4xl font-semibold">
+          Travel Partner 
+        </h1>
+        <SponsorCard image="https://i.imgur.com/3jPO4u6.png" />
+      </section>
     </div>
   );
 };

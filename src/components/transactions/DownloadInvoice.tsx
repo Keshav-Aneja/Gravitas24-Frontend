@@ -1,7 +1,5 @@
-import React from "react";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
-import images from "@/constants/images";
 
 export const generatePdf = async (data: any, user: any) => {
   const element = document.createElement("div");
