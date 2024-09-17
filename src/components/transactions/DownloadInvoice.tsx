@@ -13,7 +13,10 @@ export const generatePdf = async (data: any, user: any) => {
       </header>
       <section style="font-size: 12px; width:100;">
         <h1 style="font-size: 18px; font-weight: bold;">Invoice Receipt</h1>
-        <p style="margin-bottom: 10mm;">Date: ${new Date().toLocaleString()}</p>
+        <p style="margin-bottom: 10mm;">Date: ${new Date().toLocaleString(
+          "en-US",
+          { hour12: false }
+        )}</p>
 
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10mm; margin-bottom: 15mm;">
           <div>
@@ -28,7 +31,7 @@ export const generatePdf = async (data: any, user: any) => {
             }</p>
             <p><span style="font-weight: bold;">Transaction Date:</span> ${new Date(
               data.callback_transaction_date
-            ).toLocaleString()}</p>
+            ).toLocaleString("en-US", { hour12: false })}</p>
           </div>
         </div>
 
@@ -109,7 +112,7 @@ export const generatePdf = async (data: any, user: any) => {
     const canvas = await html2canvas(element, {
       scale: 2,
       width: 210 * 3.78,
-      height: 297 *3.78,
+      height: 297 * 3.78,
     });
     const pdf = new jsPDF({
       orientation: "portrait",
