@@ -21,9 +21,6 @@ import Cookies from "js-cookie";
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
 } from "@/components/ui/dialog";
 
 export default function Home() {
@@ -32,6 +29,7 @@ export default function Home() {
   useEffect(() => {
     setShowDialog(true);
   }, []);
+
   return (
     <main className="bg-base w-full pb-6">
       <ReactLenis
@@ -51,19 +49,25 @@ export default function Home() {
             return false;
           }}
         >
-          <DialogContent className="z-[500] fixed p-12">
-            <a href="https://gravitas.vit.ac.in">
-              <video
-                src="/video/HeroBackgroundNew.webm"
-                width={1920}
-                height={1080}
-                className="w-full z-[50]"
-                style={{ zIndex: 50 }}
-                playsInline={true}
-                autoPlay={true}
-                muted={true}
-                loop={true}
-              />
+          <DialogContent className="z-[500] w-full md:w-[60vw] fixed p-8 bg-primary border-primary">
+            <video
+              src="/video/laserShow.mp4"
+              width={1920}
+              height={1080}
+              className="md:w-[60vw] z-[50]"
+              style={{ zIndex: 50 }}
+              playsInline={true}
+              autoPlay={true}
+              muted={true}
+              loop={true}
+              controls={true}
+              controlsList="nodownload nofullscreen noremoteplayback"
+            />
+            <a
+              href="https://gravitas.vit.ac.in"
+              className="px-4 py-2 bg-primary transition-all duration-100 ease-linear text-white font-auxMono relative border-2 text-center border-white"
+            >
+              Register Now !!!
             </a>
           </DialogContent>
         </Dialog>
