@@ -239,7 +239,8 @@ const DetailedEventCard = ({
           <DialogHeader className="flex flex-col gap-8">
             <DialogTitle>Hostel Accomodation</DialogTitle>
             <DialogDescription className="flex flex-col gap-4 justify-around my-4">
-              Hostel need to allocated, contact xyz@gmail.com +91 xy
+              Kindly ignore if you are a VIT Vellore student. <br />
+              Accommodation for external participants is available at INR 300, inclusive of GST and breakfast. For any inquiries, please reach out to <a href="mailto:guestcare.gravitas.vit.ac.in">guestcare.gravitas.vit.ac.in</a>
               <Button
                 onClick={() => handleDialogClose(true)}
                 className="px-4 py-2 border rounded"
