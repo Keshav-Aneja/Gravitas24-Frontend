@@ -65,7 +65,7 @@ export default function Home() {
             />
             <a
               href="https://gravitas.vit.ac.in"
-              className="px-4 py-2 bg-primary transition-all duration-100 ease-linear text-white font-auxMono relative border-2 text-center border-white"
+              className="px-4 py-2 bg-primary transition-all duration-100 ease-linear text-white font-auxMono relative border-2 text-center border-white hover:bg-primaryLight"
             >
               Register Now !!!
             </a>
