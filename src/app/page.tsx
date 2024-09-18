@@ -51,7 +51,7 @@ export default function Home() {
         >
           <DialogContent className="z-[500] w-full md:w-[60vw] fixed p-8 bg-primary border-primary">
             <video
-              src="/video/laserShow.mp4"
+              src="/video/laserShow.webm"
               width={1920}
               height={1080}
               className="md:w-[60vw] z-[50]"
