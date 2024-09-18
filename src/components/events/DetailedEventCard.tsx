@@ -5,7 +5,16 @@ import React, {
   SetStateAction,
   useEffect,
   useState,
+  useCallback,
 } from "react";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import BorderBox from "../common/BorderBox";
 import Image from "next/image";
 import { CiCalendar, CiClock2 } from "react-icons/ci";
@@ -24,6 +33,8 @@ import { AxiosError } from "axios";
 import DetailedEventCardSkeleton from "./DetailedEventCardSkeleton";
 import postHandler from "@/handlers/post_handler";
 import { useRouter } from "next/navigation";
+import { getProfileDetails } from "@/services/user.service";
+import Button from "../common/Button";
 
 const DetailedEventCard = ({
   id,
@@ -40,6 +51,12 @@ const DetailedEventCard = ({
   const [selectedSlot, setSelectedSlot] = useState("");
   const [slotData, setSlotData] = useState<slotType[] | null>([]);
   const [localLoad, setLocalLoad] = useState(true);
+
+  const [isOpen, setIsOpen] = useState(false);
+  const [dialogResolver, setDialogResolver] = useState<
+    ((value: boolean) => void) | null
+  >(null);
+
   const router = useRouter();
   useEffect(() => {
     (async () => {
@@ -77,16 +94,59 @@ const DetailedEventCard = ({
     })();
   }, []);
 
+  const handleDialogClose = useCallback(
+    (shouldProceed: boolean) => {
+      setIsOpen(false);
+      if (dialogResolver) {
+        dialogResolver(shouldProceed);
+        setDialogResolver(null);
+      }
+    },
+    [dialogResolver]
+  );
+
   if (!eventDetails) {
     return null;
   }
   if (localLoad) {
     return <DetailedEventCardSkeleton />;
   }
+
+  const waitForDialogClose = () => {
+    return new Promise<boolean>((resolve) => {
+      setDialogResolver(() => resolve);
+      setIsOpen(true);
+    });
+  };
+
   const registerEvent = async () => {
-    // console.log("Registering event");
+    try {
+      const user = await getProfileDetails();
+
+      if (
+        user.data.regNum == null &&
+        eventDetails.scope?.toLocaleLowerCase() !== "internal only"
+      ) {
+        // Wait for the dialog to be closed and get the result
+        const shouldProceed = await waitForDialogClose();
+        if (shouldProceed) {
+          await proceedWithRegistration();
+        }
+      } else {
+        // Proceed with registration immediately if no dialog is needed
+        await proceedWithRegistration();
+      }
+    } catch (err: any) {
+      toast({
+        title: "Error",
+        description: err.message,
+        variant: "destructive",
+      });
+    }
+  };
+
+  const proceedWithRegistration = async () => {
     const token = Cookie.get("access_token");
-    // console.log(token);
     const payload = {
       event_id: eventDetails.id,
       event_slot_id: selectedSlot,
@@ -171,6 +231,25 @@ const DetailedEventCard = ({
 
   return (
     <BorderBox className=" md:py-10 py-0 w-full  flex flex-col gap-8 px-0">
+      <Dialog
+        open={isOpen}
+        onOpenChange={(open) => !open && handleDialogClose(false)}
+      >
+        <DialogContent className="border-2 border-primary">
+          <DialogHeader className="flex flex-col gap-8">
+            <DialogTitle>Hostel Accomodation</DialogTitle>
+            <DialogDescription className="flex flex-col gap-4 justify-around my-4">
+              Hostel need to allocated, contact xyz@gmail.com +91 xy
+              <Button
+                onClick={() => handleDialogClose(true)}
+                className="px-4 py-2 border rounded"
+              >
+                Proceed to Registration
+              </Button>
+            </DialogDescription>
+          </DialogHeader>
+        </DialogContent>
+      </Dialog>
       <div className="w-full   flex flex-col md:flex-row items-start md:justify-between gap-4 md:gap-8 px-0">
         <div className="w-full md:w-[40%] relative ">
           <div className="bg-white h-5 w-[60%] --clip-shape-card-image-top absolute top-0 left-0 flex md:hidden items-center justify-center gap-2">
