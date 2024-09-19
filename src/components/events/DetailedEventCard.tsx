@@ -230,16 +230,21 @@ const DetailedEventCard = ({
   };
 
   return (
-    <BorderBox className=" md:py-10 py-0 w-full  flex flex-col gap-8 px-0">
+    <>
       <Dialog
         open={isOpen}
         onOpenChange={(open) => !open && handleDialogClose(false)}
       >
-        <DialogContent className="border-2 border-primary">
+        <DialogContent className="border-2 border-primary z-[9999]">
           <DialogHeader className="flex flex-col gap-8">
             <DialogTitle>Hostel Accomodation</DialogTitle>
             <DialogDescription className="flex flex-col gap-4 justify-around my-4">
-              Accommodation for external participants is available at INR 300, inclusive of GST and breakfast. For any inquiries, please reach out to email: <a href="mailto:guestcare.gravitas@vit.ac.in">guestcare.gravitas@vit.ac.in</a>
+              Accommodation for external participants is available at INR 300,
+              inclusive of GST and breakfast. For any inquiries, please reach
+              out to email:{" "}
+              <a href="mailto:guestcare.gravitas@vit.ac.in">
+                guestcare.gravitas@vit.ac.in
+              </a>
               <Button
                 onClick={() => handleDialogClose(true)}
                 className="px-4 py-2 border rounded"
@@ -250,90 +255,93 @@ const DetailedEventCard = ({
           </DialogHeader>
         </DialogContent>
       </Dialog>
-      <div className="w-full   flex flex-col md:flex-row items-start md:justify-between gap-4 md:gap-8 px-0">
-        <div className="w-full md:w-[40%] relative ">
-          <div className="bg-white h-5 w-[60%] --clip-shape-card-image-top absolute top-0 left-0 flex md:hidden items-center justify-center gap-2">
-            <span className="bg-primary h-[0.6rem] aspect-square rounded-full"></span>
-            <span className="bg-primary h-[0.6rem] aspect-square rounded-full"></span>
-            <span className="bg-primary h-[0.6rem] aspect-square rounded-full"></span>
+      <BorderBox className=" md:py-10 py-0 w-full flex flex-col gap-8 px-0">
+        <div className="w-full   flex flex-col md:flex-row items-start md:justify-between gap-4 md:gap-8 px-0">
+          <div className="w-full md:w-[40%] relative ">
+            <div className="bg-white h-5 w-[60%] --clip-shape-card-image-top absolute top-0 left-0 flex md:hidden items-center justify-center gap-2">
+              <span className="bg-primary h-[0.6rem] aspect-square rounded-full"></span>
+              <span className="bg-primary h-[0.6rem] aspect-square rounded-full"></span>
+              <span className="bg-primary h-[0.6rem] aspect-square rounded-full"></span>
+            </div>
+            <Image
+              className="w-full aspect-square border-[1px] border-black"
+              src={eventDetails.display}
+              alt=""
+              width={1000}
+              height={1000}
+            />
+            {eventDetails.scope?.toLocaleLowerCase() === "internal only" && (
+              <p className="font-auxMono m-4 text-sm">
+                **Not for External Participants
+              </p>
+            )}
           </div>
-          <Image
-            className="w-full aspect-square border-[1px] border-black"
-            src={eventDetails.display}
-            alt=""
-            width={1000}
-            height={1000}
-          />
-          {eventDetails.scope?.toLocaleLowerCase() === "internal only" && (
-            <p className="font-auxMono m-4 text-sm">
-              **Not for External Participants
+          <section className="--main flex flex-col font-auxMono w-full md:w-[60%] px-2 md:px-0">
+            <h1 className="text-3xl md:text-4xl font-medium">
+              {eventDetails.name}
+            </h1>
+            <p className="text-primary text-sm md:text-lg">
+              {eventDetails.club}
             </p>
-          )}
+            <div className="w-full h-[2px] bg-outline my-2 mb-4"></div>
+            <section className=" flex items-center gap-0 min-w-fit text-[1rem] md:text-xl">
+              <MdOutlineCurrencyRupee size={20} />
+              <p>
+                {eventDetails.price}
+                <span className="text-primary text-sm">(per person)</span>
+              </p>
+            </section>
+            <section className="flex flex-col gap-2 text-sm md:text-[1rem] whitespace-pre-wrap mt-4">
+              {eventDetails.description}
+            </section>
+            <div className="flex flex-col md:flex-row md:items-stretch gap-4 md:gap-16 mt-6">
+              <ArrowBox className="w-full md:w-fit flex flex-col gap-1 md:block items-center justify-center text-black text-xs md:text-sm font-auxMono">
+                <h1 className="text-secondary text-[1rem] md:text-lg font-semibold">
+                  VENUE
+                </h1>
+                {slotData?.map((slot, index) => (
+                  <h2 key={index} className="uppercase">
+                    {slot?.venue}
+                  </h2>
+                ))}
+              </ArrowBox>
+              <ArrowBox className="w-full flex md:w-fit flex-col gap-1 md:block items-center justify-center text-black text-xs md:text-sm font-auxMono">
+                <h1 className="text-secondary text-[1rem] md:text-lg font-semibold">
+                  NO OF PARTICIPANTS PER TEAM
+                </h1>
+                <h2>{eventDetails.teamSize}</h2>
+              </ArrowBox>
+            </div>
+            {slotData && (
+              <ArrowBox className="text-black text-sm font-auxMono w-full flex flex-col items-center gap-0 md:gap-3 mt-6">
+                <h1 className="text-secondary text-lg font-semibold">SLOTS</h1>
+                <div className="w-full gap-1">
+                  <Scroller
+                    uniqueName="slots"
+                    className="auto-cols-[80%] md:auto-cols-[40%]  w-full mx-auto"
+                  >
+                    {slotData
+                      .sort(
+                        (a, b) =>
+                          new Date(a.startDate).getTime() -
+                          new Date(b.startDate).getTime()
+                      )
+                      .map((slot, index) => (
+                        <SlotBox
+                          key={index}
+                          data={slot}
+                          setSlot={setSelectedSlot}
+                          selectedSlot={selectedSlot}
+                        />
+                      ))}
+                  </Scroller>
+                </div>
+              </ArrowBox>
+            )}
+          </section>
         </div>
-        <section className="--main flex flex-col font-auxMono w-full md:w-[60%] px-2 md:px-0">
-          <h1 className="text-3xl md:text-4xl font-medium">
-            {eventDetails.name}
-          </h1>
-          <p className="text-primary text-sm md:text-lg">{eventDetails.club}</p>
-          <div className="w-full h-[2px] bg-outline my-2 mb-4"></div>
-          <section className=" flex items-center gap-0 min-w-fit text-[1rem] md:text-xl">
-            <MdOutlineCurrencyRupee size={20} />
-            <p>
-              {eventDetails.price}
-              <span className="text-primary text-sm">(per person)</span>
-            </p>
-          </section>
-          <section className="flex flex-col gap-2 text-sm md:text-[1rem] whitespace-pre-wrap mt-4">
-            {eventDetails.description}
-          </section>
-          <div className="flex flex-col md:flex-row md:items-stretch gap-4 md:gap-16 mt-6">
-            <ArrowBox className="w-full md:w-fit flex flex-col gap-1 md:block items-center justify-center text-black text-xs md:text-sm font-auxMono">
-              <h1 className="text-secondary text-[1rem] md:text-lg font-semibold">
-                VENUE
-              </h1>
-              {slotData?.map((slot, index) => (
-                <h2 key={index} className="uppercase">
-                  {slot?.venue}
-                </h2>
-              ))}
-            </ArrowBox>
-            <ArrowBox className="w-full flex md:w-fit flex-col gap-1 md:block items-center justify-center text-black text-xs md:text-sm font-auxMono">
-              <h1 className="text-secondary text-[1rem] md:text-lg font-semibold">
-                NO OF PARTICIPANTS PER TEAM
-              </h1>
-              <h2>{eventDetails.teamSize}</h2>
-            </ArrowBox>
-          </div>
-          {slotData && (
-            <ArrowBox className="text-black text-sm font-auxMono w-full flex flex-col items-center gap-0 md:gap-3 mt-6">
-              <h1 className="text-secondary text-lg font-semibold">SLOTS</h1>
-              <div className="w-full gap-1">
-                <Scroller
-                  uniqueName="slots"
-                  className="auto-cols-[80%] md:auto-cols-[40%]  w-full mx-auto"
-                >
-                  {slotData
-                    .sort(
-                      (a, b) =>
-                        new Date(a.startDate).getTime() -
-                        new Date(b.startDate).getTime()
-                    )
-                    .map((slot, index) => (
-                      <SlotBox
-                        key={index}
-                        data={slot}
-                        setSlot={setSelectedSlot}
-                        selectedSlot={selectedSlot}
-                      />
-                    ))}
-                </Scroller>
-              </div>
-            </ArrowBox>
-          )}
-        </section>
-      </div>
-      <div className="w-full  flex items-center justify-end mt-0 font-auxMono md:px-6">
-        {/* <span className="text-sm text-black flex items-center justify-center flex-grow">
+        <div className="w-full  flex items-center justify-end mt-0 font-auxMono md:px-6">
+          {/* <span className="text-sm text-black flex items-center justify-center flex-grow">
           {eventDetails.name}
         </span>
         <span className="text-sm text-black flex items-center gap-2 p-4 px-6 border-x-[1px] border-primary flex-grow justify-center">
@@ -347,7 +355,7 @@ const DetailedEventCard = ({
             </p>
           )}
         </span> */}
-        {/* <span className="text-sm text-black flex items-center gap-2 p-4 px-6 flex-grow justify-center">
+          {/* <span className="text-sm text-black flex items-center gap-2 p-4 px-6 flex-grow justify-center">
           <GrGroup size={18} />
           <p>{eventDetails.teamSize}</p>
         </span>
@@ -355,7 +363,7 @@ const DetailedEventCard = ({
           <MdOutlineCurrencyRupee size={18} />
           <p>{eventDetails.price}/-</p>
         </span>{" "} */}
-        {/* <span className="text-sm text-black flex items-center gap-2 p-4 px-6 flex-grow justify-center border-x-[1px] border-primary">
+          {/* <span className="text-sm text-black flex items-center gap-2 p-4 px-6 flex-grow justify-center border-x-[1px] border-primary">
           <CiClock2 size={18} />
           {startDate && endDate && (
             <p>
@@ -373,14 +381,15 @@ const DetailedEventCard = ({
             </p>
           )}
         </span> */}
-        <button
-          className="text-white bg-primary h-full  p-4 w-full md:w-fit px-16"
-          onClick={registerEvent}
-        >
-          REGISTER
-        </button>
-      </div>
-    </BorderBox>
+          <button
+            className="text-white bg-primary h-full  p-4 w-full md:w-fit px-16"
+            onClick={registerEvent}
+          >
+            REGISTER
+          </button>
+        </div>
+      </BorderBox>
+    </>
   );
 };
 

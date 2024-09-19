@@ -39,7 +39,7 @@ export default function SeparatorBottom() {
   }/${date.getFullYear()}`;
 
   return (
-    <div className="w-full h-[9rem] bg-base absolute bottom-0 left-0 z-[100]">
+    <div className="w-full h-[9rem] bg-base absolute bottom-0 left-0 z-[50]">
       <section className="w-[90%] mx-auto grid grid-cols-5 h-full">
         <div className="border-x-[1px] border-outline h-full flex items-center w-full">
           <BorderBox className="py-5 border-x-0 w-full">
