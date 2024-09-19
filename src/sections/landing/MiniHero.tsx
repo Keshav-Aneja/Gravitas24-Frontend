@@ -6,6 +6,7 @@ import { svgs } from "@/constants/svgs";
 import images from "@/constants/images";
 import SeparatorBottom from "@/components/landing/SeparatorBottom";
 import SeparatorBottomMini from "@/components/landing/SeparatorBottomMini";
+import BorderBox from "@/components/common/BorderBox";
 const MiniHero = () => {
   return (
     <div className="relative md:hidden -mb-28">
@@ -26,7 +27,30 @@ const MiniHero = () => {
             <MerchBtn />
             <EventBtn />
           </div>
+          <div className="w-full flex flex-col md:flex-row items-center gap-0 justify-center absolute top-52">
+            <Link href="https://gravitas.vit.ac.in/events/b6d32041-2ffa-4fab-a749-2c07dfa17297">
+              <BorderBox
+                className="border-white p-1 group"
+                classNameSquares="bg-white"
+              >
+                <button className="text-white font-auxMono border-[2px] border-white px-6 py-1 md:py-2 w-44 md:w-52 text-[0.65rem] md:text-sm md:font-semibold group-hover:bg-primary group-hover:text-white transition-all duration-200 ease-linear uppercase">
+                  Robo Wars
+                </button>
+              </BorderBox>
+            </Link>
+            <Link href="https://gravitas.vit.ac.in/events/f2ad2286-6a52-4645-8b2f-635aa7fe635d">
+              <BorderBox
+                className="border-white p-1 group"
+                classNameSquares="bg-white"
+              >
+                <button className="text-white font-auxMono border-[2px] border-white px-6 py-1 md:py-2 w-44 md:w-52 text-[0.65rem] md:text-sm md:font-semibold group-hover:bg-primary group-hover:text-white transition-all duration-200 ease-linear uppercase">
+                  Sound of light
+                </button>
+              </BorderBox>
+            </Link>
+          </div>
         </div>
+
         <div className="w-[5%] h-full bg-white absolute top-0 left-0 z-[100]"></div>
         <div className="w-[5%] h-full bg-white absolute top-0 right-0 z-[100]"></div>
         <div className="w-full h-60 bg-white absolute bottom-0 left-0 z-[100]"></div>
