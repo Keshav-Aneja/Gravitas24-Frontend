@@ -41,7 +41,7 @@ export default function Hero() {
             <EventBtn />
           </div>
           <div className="w-full flex items-center gap-0 justify-center relative top-20">
-            <Link href="https://gravitas.vit.ac.in/events/f2ad2286-6a52-4645-8b2f-635aa7fe635d">
+            <Link href="https://gravitas.vit.ac.in/events/b6d32041-2ffa-4fab-a749-2c07dfa17297">
               <BorderBox
                 className="border-white p-1 group"
                 classNameSquares="bg-white"
@@ -51,7 +51,7 @@ export default function Hero() {
                 </button>
               </BorderBox>
             </Link>
-            <Link href="https://gravitas.vit.ac.in/events/b6d32041-2ffa-4fab-a749-2c07dfa17297">
+            <Link href="https://gravitas.vit.ac.in/events/f2ad2286-6a52-4645-8b2f-635aa7fe635d">
               <BorderBox
                 className="border-white p-1 group"
                 classNameSquares="bg-white"
