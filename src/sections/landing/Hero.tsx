@@ -41,17 +41,23 @@ export default function Hero() {
             <EventBtn />
           </div>
           <div className="w-full flex items-center gap-0 justify-center relative top-20">
-            <Link href="https://gravitas.vit.ac.in/events/b6d32041-2ffa-4fab-a749-2c07dfa17297">
+            <Link
+              href={
+                Math.floor(Math.random() * 2) === 0
+                  ? "https://gravitas.vit.ac.in/events/b6d32041-2ffa-4fab-a749-2c07dfa17297"
+                  : "https://gravitas.vit.ac.in/events/f2ad2286-6a52-4645-8b2f-635aa7fe635d"
+              }
+            >
               <BorderBox
                 className="border-white p-1 group"
                 classNameSquares="bg-white"
               >
-                <button className="text-white font-auxMono border-[2px] border-white px-6 py-2 w-52 text-sm font-semibold group-hover:bg-primary group-hover:text-white transition-all duration-200 ease-linear uppercase">
-                  Robo Wars
+                <button className="text-white font-auxMono border-[2px] border-white px-6 py-2 w-fit text-nowrap text-sm font-semibold group-hover:bg-primary group-hover:text-white transition-all duration-200 ease-linear uppercase">
+                  Special Attractions
                 </button>
               </BorderBox>
             </Link>
-            <Link href="https://gravitas.vit.ac.in/events/f2ad2286-6a52-4645-8b2f-635aa7fe635d">
+            {/* <Link href="https://gravitas.vit.ac.in/events/f2ad2286-6a52-4645-8b2f-635aa7fe635d">
               <BorderBox
                 className="border-white p-1 group"
                 classNameSquares="bg-white"
@@ -60,7 +66,7 @@ export default function Hero() {
                   Sound of light
                 </button>
               </BorderBox>
-            </Link>
+            </Link> */}
           </div>
         </div>
         <video
