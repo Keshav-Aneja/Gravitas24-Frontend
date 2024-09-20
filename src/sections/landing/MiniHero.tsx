@@ -27,7 +27,7 @@ const MiniHero = () => {
             <MerchBtn />
             <EventBtn />
           </div>
-          <div className="w-full flex flex-col md:flex-row items-center gap-4 justify-center absolute top-44">
+          {/* <div className="w-full flex flex-col md:flex-row items-center gap-4 justify-center absolute top-44">
             <h1 className="text-xs text-white underline underline-offset-8 uppercase font-auxMono ">
               Special Attractions
             </h1>
@@ -53,7 +53,7 @@ const MiniHero = () => {
                 </BorderBox>
               </Link>
             </div>
-          </div>
+          </div> */}
         </div>
 
         <div className="w-[5%] h-full bg-white absolute top-0 left-0 z-[100]"></div>
