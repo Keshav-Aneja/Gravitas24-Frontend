@@ -6,21 +6,18 @@ import images from "@/constants/images";
 import Link from "next/link";
 import data from "@/constants/team.json";
 
-
 type person = {
   name: string;
   position: string;
   img?: string;
-}
+};
 
 interface dataType {
   title: string;
   people: person[];
 }
 
-
 const Patrons = () => {
-
   const people: dataType[] = data;
 
   return (
@@ -42,25 +39,25 @@ const Patrons = () => {
           image={people[0].people[0]?.img || ""}
           name={people[0].people[0].name}
           desig={people[0].people[0].position}
-          label="Patron"
+          label="Chief Patron"
         />
         <PatronCard
           image={people[1].people[0].img}
           name={people[1].people[0].name}
           desig={people[1].people[0].position}
-          label="Co-Patron"
+          label="Patron"
         />
         <PatronCard
           image={people[1].people[1].img}
           name={people[1].people[1].name}
           desig={people[1].people[1].position}
-          label="Co-Patron"
+          label="Patron"
         />
         <PatronCard
           image={people[1].people[2]?.img}
           name={people[1].people[2].name}
           desig={people[1].people[2].position}
-          label="Co-Patron"
+          label="Patron"
         />
         <Link
           className="--sponsor-floater  absolute right-0 h-[300px] w-10 hidden lg:flex flex-row items-center justify-center bg-primary hover:scale-110 transition-all"
