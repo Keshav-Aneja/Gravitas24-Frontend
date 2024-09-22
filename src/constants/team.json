@@ -1,6 +1,6 @@
 [
   {
-    "title": "patron",
+    "title": "Chief Patron",
     "people": [
       {
         "img": "https://imgur.com/zwGBgWz.png",
@@ -10,7 +10,7 @@
     ]
   },
   {
-    "title": "co-patrons",
+    "title": "patrons",
     "people": [
       {
         "img": "https://imgur.com/ceZGxzJ.png",
@@ -26,7 +26,12 @@
         "img": "https://imgur.com/4QHXA3o.png",
         "name": "Dr. G V Selvam",
         "position": "Vice President"
-      },
+      }
+    ]
+  },
+  {
+    "title": "co-patrons",
+    "people": [
       {
         "img": "https://imgur.com/JDfYDFK.png",
         "name": "Dr. V. S. Kanchana Bhaaskaran",
