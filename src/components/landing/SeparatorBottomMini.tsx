@@ -1,6 +1,6 @@
 "use client";
 import BorderBox from "../common/BorderBox";
-import { FaFacebook, FaInstagram } from "react-icons/fa";
+import { FaFacebook, FaInstagram, FaWhatsapp } from "react-icons/fa";
 import { BsLinkedin } from "react-icons/bs";
 import { RiTwitterXLine } from "react-icons/ri";
 import Image from "next/image";
@@ -43,25 +43,22 @@ export default function SeparatorBottomMini() {
         <div className=" border-outline h-full flex items-center w-full">
           <BorderBox className="py-5  w-full">
             <span className="flex items-center justify-around text-lg text-primary">
-            <a href="https://www.facebook.com/Gravitas.VITvellore/"
+              <a
+                href="https://www.facebook.com/Gravitas.VITvellore/"
                 target="_blank"
-                >
+              >
                 <FaFacebook />
               </a>
-              <a href="https://www.instagram.com/vitgravitas"
-                target="_blank"
-                >
+              <a href="https://www.instagram.com/vitgravitas" target="_blank">
                 <FaInstagram />
               </a>
               <a
-                href="https://www.linkedin.com/school/vellore-institute-of-technology"
+                href="https://whatsapp.com/channel/0029ValvXsz8KMqtVfWOym1Q"
                 target="_blank"
               >
-                <BsLinkedin />
+                <FaWhatsapp />
               </a>
-              <a
-               href="https://twitter.com/GraVITas_VIT"
-               target="_blank">
+              <a href="https://twitter.com/GraVITas_VIT" target="_blank">
                 <RiTwitterXLine />
               </a>
             </span>

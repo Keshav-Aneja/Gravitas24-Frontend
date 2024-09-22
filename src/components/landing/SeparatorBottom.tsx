@@ -44,14 +44,13 @@ export default function SeparatorBottom() {
         <div className="border-x-[1px] border-outline h-full flex items-center w-full">
           <BorderBox className="py-5 border-x-0 w-full">
             <span className="flex items-center justify-center gap-6 text-2xl text-primary">
-            <a href="https://www.facebook.com/Gravitas.VITvellore/"
+              <a
+                href="https://www.facebook.com/Gravitas.VITvellore/"
                 target="_blank"
-                >
-              <FaFacebook />
+              >
+                <FaFacebook />
               </a>
-              <a href="https://www.instagram.com/vitgravitas"
-                target="_blank"
-                >
+              <a href="https://www.instagram.com/vitgravitas" target="_blank">
                 <FaInstagram />
               </a>
               <a
@@ -60,10 +59,8 @@ export default function SeparatorBottom() {
               >
                 <FaWhatsapp />
               </a>
-              <a
-               href="https://twitter.com/GraVITas_VIT"
-               target="_blank">
-              <RiTwitterXLine />
+              <a href="https://twitter.com/GraVITas_VIT" target="_blank">
+                <RiTwitterXLine />
               </a>
             </span>
           </BorderBox>
