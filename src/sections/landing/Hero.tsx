@@ -51,7 +51,7 @@ export default function Hero() {
                   classNameSquares="bg-white"
                 >
                   <button className="text-white font-auxMono border-[2px] border-white px-6 py-2 w-52 text-nowrap text-sm font-semibold group-hover:bg-primary group-hover:text-white transition-all duration-200 ease-linear uppercase">
-                  RoboWars and DRL
+                  RoboWars & DRL
                   </button>
                 </BorderBox>
               </Link>

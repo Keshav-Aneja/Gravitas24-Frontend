@@ -38,7 +38,7 @@ const MiniHero = () => {
                   classNameSquares="bg-white"
                 >
                   <button className="text-white font-auxMono border-[2px] border-white px-6 py-1 md:py-2 w-44 md:w-52 text-[0.65rem] md:text-sm md:font-semibold group-hover:bg-primary group-hover:text-white transition-all duration-200 ease-linear uppercase">
-                    RoboWars and DRL
+                  RoboWars & DRL
                   </button>
                 </BorderBox>
               </Link>
