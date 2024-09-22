@@ -32,13 +32,13 @@ const MiniHero = () => {
               Special Attractions
             </h1>
             <div className="w-full flex flex-col gap-0 items-center">
-              <Link href="https://gravitas.vit.ac.in/events/b6d32041-2ffa-4fab-a749-2c07dfa17297">
-                <BorderBox
+            <Link href="https://gravitas.vit.ac.in/events/c87e7f52-b3f5-43d8-846d-a29b60a2f6eb">
+            <BorderBox
                   className="border-white p-1 group"
                   classNameSquares="bg-white"
                 >
                   <button className="text-white font-auxMono border-[2px] border-white px-6 py-1 md:py-2 w-44 md:w-52 text-[0.65rem] md:text-sm md:font-semibold group-hover:bg-primary group-hover:text-white transition-all duration-200 ease-linear uppercase">
-                    Robo Wars
+                    RoboWars and DRL
                   </button>
                 </BorderBox>
               </Link>
