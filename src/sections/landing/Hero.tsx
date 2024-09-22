@@ -40,7 +40,7 @@ export default function Hero() {
             <MerchBtn />
             <EventBtn />
           </div>
-          {/* <div className="w-full flex flex-col items-center gap-4 relative top-20">
+          <div className="w-full flex flex-col items-center gap-4 relative top-20">
             <h1 className="text-white underline underline-offset-8 uppercase font-auxMono ">
               Special Attractions
             </h1>
@@ -66,7 +66,7 @@ export default function Hero() {
                 </BorderBox>
               </Link>
             </div>
-          </div> */}
+          </div>
         </div>
         <video
           src="/video/HeroBackgroundNew.webm"
