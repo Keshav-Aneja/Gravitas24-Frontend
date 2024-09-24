@@ -65,27 +65,32 @@ const EventsFilter = () => {
           </button>
           {isMenuOpen && (
             <div className="w-full border-[1px] border-black border-t-0 flex flex-col absolute top-8 right-0 bg-white z-[1000]">
-              {["All", "Workshop", "Competition", "Hackathon", "Games"].map(
-                (item, index) => (
-                  <button
-                    className="text-xs md:text-sm font-auxMono hover:bg-primary/20 py-1 text-left pl-4 bg-white uppercase"
-                    key={index}
-                    onClick={() => {
-                      if (item === "All") {
-                        setEventType("All");
-                        setCurrentPage(1);
-                        setIsMenuOpen(false);
-                      } else {
-                        setEventType(item);
-                        setIsMenuOpen(false);
-                        setCurrentPage(1);
-                      }
-                    }}
-                  >
-                    {item}
-                  </button>
-                )
-              )}
+              {[
+                "All",
+                "Workshop",
+                "Competition",
+                "Hackathon",
+                "Games",
+                "Entertainment",
+              ].map((item, index) => (
+                <button
+                  className="text-xs md:text-sm font-auxMono hover:bg-primary/20 py-1 text-left pl-4 bg-white uppercase"
+                  key={index}
+                  onClick={() => {
+                    if (item === "All") {
+                      setEventType("All");
+                      setCurrentPage(1);
+                      setIsMenuOpen(false);
+                    } else {
+                      setEventType(item);
+                      setIsMenuOpen(false);
+                      setCurrentPage(1);
+                    }
+                  }}
+                >
+                  {item}
+                </button>
+              ))}
             </div>
           )}
         </div>
