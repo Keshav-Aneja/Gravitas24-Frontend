@@ -32,8 +32,17 @@ const Timer = () => {
         seconds: Math.floor((difference / 1000) % 60),
         milliseconds: Math.floor((difference % 1000) / 10),
       };
+    } else {
+      timeLeft = {
+        days: -1,
+        hours: -1,
+        minutes: -1,
+        seconds: -1,
+        milliseconds: -1,
+      };
     }
 
+    // console.log(timeLeft.days, timeLeft.minutes)
     return timeLeft;
   };
 
@@ -87,6 +96,14 @@ const Timer = () => {
             <h1>{timeLeft.seconds.toString().padStart(2, "0")}</h1>
             <p className="text-sm md:text-lg lg:text-xl">SECS</p>
           </span>
+        </>
+      );
+    } else if (timeLeft.hours === -1) {
+      return (
+        <>
+          <p className="text-xl md:text-3xl font-auxMono text-center">
+            JOIN THE ACTION!
+          </p>
         </>
       );
     } else {
