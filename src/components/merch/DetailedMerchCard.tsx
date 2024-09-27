@@ -218,7 +218,8 @@ const DetailedMerchCard = ({
                   key={index}
                   className={cn(
                     "text-xl border border-[#c2c2c2] p-2 px-4 cursor-pointer flex flex-col items-center ",
-                    sizeOpt.id === selectedSize && "bg-primary text-white"
+                    sizeOpt.id === selectedSize && "bg-primary text-white",
+                    sizeOpt.total_available <= 0 && "bg-gray-300"
                   )}
                   onClick={() => {
                     if (sizeOpt.total_available > 0) {
@@ -227,7 +228,11 @@ const DetailedMerchCard = ({
                   }}
                 >
                   <p className="text-2xl">{sizeOpt.size}</p>
-                  <p className="text-xs">{sizeOpt.total_available} Left</p>
+                  <p className="text-xs">
+                    {sizeOpt.total_available > 0
+                      ? `${sizeOpt.total_available} Left`
+                      : "Sold Out!"}
+                  </p>
                 </span>
               ))}
             </section>
