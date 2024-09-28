@@ -18,10 +18,7 @@ import { toast } from "@/hooks/use-toast";
 import Head from "next/head";
 import Cookies from "js-cookie";
 
-import {
-  Dialog,
-  DialogContent,
-} from "@/components/ui/dialog";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
 
 export default function Home() {
   const [showDialog, setShowDialog] = useState(false);
@@ -64,7 +61,7 @@ export default function Home() {
               controlsList="nodownload nofullscreen noremoteplayback"
             />
             <a
-              href="https://gravitas.vit.ac.in/events/a8653dd7-bc16-4d76-ab35-27c8f01eb3bc"
+              href="https://gravitas.vit.ac.in/events/f2ad2286-6a52-4645-8b2f-635aa7fe635d"
               className="px-4 py-2 bg-primary transition-all duration-100 ease-linear text-white font-auxMono relative border-2 text-center border-white hover:bg-primaryLight"
             >
               Register Now !!!
